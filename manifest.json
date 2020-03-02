@@ -1,0 +1,15 @@
+{
+  "name": "Genderev",
+  "short_name": "Genderev",
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#0000ff",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "png"
+    }
+  ]
+}
