@@ -1,11 +1,14 @@
 // Read more in documentation
 // http://blockstack.github.io/blockstack.js/classes/usersession.html#putfile
-var date = moment().format()
+// var date = moment().format()
+
+var d = new Date();
+var n = d.getTime();
 
 function saveFileToGaia() {
   var fileDetails = getFileDetailsFromForm();
   console.log(fileDetails);
-  userSession.putFile(date, fileDetails.content, {
+  userSession.putFile(n, fileDetails.content, {
     encrypt: false,
     // contentType (You can set a Content-Type header for unencrypted data)
     // sign (You can sign the data with using Users Private Key)
@@ -13,7 +16,7 @@ function saveFileToGaia() {
 
 function getFileFromGaia() {
   var fileDetails = getFileDetailsToReadFromForm();
-  userSession.getFile(date, {
+  userSession.getFile(n, {
     //decrypt: fileDetails.decrypt,
 
     //username:
