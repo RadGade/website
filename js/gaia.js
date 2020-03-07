@@ -52,7 +52,7 @@ function getFileDetailsToReadFromForm() {
 function getFileDetailsFromForm() {
   return {
     name: document.getElementById('ityped').value,
-    content: document.getElementById('content').value,
+    content: document.getElementById('ityped').value,
     encrypt: false,
   };
 };
