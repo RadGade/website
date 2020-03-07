@@ -95,6 +95,6 @@ function getFileDetailsFromForm() {
   return {
     name: document.getElementById('filename').value,
     content: document.getElementById('content').value,
-    encrypt: false),
+    encrypt: false,
   };
 }
