@@ -11,42 +11,6 @@ function saveFileToGaia() {
     // sign (You can sign the data with using Users Private Key)
 })
 
-// Read more in documentation
-// http://blockstack.github.io/blockstack.js/classes/usersession.html#listfiles
-// function listGaiaFiles() {
-//   var files = [];
-//   userSession.listFiles(function(filename) {
-//     files.push(filename); // I CAN USE THIS to create an array sorted by time etc.
-//     return true; // to continue files listing
-//   }).then(function(filesCount) {
-//     console.log('Files count: ' + filesCount);
-//     showFilesList(files);
-//   });
-// }
-
-// Read more in documentation
-// http://blockstack.github.io/blockstack.js/classes/usersession.html#getfileurl
-// function listGaiaFilesWithURLs() {
-//   var files = {};
-//
-//   var promises = [];
-//   userSession.listFiles(function(filename) {
-//     promises.push(
-//       userSession.getFileUrl(filename).then(function(fileUrl) {
-//         files[filename] = fileUrl;
-//       })
-//     );
-//     return true;
-//   }).then(function(filesCount) {
-//     console.log('Files count: ' + filesCount);
-//     Promise.all(promises).then(function() {
-//       showFileListWithUrls(files);
-//     });
-//   })
-// }
-
-// Read more in documentation
-// http://blockstack.github.io/blockstack.js/classes/usersession.html#getfile
 function getFileFromGaia() {
   var fileDetails = getFileDetailsToReadFromForm();
   userSession.getFile(date, {
@@ -68,13 +32,7 @@ function getFileFromGaia() {
     alert("Error occured, check console");
   });
 }
-// function showFilesList(files) {
-//   document.getElementById('files-list').innerHTML = JSON.stringify(files, '\t', 2);
-// }
-//
-// function showFileListWithUrls(files) {
-//   document.getElementById('files-list-with-urls').innerHTML = JSON.stringify(files, '\t', 2);
-// }
+
 
 function showFileContent(content) {
   document.getElementById('entries').innerHTML = content;
