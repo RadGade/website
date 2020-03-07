@@ -351,7 +351,11 @@ $('#postbtn').click(function() {
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		document.getElementById("entries").innerHTML = userSession.getFile(n, decrypt: false);
+		document.getElementById("entries").innerHTML = userSession.getFile(n);
+		
+		GetFileOptions {
+			decrypt: false;
+		}
 
 // 		function showFileContent(content) {
 // 			document.getElementById('entries').innerHTML = content;
