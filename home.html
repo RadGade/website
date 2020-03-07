@@ -347,12 +347,12 @@ $('#postbtn').click(function() {
 
 
 		userSession.putFile(n, document.getElementById("ityped").value, {
-    		encrypt: false,
+    		encrypt: false
 		    // contentType (You can set a Content-Type header for unencrypted data)
 		    // sign (You can sign the data with using Users Private Key)
-		}
+		});
 
-		document.getElementById("entries").innerHTML = userSession.getFile(n)
+		document.getElementById("entries").innerHTML = userSession.getFile(n);
 
 // 		function showFileContent(content) {
 // 			document.getElementById('entries').innerHTML = content;
