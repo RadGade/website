@@ -50,7 +50,7 @@ function saveFileToGaia() {
 function getFileFromGaia() {
   var fileDetails = getFileDetailsToReadFromForm();
   userSession.getFile(date, {
-    decrypt: fileDetails.decrypt,
+    //decrypt: fileDetails.decrypt,
 
     //username:
 
@@ -58,17 +58,16 @@ function getFileFromGaia() {
 
     // You also can set these options (read more in docs):
     // app (you can get files from other app)
-    // username (you can get other users' files, but you need to know their username)
+    // username (you need to know their username)
     // verify (you can check if files signature is valid)
     // zoneFileLookupURL (The URL to use for zonefile lookup)
   }).then(function(content) {
     showFileContent(content);
   }).catch(function(err) {
     console.error(err);
-    alert('Error occured, check console');
+    alert("Error occured, check console");
   });
 }
-
 // function showFilesList(files) {
 //   document.getElementById('files-list').innerHTML = JSON.stringify(files, '\t', 2);
 // }
