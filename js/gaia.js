@@ -9,7 +9,7 @@ function saveFileToGaia() {
     encrypt: false,
     // contentType (You can set a Content-Type header for unencrypted data)
     // sign (You can sign the data with using Users Private Key)
-}
+})
 
 // Read more in documentation
 // http://blockstack.github.io/blockstack.js/classes/usersession.html#listfiles
