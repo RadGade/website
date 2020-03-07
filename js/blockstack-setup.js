@@ -1,11 +1,6 @@
-var appConfig = new blockstack.AppConfig(
-  scopes: ['email', 'publish_data', 'store_write'], // app access scopes
-  // You also can pass
-  // appDomain
-  appDomain: "GENDEREV",
-  // manifestPath
-  
-);
+const appConfig = new AppConfig(["store_write", "publish_data"])
+
+appConfig.redirectURI = () => "home.html";
 
 var userSession = new blockstack.UserSession({
   appConfig,
