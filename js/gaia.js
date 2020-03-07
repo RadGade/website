@@ -52,4 +52,4 @@ function getFileDetailsFromForm() {
     content: document.getElementById('content').value,
     encrypt: false,
   };
-}
+};
