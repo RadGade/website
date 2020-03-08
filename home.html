@@ -329,8 +329,7 @@ $('#login-button').click(function() {
 
 <script>
 
-var d = new Date();
-var n = d.getTime();
+
 
 
 $('#postbtn').click(function() {
@@ -345,13 +344,13 @@ $('#postbtn').click(function() {
 		}
 
 
-		userSession.putFile(n, document.getElementById("ityped").value, {
+		userSession.putFile(foobar, document.getElementById("ityped").value, {
     		encrypt: false
 		    // contentType (You can set a Content-Type header for unencrypted data)
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		document.getElementById("entries").innerHTML = userSession.getFile("http://gaia.blockstack.org/hub");
+		document.getElementById("entries").innerHTML = userSession.getFile(foobar);
 										   
 		const GetFileOptions = {
 			decrypt: false
