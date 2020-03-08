@@ -342,13 +342,13 @@ $('#postbtn').click(function() {
 	}
 
 
-	userSession.putFile(document.getElementById('filename').name, document.getElementById('filename').value, {
-			encrypt: false
+	userSession.putFile(document.getElementById('filename').name, document.getElementById('filename').value//, {
+			//encrypt: false
 			// contentType (You can set a Content-Type header for unencrypted data)
 			// sign (You can sign the data with using Users Private Key)
 	});
 
-	document.getElementById("entries").innerHTML = userSession.getFile{path: document.getElementById('filename').name; decrypt: false};
+	document.getElementById("entries").innerHTML = userSession.getFile(document.getElementById('filename').name);
 
 	
 
@@ -401,7 +401,7 @@ $('#postbtn').click(function() {
 </script>
 
 <script src="js/blockstack-setup.js"></script>
-<script src="js/gaia.js"></script>
+
 
 
 </body>
