@@ -344,13 +344,13 @@ $('#postbtn').click(function() {
 		}
 
 
-		userSession.putFile("appdata/foo.json", document.getElementById("ityped").value, {
+		userSession.putFile("profile.json", document.getElementById("ityped").value, {
     		encrypt: false
 		    // contentType (You can set a Content-Type header for unencrypted data)
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		document.getElementById("entries").innerHTML = userSession.getFile("appdata/foo.json",{ decrypt: false });
+		document.getElementById("entries").innerHTML = userSession.getFile("profile.json",{ decrypt: false });
 										   
 		const GetFileOptions = {
 			decrypt: false
