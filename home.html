@@ -350,7 +350,7 @@ $('#postbtn').click(function() {
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		document.getElementById("entries").innerHTML = userSession.getFile("appdata/foo.json");
+		document.getElementById("entries").innerHTML = userSession.getFile("appdata/foo.json",{ decrypt: false };
 										   
 		const GetFileOptions = {
 			decrypt: false
