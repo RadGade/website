@@ -210,6 +210,7 @@
             function showLogin() {
               console.log(blockstackConnect)
               blockstackConnect.showBlockstackConnect(authOptions);
+		console.log(userSession.isUserSignedIn());
             }
 
             //sign in functions
@@ -218,6 +219,7 @@
             }
 
             window.addEventListener('load', (event) => {
+		 console.log("after eventlisten " + userSession.isUserSignedIn());
               if (userSession.isUserSignedIn()) {
                 doMainActionWhenUserIsSignedIn();
               } else if ((userSession.isSignInPending())) {
