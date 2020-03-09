@@ -215,20 +215,20 @@
             }
 
             //sign in functions
-            function doMainActionWhenUserIsSignedIn() {
-              location.href = 'home.html';
-            }
+      //      function doMainActionWhenUserIsSignedIn() {
+      //        location.href = 'home.html';
+       //     }
 
-            window.addEventListener('load', (event) => {
-		 console.log("after eventlisten " + userSession.isUserSignedIn());
-              if (userSession.isUserSignedIn()) {
-                doMainActionWhenUserIsSignedIn();
-              } else if ((userSession.isSignInPending())) {
-                userSession.handlePendingSignIn().then(function() {
-                  doMainActionWhenUserIsSignedIn();
-                });
-              }
-            });
+           // window.addEventListener('load', (event) => {
+	//	 console.log("after eventlisten " + userSession.isUserSignedIn());
+        //      if (userSession.isUserSignedIn()) {
+        //        doMainActionWhenUserIsSignedIn();
+         //     } else if ((userSession.isSignInPending())) {
+        //        userSession.handlePendingSignIn().then(function() {
+        //          doMainActionWhenUserIsSignedIn();
+         //       });
+         //     }
+        //    });
 
 </script>
 
