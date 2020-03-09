@@ -1,4 +1,4 @@
-// const appConfig = new blockstack.AppConfig(["store_write", "publish_data"])
+const appConfig = new blockstack.AppConfig(["store_write", "publish_data"])
 
 // appConfig.redirectURI = () => "home.html";
 
