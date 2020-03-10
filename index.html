@@ -195,7 +195,7 @@
                 redirectTo: "/home.html",
                 manifestPath: "/manifest.json",
 		userSession,
-		finished: ( userSession ) =>  console.log(isUserSignedIn()),
+		finished: ( userSession ) =>  console.log(userSession.isUserSignedIn()),
                 appDetails: {
                 name: "GENDEREV",
                 icon: "icon.png"
