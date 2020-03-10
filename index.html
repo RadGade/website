@@ -191,16 +191,16 @@
 <script src="js/blockstack-setup.js"></script>
 <script>
                 const authOptions = {
-                redirectTo: '/home.html',
-                manifestPath: '/manifest.json',
+                redirectTo: "/home.html",
+                manifestPath: "/manifest.json",
 		authOrigin,
 		userSession,
+		finished: ( userSession ) =>  console.log(userSession.isUserSignedIn()),
                 appDetails: {
                 name: "GENDEREV",
-                icon: "icon.png",
+                icon: "icon.png"
                 }
-		finished: ({ userSession }) => { console.log(userSession.isUserSignedIn());},
-            }
+            };
 
 
 
@@ -211,7 +211,7 @@
             function showLogin() {
               console.log(blockstackConnect)
               blockstackConnect.showBlockstackConnect(authOptions);
-		console.log(userSession.isUserSignedIn());
+		console.log(blockstack.userSession.isUserSignedIn());
             }
 
             //sign in functions
