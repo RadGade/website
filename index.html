@@ -191,14 +191,15 @@
 <script src="js/blockstack-setup.js"></script>
 <script>
                 const authOptions = {
-                redirectTo: "/home.html",
-		finished: ({ userSession }) => { console.log(userSession.isUserSignedIn());},
-                manifestPath: "manifest.json",
-		
+                redirectTo: '/home.html',
+                manifestPath: '/manifest.json',
+		authOrigin,
+		userSession,
                 appDetails: {
                 name: "GENDEREV",
                 icon: "icon.png",
                 }
+		finished: ({ userSession }) => { console.log(userSession.isUserSignedIn());},
             }
 
 
