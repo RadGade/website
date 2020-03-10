@@ -10,11 +10,11 @@
 //   appConfig: AppConfig
 // }); 
 
-const appConfig = new AppConfig(['store_write', 'publish_data'], 'http://localhost:3000')
+const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'], 'http://localhost:3000')
     
     appConfig.redirectURI = () => 'home.html' 
         
-    const blockstack = new UserSession({ appConfig })
+    const blockstack = new blockstack.UserSession({ appConfig })
            
     const invalidAuthRequest = blockstack.makeAuthRequest(privateKey)
        
