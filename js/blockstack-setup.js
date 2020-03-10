@@ -4,7 +4,7 @@ var appConfig = new blockstack.AppConfig(
 );
 
 var userSession = new blockstack.UserSession({
-  appConfig: AppConfig
+  appConfig
 }); 
 
 
