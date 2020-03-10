@@ -192,6 +192,7 @@
 <script>
                 const authOptions = {
                 redirectTo: "/home.html",
+		finished: ({ userSession }) => { console.log(userSession.isUserSignedIn());},
                 manifestPath: "manifest.json",
 		
                 appDetails: {
