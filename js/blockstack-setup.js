@@ -1,21 +1,12 @@
-// var appConfig = new blockstack.AppConfig(
-//   ['email', 'publish_data', 'store_write'], // app access scopes
+var appConfig = new blockstack.AppConfig(
+  ['email', 'publish_data', 'store_write'], // app access scopes
   
-// );
+);
 
-// var userSession = new blockstack.UserSession({
-//   appConfig: AppConfig
-// }); 
+var userSession = new blockstack.UserSession({
+  appConfig: AppConfig
+}); 
 
-const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'], 'http://localhost:3000')
-    
-    appConfig.redirectURI = () => 'home.html' 
-        
-    const blockstack = new blockstack.UserSession({ appConfig })
-           
-    const invalidAuthRequest = blockstack.makeAuthRequest(privateKey)
-       
-    console.log(invalidAuthRequest)
 
 
 
