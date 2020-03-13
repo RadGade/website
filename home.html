@@ -354,8 +354,13 @@ $('#postbtn').click(function() {
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById('file-content').innerHTML = content.text;
+		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{showFileContent(content)})
+		
+		function showFileContent(content) {
+		console.log(content);
+		document.getElementById('file-content').innerHTML = content;
+		}
+		
 
 // 		const GetFileOptions = {
 // 			decrypt: false
