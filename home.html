@@ -354,8 +354,8 @@ $('#postbtn').click(function() {
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		await userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById('file-content').innerHTML = content;
+		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
+		document.getElementById('file-content').innerHTML = content.text;
 
 // 		const GetFileOptions = {
 // 			decrypt: false
