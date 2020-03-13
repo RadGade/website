@@ -355,7 +355,7 @@ $('#postbtn').click(function() {
 		});
 
 		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById("entries").innerHTML = content.innerText
+		document.getElementById("entries").innerText = content.innerText
 
 		const GetFileOptions = {
 			decrypt: false
