@@ -283,29 +283,19 @@
 
 
 				<center>
-					<em> profile </em>
+					<h2><em> profile </em></h2>
 					<br>
 					<div class="panel-landing" id="section-1">
 	        <p class="lead">
 	        </p>
 	      </div>
 	      <div class="panel-welcome hide" id="section-2">
-	        <h1><span id="heading-name">anonymous</span></h1>
+	        <h4><span id="heading-name">anonymous</span></h4>
 	        <p class="lead">
 	        </p>
 	      </div>
 
 		</center>
-
-		<!-- <br><br>
-
-
-
-<center><div id="content"><div id="entries">
-										<p>welcome to genderev :) <br>try posting something</p>
-										</div></div></center>
-
-						 -->
 
 
 
@@ -336,15 +326,22 @@ window.addEventListener('load', (event) => {
     alert('Error: user is not signed in');
   }
 	
-function showProfile(profile) {
-    var person = new blockstack.Person(profile)
-    document.getElementById('heading-name').innerHTML = person.name()
-    document.getElementById('section-1').style.display = 'none'
-    document.getElementById('section-2').style.display = 'block'
-  }
+ function showProfile(profile) {
+   var person = new blockstack.Person(profile)
+   document.getElementById('heading-name').innerHTML = person.name()
+   document.getElementById('section-1').style.display = 'none'
+   document.getElementById('section-2').style.display = 'block'
+ }
 
-    const userData = blockstack.loadUserData()
-    showProfile(userData.profile)
+ if (blockstack.isUserSignedIn()) {
+  const userData = blockstack.loadUserData()
+   showProfile(userData.profile)
+ } else if (blockstack.isSignInPending()) {
+   blockstack.handlePendingSignIn()
+   .then(userData => {
+     showProfile(userData.profile)
+   })
+ }
 </script>
 
 
