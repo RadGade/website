@@ -355,11 +355,11 @@ $('#postbtn').click(function() {
 		});
 
 		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById("entries") = content
+		document.getElementById('entries').innerHTML = content;
 
-		const GetFileOptions = {
-			decrypt: false
-		};
+// 		const GetFileOptions = {
+// 			decrypt: false
+// 		};
 
 // 		function showFileContent(content) {
 // 			document.getElementById('entries').innerHTML = content;
