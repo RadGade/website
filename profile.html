@@ -338,7 +338,6 @@ function showProfile(profile) {
     document.getElementById('section-2').style.display = 'block'
   }
 
-  if (blockstack.isUserSignedIn()) {
     const userData = blockstack.loadUserData()
     showProfile(userData.profile)
 </script>
