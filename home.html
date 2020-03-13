@@ -308,11 +308,12 @@
 
 
 
-								<!-- POSTS --><center><div id="content"><div id="entries">
-										<p>welcome to genderev :) <br>try posting something</p>
-										</div></div></center>
-
-						<center><br><br><div class="buttons"><button id="aboutbtn" href="/about"> about </button>&nbsp<button href="/help"> help </button></div></center>
+		<!-- POSTS --><center><div id="content"><div id="entries">
+		<p>welcome to genderev :) <br>try posting something</p>
+		</div></div></center>
+		<center><br><br><div class="buttons">
+		<button id="aboutbtn" href="/about"> about </button>&nbsp<button href="/help"> help </button>
+		</div></center>
 
 
 
@@ -354,7 +355,7 @@ $('#postbtn').click(function() {
 		});
 
 		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById("entries").appendChild = content
+		document.getElementById("entries").innerHTML = content.textContent
 
 		const GetFileOptions = {
 			decrypt: false
