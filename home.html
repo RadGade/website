@@ -309,7 +309,7 @@
 
 
 		<!-- POSTS --><center><div id="content"><div id="entries">
-		<p>welcome to genderev :) <br>try posting something</p>
+		<p id="file-content">welcome to genderev :) <br>try posting something</p>
 		</div></div></center>
 		<center><br><br><div class="buttons">
 		<button id="aboutbtn" href="/about"> about </button>&nbsp<button href="/help"> help </button>
@@ -355,7 +355,7 @@ $('#postbtn').click(function() {
 		});
 
 		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById('entries').value = content;
+		document.getElementById('file-content').innerHTML = content;
 
 // 		const GetFileOptions = {
 // 			decrypt: false
