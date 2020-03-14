@@ -322,9 +322,9 @@
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
 
-$(document).ready(function(){
 
-    function fetchData() {
+
+function fetchData() {
 
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
@@ -333,6 +333,8 @@ $(document).ready(function(){
      document.getElementById("file-content").innerHTML = statuses;
      });
    }
+$(document).ready(function(){
+	fetchData();
 });
 
 $('#login-button').click(function() {
@@ -344,14 +346,15 @@ $("#profile").click(function() {
   window.location.href =("profile.html");
 });
 
-
+var statusText = document.getElementById("ityped").value
+console.log(statusText)
 function saveNewStatus() {
     //var statusIndex = 0;
     statuses = [];
 
     var status = {
       //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
-      text: document.getElementById("ityped").value,
+      text: statusText,
       created_at: Date() // Date.now() is more specific
     };
     statuses.unshift(status);
