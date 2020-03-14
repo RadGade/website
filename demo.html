@@ -321,25 +321,36 @@
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
 
-function createFileItem() {
-	for (item in file) {
+function createFileItem(value, index, array) {
+	
+            var newElement = document.createElement('div');
 
-            newElement = document.createElement('div');
-
-            newElement.id = item.created_at; newElement.className = "entries";
+            newElement.id = item.created_at; 
+	
+	    newElement.className = "entries";
 
             newElement.innerHTML = item.text + "<br>" + item.created_at;
 
             document.body.appendChild(newElement);
 
-        }        
 
 }
 
 function fetchData() {
 
     userSession.getFile("statuses.json", { decrypt: false })
-    .then((file) => { createFileItem()  }); }
+    .then((file) => {   
+		    
+		
+		     
+	file.forEach(createFileItem());
+
+    
+		    
+		    
+	}); 
+
+}
 $(document).ready(function(){
 	fetchData();
 });
