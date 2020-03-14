@@ -327,26 +327,26 @@ function fetchData() {
 
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {   
-		    
-		
-	var statuses = file;
-	console.log(statuses);
-	
+            
+        
+    var statuses = file;
+    console.log(statuses);
+    
         document.getElementById("file-content").innerHTML = JSON.stringify(statuses, function 
-	  (key, value) {
-	  if (key == "/" || "[" || "]" || "{" || "}" " " ") {
+      (key, value) {
+      if (key == "/" || "[" || "]" || "{" || "}") {
 
-	  return &nbsp ;
-	  } else {
+      return "&nbsp" ;
+      } else {
 
-	  return value;
-	  }
-	};,10);
-		
-    	//document.getElementsByClassName("entries").innerHTML = statuses;
-		    
-		    
-	}); 
+      return value;
+      }
+    },10);
+        
+        //document.getElementsByClassName("entries").innerHTML = statuses;
+            
+            
+    }); 
 
 }
 $(document).ready(function(){
