@@ -321,22 +321,7 @@
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
 
-function createFileItem(value, index, array) {
-	
-	for (item in array) {
-	
-            var newElement = document.createElement('div');
 
-            newElement.id = item.created_at; 
-	
-	    newElement.className = "entries";
-
-            newElement.innerHTML = item.text + "<br>" + item.created_at;
-
-            document.body.appendChild(newElement);
-	}
-
-}
 
 function fetchData() {
 
@@ -346,9 +331,9 @@ function fetchData() {
 		
 	var statuses = file;
 	console.log(statuses);
-	statuses.forEach(createFileItem);
-
-    
+	
+        //document.getElementsByClassName("entries").innerHTML = JSON.stringify(file.text) + "<br>" + JSON.stringify(file.created_at);
+    	document.getElementsByClassName("entries").innerHTML = file;
 		    
 		    
 	}); 
