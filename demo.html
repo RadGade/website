@@ -347,21 +347,7 @@ $("#profile").click(function() {
 });
 
 
-function saveNewStatus() {
-    //var statusIndex = 0;
-    statuses = [];
 
-    var status = {
-      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
-      text: statusText,
-      created_at: Date() // Date.now() is more specific
-    };
-    statuses.unshift(status);
-
-    console.log(statuses);
-
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
-}
 
     
 
@@ -379,10 +365,42 @@ function saveNewStatus() {
 
   $("#ityped").val("");
 
-  saveNewStatus()
+	   
+	   
+	  
 	var statusText = document.getElementById("ityped").value
 
 	console.log(statusText)
+	   
+	function saveNewStatus() {
+
+	    //var statusIndex = 0;
+
+	    statuses = [];
+
+
+
+	    var status = {
+
+	      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
+
+	      text: statusText,
+
+	      created_at: Date() // Date.now() is more specific
+
+	};
+
+    statuses.unshift(status);
+
+
+
+    console.log(statuses);
+
+
+
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
+
+}
 
   fetchData()
 
