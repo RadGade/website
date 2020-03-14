@@ -374,8 +374,11 @@ $("#postbtn").click(function() {
       text: statusText,
       created_at: Date() // Date.now() is more specific
     };
+	console.log(statusText)
 
     statuses.unshift(status);
+
+	  console.log(statuses);
 
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
 
