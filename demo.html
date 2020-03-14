@@ -332,7 +332,17 @@ function fetchData() {
 	var statuses = file;
 	console.log(statuses);
 	
-        document.getElementById("file-content").innerHTML = JSON.stringify(statuses);
+        document.getElementById("file-content").innerHTML = JSON.stringify(statuses, function 
+	  (key, value) {
+	  if (key == "/" || "[" || "]" || "{" || "}" " " ") {
+
+	  return &nbsp ;
+	  } else {
+
+	  return value;
+	  }
+	};,10);
+		
     	//document.getElementsByClassName("entries").innerHTML = statuses;
 		    
 		    
