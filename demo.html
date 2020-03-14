@@ -334,7 +334,7 @@ function fetchData() {
     
         document.getElementById("file-content").innerHTML = JSON.stringify(statuses, function 
       (key, value) {
-      if (key == "/" || "[" || "]" || "{" || "}") {
+      if (key == "/" ) {
 
       return "&nbsp" ;
       } else {
