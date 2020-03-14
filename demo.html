@@ -328,13 +328,9 @@ function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
 	
-    	var statuses = file
-
-	 //typedArray = new Uint8Array(file);
-	 //statuses = Array.from(typedArray); 
-	 //console.log(statuses);
+   
 	     
-	    for (item in statuses) {
+	    for (item in file) {
 	    var newElement = document.createElement('div');
 	    newElement.id = item.created_at; newElement.className = "entries";
 	    newElement.innerHTML = item.text + "<br>" + item.created_at;
@@ -385,7 +381,7 @@ $("#profile").click(function() {
 	   
 	function saveNewStatus() {
 
-	    //var statusIndex = 0;
+	    
 
 	    statuses = [];
 
