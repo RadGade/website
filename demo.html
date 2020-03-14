@@ -334,7 +334,7 @@ function fetchData() {
 	 //statuses = Array.from(typedArray); 
 	 //console.log(statuses);
 	     
-	    for (var item in statuses) {
+	    for (item in statuses) {
 	    var newElement = document.createElement('div');
 	    newElement.id = item.created_at; newElement.className = "entries";
 	    newElement.innerHTML = item.text + "<br>" + item.created_at;
