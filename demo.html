@@ -330,10 +330,10 @@ function fetchData() {
             
         
     var statuses = JSON.parse(file);
-    console.log(statuses);
-    console.log(typeof statuses);
-    console.log(statuses[0]);
-    console.log(statuses[0].text);
+    //console.log(statuses);
+    //console.log(typeof statuses);
+    //console.log(statuses[0]);
+    //console.log(statuses[0].text);
      
     document.getElementById("file-content").innerHTML = JSON.stringify(statuses[0].text) + "<br>" + JSON.stringify(statuses[0].created_at);
         
@@ -386,7 +386,7 @@ $("#profile").click(function() {
 
 	    
 
-	    statuses = [];
+	    
 
 
 
@@ -399,7 +399,7 @@ $("#profile").click(function() {
 	      created_at: Date() // Date.now() is more specific
 
 	};
-
+    fetchData()
     statuses.unshift(status);
 
 
