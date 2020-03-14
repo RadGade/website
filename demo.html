@@ -365,22 +365,16 @@ $('#postbtn').click(function() {
 	  statuses.unshift(status);
 
 	  userSession.putFile('statuses.json', JSON.stringify(statuses), { encrypt: false })
-	    .then(() => {
-
-		statuses: statuses;
-
-	    });
-	}
 
 
-    function fetchData() {
-       userSession.getFile('statuses.json', { decrypt: false })
-         .then((file) => {
-           var statuses = JSON.parse(file || '[]');
-           statusIndex = statuses.length;
-           document.getElementById('file-content').innerHTML = statuses;
-           });
-         }
+	    function fetchData() {
+	       userSession.getFile('statuses.json', { decrypt: false })
+		 .then((file) => {
+		   var statuses = JSON.parse(file || '[]');
+		   statusIndex = statuses.length;
+		   document.getElementById('file-content').innerHTML = statuses;
+		   });
+		 }
 
 
 });
