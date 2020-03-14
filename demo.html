@@ -344,8 +344,9 @@ function fetchData() {
     .then((file) => {   
 		    
 		
-		     
-	file.forEach(createFileItem());
+	var statuses = file;
+	console.log(statuses);
+	statuses.forEach(createFileItem);
 
     
 		    
