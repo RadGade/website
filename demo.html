@@ -329,8 +329,11 @@ function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
 	
-    var statuses = (Array.from(file))
-    console.log((Array.from(file)))
+    
+
+	const typedArray = new Uint8Array(file);
+	const statuses = Array.from(typedArray);    
+	    
 	for (item in statuses) {
      //statusIndex = statuses.length;
      document.getElementById("entries").innerHTML = item.text + "<br>" + item.created_at; }
