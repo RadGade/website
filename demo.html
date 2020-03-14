@@ -330,7 +330,7 @@ function fetchData() {
     .then((file) => {
     var statuses = JSON.parse(file || "[]");
      //statusIndex = statuses.length;
-     document.getElementById("file-content").innerHTML = statuses;
+     document.getElementById("entries").innerHTML = statuses;
      });
    }
 $(document).ready(function(){
