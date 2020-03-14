@@ -332,9 +332,9 @@ function fetchData() {
     var statuses = file;
     console.log(statuses);
     
-        document.getElementById("file-content").innerHTML = JSON.stringify(statuses,null,10);
+        //document.getElementById("file-content").innerHTML = JSON.stringify(statuses,null,10);
         
-        //document.getElementsByClassName("entries").innerHTML = statuses;
+        document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
             
             
     }); 
