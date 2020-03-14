@@ -332,7 +332,7 @@ function fetchData() {
 	var statuses = file;
 	console.log(statuses);
 	
-        document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses.text) + "<br>" + JSON.stringify(statuses.created_at);
+        document.getElementById("file-content").innerHTML = JSON.stringify(statuses);
     	//document.getElementsByClassName("entries").innerHTML = statuses;
 		    
 		    
