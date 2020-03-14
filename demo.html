@@ -322,6 +322,9 @@
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
 
+  
+    $(document).ready(function(){
+
     function fetchData() {
 
     userSession.getFile("statuses.json", { decrypt: false })
@@ -331,7 +334,7 @@
      document.getElementById("file-content").innerHTML = statuses;
      });
    }
-
+});
 </script>
 
 
