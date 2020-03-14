@@ -331,8 +331,9 @@ function fetchData() {
         
     var statuses = file;
     console.log(statuses);
-    
-        document.getElementById("file-content").innerHTML = JSON.stringify(statuses.text);
+    console.log(statuses.text[0]);
+    console.log(statuses.text[1]);    
+        document.getElementById("file-content").innerHTML = JSON.stringify(statuses.text[0]);
         
         //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
             
