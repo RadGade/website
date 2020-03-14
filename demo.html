@@ -328,9 +328,9 @@ function fetchData() {
 
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
-    var statuses = JSON.parse(file || "[]");
+    var obj = JSON.parse(file);
      //statusIndex = statuses.length;
-     document.getElementById("entries").innerHTML = statuses;
+     document.getElementById("entries").innerHTML = obj.text + "<br>" + obj.created_at;
      });
    }
 $(document).ready(function(){
