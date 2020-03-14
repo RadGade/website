@@ -331,53 +331,54 @@ $('#login-button').click(function() {
 
 <script>
 
-$('#profile').click(function() {
-	window.location.href =("profile.html");
+$("#profile").click(function() {
+  window.location.href =("profile.html");
 });
 
 
-$('#postbtn').click(function() {
+$("#postbtn").click(function() {
 
-	var self = $(this);
-	if (!self.data('add')) {
-		self.data('add', true);
-		self.text('posted!');
-		setTimeout(function() {
-			self.text('post 💌').data('add', false);
-				}, 1100);
-		}
+  var self = $("#postbtn");
+  if (!self.data("add")) {
+  self.data("add", true);
+  self.text("posted!");
+  setTimeout(function() {
+  self.text("post 💌").data("add", false);
+  }, 1100);
+  }
 
-	$('#ityped').val('')
-
-
-	var statusText = document.getElementById("ityped").value;
-
-	function saveNewStatus() {
-	  //var statusIndex = 0;
-	  var statuses = [];
-
-	  var status = {
-	    //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
-	    text: statusText,
-	    created_at: Date() // Date.now() is more specific
-	  };
-
-	  statuses.unshift(status);
-
-	  userSession.putFile('statuses.json', JSON.stringify(statuses), { encrypt: false })
+  $("#ityped").val("");
 
 
-	    function fetchData() {
-	       userSession.getFile('statuses.json', { decrypt: false })
-		 .then((file) => {
-		   var statuses = JSON.parse(file || '[]');
-		   //statusIndex = statuses.length;
-		   document.getElementById('file-content').innerHTML = statuses;
-		   });
-		 }
+  var statusText = document.getElementById("ityped").value;
 
-	});
+  function saveNewStatus() {
+    //var statusIndex = 0;
+    statuses = [];
 
+    var status = {
+      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
+      text: statusText,
+      created_at: Date() // Date.now() is more specific
+    };
+
+    statuses.unshift(status);
+
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
+
+
+    function fetchData() {
+
+    userSession.getFile("statuses.json", { decrypt: false })
+    .then((file) => {
+    var statuses = JSON.parse(file || "[]");
+     //statusIndex = statuses.length;
+     document.getElementById("file-content").innerHTML = statuses;
+     });
+   }
+
+  }
+})
 </script>
 
 
