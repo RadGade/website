@@ -338,39 +338,39 @@ $('#profile').click(function() {
 
 $('#postbtn').click(function() {
 
-		var self = $(this);
-		if (!self.data('add')) {
-				self.data('add', true);
-				self.text('posted!');
-				setTimeout(function() {
-					self.text('post 💌').data('add', false);
-					}, 1100);
+	var self = $(this);
+	if (!self.data('add')) {
+		self.data('add', true);
+		self.text('posted!');
+		setTimeout(function() {
+			self.text('post 💌').data('add', false);
+				}, 1100);
 		}
 
-		$('#ityped').val('')
+	$('#ityped').val('')
 
 
-    var statusText = document.getElementById("ityped").value
+	var statusText = document.getElementById("ityped").value;
 
-    saveNewStatus(statusText) {
-      var statusIndex = 0,
-      var statuses = []
+	function saveNewStatus() {
+	  var statusIndex = 0;
+	  var statuses = [];
 
-      var status = {
-        id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
-        text: statusText,
-        created_at: Date() // Date.now() is more specific
-      }
+	  var status = {
+	    id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
+	    text: statusText,
+	    created_at: Date() // Date.now() is more specific
+	  };
 
-      statuses.unshift(status)
+	  statuses.unshift(status);
 
-      userSession.putFile('statuses.json', JSON.stringify(statuses), { encrypt: false })
-        .then(() => {
+	  userSession.putFile('statuses.json', JSON.stringify(statuses), { encrypt: false })
+	    .then(() => {
 
-            statuses: statuses
+		statuses: statuses;
 
-        })
-    }
+	    });
+	}
 
 
     function fetchData() {
