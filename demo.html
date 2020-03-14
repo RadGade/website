@@ -329,7 +329,8 @@ function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
 	
-    var statuses = file
+    var statuses = (Array.from('file'))
+    console.log((Array.from('file'))
 	for (item in statuses) {
      //statusIndex = statuses.length;
      document.getElementById("entries").innerHTML = item.text + "<br>" + item.created_at; }
