@@ -328,9 +328,11 @@ function fetchData() {
 
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
+	
     var obj = JSON.parse(file);
+	for (item in obj) {
      //statusIndex = statuses.length;
-     document.getElementById("entries").innerHTML = obj.text + "<br>" + obj.created_at;
+     document.getElementById("entries").innerHTML = item.text + "<br>" + item.created_at; }
      });
    }
 $(document).ready(function(){
