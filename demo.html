@@ -323,6 +323,8 @@
 
 function createFileItem(value, index, array) {
 	
+	for item in array {
+	
             var newElement = document.createElement('div');
 
             newElement.id = item.created_at; 
@@ -332,7 +334,7 @@ function createFileItem(value, index, array) {
             newElement.innerHTML = item.text + "<br>" + item.created_at;
 
             document.body.appendChild(newElement);
-
+	}
 
 }
 
