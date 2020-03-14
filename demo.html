@@ -6,7 +6,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://unpkg.com/blockstack@19.3.0/dist/blockstack.js" integrity="sha384-kscoAgc5pZqovHWSKndfyn3OeKHfRSh+Xc5wYc+E02BuyQV2zwEEHJ7p5drKnRrX" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="js/blockstack-setup.js"></script>
 
 
@@ -142,7 +141,7 @@
 
 		}
 
-		#entries {
+		.entries {
 
 
 				box-shadow:0px 0px 9px 2px black;
@@ -159,7 +158,7 @@
 
 		}
 
-		#entries:hover {
+		.entries:hover {
 				box-shadow:0px 0px 20px 2px  darkblue;
 
 		}
@@ -241,7 +240,7 @@
 			 #sidebar{
 				max-width: 90%;
 				}
-				#entries{
+				.entries{
 				max-width: 90%;
 				}
 				.post{
@@ -308,7 +307,7 @@
 
 
 
-		<!-- POSTS --><center><div id="content"><div id="entries">
+		<!-- POSTS --><center><div id="content"><div class="entries">
 		<p id="file-content"></p>
 		</div></div></center>
 		<center><br><br><div class="buttons">
@@ -334,10 +333,15 @@ function fetchData() {
 	 //typedArray = new Uint8Array(file);
 	 //statuses = Array.from(typedArray); 
 	 //console.log(statuses);
-	    
-	for (item in statuses) {
-     //statusIndex = statuses.length;
-     document.getElementById("entries").innerHTML = item.text + "<br>" + item.created_at; }
+	     
+	    for (var item in statuses) {
+	    var newElement = document.createElement('div');
+	    newElement.id = item.created_at; newElement.className = "entries";
+	    newElement.innerHTML = item.text + "<br>" + item.created_at;
+	    document.body.appendChild(newElement);
+	}	 
+
+
      });
    }
 $(document).ready(function(){
@@ -416,26 +420,6 @@ $("#profile").click(function() {
 </script>
 
 
-
-<script>
-
-
-// export async function getUserAppFileUrl(
-//   path: string, username: string, appOrigin: string,
-//   zoneFileLookupURL?: string
-// ): Promise<string|null> {
-//   const profile = await lookupProfile(username, zoneFileLookupURL)
-//   let bucketUrl: string = null
-//   if (profile.hasOwnProperty('apps')) {
-//     if (profile.apps.hasOwnProperty(appOrigin)) {
-//       const url = profile.apps[appOrigin]
-//       const bucket = url.replace(/\/?(\?|#|$)/, '/$1')
-//       bucketUrl = `${bucket}${path}`
-//     }
-//   }
-//   return bucketUrl
-// }
-</script>
 
 
 
