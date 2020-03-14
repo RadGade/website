@@ -346,8 +346,7 @@ $("#profile").click(function() {
   window.location.href =("profile.html");
 });
 
-var statusText = document.getElementById("ityped").value
-console.log(statusText)
+
 function saveNewStatus() {
     //var statusIndex = 0;
     statuses = [];
@@ -381,6 +380,9 @@ function saveNewStatus() {
   $("#ityped").val("");
 
   saveNewStatus()
+	var statusText = document.getElementById("ityped").value
+
+	console.log(statusText)
 
   fetchData()
 
