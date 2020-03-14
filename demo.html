@@ -329,11 +329,11 @@ function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
 	
-    
+    	var statuses = JSON.parse(file || '[]')
 
-	 typedArray = new Uint8Array(file);
-	 statuses = Array.from(typedArray); 
-	 console.log(statuses);
+	 //typedArray = new Uint8Array(file);
+	 //statuses = Array.from(typedArray); 
+	 //console.log(statuses);
 	    
 	for (item in statuses) {
      //statusIndex = statuses.length;
@@ -405,7 +405,7 @@ $("#profile").click(function() {
 
 
 
-    userSession.putFile("statuses.json", statuses, { encrypt: false });
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
 
 }
   saveNewStatus()
