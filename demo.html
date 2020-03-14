@@ -352,7 +352,28 @@ $("#profile").click(function() {
 });
 
 
-$("#postbtn").click(function() {
+function saveNewStatus() {
+    //var statusIndex = 0;
+    statuses = [];
+
+    var status = {
+      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
+      text: document.getElementById("ityped").value,
+      created_at: Date() // Date.now() is more specific
+    };
+    console.log(statusText);
+
+    statuses.unshift(status);
+
+    console.log(statuses);
+
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
+}
+
+    
+
+
+   $("#postbtn").click(function() {
 
   var self = $("#postbtn");
   if (!self.data("add")) {
@@ -365,39 +386,11 @@ $("#postbtn").click(function() {
 
   $("#ityped").val("");
 
+  saveNewStatus()
 
-  var statusText = document.getElementById("ityped").value;
+  fetchData()
 
-  function saveNewStatus() {
-    //var statusIndex = 0;
-    statuses = [];
-
-    var status = {
-      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
-      text: statusText,
-      created_at: Date() // Date.now() is more specific
-    };
-	console.log(statusText)
-
-    statuses.unshift(status);
-
-	  console.log(statuses);
-
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
-
-
-    function fetchData() {
-
-    userSession.getFile("statuses.json", { decrypt: false })
-    .then((file) => {
-    var statuses = JSON.parse(file || "[]");
-     //statusIndex = statuses.length;
-     document.getElementById("file-content").innerHTML = statuses;
-     });
-   }
-
-  }
-})
+  })
 </script>
 
 
