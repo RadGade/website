@@ -320,6 +320,19 @@
 
 
 <script src="https://unpkg.com/@blockstack/connect"/></script>
+<script>
+
+    function fetchData() {
+
+    userSession.getFile("statuses.json", { decrypt: false })
+    .then((file) => {
+    var statuses = JSON.parse(file || "[]");
+     //statusIndex = statuses.length;
+     document.getElementById("file-content").innerHTML = statuses;
+     });
+   }
+
+</script>
 
 
 <script>
