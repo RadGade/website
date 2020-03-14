@@ -329,7 +329,7 @@ function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
 	
-    	var statuses = JSON.parse(file || '[]')
+    	var statuses = file
 
 	 //typedArray = new Uint8Array(file);
 	 //statuses = Array.from(typedArray); 
