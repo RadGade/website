@@ -329,7 +329,7 @@ function fetchData() {
     .then((file) => {   
             
         
-    var statuses = file;
+    var statuses = JSON.parse(file);
     console.log(statuses);
     console.log(typeof statuses);
      
