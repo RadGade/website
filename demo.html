@@ -398,7 +398,7 @@ $("#profile").click(function() {
 
 
 
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
+    userSession.putFile("statuses.json", statuses, { encrypt: false });
 
 }
   saveNewStatus()
