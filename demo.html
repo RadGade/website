@@ -353,11 +353,11 @@ $('#postbtn').click(function() {
 	var statusText = document.getElementById("ityped").value;
 
 	function saveNewStatus() {
-	  var statusIndex = 0;
+	  //var statusIndex = 0;
 	  var statuses = [];
 
 	  var status = {
-	    id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
+	    //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
 	    text: statusText,
 	    created_at: Date() // Date.now() is more specific
 	  };
@@ -371,7 +371,7 @@ $('#postbtn').click(function() {
 	       userSession.getFile('statuses.json', { decrypt: false })
 		 .then((file) => {
 		   var statuses = JSON.parse(file || '[]');
-		   statusIndex = statuses.length;
+		   //statusIndex = statuses.length;
 		   document.getElementById('file-content').innerHTML = statuses;
 		   });
 		 }
