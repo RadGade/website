@@ -361,8 +361,7 @@ $("#profile").click(function() {
 
     
 
-
-   $("#postbtn").click(function() {
+$("#postbtn").click(function() {
 
   var self = $("#postbtn");
   if (!self.data("add")) {
@@ -373,24 +372,12 @@ $("#profile").click(function() {
   }, 1100);
   }
 
-  
-
-	   
-	   
-	  
+ 
 	var statusText = document.getElementById("ityped").value
 
 	console.log(statusText)
-	   
-	function saveNewStatus() {
 
-	    
-
-	    
-
-
-
-	    var status = {
+        var status = {
 
 	      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
 
@@ -399,58 +386,29 @@ $("#profile").click(function() {
 	      created_at: Date() // Date.now() is more specific
 
 	};
+	   
+     function saveNewStatus() {
+
+	    
      userSession.getFile("statuses.json", { decrypt: false })
 
     .then((file) => {   
-
-            
-
-        
+ 
 
     var statuses = JSON.parse(file);
 
-    
-
-     
-
-    document.getElementById("file-content").innerHTML = JSON.stringify(statuses[0].text) + "<br>" + JSON.stringify(statuses[0].created_at);
-
-        
-
-        //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
-
-            
-	statuses.unshift(status);
-
-
-
-
-
-
-
     console.log(statuses);
+    statuses.unshift(status);
 
-
-
-
-
-
-
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
-
-
-            
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });       
 
     }); 
 		
 		
-		
-		
-		
-    
 
 }
   saveNewStatus()
+  fetchData()
 	   
 	$("#ityped").val("");
   })
