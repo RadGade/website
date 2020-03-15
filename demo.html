@@ -343,9 +343,11 @@ function fetchData() {
 	    
 	    
 	for (i in statuses) {
+		
 	  childElement = document.createElement('div');
-	  div.setAttribute('class', 'entries');
 	  appendChildElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at
+	  var container = document.getElementsByClassName("entries");
+          container.appendChild(childElement);
 	}
         
         //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
