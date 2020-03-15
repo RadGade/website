@@ -342,7 +342,7 @@ function fetchData() {
 	   
 	    
 	    
-	for (const [text, created_at] of statuses) {
+	for (i in statuses) {
 	  childElement = document.createElement('div');
 	  appendChildElement = parentElement.appendChild(childElement);
 	  div.setAttribute('class', 'entries');
