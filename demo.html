@@ -399,8 +399,32 @@ $("#profile").click(function() {
 	      created_at: Date() // Date.now() is more specific
 
 	};
-    fetchData()
-    statuses.unshift(status);
+     userSession.getFile("statuses.json", { decrypt: false })
+
+    .then((file) => {   
+
+            
+
+        
+
+    var statuses = JSON.parse(file);
+
+    
+
+     
+
+    document.getElementById("file-content").innerHTML = JSON.stringify(statuses[0].text) + "<br>" + JSON.stringify(statuses[0].created_at);
+
+        
+
+        //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
+
+            
+	statuses.unshift(status);
+
+
+
+
 
 
 
@@ -408,7 +432,22 @@ $("#profile").click(function() {
 
 
 
+
+
+
+
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
+
+
+            
+
+    }); 
+		
+		
+		
+		
+		
+    
 
 }
   saveNewStatus()
