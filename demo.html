@@ -336,7 +336,13 @@ function fetchData() {
     //console.log(statuses[0].text);
      
 
-    document.getElementById("file-content").innerHTML = JSON.stringify(statuses)
+	    
+	for (let i of n) {
+	  childElement = document.createElement('div');
+	  appendChildElement = parentElement.appendChild(childElement);
+	  div.setAttribute('class', 'entries');
+	  appendChildElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at
+	}
         
         //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
             
