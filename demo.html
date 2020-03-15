@@ -336,8 +336,13 @@ function fetchData() {
     //console.log(statuses[0].text);
      
 
+	
+	
+  	
+	   
 	    
-	for (statuses[i] of statuses[n]) {
+	    
+	for (const [text, created_at] of statuses) {
 	  childElement = document.createElement('div');
 	  appendChildElement = parentElement.appendChild(childElement);
 	  div.setAttribute('class', 'entries');
