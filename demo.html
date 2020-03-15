@@ -344,7 +344,6 @@ function fetchData() {
 	    
 	for (i in statuses) {
 	  childElement = document.createElement('div');
-	  appendChildElement = parentElement.appendChild(childElement);
 	  div.setAttribute('class', 'entries');
 	  appendChildElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at
 	}
