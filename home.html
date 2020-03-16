@@ -344,7 +344,7 @@ function fetchData() {
 	for (i in statuses) {
 		
 	  var childElement = document.createElement('div');
-	  childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
+	  childElement.innerHTML = statuses[i].text + "<br>" + moment(statuses[i].created_at).fromNow() + "<br><br>"
 	  document.getElementById("content").appendChild(childElement);
 	
           console.log(moment(statuses[20].created_at).fromNow());
@@ -392,7 +392,7 @@ $("#postbtn").click(function() {
 	
   
 var div = document.createElement("div");
-div.innerHTML = statusText + "<br>" + Date() + "<br><br>";
+div.innerHTML = statusText + "<br>" + moment(Date()).fromNow() + "<br><br>";
 $("#file-content").prepend(div);		
 
 	
