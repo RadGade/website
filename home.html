@@ -347,7 +347,7 @@ function fetchData() {
 	  childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
 	  document.getElementById("content").appendChild(childElement);
 	
-          
+          console.log(moment(statuses[20].created_at).fromNow());
 	}
         
         //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
@@ -389,6 +389,7 @@ $("#postbtn").click(function() {
         text: statusText,
         created_at: Date() 
   };	
+	
   
 var div = document.createElement("div");
 div.innerHTML = statusText + "<br>" + Date() + "<br><br>";
