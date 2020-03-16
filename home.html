@@ -415,8 +415,10 @@ $("#postbtn").click(function() {
 	
 	
   $("#ityped").val("");
-$("#content").val("");
-
+function clearcontent(content) { 
+            document.getElementById("content").innerHTML = ""; 
+        } 
+fetchData()
   });
 	
 	
