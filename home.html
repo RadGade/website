@@ -389,7 +389,10 @@ $("#postbtn").click(function() {
         text: statusText,
         created_at: Date() 
   };	
-  document.getElementById("file-content").innerHTML = statusText + "<br>" + Date() + "<br><br>";
+  
+var div = document.createElement("div");
+div.innerHTML = statusText + "<br>" + Date() + "<br><br>";
+document.getElementById("file-content").appendChild(div);	
 	
     function saveNewStatus() {
     userSession.getFile("statuses.json", { decrypt: false })
