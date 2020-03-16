@@ -403,13 +403,11 @@ $("#postbtn").click(function() {
 	    userSession.getFile("statuses.json", { decrypt: false })
 	    .then((file) => {   
 	    var statuses = JSON.parse(file);
-		for (i == statuses.length) {
 		  var childElement = document.createElement('div');
-
-		  childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
-
+		  childElement.innerHTML = statuses[statuses.length].text + "<br>" + statuses[statuses.length].created_at + "<br><br>";
+		  console.log(statuses[statuses.length].text);
 		  document.getElementById("content").appendChild(childElement);
-		}
+		
 	    }); 
 	}
 showNewStatus();
