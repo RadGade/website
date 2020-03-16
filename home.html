@@ -394,19 +394,26 @@ $("#postbtn").click(function() {
     .then((file) => {   
     var statuses = JSON.parse(file);
     statuses.unshift(status);
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false })	 
-	    
-	  console.log(statuses.length)  
-	  
-	  let i = statuses.length
-	  for (let i in statuses) {    
-          var childElement = document.createElement('div');
-          childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
-          document.getElementById("content").appendChild(childElement);
-        }    
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false })	    
     }); 
 }
   saveNewStatus();
+	
+	function showNewStatus() {
+	    userSession.getFile("statuses.json", { decrypt: false })
+	    .then((file) => {   
+	    var statuses = JSON.parse(file);
+		for (i == statuses.length) {
+		  var childElement = document.createElement('div');
+
+		  childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
+
+		  document.getElementById("content").appendChild(childElement);
+		}
+	    }); 
+	}
+showNewStatus();
+
     
 	
 	
