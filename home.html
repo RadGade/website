@@ -401,16 +401,20 @@ $("#postbtn").click(function() {
     
  
     })	   
+	  var childElement = document.createElement('div');
+
+          var n = statuses.length
+
+          childElement.innerHTML = statuses[n].text + "<br>" + statuses[n].created_at + "<br><br>"
+
+          document.getElementById("content").appendChild(childElement);
+
+    
+	    
     }); 
 }
   saveNewStatus();
-     userSession.getFile("statuses.json", { decrypt: false })
-    .then((file) => {   
-          var childElement = document.createElement('div');
-	  var n = statuses.length
-          childElement.innerHTML = statuses[n].text + "<br>" + statuses[n].created_at + "<br><br>"
-          document.getElementById("content").appendChild(childElement);
-    })   
+    
 	
 	
   $("#ityped").val("");
