@@ -416,10 +416,36 @@ $("#postbtn").click(function() {
 	
   $("#ityped").val("");
 
- document.getElementById("content").innerHTML = ""; 
-
-fetchData()
+ 
   });
+	
+
+
+	
+	
+
+            userSession.getFile("statuses.json", { decrypt: false })
+
+            .then((file) => {   
+
+            var statuses = JSON.parse(file);
+
+                
+
+                  document.getElementById("file-content").innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>";
+
+                  console.log(statuses[-1].text);
+
+                
+
+            }); 
+
+        }
+
+	
+	
+	
+	
 	
 	
 
