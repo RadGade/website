@@ -397,12 +397,8 @@ $("#postbtn").click(function() {
     }); 
 }
   saveNewStatus();
-      userSession.getFile("statuses.json", { decrypt: false })
-      .then((file) => {   
-      var statuses = JSON.parse(file);
-      var childElement = document.createElement('div');
-      childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
-      document.getElementById("content").appendChild(childElement);}); 
+  document.getElementsByClassName("content").innerHTML = " ";
+  fetchData()
   $("#ityped").val("");
   });
 </script>
