@@ -397,19 +397,24 @@ $("#postbtn").click(function() {
     .then((file) => {   
     var statuses = JSON.parse(file);
     statuses.unshift(status);
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });
-	    
-	    for (i in statuses) {
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false }).then((content)=>{
+    
+    userSession.getFile("statuses.json", { decrypt: false })
 
-                
+    .then((file) => {   
 
-          var childElement = document.createElement('div');
+ 
+	    var childElement = document.createElement('div');
 
-          childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
+          childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
 
           document.getElementById("content").appendChild(childElement);
-
-        }
+	    
+	    
+	    
+	    
+    })   
+    })	   
     }); 
 }
   saveNewStatus();
