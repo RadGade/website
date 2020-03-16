@@ -397,10 +397,9 @@ $("#postbtn").click(function() {
     .then((file) => {   
     var statuses = JSON.parse(file);
     statuses.unshift(status);
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false }).then((content)=>{
-    
- 
-    })	  for (i in statuses) {
+    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false }).then((content)=>{})	  
+	    
+	  for (i in statuses) {
 	    
 	  var childElement = document.createElement('div');
 
