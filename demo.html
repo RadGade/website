@@ -346,6 +346,10 @@ function fetchData() {
 	  var childElement = document.createElement('div');
 	  childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
 	  document.getElementById("content").appendChild(childElement);
+	
+	console.log(statuses[0].created.at);
+
+console.log(moment.min(statuses[0].created.at))
           
 	}
         
@@ -403,8 +407,7 @@ $("#postbtn").click(function() {
   });
 	
 	
-console.log(statuses[0].created.at);
-console.log(moment.min(statuses[0].created.at))
+
 </script>
 
 
