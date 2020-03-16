@@ -141,7 +141,7 @@
 
 		}
 
-		.entries {
+		#entries {
 
 
 				box-shadow:0px 0px 9px 2px black;
@@ -158,7 +158,7 @@
 
 		}
 
-		.entries:hover {
+		#entries:hover {
 				box-shadow:0px 0px 20px 2px  darkblue;
 
 		}
@@ -240,7 +240,7 @@
 			 #sidebar{
 				max-width: 90%;
 				}
-				.entries{
+				#entries{
 				max-width: 90%;
 				}
 				.post{
@@ -307,7 +307,7 @@
 
 
 
-		<!-- POSTS --><center><div id="content"><div class="entries">
+		<!-- POSTS --><center><div id="content"><div id="entries">
 		<p id="file-content"></p>
 		</div></div></center>
 		<center><br><br><div class="buttons">
@@ -345,7 +345,7 @@ function fetchData() {
 		
 	  var childElement = document.createElement('div');
 	  childElement.innerHTML = statuses[i].text + "<br>" + statuses[i].created_at + "<br><br>"
-	  document.getElementById("file-content").appendChild(childElement);
+	  document.getElementById("entries").appendChild(childElement);
           
 	}
         
