@@ -374,7 +374,6 @@ $("#profile").click(function() {
     
 
 $("#postbtn").click(function() {
-
   var self = $("#postbtn");
   if (!self.data("add")) {
   self.data("add", true);
@@ -383,102 +382,29 @@ $("#postbtn").click(function() {
   self.text("post 💌").data("add", false);
   }, 1100);
   }
-
- 
-	var statusText = document.getElementById("ityped").value
-
-	console.log(statusText)
-
+  var statusText = document.getElementById("ityped").value;
+  console.log(statusText);
         var status = {
-
-	      //id: statusIndex++ ,  // or try len(statuses) +1  or  try Date.now()
-
-	      text: statusText,
-
-	      created_at: Date() // Date.now() is more specific
-
-	};
-	   
-     function saveNewStatus() {
-
-	    
-     userSession.getFile("statuses.json", { decrypt: false })
-
+        text: statusText,
+        created_at: Date() 
+  };
+    function saveNewStatus() {
+    userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {   
- 
-
     var statuses = JSON.parse(file);
-
-    console.log(statuses);
     statuses.unshift(status);
-
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false });       
-
     }); 
-		
-		
-
 }
-  saveNewStatus()
-	    userSession.getFile("statuses.json", { decrypt: false })
-
-	    .then((file) => {   
-
-
-
-
-
-	    var statuses = JSON.parse(file);
-
-	    console.log(statuses);
-
-	    //console.log(typeof statuses);
-
-	    //console.log(statuses[0]);
-
-	    //console.log(statuses[0].text);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
-
-		  var childElement = document.createElement('div');
-
-		  childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
-
-		  document.getElementById("content").appendChild(childElement);
-
-
-
-
-
-
-		//document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
-
-
-
-
-
-	    }); 
-	   
-	$("#ityped").val("");
-  })
+  saveNewStatus();
+      userSession.getFile("statuses.json", { decrypt: false })
+      .then((file) => {   
+      var statuses = JSON.parse(file);
+      var childElement = document.createElement('div');
+      childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
+      document.getElementById("content").appendChild(childElement);}); 
+  $("#ityped").val("");
+  });
 </script>
 
 
