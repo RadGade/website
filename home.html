@@ -391,15 +391,9 @@ $("#postbtn").click(function() {
   };	
   
 var div = document.createElement("div");
-var div2 = document.createElement("div");
-
-
 div.innerHTML = statusText + "<br>" + Date() + "<br><br>";
-document.getElementById("file-content").appendChild(div);
-document.getElementById("content").appendChild(div2);       
+$("#file-content").prepend(div);		
 
-
-div2.insertBefore(div, null);
 	
     function saveNewStatus() {
     userSession.getFile("statuses.json", { decrypt: false })
