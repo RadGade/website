@@ -428,7 +428,8 @@ $("#postbtn").click(function() {
             .then((file) => {   
             var statuses = JSON.parse(file);
                   document.getElementById("file-content").innerHTML = statuses[0].text + "<br>" + statuses[0].created_at + "<br><br>";
-                  console.log(statuses[0].text);
+                  console.log(statuses);
+		  
 		   }); 
   }
 showNewStatus();
