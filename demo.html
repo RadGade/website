@@ -399,26 +399,17 @@ $("#postbtn").click(function() {
     statuses.unshift(status);
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false }).then((content)=>{
     
-    userSession.getFile("statuses.json", { decrypt: false })
-
-    .then((file) => {   
-
  
-	    var childElement = document.createElement('div');
-
-          childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
-
-          document.getElementById("content").appendChild(childElement);
-	    
-	    
-	    
-	    
-    })   
     })	   
     }); 
 }
   saveNewStatus();
-  
+     userSession.getFile("statuses.json", { decrypt: false })
+    .then((file) => {   
+          var childElement = document.createElement('div');
+          childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
+          document.getElementById("content").appendChild(childElement);
+    })   
 	
 	
   $("#ityped").val("");
