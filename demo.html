@@ -420,7 +420,62 @@ $("#postbtn").click(function() {
 
 }
   saveNewStatus()
-  fetchData()
+	    userSession.getFile("statuses.json", { decrypt: false })
+
+	    .then((file) => {   
+
+
+
+
+
+	    var statuses = JSON.parse(file);
+
+	    console.log(statuses);
+
+	    //console.log(typeof statuses);
+
+	    //console.log(statuses[0]);
+
+	    //console.log(statuses[0].text);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+		  var childElement = document.createElement('div');
+
+		  childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
+
+		  document.getElementById("content").appendChild(childElement);
+
+
+
+
+
+
+		//document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
+
+
+
+
+
+	    }); 
 	   
 	$("#ityped").val("");
   })
