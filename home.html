@@ -407,7 +407,8 @@ $("#postbtn").click(function() {
      userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {   
           var childElement = document.createElement('div');
-          childElement.innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>"
+	  var n = statuses.length
+          childElement.innerHTML = statuses[n].text + "<br>" + statuses[n].created_at + "<br><br>"
           document.getElementById("content").appendChild(childElement);
     })   
 	
