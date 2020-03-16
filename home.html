@@ -400,7 +400,8 @@ $("#postbtn").click(function() {
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false }).then((content)=>{
     
  
-    })	   
+    })	  for (i in statuses) {
+	    
 	  var childElement = document.createElement('div');
 
           var n = statuses.length
@@ -408,7 +409,7 @@ $("#postbtn").click(function() {
           childElement.innerHTML = statuses[n].text + "<br>" + statuses[n].created_at + "<br><br>"
 
           document.getElementById("content").appendChild(childElement);
-
+   	 }
     
 	    
     }); 
