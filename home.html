@@ -388,7 +388,9 @@ $("#postbtn").click(function() {
         var status = {
         text: statusText,
         created_at: Date() 
-  };
+  };	
+  document.getElementById("file-content").innerHTML = statusText + "<br>" + Date() + "<br><br>";
+	
     function saveNewStatus() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {   
@@ -399,16 +401,7 @@ $("#postbtn").click(function() {
 }
   saveNewStatus();
 	
-	function showNewStatus() {
-	    userSession.getFile("statuses.json", { decrypt: false })
-	    .then((file) => {   
-	    var statuses = JSON.parse(file);
-		
-		  document.getElementById("file-content").innerHTML = statuses[-1].text + "<br>" + statuses[-1].created_at + "<br><br>";
-		  console.log(statuses[-1].text);
-		
-	    }); 
-	}
+	
 
 
     
@@ -423,16 +416,7 @@ $("#postbtn").click(function() {
 
         
 
-  function showNewStatus() {
-            userSession.getFile("statuses.json", { decrypt: false })
-            .then((file) => {   
-            var statuses = JSON.parse(file);
-                  document.getElementById("file-content").innerHTML = statuses[0].text + "<br>" + statuses[0].created_at + "<br><br>";
-                  console.log(statuses);
-		  
-		   }); 
-  }
-showNewStatus();
+ 
 	
 	
 	
