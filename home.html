@@ -116,8 +116,6 @@
 
 				background-size: cover;
 				background-attachment: fixed;
-				cursor: url('https://www.rw-designer.com/cursor-extern.php?id=108322'), auto;	
-
 				font-family: arial;
 		}
 
@@ -161,7 +159,7 @@
 		}
 
 		#postbtn {
-				border-color: red;
+			border-color: red;
 			border-radius: 12px;
 			border-style: groove;
 			border-width: 3px;
@@ -386,7 +384,7 @@ $("#postbtn").click(function() {
         text: statusText,
         created_at: Date()
   };
-
+ window.scrollBy(0, 100);
 
 var div = document.createElement("div");
 div.innerHTML = statusText + "<br><br>" + moment(Date()).fromNow() + "<br><hr><br>";
