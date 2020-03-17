@@ -1,11 +1,5 @@
-var appConfig = new blockstack.AppConfig(
-  ['email', 'publish_data', 'store_write'], // app access scopes
-  // You also can pass
-  // appDomain
-  // redirectPath
-  // manifestPath 
-);
-appDomain: "https://genderev.com";
+var appConfig = new blockstack.AppConfig(['email', 'publish_data', 'store_write']);
+
 appConfig.appDomain = () => "https://genderev.com";
 appDomain = () => "https://genderev.com";
 appDomain = "https://genderev.com";
