@@ -12,16 +12,7 @@
 
 <style>
 
-    .mouse
-    {
-    position:absolute;
-    visibility:visible;
-    top:-50px;
-    font-size:8px;
-    font-family:arial;
-    color:grey;
-    }
-
+   
 		button {
 
 			border-color: transparent;
@@ -125,9 +116,7 @@
 
 				background-size: cover;
 				background-attachment: fixed;
-        width:100%;
-        overflow-x:hidden;
-        overflow-y:scroll;
+				cursor: url(http://www.rw-designer.com/cursor-extern.php?id=108322), auto;
 
 				font-family: arial;
 		}
@@ -272,64 +261,7 @@
 
 		</style>
 
-  <script>
-  var x,y
-  var step=10
-  var doit=0
-  var text="⚪️"
-  text=text.split("")
-
-  var xpos=new Array()
-  for (i=0;i<=text.length-1;i++) {
-  	xpos[i]=-50
-  }
-
-  var ypos=new Array()
-  for (i=0;i<=text.length-1;i++) {
-  	ypos[i]=-50
-  }
-
-  function anddo(e){
-  	x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX
-  	y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY
-  	doit=1
-  }
-
-  function trail() {
-  	if (doit==1 && document.all) {
-      	for (i=text.length-1; i>=1; i--) {
-     			xpos[i]=xpos[i-1]+step
-  			ypos[i]=ypos[i-1]
-      	}
-  		xpos[0]=x+step
-  		ypos[0]=y
-
-  		for (i=0; i<text.length-1; i++) {
-      		var place = eval("span"+(i)+".style")
-      		place.posLeft=xpos[i]
-  			place.posTop=ypos[i]
-      	}
-  	}
-
-  	else if (doit==1 && document.layers) {
-      	for (i=text.length-1; i>=1; i--) {
-     			xpos[i]=xpos[i-1]+step
-  			ypos[i]=ypos[i-1]
-      	}
-  		xpos[0]=x+step
-  		ypos[0]=y
-
-  		for (i=0; i<text.length-1; i++) {
-      		var place = eval("document.span"+i)
-      		place.left=xpos[i]
-  			place.top=ypos[i]
-      	}
-  	}
-  		var timer=setTimeout("trail()",30)
-  }
-
-</script>
-
+  
 
 </head>
 
@@ -340,7 +272,7 @@
 
 
 
-<body onLoad="trail()">
+<body>
 		<div class="buttons"><button id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button id="login-button">log out</button></div>
 		<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Paint_palette.png">
 
@@ -498,22 +430,6 @@ $("#file-content").prepend(div);
 
 </script>
 
-<script>
-
-// mouse cursor code... let's see
-
-for (i=0;i<=text.length-1;i++) {
-    document.write("<span id='span"+i+"' class='mouse'>")
-	document.write(text[i])
-    document.write("</span>")
-}
-
-if (document.layers){
-	document.captureEvents(Event.MOUSEMOVE);
-}
-document.onmousemove = anddo;
-
-</script>
 
 
 
