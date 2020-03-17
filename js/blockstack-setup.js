@@ -5,7 +5,11 @@ var appConfig = new blockstack.AppConfig(
   // redirectPath
   // manifestPath 
 );
-
+appDomain: "https://genderev.com";
+appConfig.appDomain = () => "https://genderev.com";
+appDomain = () => "https://genderev.com";
+appDomain = "https://genderev.com";
+  
 
 var userSession = new blockstack.UserSession({
   appConfig,
