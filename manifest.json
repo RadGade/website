@@ -2,7 +2,7 @@
   "name": "GENDEREV",
   "short_name": "GENDEREV",
   "lang": "en-US",
-  "start_url": "/index.html",
+  "start_url": "http://genderev.com",
   "display": "standalone",
   "theme_color": "#0000ff",
   "icons": [
