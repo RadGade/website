@@ -1,14 +1,4 @@
-var appConfig = new blockstack.AppConfig(
-      
-      
-        
-
-  ['email', 'publish_data', 'store_write'], 
-      
-      
-          
-        
-);
+const appConfig = new AppConfig(['store_write', 'publish_data'])
 
 const appDomain = "https://genderev.com";
   
