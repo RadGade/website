@@ -6,7 +6,6 @@ var appConfig = new blockstack.AppConfig(
   // manifestPath 
 );
 
-appConfig.appDomain = 'https://genderev.com'
 
 var userSession = new blockstack.UserSession({
   appConfig,
