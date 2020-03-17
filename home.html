@@ -343,7 +343,7 @@ function fetchData() {
 	  childElement.innerHTML = statuses[i].text + "<br>" + moment(statuses[i].created_at).fromNow() + "<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 
-          console.log(moment(statuses[0].created_at).fromNow());
+          console.log(moment(statuses.created_at).fromNow());
 	}
 
         //document.getElementsByClassName("entries").innerHTML = JSON.stringify(statuses,null,10);
