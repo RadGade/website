@@ -384,7 +384,11 @@ $("#postbtn").click(function() {
         text: statusText,
         created_at: Date()
   };
- window.scrollBy(0, 100);
+ window.scroll({
+  top: 200, 
+  left: 0, 
+  behavior: 'smooth'
+});
 
 var div = document.createElement("div");
 div.innerHTML = statusText + "<br><br>" + moment(Date()).fromNow() + "<br><hr><br>";
