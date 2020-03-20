@@ -349,7 +349,11 @@ hr.style-eight:after {
 <script>
 
 $(function() {
-  $("body").prognroll();
+  $("body").prognroll({
+    height: 5, // progress bar height
+    color: "#333399", // progress bar background color
+    custom: false // if you make it true, you can add your custom div and see it's scroll progress on the page
+  });
 });
 
 function fetchData() {
