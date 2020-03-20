@@ -7,6 +7,7 @@
 <script src="https://unpkg.com/blockstack@19.3.0/dist/blockstack.js" integrity="sha384-kscoAgc5pZqovHWSKndfyn3OeKHfRSh+Xc5wYc+E02BuyQV2zwEEHJ7p5drKnRrX" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script src="js/blockstack-setup.js"></script>
+<script src="https://raw.githack.com/mburakerman/prognroll/master/src/prognroll.min.js"></script>
 
 <bold><title>GENDEREV</title></bold>
 
@@ -337,6 +338,9 @@ hr.style-eight:after {
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
 
+$(function() {
+  $("body").prognroll();
+});
 
 function fetchData() {
 
@@ -385,10 +389,6 @@ $("#helpbtn").click(function() {
 
 
 
-
-
-
-
 $("#postbtn").click(function() {
   var self = $("#postbtn");
   if (!self.data("add")) {
@@ -425,42 +425,12 @@ $("#file-content").prepend(div);
 }
   saveNewStatus();
 
-
-
-
-
-
-
   $("#ityped").val("");
 
 
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
-
-
-
-
-
-
 </body>
-
-
-
-
 </html>
