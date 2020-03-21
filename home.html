@@ -316,7 +316,7 @@ hr {
 		<br>
 
 
-		<button type="button" class="bubbly-button" id="postbtn"> post 📩</button>
+		<button type="button" id="postbtn"> post 📩</button>
 
 		</div>
 
@@ -438,11 +438,11 @@ $("#file-content").prepend(div);
 
 
   });
-$("input[type=button]").attr('disabled','disabled');
+$("#postbtn").attr('disabled','disabled');
 	
 $("#ityped").keyup(function(){
 if (document.getElementById("ityped").value != ""){
-$("input[type=button]").removeAttr('disabled');
+$("#postbtn").removeAttr('disabled');
 }
 });
 
