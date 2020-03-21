@@ -441,7 +441,7 @@ $("#file-content").prepend(div);
 $("#postbtn").attr('disabled','disabled');
 	
 $("#ityped").keyup(function(){
-if ((document.getElementById("ityped").value).trim() != ""){
+if ((document.getElementById("ityped").value).trim() !== ""){
 $("#postbtn").removeAttr('disabled');
 }
 });
