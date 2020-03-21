@@ -486,6 +486,26 @@ if ((document.getElementById("ityped").value).trim() !== ""){
 $("#postbtn").removeAttr('disabled');
 }
 });
+	
+// Get the input field
+var input = document.getElementById("ityped");
+
+  
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", 
+  function(event) {
+  
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 
+  13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("postbtn").click();
+  
+  }
+}); 			
+	
 
 </script>
 <script src="https://raw.githack.com/mburakerman/prognroll/master/src/prognroll.min.js"></script>
