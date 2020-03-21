@@ -25,7 +25,7 @@ var __assign = (this && this.__assign) || function () {
 };
 //default settings
 var typewriterSettings = {
-    writeDelay: 10,
+    writeDelay: 1,
     deleteDelay: 10,
     holdOnceWritten: 500,
     holdOnceDeleted: 150,
