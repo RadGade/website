@@ -50,6 +50,28 @@
 <bold><title>GENDEREV</title></bold>
 
 <style>
+	
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.cursor--small {
+  width: 5px;
+  height: 5px;
+  left: -2.5px;
+  top: -2.5px;
+  border-radius: 50%;
+  z-index: 11000;
+  background: var(--color-text);
+}
+.cursor--canvas {
+  width: 100vw;
+  height: 100vh;
+  z-index: 12000;
+}
+	
 #postbtn:disabled {
 	opacity: 0.6;
   	cursor: not-allowed;
@@ -340,7 +362,8 @@ hr {
 		<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id = "img1" alt="GENDEREV BANNER" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Paint_palette.png">
 
 
-
+<div class="cursor cursor--small"></div>
+      <canvas class="cursor cursor--canvas" resize></canvas>
 
 				<center>
 
@@ -506,11 +529,73 @@ input.addEventListener("keyup",
   }
 }); 			
 	
+let lastX = 0;
+let lastY = 0;
+let isStuck = false;
+let showCursor = false;
+let group, stuckX, stuckY, fillOuterCursor;
 
+const initCanvas = () => {
+  const canvas = document.querySelector(".cursor--canvas");
+  const shapeBounds = {
+    width: 75,
+    height: 75
+  };
+  paper.setup(canvas);
+  const strokeColor = "rgba(255, 0, 0, 0.5)";
+  const strokeWidth = 1;
+  const segments = 8;
+  const radius = 15;
+  
+  // we'll need these later for the noisy circle
+  const noiseScale = 150; // speed
+  const noiseRange = 4; // range of distortion
+  let isNoisy = false; // state
+  
+  // the base shape for the noisy circle
+  const polygon = new paper.Path.RegularPolygon(
+    new paper.Point(0, 0),
+    segments,
+    radius
+  );
+  polygon.strokeColor = strokeColor;
+  polygon.strokeWidth = strokeWidth;
+  polygon.smooth();
+  group = new paper.Group([polygon]);
+  group.applyMatrix = false;
+  
+  const noiseObjects = polygon.segments.map(() => new SimplexNoise());
+  let bigCoordinates = [];
+  
+  // function for linear interpolation of values
+  const lerp = (a, b, n) => {
+    return (1 - n) * a + n * b;
+  };
+  
+  // function to map a value from one range to another range
+  const map = (value, in_min, in_max, out_min, out_max) => {
+    return (
+      ((value - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+    );
+  };
+  
+  // the draw loop of Paper.js 
+  // (60fps with requestAnimationFrame under the hood)
+  paper.view.onFrame = event => {
+    // using linear interpolation, the circle will move 0.2 (20%)
+    // of the distance between its current position and the mouse
+    // coordinates per Frame
+    lastX = lerp(lastX, clientX, 0.2);
+    lastY = lerp(lastY, clientY, 0.2);
+    group.position = new paper.Point(lastX, lastY);
+  }
+}
+
+initCanvas();
 </script>
 <script src="https://raw.githack.com/mburakerman/prognroll/master/src/prognroll.min.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
 
 
 
