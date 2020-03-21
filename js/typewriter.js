@@ -29,7 +29,7 @@ var typewriterSettings = {
     deleteDelay: 40,
     holdOnceWritten: 1000,
     holdOnceDeleted: 300,
-    stopAfterOnce: false
+    stopAfterOnce: true
 };
 var TypewriterProps = /** @class */ (function () {
     function TypewriterProps(selector, phrases, settings) {
