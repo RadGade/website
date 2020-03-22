@@ -425,6 +425,10 @@ function fetchData() {
     var statuses = JSON.parse(file);
     console.log(statuses);
 
+	    const index = statuses.indexOf(" ");
+	if (index > -1) {
+ 	 statuses.splice(index, 1);
+	}
 
 	for (i in statuses) {
 
