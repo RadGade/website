@@ -163,7 +163,7 @@
 
     #sidebar img {
         border-radius:0px;
-        width: 90%;
+        width: 100%;
         height: auto;
     }
 
@@ -328,19 +328,7 @@
 		console.log(blockstack.isUserSignedIn());
             }
 	
-	window.onscroll = function() {myFunction()};
-
-	var navbar = document.getElementById("navbar");
-	var sticky = navbar.offsetTop;
-
-	function myFunction() {
-	  if (window.pageYOffset >= sticky) {
-	    navbar.classList.add("sticky")
-	  } else {
-	    navbar.classList.remove("sticky");
-	  }
-	}
-	myFunction();
+	
             //sign in functions
       //      function doMainActionWhenUserIsSignedIn() {
       //        location.href = 'home.html';
