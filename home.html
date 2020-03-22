@@ -496,10 +496,17 @@ $("#file-content").prepend(div);
 	    
     var statuses = JSON.parse(file);
     statuses.unshift(status);
-	  const index = statuses.indexOf("");
-        if (index > -1) {
+	  
         statuses.splice(index, 1);
-    }
+	 statuses.splice(index, 3);
+	    statuses.splice(index, 4);
+	    statuses.splice(index, 6);
+	    statuses.splice(index, 7);
+	    statuses.splice(index, 5);
+	    statuses.splice(index, 17);
+	    statuses.splice(index, 20);
+	    statuses.splice(index, 18);
+    
 	   
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false })
     });
