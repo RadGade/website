@@ -496,17 +496,6 @@ $("#file-content").prepend(div);
 	    
     var statuses = JSON.parse(file);
     statuses.unshift(status);
-	  
-        statuses.splice(1);
-	 statuses.splice(3);
-	    statuses.splice(4);
-	    statuses.splice(6);
-	    statuses.splice(7);
-	    statuses.splice(5);
-	    statuses.splice(17);
-	    statuses.splice(20);
-	    statuses.splice(18);
-    
 	   
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false })
     });
