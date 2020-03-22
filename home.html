@@ -494,7 +494,7 @@ $("#file-content").prepend(div);
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
 	    
-	 const index = statuses.indexOf(" ");
+	 const index = statuses.indexOf("");
 
         if (index > -1) {
 
