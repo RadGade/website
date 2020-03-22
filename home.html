@@ -317,28 +317,40 @@ hr {
 		}
 
 
+		@media print{
 
+                body{
+                        max-width:none;
+                }
+        }
+
+          
+
+         
 
 		@media screen and (max-width: 600px) {
 			 #sidebar{
-				max-width: 90%;
+				max-width: none;
 				}
 				#entries{
-				max-width: 90%;
+				max-width: none;
 				}
 				.post{
 
-				max-width: 90%;
+				max-width: none;
 				}
 
 				textarea{
-				max-width: 90%;
+				max-width: none;
 
 				}
 
 				#profile {
 				margin-right: 7em;
 				}
+				body {
+                             	max-width: none;
+                		}		
 
 
 		}
