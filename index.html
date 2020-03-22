@@ -73,12 +73,9 @@
     a:link, a:visited {
         text-decoration: underline;
         text-shadow: 0px 0px 1px black;
-/*      color: blue; */
+     	color: blue;
         transition: 0.1s;
-/* 	making text gradient    */
-	background: -webkit-linear-gradient(to right, green , blue);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	
     }
 
 
@@ -167,7 +164,11 @@
         text-shadow: 0px -1px 0px darkgrey;
         font-style: italic;
         text-decoration: underline;
-	    
+	background: -webkit-linear-gradient(right, green , blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+   
     }
 
 	h4 {
