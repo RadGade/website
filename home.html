@@ -469,7 +469,7 @@ function fetchData() {
 	  var childElement = document.createElement('div');
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-	var postDate = "<span class = "date" style='color:black'>" + moment(statuses[i].created_at).fromNow() + "</span>"
+	var postDate = "<span class = 'date' style='color:black'>" + moment(statuses[i].created_at).fromNow() + "</span>"
 	  childElement.innerHTML =  postContent + "<br><br>" + postDate + "<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 
