@@ -283,18 +283,20 @@
                     }
                   };
 
+	      function showLogin() {
 
+              console.log(blockstackConnect);
+              blockstackConnect.showBlockstackConnect(authOptions);
+                console.log(blockstack.isUserSignedIn());
+
+            }
 
 
             document.getElementById("signup-button").addEventListener("click", showLogin);
             document.getElementById("login-button").addEventListener("click", showLogin);
 
 
-            function showLogin() {
-              console.log(blockstackConnect)
-              blockstackConnect.showBlockstackConnect(authOptions);
-		console.log(blockstack.isUserSignedIn());
-            }
+            
 	
 	
             //sign in functions
