@@ -1,1 +1,6 @@
-"publishConfig": { "registry": "https://npm.pkg.github.com/" }
+
+{
+  "name": "website",
+  "version": "1.0.0",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+}
