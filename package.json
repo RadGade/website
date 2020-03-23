@@ -1,6 +1,11 @@
-
 {
-  "name": "website",
+  "name": "@genderev",
   "version": "1.0.0",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "description": "Website for genderev.",
+  "main": "index.html",
+  "author": "GENDEREV",  
+  
+  "dependencies": {
+    "@amplitude-js": "5.10.0"
+  }
 }
