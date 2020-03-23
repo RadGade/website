@@ -6,7 +6,6 @@
   "author": "GENDEREV",  
   
   "dependencies": {
-    "@amplitude-js": "5.10.0",
     "@tributejs": "5.1.2",
     "@blockstack/connect": "2.3.1",
     "@blockstack": "19.3.0"
