@@ -491,7 +491,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var newURL = window.location.protocol + "//" + window.location.host + "#" + window.location.hash 
+	var newURL = window.location.protocol + "//" + window.location.host + "/home/" + window.location.hash 
 	window.location.hash = n
   console.log(newURL); 
 
