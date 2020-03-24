@@ -1,5 +1,5 @@
-<script src="js/nodebowl/dist/nodebowl.js"></script>
-<script>
+
+
 
 const { fs, run, http, https, url } = window.nodebowl;
 
@@ -20,4 +20,4 @@ if (myUrl) {
 
 run('url.js');
 
-</script>
+
