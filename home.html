@@ -224,7 +224,11 @@ hr {
 				text-shadow: 0px 2px 2px #006600;
 
 		}
-
+		#hidden{
+			width: 400px;
+			word-wrap:break-word;
+			background: none;
+		}
 		#entries {
 
 
@@ -440,14 +444,24 @@ hr {
 
 
 
-		<!-- POSTS --><center><div id="content">
+		<!-- POSTS -->
+		<center>
+		<div id="content">
 		<p id="file-content"></p>
 		</div></center>
-		<center><br><br><div class="buttons">
+		
+				
+
+    <center><div id="hidden" hidden><h3>Share the revolution.</h3>
+			<a href="">twitter</a>・✧・<a href="">tumblr</a>・✧・<a href="">email</a></div></center>
+
+	
+		<center><br><br>	
+		<div class="buttons">
 		<button id="aboutbtn"> about </button>&nbsp<button id = "helpbtn"> help </button>
 		</div></center>
 
-
+		
 
 
 
@@ -583,6 +597,12 @@ input.addEventListener("keyup",
   
   }
 }); 	
+	
+	$(document).ready(function() {
+
+         $('#hidden').show();
+
+  });
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
