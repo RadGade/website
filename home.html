@@ -468,6 +468,21 @@ hr {
 
 <script>
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
+	
+		
+	
+// Add a route: (http://url.to.index/#/name/Nijikokun) or (http://url.to.index/#!/name/Nijikokun) will initialize this.
+Hasher.add("/home/:name", function(name) {
+    // Alert
+    alert(name);
+    
+    // Console
+    console.log(name);
+});
+
+// Setup the Hasher
+Hasher.setup();		
+	
 
 function fetchData() {
 
