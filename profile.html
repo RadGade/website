@@ -367,7 +367,7 @@ window.addEventListener('load', (event) => {
   if (!userSession.isUserSignedIn()) {
     alert('Error: user is not signed in');
   }
-
+})
  function showProfile(profile) {
    var person = new blockstack.Person(profile)
    document.getElementById('heading-name').innerHTML = person.name()
@@ -378,22 +378,14 @@ window.addEventListener('load', (event) => {
  if (blockstack.isUserSignedIn()) {
   const userData = blockstack.loadUserData()
    showProfile(userData.profile)
- }
-//  } else if (blockstack.isSignInPending()) {
-//    blockstack.handlePendingSignIn()
-//    .then(userData => {
-//      showProfile(userData.profile)
-//    })
-//  }
+ };
+
 </script>
+	
+<script src="js/nodebowl/dist/nodebowl.js"></script>
+			
 <script async src="js/url.js"></script>
-
-
-
-
+			
 </body>
-
-
-
 
 </html>
