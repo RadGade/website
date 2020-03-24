@@ -482,7 +482,7 @@ function fetchData() {
 
 	for (i in statuses) {
 	
-	d = statuses[i].created_at
+	d = new Date(statuses[i].created_at)
         n = d.getTime()
 	  var childElement = document.createElement('div');
 	var parentid = statuses[i].text
