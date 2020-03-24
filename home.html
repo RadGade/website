@@ -482,7 +482,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	  childElement.innerHTML =  postContent + "<br><br>" + postDate + "<br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>" 
+	  childElement.innerHTML =  postContent + "<br><br>" + postDate + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>" 
 	  document.getElementById("content").appendChild(childElement);
 
           console.log(moment(statuses.created_at).fromNow());
