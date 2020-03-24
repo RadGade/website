@@ -465,28 +465,11 @@ hr {
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/mithril/mithril.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
 
-var User = {
-    list: [],
-    loadList: function() {
-        return mithril.request({
-            method: "GET",
-            url: "https://core.blockstack.org/v1/subdomains?page=3",
-            withCredentials: true,
-        })
-        .then(function(result) {
-            User.list = result.data
-	console.log(User.list)  
-        })
-    },
-}
-
-console.log(User)
-console.log(User.list)		
+	
 	
 
 function fetchData() {
@@ -508,10 +491,11 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	const exampleUrl = new URL('http://genderev.com/home#hash');  
-	
-        exampleUrl.hash = "#"+ n;
-	console.log(exampleUrl.href);	
+	var newURL = window.location.protocol + "//" + window.location.host + "#" + window.location.hash 
+	window.location.hash = n
+  console.log(newURL); 
+
+	console.log(newURL.href);	
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 
