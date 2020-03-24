@@ -43,11 +43,7 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://unpkg.com/blockstack@19.3.0/dist/blockstack.js" integrity="sha384-kscoAgc5pZqovHWSKndfyn3OeKHfRSh+Xc5wYc+E02BuyQV2zwEEHJ7p5drKnRrX" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-<script src="js/blockstack-setup.js"></script>
-<script src="js/typewriter.js"></script>
+
 
 
 <bold><title>GENDEREV</title></bold>
@@ -463,6 +459,12 @@ hr {
 		</div></center>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/blockstack@19.3.0/dist/blockstack.js" integrity="sha384-kscoAgc5pZqovHWSKndfyn3OeKHfRSh+Xc5wYc+E02BuyQV2zwEEHJ7p5drKnRrX" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+<script src="js/blockstack-setup.js"></script>
+<script src="js/typewriter.js"></script>
+
 
 
 <script>
@@ -491,17 +493,12 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var newURL = window.location.protocol + "//" + window.location.host + "/home/" + window.location.hash 
-	window.location.hash = n
-  console.log(newURL); 
-
-	console.log(newURL.href);	
+		
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 
           console.log(moment(statuses.created_at).fromNow());
-	
-	
+
 																
 	}
 
