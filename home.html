@@ -465,23 +465,30 @@ hr {
 
 
 
-<script src="js/hasher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mithril/mithril.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
-	
-Hasher.setup();
-	
-// Add a route: (http://url.to.index/#/name/Nijikokun) or (http://url.to.index/#!/name/Nijikokun) will initialize this.
-Hasher.add("/home/:name", function(name) {
-    // Alert
-    alert(name);
-    
-    // Console
-    console.log(name);
-});
 
-// Setup the Hasher
-Hasher.setup();		
+var m = require("mithril")
+
+var User = {
+    list: [],
+    loadList: function() {
+        return m.request({
+            method: "GET",
+            url: "https://core.blockstack.org/v1/subdomains?page=3",
+            withCredentials: true,
+        })
+        .then(function(result) {
+            User.list = result.data
+        })
+    },
+}
+
+module.exports = User
+
+console.log(user)
+console.log(User.list)		
 	
 
 function fetchData() {
