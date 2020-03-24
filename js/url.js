@@ -1,7 +1,7 @@
 
 
 
-const { fs, run, http, https, url } = window.nodebowl;
+const { fs, run, http, https, url, process } = window.nodebowl;
 
   // read the third argument (= the url ) & save it into a variable
 const myUrl = process.argv[2];
