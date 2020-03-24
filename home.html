@@ -495,10 +495,16 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	  childElement.innerHTML =  postContent + "<br><br>" + "<a name='"+ statuses[i].created_at +"'href='/"+statuses[i].created_at+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
+	const exampleUrl = new URL('http://genderev.com/home#hash');    
+        exampleUrl.hash = "#"+statuses[i].created_at;
+	console.log(exampleUrl.href);	
+	childElement.innerHTML =  postContent + "<br><br>" + "<a name='"+ statuses[i].created_at +"'href='#"+statuses[i].created_at+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 
           console.log(moment(statuses.created_at).fromNow());
+	
+	
+																
 	}
 
 
