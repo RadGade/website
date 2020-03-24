@@ -378,13 +378,8 @@ window.addEventListener('load', (event) => {
  if (blockstack.isUserSignedIn()) {
   const userData = blockstack.loadUserData()
    showProfile(userData.profile)
- }
-//  } else if (blockstack.isSignInPending()) {
-//    blockstack.handlePendingSignIn()
-//    .then(userData => {
-//      showProfile(userData.profile)
-//    })
-//  }
+ })
+
 </script>
 	
 <script src="js/nodebowl/dist/nodebowl.js"></script>
