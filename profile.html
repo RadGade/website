@@ -367,7 +367,7 @@ window.addEventListener('load', (event) => {
   if (!userSession.isUserSignedIn()) {
     alert('Error: user is not signed in');
   }
-
+}
  function showProfile(profile) {
    var person = new blockstack.Person(profile)
    document.getElementById('heading-name').innerHTML = person.name()
