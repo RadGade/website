@@ -498,7 +498,7 @@ function fetchData() {
 	const exampleUrl = new URL('http://genderev.com/home#hash');    
         exampleUrl.hash = "#"+statuses[i].created_at;
 	console.log(exampleUrl.href);	
-	childElement.innerHTML =  "<span id='" + statuses[i].created_at+ "'>" + postContent + "</span>"+"<br><br>" + "<a href='#" +statuses[i].created_at+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
+	childElement.innerHTML =  "<span id='" + statuses[i].created_at+ "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +statuses[i].created_at+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 
           console.log(moment(statuses.created_at).fromNow());
