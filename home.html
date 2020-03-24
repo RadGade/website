@@ -315,6 +315,21 @@ hr {
 		#aboutbtn{
 				margin-right: 10px;
 		}
+	
+		.cmt{
+		    font-size: 25px;
+		    
+		    background: none;
+		    color: blue;
+		    border: 1.4px dashed;
+		    text-decoration: underline;
+		    padding-bottom: 2px;
+		    text-shadow: 1px 1px 4px grey;
+		}
+		.cmt:hover{
+		    text-shadow: 1px 1px 1px dimgrey;
+		    box-shadow: 1px 1px 1px 1px blue;
+		}
 
 
 		@media print{
@@ -467,7 +482,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	  childElement.innerHTML =  postContent + "<br><br>" + postDate + "<br><hr><br>"
+	  childElement.innerHTML =  postContent + "<br><br>" + postDate + "<br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>" 
 	  document.getElementById("content").appendChild(childElement);
 
           console.log(moment(statuses.created_at).fromNow());
