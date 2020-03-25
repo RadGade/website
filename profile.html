@@ -179,6 +179,13 @@
 	
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
+var user = userData.username;
+var username = user.replace(".id.blockstack", "");
+console.log(username);  
+document.getElementById('heading-name').innerText = username;
+
+	
+	
 $('#login-button').click(function() {
 	signOut();
 })
@@ -188,7 +195,7 @@ $('#profile').click(function() {
 });
 
 //trigger when button is clicked	
-file = document.getElementById('upload_img').			
+file = document.getElementById('upload_img');			
 
 setFile(file) {
 this.name = file.name
@@ -207,11 +214,7 @@ window.addEventListener('load', (event) => {
   }
 })
 	
-var userData = blockstack.loadUserData();
-var user = userData.username;
-var username = user.replace(".id.blockstack", "");
-console.log(username);  
-document.getElementById('heading-name').innerText = username;
+
  
 </script>
 </body>
