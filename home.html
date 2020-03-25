@@ -474,10 +474,7 @@ function fetchData() {
 	childElement.setAttributeNode(att);                          // Add the class attribute to <h1> 
   	console.log(moment(statuses.created_at).fromNow());															
 	}
-// 		d = new Date(statuses[i].created_at)
-// 		n = d.getTime()
-// 		var myhash="home#"+n+
-// 		history.pushState(null,null,myhash);	
+
  	});				    
     $('#hidden').show();
 }
@@ -491,7 +488,7 @@ fetchData();
 });
 
 
-var b = document.getElementsbyClassName("cmt");
+var b = Document.getElementsByClassName("cmt");
 console.log(b);
 for(i in b){	
 i.addEventListener("click", myFunction);
