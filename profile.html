@@ -182,23 +182,36 @@
 $('#login-button').click(function() {
 	signOut();
 })
-</script>
-<script>
+
 $('#profile').click(function() {
 	window.location.href =("home.html");
 });
-</script>
-<script>
+
+//trigger when button is clicked	
+file = document.getElementById('upload_img').			
+
+setFile(file) {
+this.name = file.name
+this.path = `images/${file.name}`
+this.compressedPath = `compressed_images/${file.name}`
+this.uuid = uuidv4()
+this.uploadedAt = Date.now()
+const photo = this	
+}	
+console.log(photo);
+console.log(file);
+//end trigger	
 window.addEventListener('load', (event) => {
   if (!userSession.isUserSignedIn()) {
     alert('Error: user is not signed in');
   }
 })
+	
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);  
- document.getElementById('heading-name').innerText = username;
+document.getElementById('heading-name').innerText = username;
  
 </script>
 </body>
