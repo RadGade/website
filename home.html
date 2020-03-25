@@ -385,7 +385,7 @@ function fetchData() {
 	}
  	});
     $('#hidden').show();
-		$('.reply').hide()
+$('.reply').hide()
 }
 $(document).ready(function(){
 fetchData();
@@ -393,6 +393,11 @@ fetchData();
  $(document).on('click', '.cmt', function () {
       $('.reply').show();  
 });
+ $(document).on('click', '.cmt1', function () {
+      $('.reply').hide();  
+});
+
+
 
 $('#login-button').click(function() {
 	signOut();
