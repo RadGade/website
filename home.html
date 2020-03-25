@@ -338,15 +338,9 @@ var person = new blockstack.Person(profile)
 
 blockstack.loadUserData();
 console.log(blockstack.loadUserData());
-loadUserData();											    
-console.log(loadUserData());
-	
-console.log(username);
-console.log(blockstack.username)
-console.log(userData.profile);
-userData = blockstack.userData;
+var userData = blockstack.loadUserData();
 var username = UserData.username;
-
+console.log(username);
 
 function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
