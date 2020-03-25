@@ -340,12 +340,10 @@ var person = new blockstack.Person(profile)
 
 
 blockstack.loadUserData();
-console.log(blockstack.loadUserData());
 var userData = blockstack.loadUserData();
-console.log(userData);
 var user = userData.username;
-console.log(username);
-var username = str.replace("blockstack.id", "");
+var username = user.replace("blockstack.id", "");
+console.log(username);	
  
 
 function fetchData() {
