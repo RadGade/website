@@ -130,6 +130,9 @@ hr {
 		::placeholder {
 				color: dimgrey;
 		}
+		.reply{
+		display:none;
+		}
 
 		textarea:hover {
 				box-shadow: 0px 0px 5px black;
@@ -491,7 +494,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var reply = "<br><br><button class='cmt' type = 'button'><em>reply</em></button>" + "<div class='reply' hidden><br><textarea placeholder='reply here'></textarea><br><button type = 'button'>submit</button></div>"
+	var reply = "<br><br><button class='cmt' type = 'button'><em>reply</em></button>" + "<div class='reply'><br><textarea placeholder='reply here'></textarea><br><button type = 'button'>submit</button></div>"
 	
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + reply +"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
