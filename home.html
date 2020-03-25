@@ -505,6 +505,16 @@ $(".cmt").on('click', function(event){
 	document.getElementById("ityped").appendChild(div);	
 });
 
+ $(document).on('click', '.cmt', function () {
+        var div = document.createElement("div");
+        document.getElementById("ityped").appendChild(div);
+	event.stopPropagation();
+    	event.stopImmediatePropagation();
+});
+
+
+    
+
 
 $('#login-button').click(function() {
 	signOut();
