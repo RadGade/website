@@ -3,7 +3,7 @@
 
 window.addEventListener('load', (event) => {
   if (!userSession.isUserSignedIn()) {
-    alert('Error: user is not signed in');
+    alert('Error: User is not signed in.');
   }
 
 });
