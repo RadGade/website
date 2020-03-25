@@ -179,6 +179,7 @@
 	
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
+var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);  
