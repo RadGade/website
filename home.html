@@ -424,10 +424,7 @@ $("#postbtn").click(function() {
   }
   var statusText = document.getElementById("ityped").value;
   console.log(statusText);
-        var status = {
-        text: statusText,
-        created_at: Date()
-  };
+        
  window.scroll({
   top: 200,
   left: 0,
@@ -439,10 +436,14 @@ $("#file-content").prepend(div);
     function saveNewStatus() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
-
-    var statuses = JSON.parse(file);
+    var statuses = JSON.parse(file);    
+	var status = {
+        parent_id: statuses.length + 1,
+        username: username,
+        text: statusText,
+        created_at: Date()
+  };        
     statuses.unshift(status);
-
     userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false })
     });
 }
