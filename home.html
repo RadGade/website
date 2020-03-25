@@ -495,7 +495,7 @@ function fetchData() {
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 	
-var myhash="'/home#"+n+"'"
+var myhash="'home#"+n+"'"
 if(history.pushState) {
 
     history.pushState(null, null,myhash);
