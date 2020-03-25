@@ -466,7 +466,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	childElement.innerHTML =  "<span id='" + n + "'><br><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><br><button class='cmt'>reply</button>" +"<br><hr>"
+	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><button class='cmt'>reply</button>" +"<br><hr>"
 	document.getElementById("content").appendChild(childElement);
 	
 	var att = document.createAttribute("items");       // Create a "class" attribute
@@ -491,15 +491,16 @@ fetchData();
 });
 
 
-var b = document.querySelectorAll("cmt");
+var b = document.getElementsbyClassName("cmt");
 console.log(b);
-b.addEventListener("click", myFunction);
+for(i in b){	
+i.addEventListener("click", myFunction);
 function myFunction() {
 var div = document.createElement("div");                 // Create a <p> element
 div.innerHTML = "This is a paragraph.";                // Insert text
 document.getElementsByClassName("items").appendChild(div);     // Append <p> to <div> with id="myDIV"      
 };
-
+}
 
 
 
