@@ -441,6 +441,17 @@ hr {
 <script>
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
+// show reply box
+
+var a = document.getElementsByClassName("reply") 
+var b = document.getElementsByClassName("cmt")   
+console.log(a);
+console.log(b);
+b.onclick = function(){myFunction};
+function myFunction() {
+ a.style.display = "block";
+});
+
 
 
 	
@@ -500,15 +511,6 @@ $("#helpbtn").click(function() {
 });
 
 
-var a = document.getElementsByClassName("reply") 
-var b = document.getElementsByClassName("cmt")   
-console.log(a);
-console.log(b);
-$(".cmt").click(function() {
-
-    a.style.display = "block";
-
-});
 
 
 
