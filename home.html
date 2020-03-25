@@ -503,21 +503,20 @@ function fetchData() {
 																
 	}
 
+   
+		d = new Date(statuses[i].created_at)
+		n = d.getTime()
+		var myhash="home#"+n+
 
+		if(history.pushState) {
 
-    });
-	d = new Date(statuses[i].created_at)
-        n = d.getTime()
-	var myhash="home#"+n+
+		    history.pushState(null, null,myhash);
+		}
+		else {
 
-	if(history.pushState) {
-
-	    history.pushState(null, null,myhash);
-	}
-	else {
-
-	    location.hash = myhash;
-	}
+		    location.hash = myhash;
+		}
+ 	});				    
     $('#hidden').show();
 }
 	
