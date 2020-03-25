@@ -499,10 +499,21 @@ $("#helpbtn").click(function() {
   window.location.href = ("help.html");
 });
 
-$(".cmt").click(function() {
-    element.getElementsByClassName("reply");
-	x.style.display = "block";
+ var x = element.getElementsByClassName("reply") 
+var y = element.getElementsByClassName("cmt")	
+$(y).click(function() {
+    x.style.display = "block";
 });
+var a = document.getElementsByClassName("reply") 
+var b = element.getElementsByClassName("cmt")   
+$(b).click(function() {
+
+    a.style.display = "block";
+
+});
+
+
+var y = element.getElementsByClassName("cmt")   
 
 
 
