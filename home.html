@@ -441,16 +441,7 @@ hr {
 <script>
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
-// show reply box
 
-var a = document.getElementsByClassName("reply") 
-var b = document.getElementsByClassName("cmt")   
-console.log(a);
-console.log(b);
-document.getElementById("ityped").addEventListener("click", myFunction);
-function myFunction() {
- a.style.display = "block";
-};
 
 
 
@@ -475,9 +466,9 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var reply = "<br><br><button class='cmt' type = 'button'><em>reply</em></button>" + "<div class='reply'><br><textarea placeholder='reply here'></textarea><br><button type = 'button'>submit</button></div>"
+
 	
-	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + reply +"<br><hr><br>"
+	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
           console.log(moment(statuses.created_at).fromNow());															
 	}
@@ -489,6 +480,21 @@ function fetchData() {
     $('#hidden').show();
 }
 	
+	
+
+
+
+var b = document.getElementsByClassName("cmt")   
+console.log(b);
+b.addEventListener("click", myFunction);
+function myFunction() {
+var div = document.createElement("div");                 // Create a <p> element
+div.innerHTML = "This is a paragraph.";                // Insert text
+document.getElementsByClassName("cmt").appendChild(div);     // Append <p> to <div> with id="myDIV"      
+};
+
+
+
 	
 	
 $(document).ready(function(){
