@@ -507,15 +507,8 @@ function fetchData() {
 		d = new Date(statuses[i].created_at)
 		n = d.getTime()
 		var myhash="home#"+n+
-
-		if(history.pushState) {
-
-		    history.pushState(null, null,myhash);
-		}
-		else {
-
-		    location.hash = myhash;
-		}
+		history.pushState(null,null,myhash);
+		
  	});				    
     $('#hidden').show();
 }
