@@ -466,7 +466,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<button class='cmt'>reply</button>" +"<br><hr>"
+	childElement.innerHTML =  "<span id='" + n + "'><br><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><br><button class='cmt'>reply</button>" +"<br><hr>"
 	document.getElementById("content").appendChild(childElement);
 	
 	var att = document.createAttribute("items");       // Create a "class" attribute
