@@ -464,19 +464,12 @@ hr {
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script src="js/blockstack-setup.js"></script>
 <script src="js/typewriter.js"></script>
-<script src="//balupton.github.io/jquery-scrollto/lib/jquery-scrollto.js"></script>
-<script src="//browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
-<script src="//rawgithub.com/browserstate/ajaxify/master/ajaxify-html5.js"></script>
 
 
 <script>
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
 
-
-
-History.getState();
-console.log(History.getState());
 
 	
 
@@ -503,7 +496,7 @@ function fetchData() {
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
 	
-var myhash="'#"+n+"'"
+var myhash="'/home#"+n+"'"
 if(history.pushState) {
 
     history.pushState(null, null,myhash);
