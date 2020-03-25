@@ -40,7 +40,6 @@
     font-style: italic;
     text-decoration: underline;
 }
-
 		button {
 
 			border-color: transparent;
@@ -80,7 +79,6 @@
 				display: flex;
 				align-items: center;
 				justify-content: center
-
 		}
 		#title br + br {margin-top: 0.825rem;}
 		#title {
@@ -107,7 +105,6 @@
 				margin-right: 210px;
 				color: darkblue;
 				box-shadow: 0px 0px 10px 2px darkblue;
-
 				}
 		#profile:hover{
 				box-shadow: 0px 0px 10px 2px blue;
@@ -134,10 +131,11 @@
 				transition: 0.1s;
 		}
 		a:hover {
-
 				text-shadow: 0px 2px 2px #006600;
-
 		}
+	
+
+		.entries {display:block; margin-left:auto; margin-right:auto; padding-top: 15px;padding-bottom: 15px;width: 400px;word-wrap:break-word;background: none;transition: 0.1s;}
 		h2 {
 		font-weight: normal;
 		margin-block-start: 0em;
@@ -173,9 +171,9 @@
 </head>
 <body>
 	<div class="buttons"><button id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button id="login-button">log out</button></div>
-	<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center>
+	<div class = "entries"><div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center>
 	<h2 ><em id="heading-name"></em></h2>
-	<br>
+	<br></div>
 	
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
