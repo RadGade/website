@@ -491,7 +491,7 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var reply = "<br><br><button class='cmt'><em>reply</em></button>" + "<br><div class='reply' hidden><textarea></textarea><br><button>submit</button></div>"
+	var reply = "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply' hidden><br><textarea></textarea><br><button>submit</button></div>"
 	
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + reply +"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
@@ -527,7 +527,7 @@ $("#helpbtn").click(function() {
 });
 
 $(".cmt").click(function() {
-  $(".reply").attr( "style", "display: block !important;" )
+    $(".reply").show();
 });
 
 
