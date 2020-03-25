@@ -138,8 +138,14 @@
 				text-shadow: 0px 2px 2px #006600;
 
 		}
+		h2 {
+		font-weight: lighter;
+		margin-block-start: 0em;
+    		margin-block-end: 0em;
+		}
 		#heading-name{
 			text-decoration: underline dotted;
+			text-align: left;
 		}
 		#aboutbtn{
 				margin-right: 10px;
@@ -167,10 +173,9 @@
 <body>
 	<div class="buttons"><button id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button id="login-button">log out</button></div>
 	<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png">
-	<center>
 	<h2 ><em id="heading-name"></em></h2>
 	<br>
-	</center>
+	
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
 $('#login-button').click(function() {
