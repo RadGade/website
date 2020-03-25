@@ -16,7 +16,7 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <bold><title>GENDEREV</title></bold>
-	
+
 <style>
 .cursor {
   position: fixed;
@@ -330,37 +330,48 @@ hr {
 <script src="js/typewriter.js"></script>
 
 <script>
+
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
+
+if (blockstack.isUserSignedIn()) {
+ const userData = blockstack.loadUserData()
+	showProfile(userData.profile)
+};
+
+var person = new blockstack.Person(profile)
+var username = UserData.username
+console.log(username)
+console.log(userData.profile)
+
 function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
     var statuses = JSON.parse(file);
     console.log(statuses);
-	for (i in statuses) {	
+	for (i in statuses) {
 	d = new Date(statuses[i].created_at)
         n = d.getTime()
 	  var childElement = document.createElement('div');
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><button class='cmt'>reply</button>" +"<br><hr>"
-	document.getElementById("content").appendChild(childElement);	
+	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" +  + "</span>"
+	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea><p>" + username +"<small><i>"+ Date() +"</i></small></p><br><button>post</button></div>"
+	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><button class='cmt'>reply</button>" + reply + "<br><hr>"
+	document.getElementById("content").appendChild(childElement);
 	var att = document.createAttribute("items");       // Create a "class" attribute
 	att.value = "democlass";                           // Set the value of the class attribute
-	childElement.setAttributeNode(att);                          // Add the class attribute to <h1> 
-  	console.log(moment(statuses.created_at).fromNow());															
+	childElement.setAttributeNode(att);                          // Add the class attribute to <h1>
+  	console.log(moment(statuses.created_at).fromNow());
 	}
- 	});				    
+ 	});
     $('#hidden').show();
+		$('.reply').hide()
 }
 $(document).ready(function(){
 fetchData();
 });
  $(document).on('click', '.cmt', function () {
-        var div = document.createElement("div");
-        document.getElementById("ityped").appendChild(div);
-	event.stopPropagation();
-    	event.stopImmediatePropagation();
+      $('.reply').show();  
 });
 
 $('#login-button').click(function() {
@@ -520,10 +531,10 @@ const initCanvas = () => {
     group.position = new paper.Point(lastX, lastY);
   }
 }
-initCanvas();		
+initCanvas();
 </script>
-<script src="js/prognroll.js"></script>			
-<script>  
+<script src="js/prognroll.js"></script>
+<script>
 $(function() {
 
   $("body").prognroll({
@@ -531,8 +542,8 @@ $(function() {
     color: "#333399", // progress bar background color
     custom: false // if you make it true, you can add your custom div and see it's scroll progress on the page
   });
-});     	
-</script>	
+});
+</script>
 <script async src="js/signedin.js"></script>
 </body>
 </html>
