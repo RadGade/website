@@ -377,7 +377,7 @@ function fetchData() {
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>" 
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
 	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button class='cmt1'>post</button></div>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span class='date'>from:"+ username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
+	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:23px'>from:"+ username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
 	document.getElementById("content").appendChild(childElement);
 	var att = document.createAttribute("items");       // Create a "class" attribute
 	att.value = "democlass";                           // Set the value of the class attribute
