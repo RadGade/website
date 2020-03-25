@@ -202,7 +202,7 @@ $('#profile').click(function() {
 //trigger when button is clicked	
 file = document.getElementById('upload_img');			
 
-setFile(file) {
+function setFile(file) {
 this.name = file.name
 this.path = `images/${file.name}`
 this.compressedPath = `compressed_images/${file.name}`
