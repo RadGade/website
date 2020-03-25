@@ -355,12 +355,6 @@ new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are aw
 
 var person = new blockstack.Person(profile)
 
-
-blockstack.loadUserData();
-var userData = blockstack.loadUserData();
-var user = userData.username;
-var username = user.replace(".id.blockstack", "");
-console.log(username);	
  
 
 function fetchData() {
@@ -376,7 +370,7 @@ function fetchData() {
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>" 
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
 	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button class='cmt1'>post</button></div>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
+	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
 	document.getElementById("content").appendChild(childElement);
 	var att = document.createAttribute("items");      
 	att.value = "democlass";                           
