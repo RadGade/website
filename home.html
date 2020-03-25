@@ -447,7 +447,7 @@ var a = document.getElementsByClassName("reply")
 var b = document.getElementsByClassName("cmt")   
 console.log(a);
 console.log(b);
-b.onclick = function(){myFunction};
+b.addEventListener("click", myFunction);
 function myFunction() {
  a.style.display = "block";
 };
