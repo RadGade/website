@@ -477,6 +477,7 @@ new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are aw
 
 History.getState();
 console.log(History.getState());
+
 	
 
 function fetchData() {
@@ -501,8 +502,21 @@ function fetchData() {
 		
 	childElement.innerHTML =  "<span id='" + n + "'>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>" + "<br><br><button class='cmt'><em>reply</em></button>" + "<div class='reply'></div>"+"<br><hr><br>"
 	  document.getElementById("content").appendChild(childElement);
-	link = "https://genderev.com/home#" + n
-	History.pushState(null,null,link) 
+	
+var myhash="'#"+n+"'"
+if(history.pushState) {
+
+    history.pushState(null, null,myhash);
+
+}
+
+else {
+
+    location.hash = myhash;
+
+}
+
+        	
           console.log(moment(statuses.created_at).fromNow());
 
 																
