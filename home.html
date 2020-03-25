@@ -333,18 +333,20 @@ hr {
 
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
-	
+var person = new blockstack.Person(profile)
+
+
 function loadUserData(){
-const userData = blockstack.store.getSessionData().userData;
+const userData = this.store.getSessionData().userData;
 return userData;
 }
 	
-	
-var person = new blockstack.Person(profile)
-userData = blockstack.userData
-var username = UserData.username
-console.log(username)
-console.log(userData.profile)
+console.log(username);
+console.log(blockstack.username)
+console.log(userData.profile);
+userData = blockstack.userData;
+var username = UserData.username;
+
 
 function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
