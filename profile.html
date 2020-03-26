@@ -175,7 +175,7 @@ justify-content: center
 	<div class="upload"><h3 id="heading-name"></h3></div></div>
 					      
 <script>
-$(".upload").hide();
+
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
@@ -208,6 +208,7 @@ window.addEventListener('load', (event) => {
     alert('Error: user is not signed in');
   }
 }) 
+$(".upload").hide();
 </script>
 </body>
 </html>
