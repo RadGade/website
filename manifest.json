@@ -64,6 +64,11 @@
             "type": "image/png"
         },
         {
+            "src": "/images/favicon.ico/splash.jpg",
+            "sizes": "662x662",
+            "type": "image/png"
+        },
+        {
             "src": "/images/favicon.ico/favicon-96x96.png",
             "sizes": "96x96",
             "type": "image/png"
