@@ -184,7 +184,8 @@ justify-content: center
 	</div>
 					      
 <script>
-$(".upload").hide()
+$(".upload").hide();
+$("#preview").hide();
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
@@ -216,6 +217,9 @@ function previewFile() {
   if (file) {
     reader.readAsDataURL(file);
   }
+$("#preview").show()
+
+
 }
 
 window.addEventListener('load', (event) => {
