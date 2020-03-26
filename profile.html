@@ -200,7 +200,12 @@ $('#profile').click(function() {
 	
 function previewFile() {
   const preview = Document.getElementById('preview');
+  console.log(preview);	
   const file = document.querySelector('input[type=file]').files[0];
+  console.log(file);    
+
+
+	
   const reader = new FileReader();
 
   reader.addEventListener("load", function () {
