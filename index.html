@@ -13,6 +13,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon.ico/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico/favicon-16x16.png">
+<link rel="manifest" href="manifest.json"></link>
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="favicon.cio/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -156,9 +157,9 @@
 				}
 				#sidebar img{
 				max-width: 100%;
-				}			
+				}
 		}
-	@media print{		
+	@media print{
 	#sidebar{
        max-width: 90%;
        }
@@ -238,4 +239,14 @@
 
             document.getElementById("signup-button").addEventListener("click", showLogin);
             document.getElementById("login-button").addEventListener("click", showLogin);
-</script></body></html>
+</script>
+
+
+<script type="module">
+// This is the service worker with the Cache-first network
+import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+const el = document.createElement('pwa-update');
+document.body.appendChild(el);
+</script>
+<script src="manup.min.js"></script>
+</body></html>
