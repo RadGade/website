@@ -30,10 +30,15 @@ visibility: none;
 }
  
 
-input[type="file" i]  {
+input[type="file" i]::before {
 visibility: none;
-
 }
+	
+input[type="file" i]::after{
+visibility: none;
+}
+
+	
 .custom-file-input::before {
   content: '📲🖼📥';
   white-space: nowrap;
