@@ -260,7 +260,7 @@ hr {
     margin-bottom: 2px;
     box-shadow: 0px 1px 4px 3px grey;
     }
-	
+
 .cmt1:hover{
     border: 1.4px dashed;
     box-shadow: 4px 5px 9px dimgrey;
@@ -357,7 +357,7 @@ new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are aw
 
 var person = new blockstack.Person(profile)
 
- 
+
 
 function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
@@ -369,14 +369,14 @@ function fetchData() {
         n = d.getTime()
 	  var childElement = document.createElement('div');
 	var parentid = statuses[i].text
-	var postContent = "<span class = 'postcontent'>" + parentid + "</span>" 
+	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
 	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button class='cmt1'>post</button></div>"
 	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
 	document.getElementById("content").appendChild(childElement);
-	var att = document.createAttribute("items");      
-	att.value = "democlass";                           
-	childElement.setAttributeNode(att);                         
+	var att = document.createAttribute("items");
+	att.value = "democlass";
+	childElement.setAttributeNode(att);
   	console.log(moment(statuses.created_at).fromNow());
 	}
  	});
@@ -390,7 +390,7 @@ fetchData();
       $('.reply').show();
 });
  $(document).on('click', '.cmt1', function () {
-      $('.reply').hide();  
+      $('.reply').hide();
 });
 
 
@@ -420,7 +420,7 @@ $("#postbtn").click(function() {
   }
   var statusText = document.getElementById("ityped").value;
   console.log(statusText);
-        
+
  window.scroll({
   top: 200,
   left: 0,
@@ -432,13 +432,13 @@ $("#file-content").prepend(div);
     function saveNewStatus() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
-    var statuses = JSON.parse(file);    
+    var statuses = JSON.parse(file);
 	var status = {
         parent_id: statuses.length + 1,
         username: username,
         text: statusText,
         created_at: Date()
-  };        
+  };
     statuses.unshift(status);
 // second arg of putFile is JSON.stringify(statuses)
     userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
@@ -568,7 +568,7 @@ $(function() {
 });
 </script>
 <script async src="js/signedin.js"></script>
-<script src="manup.min.js"></script>
+<script src="js/manup.min.js"></script>
 
 </body>
 </html>
