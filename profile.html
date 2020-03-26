@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -92,33 +91,24 @@
 				margin-right: 210px;
 				color: darkblue;
 				box-shadow: 0px 0px 10px 2px darkblue;
-
 				}
-
 		#profile:hover{
 				box-shadow: 0px 0px 10px 2px blue;
 			border: 1px solid blue;
 			color: blue;
 				}
-
 		button:hover {
 
 			box-shadow: 0px 0px 10px 2px black;
 			border: 1px solid black;
-
 		}
-
 		body {
-				text-shadow: 0px 0px 15px #b68989;
+				text-shadow: 0px 0px 1px #b68989;
 				font-size: 25px;
 				color: darkblue;
-
 				background-size: cover;
 				background-attachment: fixed;
-
-
 				font-family: arial;
-
 		}
 
 		a:link, a:visited {
@@ -126,111 +116,45 @@
 				text-shadow: 0px 0px 1px black;
 				color: blue;
 				transition: 0.1s;
-
 		}
-
-
 		a:hover {
-
 				text-shadow: 0px 2px 2px #006600;
-
 		}
-
-		#entries {
-
-
-				box-shadow:0px 0px 9px 2px black;
-
-				border-radius:1px;
-				padding-top: 15px;
-				padding-bottom: 15px;
-
-
-				width: 400px;
-				word-wrap:break-word;
-				background: #fff;
-				transition: 0.1s;
-
+		label{
+	    	border: 1px dashed red;
+    		margin-left: 2px;
+    		padding: 2px;
+		margin-top:4px;
+    		border-radius: 2px;
+    		box-shadow: 0px 0px 5px 1px red;
+		cursor: pointer;
+		text-shadow: 0px 0px 1px blue;
+		display: inline;
+		font-size: 1.1em;
+/* 		margin-left: 17px;	 */
 		}
-
-		#entries:hover {
-				box-shadow:0px 0px 20px 2px  darkblue;
-
-		}
-
-		#postbtn {
-				border-color: red;
-			border-radius: 12px;
-			border-style: groove;
-			border-width: 3px;
-			box-sizing: unset;
-			background-color: transparent;
-			margin-top: 0px;
-			font-family: Arial;
-			font-size: 25px;
-			box-shadow: 0px 0px 4px 4px pink;
-			color: #800000;
-			text-shadow: none;
-		}
-
-		#postbtn:hover {
-				 box-shadow: 0px 0px 20px red;
-		 border: 3px groove red;
-		 text-shadow: 1px 1px 1px  red;
-
+		label:hover{
+			box-shadow: 0px 0px 15px red;
 		}
 
 
-
-		#sidebar {
-
-
-
-				background:#ffffff;
-				padding:15px;
-				border-radius:2px;
-				margin:20px auto 40px auto;
-				word-wrap:break-word;
-				margin-top: 2px;
-				width: 400px;
-
+		.entries {display:block; margin-left:auto; margin-right:auto; padding-top: 15px;padding-bottom: 15px;width: 400px;word-wrap:break-word;background: none;transition: 0.1s;}
+		h3 {
+		font-weight: normal;
+		margin-block-start: 0em;
+    		margin-block-end: 0em;
+		font-size: 1em;
 
 		}
-
-
-
-		#sidebar img {
-				border-radius:0px;
-				width: 80%;
-				height: auto;
+		#heading-name{
+			text-decoration: underline;
+			text-align: right;
+			padding-left: 17px;
+			padding-right:17px;
 		}
-
-		#sidebar .title {
-
-				font-size: 32px;
-				letter-spacing: 0rem;
-				font-family: Arial;
-				margin-bottom: 0px;
-				color: black;
-				text-shadow: 0px -1px 0px darkgrey;
-				font-style: italic;
-				text-decoration: underline;
-		}
-
-
-		#sidebar .desc {
-				color:  darkblue;
-				font-size: 22px;
-
-		}
-
 		#aboutbtn{
 				margin-right: 10px;
 		}
-
-
-
-
 		@media screen and (max-width: 600px) {
 			 #sidebar{
 				max-width: 90%;
@@ -242,98 +166,82 @@
 
 				max-width: 90%;
 				}
-
 				textarea{
 				max-width: 90%;
-
 				}
-
 				#profile {
 				margin-right: 7em;
 				}
-
-
+				#heading-name{padding:none}
+				label{margin:none;padding:none;}
 		}
-
-
-
 		</style>
-
-
 </head>
-
-
-
-
-
-
-
-
 <body>
-		<div class="buttons"><button id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button id="login-button">log out</button></div>
-		<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png">
+	<div class="buttons"><button id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button id="login-button">log out</button></div>
+	<div class = "entries"><div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center></div>
 
 
+	<div class="edit">
+	<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
+	<center><img style="margin-left:0px;"src="" width="374px" id="preview" alt="Image preview..."></center></div>
+	<br><br>
 
 
-				<center>
-					<h2><em> profile </em></h2>
-					<br>
-					<div class="panel-landing" id="section-1">
-	        <p class="lead">
-	        </p>
-	      </div>
-	      <div class="panel-welcome hide" id="section-2">
-	        <h4><span id="heading-name">anonymous</span></h4>
-	        <p class="lead">
-	        </p>
-	      </div>
-
-		</center>
+	<div class="upload">
+	<h3 id="heading-name">
+	</h3>
+	</div>
 
 
-
-
-
-<script src="https://unpkg.com/@blockstack/connect"/></script>
-
+	</div>
 
 <script>
+$(".upload").hide();
+$("#preview").hide();
+var userData = blockstack.loadUserData();
+var user = userData.username;
+var username = user.replace(".id.blockstack", "");
+console.log(username);
+document.getElementById('heading-name').innerText ="*" + username;
 $('#login-button').click(function() {
 	signOut();
-})
-</script>
-
-
-<script>
-
+});
 $('#profile').click(function() {
 	window.location.href =("home.html");
 });
-</script>
+
+function previewFile() {
+
+  const preview = document.getElementById('preview');
+  console.log(preview);
+  const file = document.querySelector('input[type=file]').files[0];
+  console.log(file);
 
 
 
-<script>
+  const reader = new FileReader();
+
+  reader.addEventListener("load", function () {
+    // convert image file to base64 string
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+$("#preview").show()
+
+
+}
+
 window.addEventListener('load', (event) => {
   if (!userSession.isUserSignedIn()) {
     alert('Error: user is not signed in');
   }
 })
- function showProfile(profile) {
-   var person = new blockstack.Person(profile)
-   document.getElementById('heading-name').innerHTML = person.name()
-   document.getElementById('section-1').style.display = 'none'
-   document.getElementById('section-2').style.display = 'block'
- }
-
- if (blockstack.isUserSignedIn()) {
-  const userData = blockstack.loadUserData()
-   showProfile(userData.profile)
- };
-
+console.log(blockstack.lookupProfile("?page=30"));
 </script>
-<script src="manup.min.js"></script>
+<script src="js/manup.min.js"></script>
 </body>
-
 </html>

@@ -117,7 +117,7 @@ hr {
 		#question {
 				color: #000AFF;
 				font-family: 'Arial', sans-serif;
-				font-size: 27px;
+				font-size: 25px;
 				line-height: 1.25;
 				font-weight: 400;
 				text-shadow: 0px 0px 1px darkblue;
@@ -244,6 +244,27 @@ hr {
 		border: 1.4px dashed;
 		    box-shadow: 4px 5px 9px dimgrey;
 		}
+		.reply{
+			margin-left: 10px;
+			margin-top: 8px;
+		}
+		.cmt1{
+    font-size: 25px;
+    background: none;
+    color: blue;
+    border: 1.4px dashed;
+    text-decoration: underline;
+    padding-bottom: 2px;
+    margin-top:0px;
+    margin-left: 4px;
+    margin-bottom: 2px;
+    box-shadow: 0px 1px 4px 3px grey;
+    }
+	
+.cmt1:hover{
+    border: 1.4px dashed;
+    box-shadow: 4px 5px 9px dimgrey;
+    }
 		@media print{
                 body{
                         max-width:none;
@@ -306,8 +327,7 @@ hr {
 
 				<div class="post">
 
-				<p id="question">
-		 🗣 What are you thinking about?</p>
+		<p id="question">˚✧What are you thinking about?✧˚</p>
 		<textarea id="ityped" placeholder="Say more?" required></textarea>
 		<br>
 		<button type="button" id="postbtn"> post 📩</button>
@@ -335,15 +355,9 @@ hr {
 
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
-if (blockstack.isUserSignedIn()) {
- const userData = blockstack.loadUserData()
-	showProfile(userData.profile)
-};
-
 var person = new blockstack.Person(profile)
-var username = UserData.username
-console.log(username)
-console.log(userData.profile)
+
+ 
 
 function fetchData() {
     userSession.getFile("statuses.json", { decrypt: false })
@@ -355,19 +369,19 @@ function fetchData() {
         n = d.getTime()
 	  var childElement = document.createElement('div');
 	var parentid = statuses[i].text
-	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" +  + "</span>"
-	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea><p>" + username +"<small><i>"+ Date() +"</i></small></p><br><button>post</button></div>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a>"+"<br><button class='cmt'>reply</button>" + reply + "<br><hr>"
+	var postContent = "<span class = 'postcontent'>" + parentid + "</span>" 
+	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
+	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button class='cmt1'>post</button></div>"
+	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
 	document.getElementById("content").appendChild(childElement);
-	var att = document.createAttribute("items");       // Create a "class" attribute
-	att.value = "democlass";                           // Set the value of the class attribute
-	childElement.setAttributeNode(att);                          // Add the class attribute to <h1>
+	var att = document.createAttribute("items");      
+	att.value = "democlass";                           
+	childElement.setAttributeNode(att);                         
   	console.log(moment(statuses.created_at).fromNow());
 	}
  	});
     $('#hidden').show();
-		$('.reply').hide()
+$('.reply').hide()
 }
 $(document).ready(function(){
 fetchData();
@@ -375,6 +389,11 @@ fetchData();
  $(document).on('click', '.cmt', function () {
       $('.reply').show();
 });
+ $(document).on('click', '.cmt1', function () {
+      $('.reply').hide();  
+});
+
+
 
 $('#login-button').click(function() {
 	signOut();
@@ -401,10 +420,7 @@ $("#postbtn").click(function() {
   }
   var statusText = document.getElementById("ityped").value;
   console.log(statusText);
-        var status = {
-        text: statusText,
-        created_at: Date()
-  };
+        
  window.scroll({
   top: 200,
   left: 0,
@@ -416,11 +432,16 @@ $("#file-content").prepend(div);
     function saveNewStatus() {
     userSession.getFile("statuses.json", { decrypt: false })
     .then((file) => {
-
-    var statuses = JSON.parse(file);
+    var statuses = JSON.parse(file);    
+	var status = {
+        parent_id: statuses.length + 1,
+        username: username,
+        text: statusText,
+        created_at: Date()
+  };        
     statuses.unshift(status);
-
-    userSession.putFile("statuses.json", JSON.stringify(statuses), { encrypt: false })
+// second arg of putFile is JSON.stringify(statuses)
+    userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
     });
 }
   saveNewStatus();
