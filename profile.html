@@ -25,14 +25,23 @@
 <script src="js/blockstack-setup.js"></script>
 <bold><title>GENDEREV</title></bold>	
 <style>	
-input[type="file" i] {
+input[type="file" i]::-webkit-file-upload-button  {
 visibility: none;
-align-items: baseline;
+}
+.custom-file-input::before {
+  content: 'Select some files';
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
 color: blue;
 background: transparent;
 padding: 2px;
 text-align: start;
 }
+.custom-file-input:hover::before {
+  border-color: black;
+}
+
 	
 #sidebar .title {
     font-size: 32px;
