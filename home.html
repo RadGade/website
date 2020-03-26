@@ -7,10 +7,8 @@
 <link rel="apple-touch-icon" sizes="76x76" href="favicon.ico/apple-icon-76x76.png">
 <link rel="apple-touch-icon" sizes="114x114" href="favicon.ico/apple-icon-114x114.png">
 <link rel="apple-touch-icon" sizes="120x120" href="favicon.ico/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="favicon.ico/apple-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="favicon.ico/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon.ico/favicon-96x96.png">
 <link rel="manifest" href="manifest.json"></link>
 
 <meta name="msapplication-TileColor" content="#ffffff">
@@ -318,7 +316,7 @@ hr {
 </script>
 </head>
 <body>
-		<div class="buttons"><button id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button id="login-button">log out</button></div>
+		<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
 		<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id = "img1" alt="GENDEREV BANNER" src="Paint_palette.png">
 <div class="cursor cursor--small"></div>
       <canvas class="cursor cursor--canvas" resize></canvas>
@@ -343,7 +341,7 @@ hr {
 		<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgenderev.com&text=I%20just%20created%20gender">twitter</a>・✧・<a class="tumblr-share-button" href="https://www.tumblr.com/share">tumblr</a>・✧・<a href="mailto:info@example.com?&subject=&body=https://genderev.com is the future">email</a></div></center>
 		<center><br><br>
 		<div class="buttons">
-		<button id="aboutbtn"> about </button>&nbsp<button id = "helpbtn"> help </button>
+		<button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 		</div></center>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://unpkg.com/blockstack@19.3.0/dist/blockstack.js" integrity="sha384-kscoAgc5pZqovHWSKndfyn3OeKHfRSh+Xc5wYc+E02BuyQV2zwEEHJ7p5drKnRrX" crossorigin="anonymous"></script>
@@ -371,8 +369,8 @@ function fetchData() {
 	var parentid = statuses[i].text
 	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button class='cmt1'>post</button></div>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button class='cmt'>reply</button>" + reply + "<br><hr>"
+	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
+	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
 	document.getElementById("content").appendChild(childElement);
 	var att = document.createAttribute("items");
 	att.value = "democlass";
