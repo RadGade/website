@@ -172,7 +172,7 @@ justify-content: center
 		
 	<div class="edit">
 	<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><label for="upload_img">🖼 upload</label>
-	<img src="" height="80px" width="80px" alt="Image preview..."></div>																								  
+	<img src="" height="80px" id="preview" width="80px" alt="Image preview..."></div>																								  
 	<br><br>
 		
 		
@@ -199,7 +199,7 @@ $('#profile').click(function() {
 });
 	
 function previewFile() {
-  const preview = document.querySelector('img');
+  const preview = document.querySelector('preview');
   const file = document.querySelector('input[type=file]').files[0];
   const reader = new FileReader();
 
