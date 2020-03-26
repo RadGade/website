@@ -171,8 +171,8 @@ justify-content: center
 	
 		
 	<div class="edit">
-	<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><label for="upload_img">🖼 upload</label>
-	<img src="" height="80px" id="preview" width="80px" alt="Image preview..."></div>																								  
+	<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><label for="upload_img">🖼 upload</label><br>
+	<img src="" height="300px" id="preview" alt="Image preview..."></div>																								  
 	<br><br>
 		
 		
@@ -199,6 +199,7 @@ $('#profile').click(function() {
 });
 	
 function previewFile() {
+$(".upload").hide()
   const preview = document.getElementById('preview');
   console.log(preview);	
   const file = document.querySelector('input[type=file]').files[0];
