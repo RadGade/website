@@ -26,22 +26,22 @@
 <bold><title>GENDEREV</title></bold>	
 <style>	
 input[type="file"]::-webkit-file-upload-button  {
-visibility: none;	
+visibility: hidden;	
 }
  
 input[type="file"]{
-visibility: none;
+visibility: hidden;
 }
 input[type="file"]::before {
-visibility: none;
+visibility: hidden;
 }
 	
 input[type="file"]::after{
-visibility: none;
+visibility: hidden;
 opacity: 0;
 }	
 .custom-file-input::before {
-visibility: none;
+/* visibility: none; */
   content: '📲🖼📥';
   white-space: nowrap;
   -webkit-user-select: none;
@@ -56,7 +56,7 @@ text-align: start;
   border-color: black;
 }
 .custom-file-input::after{
-visibility: none;
+visibility: hidden;
 opacity: 0;
 }
 	
