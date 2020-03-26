@@ -43,12 +43,6 @@
             "sizes": "120x120",
             "type": "image/png"
         },
-
-        {
-            "src": "/images/favicon.ico/apple-icon-152x152.png",
-            "sizes": "152x152",
-            "type": "image/png"
-        },
         {
             "src": "/images/favicon.ico/apple-icon-180x180.png",
             "sizes": "180x180",
