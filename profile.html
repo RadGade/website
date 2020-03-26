@@ -198,7 +198,8 @@ opacity: 0;
 	<div class = "entries"><div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center>
 	<h3 id="heading-name"></h3>
 	<br>
-	<div ><input class="custom-file-input" type="file" id="upload_img" accept="image/*"></div></div>
+	<div ><input type="file" id="fileElem" multiple accept="image/*" style="display:none">
+<button id="fileSelect">Select some files</button><br><input class="custom-file-input" type="file" id="upload_img" accept="image/*"></div></div>
 <!-- <script src="https://unpkg.com/@blockstack/connect"/></script> -->
 <script>
 var userData = blockstack.loadUserData();
