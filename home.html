@@ -16,6 +16,48 @@
 <bold><title>GENDEREV</title></bold>
 
 <style>
+/* skeleton css */
+h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+}
+
+.o-media {
+  display: flex;
+  align-items: flex-start;
+  padding: 1em;
+  width: 400px;
+  margin: 2rem auto;
+}
+
+.o-media__figure {
+  margin-right: 1em;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  width: 50px;
+  height: 50px;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.o-media__body {
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  + .o-media__figure {
+    margin-left: 0em;
+    margin-right: 0;
+  }
+}
+/* skeleton css end */
 .cursor {
   position: fixed;
   left: 0;
@@ -284,34 +326,6 @@ hr {
 				}
 		}
 	</style>
-<!-- ANALYTICS -->
-<script type="text/javascript">
-  (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-  ;r.type="text/javascript"
-  ;r.integrity="sha384-3bSR/uIgD42pCWBeq1//B3mI/hPuWdk0L1EUnQIWfGyMOjs0VEoFLhHMqObtv2BA"
-  ;r.crossOrigin="anonymous";r.async=true
-  ;r.src="https://cdn.amplitude.com/libs/amplitude-5.10.0-min.gz.js"
-  ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
-  console.log("[Amplitude] Error: could not load SDK")}}
-  ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
-  ;function s(e,t){e.prototype[t]=function(){
-  this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-  var o=function(){this._q=[];return this}
-  ;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
-  ;for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
-  ;return this}
-  ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
-  ;for(var p=0;p<l.length;p++){s(c,l[p])}n.Revenue=c
-  ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId", "enableTracking", "setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
-  ;function v(e){function t(t){e[t]=function(){
-  e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
-  for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
-  e=(!e||e.length===0?"$default_instance":e).toLowerCase()
-  ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
-  ;e.amplitude=n})(window,document);
-
-  amplitude.getInstance().init("2006e93ea98823903f9b91f0d0742628");
-</script>
 </head>
 <body>
 		<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
@@ -333,6 +347,41 @@ hr {
 		<!-- POSTS -->
 		<center>
 		<div id="content">
+      <div id="loader"><div class="o-media c-skeleton">
+    <div class="o-media__figure">
+    </div>
+    <div class="o-media__body">
+      <h4><div class="c-skeleton__text c-skeleton__text--full c-skeleton__text--small-height"></div></h4>
+
+      <div class="c-skeleton__text"></div>
+      <div class="c-skeleton__text c-skeleton__text--small"></div>
+      <div class="c-skeleton__text c-skeleton__text--smaller"></div>
+    </div>
+  </div>
+
+   <div class="o-media c-skeleton">
+    <div class="o-media__figure">
+    </div>
+    <div class="o-media__body">
+      <h4><div class="c-skeleton__text c-skeleton__text--full c-skeleton__text--small-height"></div></h4>
+
+      <div class="c-skeleton__text"></div>
+      <div class="c-skeleton__text c-skeleton__text--small"></div>
+      <div class="c-skeleton__text c-skeleton__text--smaller"></div>
+    </div>
+    </div>
+    <div class="o-media c-skeleton">
+    <div class="o-media__figure">
+    </div>
+    <div class="o-media__body">
+      <h4><div class="c-skeleton__text c-skeleton__text--full c-skeleton__text--small-height"></div></h4>
+
+      <div class="c-skeleton__text"></div>
+      <div class="c-skeleton__text c-skeleton__text--small"></div>
+      <div class="c-skeleton__text c-skeleton__text--smaller"></div>
+    </div>
+    </div>
+  </div>
 		<p id="file-content"></p>
 		</div></center>
     <center><div id="hidden" hidden><h3>Share the revolution.</h3>
@@ -352,6 +401,15 @@ hr {
 new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
 
 var person = new blockstack.Person(profile)
+
+document.getElementsByTagName("BODY")[0].addEventListener("load", myFunction);
+
+
+function myFunction() {
+  document.getElementById("loader").style.display = "none";
+}
+
+
 
 
 
