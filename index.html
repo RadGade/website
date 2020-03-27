@@ -8,9 +8,10 @@
 <link rel="apple-touch-icon" sizes="114x114" href="favicon.ico/apple-icon-114x114.png">
 <link rel="apple-touch-icon" sizes="120x120" href="favicon.ico/apple-icon-120x120.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="favicon.ico/android-icon-192x192.png">
+<link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
 <link rel="manifest" href="manifest.json"></link>
 <link rel="prefetch" href="icon.png">
+<link rel="prefetch" href="/upup.min.js">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="favicon.cio/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -168,8 +169,8 @@
        }
 }
     </style>
-	
-<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1" crossorigin="anonymous"></script>	
+
+<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="top">
@@ -186,12 +187,12 @@
 <!-- <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script> -->
 <script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" crossorigin="anonymous" defer></script>
 <script>
-    
+
 const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
-const appDomain = "https://genderev.com";      
+const appDomain = "https://genderev.com";
 var userSession = new blockstack.UserSession({
   appConfig,
-});           
+});
         const authOptions = {
 		    userSession,
                     appDetails: {
@@ -217,7 +218,7 @@ var userSession = new blockstack.UserSession({
             document.getElementById("signup-button").addEventListener("click", showLogin);
             document.getElementById("login-button").addEventListener("click", showLogin);
 </script>
-<script async src="/upup.min.js" crossorigin="anonymous"></script>
+<script src="/upup.min.js" crossorigin="anonymous"></script>
   <script>
 	UpUp.start({
 		'content-url': 'offline.html',
