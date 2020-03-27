@@ -2,3 +2,4 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Accept-Encoding: gzip, deflate, br
+  Cache-Control: max-age=31536000, immutable
