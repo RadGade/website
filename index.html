@@ -10,8 +10,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
 <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
 <link rel="manifest" href="manifest.json"></link>
-<link rel="preload" href="icon.png">
-<link rel="preload" href="/upup.min.js">
+<link rel="preload" href="icon.png" as="image">
+<link rel="preload" href="/upup.min.js" as="script">
 <link rel="preload" href="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous" as="script">
 <link rel="prefetch" href="https://genderev.com/icon.png" as="image">
 <meta name="msapplication-TileColor" content="#ffffff">
@@ -25,11 +25,7 @@
 
 
 <style>
-button:active {
-  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
-  inset 8px 8px 16px rgba(0, 0, 0, 0.1);
-  color: #79e3b6;
-}
+
 	.black{
 	color: black;
         font-size: 23px;
@@ -49,6 +45,17 @@ button:active {
     box-shadow: 0px 0px 10px 2px black;
     border: 1px solid black;
     }
+.btn:active {
+
+  box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+
+  inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+
+  color: #79e3b6;
+
+}
+
+
     body {
         text-shadow: 0px 0px 1px #b68989;
         font-size: 25px;
