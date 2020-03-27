@@ -43,7 +43,7 @@
     border: 1px solid black;
     }
 .btn:active {
-  box-shadow: -2px -2px grey;
+  transform: translateY(4px);
 }
 
 
@@ -151,28 +151,12 @@
         text-decoration: underline;
 	font-weight: lighter;
     }
-		@media screen and (max-width: 500px) {
-      				button {
-				text-shadow: none;
-				}
-      				#sidebar {
-				max-width: 90%;
-				}
-				#sidebar img{
-				max-width: 100%;
-				}
-		}
-	@media print{
-	#sidebar{
-       max-width: 90%;
-       }
-       #sidebar img{
-       max-width: 100%;
-       }
-       .signup {
-       margin-right: 185px;
-       }
+@media screen and (max-width: 500px) {
+button {text-shadow: none;}
+#sidebar {max-width: 90%;}
+#sidebar img{max-width: 100%;}
 }
+@media print{#sidebar{max-width: 90%;}#sidebar img{max-width: 100%;}.signup {margin-right: 185px;}}
     </style>
 </head>
 <body>
