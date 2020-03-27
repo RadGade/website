@@ -1,11 +1,20 @@
-class CrossOriginWorker extends Worker {
-    constructor(scriptUrl) {
-        const b = new Blob([`importScripts('${new URL(scriptUrl).toString()}')`], { type: 'application/javascript' })
-        super(URL.createObjectURL(b));
+function XHRWorker(url, ready, scope) {
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener('load', function() {
+            var worker = new Worker(window.URL.createObjectURL(new Blob([this.responseText])));
+            if (ready) {
+                ready.call(scope, worker);
+            }
+        }, oReq);
+        oReq.open("get", url, true);
+        oReq.send();
     }
-}
-
-// 1952
-module.exports = CrossOriginWorker;
-// Cool kids
-module.exports.default = CrossOriginWorker;
+function WorkerStart() {
+        XHRWorker("https://unpkg.com/blockstack@21.0.0/dist/blockstack.js", function(worker) {
+            worker.postMessage("hello world");
+            worker.onmessage = function(e) {
+                console.log(e.data);
+            }
+        }, this);
+    }
+ WorkerStart();
