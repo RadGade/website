@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<!-- <link rel="prefetch" href="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous">					 -->
+<!-- blockstack snippet injected at netlify level -->
 <link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="favicon.ico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="favicon.ico/apple-icon-72x72.png">
@@ -169,7 +169,7 @@
 }
     </style>
 	
-<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>	
+<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1" crossorigin="anonymous"></script>	
 </head>
 <body>
 	<div class="top">
@@ -184,7 +184,7 @@
 	    <div class="desc"><center><h4>Columbia's gender revolution</h4></center></div>
             <div id="pages"><center><a href="about.html">[ about ]</a>&nbsp-&nbsp<a href="help.html">[ help ]</a></div></center></div>
 <!-- <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script> -->
-<script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" defer></script>
+<script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" crossorigin="anonymous" defer></script>
 <script>
     
 const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
@@ -217,7 +217,7 @@ var userSession = new blockstack.UserSession({
             document.getElementById("signup-button").addEventListener("click", showLogin);
             document.getElementById("login-button").addEventListener("click", showLogin);
 </script>
-<script src="/upup.min.js"></script>
+<script src="/upup.min.js" crossorigin="anonymous"></script>
   <script>
 	UpUp.start({
 		'content-url': 'index.html',
