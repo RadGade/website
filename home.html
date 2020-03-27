@@ -58,11 +58,7 @@ h4 {
     margin-right: 0;
   }
 }
-$nova-color-skeleton-start: #eee !default;
-$nova-color-skeleton-end: #e7e7e9 !default;
 
-.c-skeleton {
-}
 
 %c-skeleton__animation {
   animation-duration: 1s;
@@ -70,12 +66,12 @@ $nova-color-skeleton-end: #e7e7e9 !default;
   animation-iteration-count: infinite;
   animation-name: placeHolderShimmer;
   animation-timing-function: linear;
-  background-color: $nova-color-skeleton-end;
+  background-color: #e7e7e9;
   background-image: linear-gradient(
     to right,
-    $nova-color-skeleton-start 8%,
-    $nova-color-skeleton-end 18%,
-    $nova-color-skeleton-start 33%
+    #eee 8%,
+    #e7e7e9 18%,
+    #eee 33%
   );
   background-size: 800px 104px;
 }
