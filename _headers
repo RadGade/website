@@ -3,3 +3,5 @@
   X-Content-Type-Options: nosniff
   Accept-Encoding: gzip, deflate, br
   Cache-Control: max-age=31536000, immutable
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
