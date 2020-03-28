@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js" crossorigin="anonymous" as="script">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js" crossorigin="anonymous" as="script">
 <link rel="prefetch" href="js/prognroll.js" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" crossorigin="anonymous" as="script">
 <link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="favicon.ico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="favicon.ico/apple-icon-72x72.png">
@@ -329,7 +332,7 @@ max-width: 90%
 </head>
 <body>
 <div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
-<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id = "img1" alt="GENDEREV BANNER" src="Paint_palette.png">
+<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id ="img1" alt="GENDEREV BANNER" src="Paint_palette.png">
 <div class="cursor cursor--small"></div>
 <canvas class="cursor cursor--canvas" resize></canvas>
 
@@ -356,7 +359,7 @@ max-width: 90%
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script> -->
+<script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script src="js/blockstack-setup.js"></script>
 <script src="js/typewriter.js"></script>
