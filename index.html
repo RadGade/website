@@ -219,8 +219,7 @@ font-weight: lighter;
 <script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" crossorigin="anonymous" defer></script>
 <script>
 (async () => {
-  let w = workly.proxy("./worker.js");
-localStorage = window.localStorage
+  let w = workly.proxy("/worker.js");
 })();
 
 // const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
