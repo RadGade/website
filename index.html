@@ -201,7 +201,6 @@ font-weight: lighter;
 	}
 }
 </style>
-<script type="text/javascript" src="js/workly/workly.js"></script>
 </head>
 <body>
 <div class="top">
@@ -217,16 +216,17 @@ font-weight: lighter;
 <div id="pages"><center><a href="about.html">[ about ]</a>&nbsp-&nbsp<a href="help.html">[ help ]</a></div></center></div>
 <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" crossorigin="anonymous" defer></script>
+<!-- <script type="text/javascript" src="js/workly/workly.js"></script> -->
 <script>
-(async () => {
-  let w = workly.proxy("/worker.js");
-})();
+// (async () => {
+//   let w = workly.proxy("/worker.js");
+// })();
 
-// const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
-// const appDomain = "https://genderev.com";
-// var userSession = new blockstack.UserSession({
-// appConfig,
-// });
+const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
+const appDomain = "https://genderev.com";
+var userSession = new blockstack.UserSession({
+appConfig,
+});
 const authOptions = {
 userSession,
       appDetails: {
@@ -248,7 +248,7 @@ blockstackConnect.showBlockstackConnect(authOptions);
 document.getElementById("signup-button").addEventListener("click", showLogin);
 document.getElementById("login-button").addEventListener("click", showLogin);
 </script>
-<!-- <script src="/upup.min.js" crossorigin="anonymous"></script>
+<script src="/upup.min.js" crossorigin="anonymous"></script>
   <script>
 	UpUp.start({
 		'cache-version': 'v3',
@@ -256,5 +256,5 @@ document.getElementById("login-button").addEventListener("click", showLogin);
 		'assets': ['/icon.png'],
 		'service-worker-url': '/upup.sw.min.js'
 	});
-  </script> -->
+  </script>
 </body></html>
