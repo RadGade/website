@@ -8,4 +8,4 @@ appConfig,
 
 workly.expose(appConfig);
 workly.expose(appDomain);
-workly.expose(UserSession);
+workly.expose(userSession);
