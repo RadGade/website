@@ -21,178 +21,217 @@
 <script src="js/blockstack-setup.js"></script>
 <bold><title>GENDEREV</title></bold>
 <style>
-		button {
-			border-color: transparent;
-			border-radius: 3px;
-			border-style: solid;
-			border-width: 1px;
-			box-sizing: unset;
-			background-color: transparent;
-			margin-top: 0px;
-			font-family: Arial;
-			font-size: 18px;
-			box-shadow: 0px 0px 4px 4px black;
-			color: black;
-			text-shadow: none;
-			-webkit-filter: blur(.4px);
-			transition: 0.1s;
-	}
-	textarea {
-				margin-top: 0px;
-				height: 150px;
-				font-family:Arial;
-				font-size: 25px;
-				border-radius: 2px;
-				padding: 1px;
-				width: 400px;
-				margin-bottom: 10px;
-				transition: 0.1s;
-		}
-		::placeholder {
-				color: dimgrey;
-		}
+button {
+border-color: transparent;
+border-radius: 3px;
+border-style: solid;
+border-width: 1px;
+box-sizing: unset;
+background-color: transparent;
+margin-top: 0px;
+font-family: Arial;
+font-size: 18px;
+box-shadow: 0px 0px 4px 4px black;
+color: black;
+text-shadow: none;
+-webkit-filter: blur(.4px);
+transition: 0.1s;
+}
+button:active{
+-moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-webkit-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+}
+a:active{
+	/* margin-bottom: 3.5rem; */
+	background-size: 100% 15%;
+  background-repeat: repeat-x;
+  background-position: left 0% bottom 10%;
+	background-image: linear-gradient(
+    90deg,
+    hsl(284, 91%, 69%) 0%,
+    hsl(284, 91%, 69%) 12.5%,
+    hsl(329, 91%, 69%) 12.5%,
+    hsl(329, 91%, 69%) 25%,
+    hsl(14, 91%, 69%) 25%,
+    hsl(14, 91%, 69%) 37.5%,
+    hsl(59, 91%, 69%) 37.5%,
+    hsl(59, 91%, 69%) 50%,
+    hsl(104, 91%, 69%) 50%,
+    hsl(104, 91%, 69%) 62.5%,
+    hsl(149, 91%, 69%) 62.5%,
+    hsl(149, 91%, 69%) 75%,
+    hsl(194, 91%, 69%) 75%,
+    hsl(194, 91%, 69%) 87.5%,
+    hsl(239, 91%, 69%) 87.5%,
+    hsl(239, 91%, 69%) 100%
+  );
+}
+textarea {
+margin-top: 0px;
+height: 150px;
+font-family:Arial;
+font-size: 25px;
+border-radius: 2px;
+padding: 1px;
+width: 400px;
+margin-bottom: 10px;
+transition: 0.1s;
+}
+::placeholder {
+color: dimgrey;
+}
 
-		textarea:hover {
-				box-shadow: 0px 0px 5px black;
-				border-radius: 3px;
-		}
-		.buttons {
-				display: flex;
-				align-items: center;
-				justify-content: center
+textarea:hover {
+box-shadow: 0px 0px 5px black;
+border-radius: 3px;
+}
+.buttons {
+display: flex;
+align-items: center;
+justify-content: center
 
+}
+#title br + br {margin-top: 0.825rem;}
+#title {
+text-align: center;
+color: #000AFF;
+line-height: 1.375;
+font-weight: 400;
+font-size: 32px;
+margin-bottom: 0px;
+color:  black;
+text-shadow: 0px -1px 0px darkgrey;
+font-family: Arial;
+}
+#question {
+color: #000AFF;
+font-family: 'Arial', sans-serif;
+font-size: 27px;
+line-height: 1.25;
+font-weight: 400;
+text-shadow: 0px 0px 1px darkblue;
+margin-bottom: 10px;
+}
+#profile {
+margin-right: 210px;
+color: darkblue;
+box-shadow: 0px 0px 10px 2px darkblue;
+}
+#profile:hover{
+box-shadow: 0px 0px 10px 2px blue;
+border: 1px solid blue;
+color: blue;
+}
+button:hover {
+
+box-shadow: 0px 0px 10px 2px black;
+border: 1px solid black;
+}
+body {
+text-shadow: 0px 0px 1px #b68989;
+font-size: 25px;
+color: darkblue;
+background-size: cover;
+background-attachment: fixed;
+font-family: arial;
+}
+
+a:link, a:visited {
+text-decoration: underline;
+text-shadow: 0px 0px 1px black;
+color: blue;
+transition: 0.1s;
+}
+a:hover {
+text-shadow: 0px 2px 2px black;
+}
+label{
+border: 1px dashed red;
+margin-left: 2px;
+padding: 2px;
+margin-top:4px;
+border-radius: 2px;
+box-shadow: 0px 0px 5px 1px red;
+cursor: pointer;
+text-shadow: 0px 0px 1px blue;
+display: inline;
+font-size: 1.1em;
+/* 		margin-left: 17px;	 */
+}
+label:hover{
+box-shadow: 0px 0px 15px red;
+}
+.entries {display:block; margin-left:auto; margin-right:auto; padding-top: 15px;padding-bottom: 15px;width: 400px;word-wrap:break-word;background: none;transition: 0.1s;}
+h3 {
+font-weight: normal;
+margin-block-start: 0em;
+margin-block-end: 0em;
+font-size: 1em;
+}
+#heading-name{
+text-decoration: underline;
+text-align: right;
+padding-left: 17px;
+padding-right:17px;
+}
+#aboutbtn{
+margin-right: 10px;
+}
+#sidebar .title {
+
+    font-size: 32px;
+    letter-spacing: 0rem;
+    font-family: Arial;
+    color: black;
+    text-shadow: 0px -1px 0px darkgrey;
+    font-style: italic;
+
+}
+@media screen and (max-width: 600px) {
+	 #sidebar{
+		max-width: 90%;
 		}
-		#title br + br {margin-top: 0.825rem;}
-		#title {
-				text-align: center;
-				color: #000AFF;
-				line-height: 1.375;
-				font-weight: 400;
-				font-size: 32px;
-						margin-bottom: 0px;
-						color:  black;
-						text-shadow: 0px -1px 0px darkgrey;
-						font-family: Arial;
-				}
-		#question {
-				color: #000AFF;
-				font-family: 'Arial', sans-serif;
-				font-size: 27px;
-				line-height: 1.25;
-				font-weight: 400;
-				text-shadow: 0px 0px 1px darkblue;
-				margin-bottom: 10px;
+		#entries{
+		max-width: 90%;
+		}
+		.post{
+
+		max-width: 90%;
+		}
+		textarea{
+		max-width: 90%;
 		}
 		#profile {
-				margin-right: 210px;
-				color: darkblue;
-				box-shadow: 0px 0px 10px 2px darkblue;
-				}
-		#profile:hover{
-				box-shadow: 0px 0px 10px 2px blue;
-			border: 1px solid blue;
-			color: blue;
-				}
-		button:hover {
-
-			box-shadow: 0px 0px 10px 2px black;
-			border: 1px solid black;
+		margin-right: 7em;
 		}
-		body {
-				text-shadow: 0px 0px 1px #b68989;
-				font-size: 25px;
-				color: darkblue;
-				background-size: cover;
-				background-attachment: fixed;
-				font-family: arial;
-		}
-
-		a:link, a:visited {
-				text-decoration: underline;
-				text-shadow: 0px 0px 1px black;
-				color: blue;
-				transition: 0.1s;
-		}
-		a:hover {
-				text-shadow: 0px 2px 2px #006600;
-		}
-		label{
-	    	border: 1px dashed red;
-    		margin-left: 2px;
-    		padding: 2px;
-		margin-top:4px;
-    		border-radius: 2px;
-    		box-shadow: 0px 0px 5px 1px red;
-		cursor: pointer;
-		text-shadow: 0px 0px 1px blue;
-		display: inline;
-		font-size: 1.1em;
-/* 		margin-left: 17px;	 */
-		}
-		label:hover{
-			box-shadow: 0px 0px 15px red;
-		}
-
-
-		.entries {display:block; margin-left:auto; margin-right:auto; padding-top: 15px;padding-bottom: 15px;width: 400px;word-wrap:break-word;background: none;transition: 0.1s;}
-		h3 {
-		font-weight: normal;
-		margin-block-start: 0em;
-    		margin-block-end: 0em;
-		font-size: 1em;
-
-		}
-		#heading-name{
-			text-decoration: underline;
-			text-align: right;
-			padding-left: 17px;
-			padding-right:17px;
-		}
-		#aboutbtn{
-				margin-right: 10px;
-		}
-		@media screen and (max-width: 600px) {
-			 #sidebar{
-				max-width: 90%;
-				}
-				#entries{
-				max-width: 90%;
-				}
-				.post{
-
-				max-width: 90%;
-				}
-				textarea{
-				max-width: 90%;
-				}
-				#profile {
-				margin-right: 7em;
-				}
-				#heading-name{padding:none}
-				label{margin:none;padding:none;}
-		}
-		</style>
-<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>	
+		#heading-name{padding:none}
+		label{margin:none;padding:none;}
+}
+</style>
+<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 </head>
-	
+
 <body>
-	<div class="buttons"><button type="button" id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
-	<div class = "entries"><div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center></div>
+<div class="buttons"><button type="button" id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
+<div class = "entries"><div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center></div>
 
 
-	<div class="edit">
-	<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
-	<center><img style="margin-left:0px;"src="" width="374px" id="preview" alt="Image preview..."></center></div>
-	<br><br>
+<div class="edit">
+<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
+<center><img style="margin-left:0px;"src="" width="374px" id="preview" alt="Image preview..."></center></div>
+<br><br>
 
 
-	<div class="upload">
-	<h3 id="heading-name">
-	</h3>
-	</div>
+<div class="upload">
+<h3 id="heading-name">
+</h3>
+</div>
 
 
-	</div>
+</div>
 
 <script>
 $(".upload").hide();
@@ -203,38 +242,38 @@ var username = user.replace(".id.blockstack", "");
 console.log(username);
 document.getElementById('heading-name').innerText ="*" + username;
 $('#login-button').click(function() {
-	signOut();
+signOut();
 });
 $('#profile').click(function() {
-	window.location.href =("home.html");
+window.location.href =("home.html");
 });
 
 function previewFile() {
-  const preview = document.getElementById('preview');
-  console.log(preview);
-  const file = document.querySelector('input[type=file]').files[0];
-  console.log(file);
-  const reader = new FileReader();
-  reader.addEventListener("load", function () {
-    // convert image file to base64 string
-    preview.src = reader.result;
-  }, false);
-  if (file) {
-    reader.readAsDataURL(file);
-  }
+const preview = document.getElementById('preview');
+console.log(preview);
+const file = document.querySelector('input[type=file]').files[0];
+console.log(file);
+const reader = new FileReader();
+reader.addEventListener("load", function () {
+// convert image file to base64 string
+preview.src = reader.result;
+}, false);
+if (file) {
+reader.readAsDataURL(file);
+}
 $("#preview").show()
 }
 
 window.addEventListener('load', (event) => {
-  if (!userSession.isUserSignedIn()) {
-    alert('Error: user is not signed in');
-  }
+if (!userSession.isUserSignedIn()) {
+alert('Error: user is not signed in');
+}
 })
 console.log(blockstack.lookupProfile("?page=30"));
 </script>
 <script>
-  UPLOADCARE_PUBLIC_KEY = '607ba88c3a54d23653e6';
+UPLOADCARE_PUBLIC_KEY = '607ba88c3a54d23653e6';
 </script>
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" crossorigin="anonymous" defer></script>		
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" crossorigin="anonymous" defer></script>
 </body>
 </html>

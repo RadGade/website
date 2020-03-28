@@ -20,302 +20,341 @@
 
 <style>
 .cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  pointer-events: none;
+position: fixed;
+left: 0;
+top: 0;
+pointer-events: none;
 }
+
 .cursor--small {
-  width: 5px;
-  height: 5px;
-  left: -2.5px;
-  top: -2.5px;
-  border-radius: 50%;
-  z-index: 11000;
-  background: var(--color-text);
+width: 5px;
+height: 5px;
+left: -2.5px;
+top: -2.5px;
+border-radius: 50%;
+z-index: 11000;
+background: darkblue;
+}
+a:active{
+	background-size: 100% 15%;
+  background-repeat: repeat-x;
+  background-position: left 0% bottom 10%;
+	background-image: linear-gradient(
+    90deg,
+    hsl(284, 91%, 69%) 0%,
+    hsl(284, 91%, 69%) 12.5%,
+    hsl(329, 91%, 69%) 12.5%,
+    hsl(329, 91%, 69%) 25%,
+    hsl(14, 91%, 69%) 25%,
+    hsl(14, 91%, 69%) 37.5%,
+    hsl(59, 91%, 69%) 37.5%,
+    hsl(59, 91%, 69%) 50%,
+    hsl(104, 91%, 69%) 50%,
+    hsl(104, 91%, 69%) 62.5%,
+    hsl(149, 91%, 69%) 62.5%,
+    hsl(149, 91%, 69%) 75%,
+    hsl(194, 91%, 69%) 75%,
+    hsl(194, 91%, 69%) 87.5%,
+    hsl(239, 91%, 69%) 87.5%,
+    hsl(239, 91%, 69%) 100%
+  );
+}
+button:active{
+-moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-webkit-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 }
 .cursor--canvas {
-  width: 100vw;
-  height: 100vh;
-  z-index: 12000;
+width: 100vw;
+height: 100vh;
+z-index: 12000;
 }
 #postbtn:disabled {
-	opacity: 0.6;
-  	cursor: not-allowed;
+opacity: 0.6;
+cursor: not-allowed;
 }
+#postbtn:active{
+  animation: mymove .8s;
+}
+
+  @keyframes mymove {
+    from {color: black;}
+    to {color: red;}
+  }
 hr {
-    overflow: visible; /* For IE */
-    padding: 0;
-    border: none;
-    border-top: medium double #333;
-    color: #333;
-    text-align: center;
+overflow: visible; /* For IE */
+padding: 0;
+border: none;
+border-top: medium double #333;
+color: #333;
+text-align: center;
 }
 ::-moz-selection { /* Code for Firefox */
-  color: #f2f2f2;
-  background: darkblue;
+color: #f2f2f2;
+background: darkblue;
 }
 ::selection {
-  color: #f2f2f2;
-  background: darkblue;
+color: #f2f2f2;
+background: darkblue;
 }
-		button {
-			border-color: transparent;
-			border-radius: 3px;
-			border-style: solid;
-			border-width: 1px;
-			box-sizing: unset;
-			background-color: transparent;
-			margin-top: 0px;
-			font-family: Arial;
-			font-size: 18px;
-			box-shadow: 0px 0px 4px 4px black;
-			color: black;
-			text-shadow: none;
-			transition: 0.1s;
-	}
-		textarea {
-				margin-top: 0px;
-				height: 150px;
-				font-family:Arial;
-				font-size: 25px;
-				border-radius: 2px;
-				padding: 3px;
-				width: 400px;
-				margin-bottom: 10px;
-				transition: 0.1s;
-		}
-		::placeholder {
-				color: dimgrey;
-		}
-		.reply{
-		display:none;
-		}
-		textarea:hover {
-				box-shadow: 0px 0px 5px black;
-				border-radius: 3px;
-		}
-		.buttons {
-				display: flex;
-				align-items: center;
-				justify-content: center
-		}
+button {
+border-color: transparent;
+border-radius: 3px;
+border-style: solid;
+border-width: 1px;
+box-sizing: unset;
+background-color: transparent;
+margin-top: 0px;
+font-family: Arial;
+font-size: 18px;
+box-shadow: 0px 0px 4px 4px black;
+color: black;
+text-shadow: none;
+transition: 0.1s;
+}
+textarea {
+margin-top: 0px;
+height: 150px;
+font-family:Arial;
+font-size: 25px;
+border-radius: 2px;
+padding: 3px;
+width: 400px;
+margin-bottom: 10px;
+transition: 0.1s;
+}
+::placeholder {
+color: dimgrey;
+}
+.reply{
+display:none;
+}
+textarea:hover {
+box-shadow: 0px 0px 5px black;
+border-radius: 3px;
+}
+.buttons {
+display: flex;
+align-items: center;
+justify-content: center
+}
 
-		#title br + br {margin-top: 0.825rem;}
-		#title {
-				text-align: center;
-				color: #000AFF;
-				line-height: 1.375;
-				font-weight: 400;
-				font-size: 32px;
-						margin-bottom: 0px;
-						color:  black;
-						text-shadow: 0px -1px 0px darkgrey;
-						font-family: Arial;
-				}
-		#question {
-				color: #000AFF;
-				font-family: 'Arial', sans-serif;
-				font-size: 25px;
-				line-height: 1.25;
-				font-weight: 400;
-				text-shadow: 0px 0px 1px darkblue;
-				margin-bottom: 10px;
-		}
-		#profile {
-				margin-right: 210px;
-				color: darkblue;
-				box-shadow: 0px 0px 10px 2px darkblue;
-				}
-		#profile:hover{
-				box-shadow: 0px 0px 10px 2px blue;
-			border: 1px solid blue;
-			color: blue;
-				}
-		button:hover {
-			box-shadow: 0px 0px 10px 2px black;
-			border: 1px solid black;
-		}
-		body {
-				text-shadow: 0px 0px 1px #b68989;
-				font-size: 25px;
-				color: darkblue;
+#title br + br {margin-top: 0.825rem;}
+#title {
+text-align: center;
+color: #000AFF;
+line-height: 1.375;
+font-weight: 400;
+font-size: 32px;
+		margin-bottom: 0px;
+		color:  black;
+		text-shadow: 0px -1px 0px darkgrey;
+		font-family: Arial;
+}
+#question {
+color: #000AFF;
+font-family: 'Arial', sans-serif;
+font-size: 25px;
+line-height: 1.25;
+font-weight: 400;
+text-shadow: 0px 0px 1px darkblue;
+margin-bottom: 10px;
+}
+#profile {
+margin-right: 210px;
+color: darkblue;
+box-shadow: 0px 0px 10px 2px darkblue;
+}
+#profile:hover{
+box-shadow: 0px 0px 10px 2px blue;
+border: 1px solid blue;
+color: blue;
+}
+button:hover {
+box-shadow: 0px 0px 10px 2px black;
+border: 1px solid black;
+}
+body {
+text-shadow: 0px 0px 1px #b68989;
+font-size: 25px;
+color: darkblue;
 
-				background-size: cover;
-				background-attachment: fixed;
-				font-family: arial;
-				cursor: url('cursor.png'), default;
-		}
-	a:link, a:visited {
-				text-decoration: underline;
-				text-shadow: 0px 0px 1px black;
-				color: blue;
-				transition: 0.1s;
+background-size: cover;
+background-attachment: fixed;
+font-family: arial;
+}
+a:link, a:visited {
+text-decoration: underline;
+text-shadow: 0px 0px 1px black;
+color: blue;
+transition: 0.1s;
 
-		}
-	a:hover {
-		text-shadow: 0px 2px 2px black;
-		}
-		#hidden{
-			width: 400px;
-			word-wrap:break-word;
-			background: none;
-		}
-		#entries {
-				box-shadow:0px 0px 9px 2px black;
-				border-radius:1px;
-				padding-top: 15px;
-				padding-bottom: 15px;
-				width: 400px;
-				word-wrap:break-word;
-				background: none;
-				transition: 0.1s;
-		}
-		#entries:hover {
-			box-shadow:0px 0px 20px 2px  darkblue;
-		}
-		#postbtn {
-			border-color: red;
-			border-radius: 12px;
-			border-style: groove;
-			border-width: 3px;
-			box-sizing: unset;
-			background-color: transparent;
-			margin-top: 0px;
-			font-family: Arial;
-			font-size: 25px;
-			box-shadow: 0px 0px 4px 4px pink;
-			color: #800000;
-			text-shadow: none;
-		}
-		#postbtn:hover {
-		box-shadow: 0px 0px 20px red;
-		 border: 3px groove red;
-		 text-shadow: 1px 1px 1px  red;
+}
+a:hover {
+text-shadow: 0px 2px 2px black;
+}
+#hidden{
+width: 400px;
+word-wrap:break-word;
+background: none;
+}
+#entries {
+box-shadow:0px 0px 9px 2px black;
+border-radius:1px;
+padding-top: 15px;
+padding-bottom: 15px;
+width: 400px;
+word-wrap:break-word;
+background: none;
+transition: 0.1s;
+}
+#entries:hover {
+box-shadow:0px 0px 20px 2px  darkblue;
+}
+#postbtn {
+border-color: red;
+border-radius: 12px;
+border-style: groove;
+border-width: 3px;
+box-sizing: unset;
+background-color: transparent;
+margin-top: 0px;
+font-family: Arial;
+font-size: 25px;
+box-shadow: 0px 0px 4px 4px pink;
+color: #800000;
+text-shadow: none;
+}
+#postbtn:hover {
+box-shadow: 0px 0px 20px red;
+border: 3px groove red;
+text-shadow: 1px 1px 1px  red;
 
-		}
-	#content{
-		text-align: left;
-		}
-		#sidebar {
-			background:#ffffff;
-			padding:15px;
-			border-radius:2px;
-			margin:20px auto 40px auto;
-			word-wrap:break-word;
-			margin-top: 2px;
-			width: 400px;
-		}
-		#sidebar img {
-				border-radius:0px;
-				width: 80%;
-				height: auto;
-		}
-		#sidebar .title {
-				font-size: 32px;
-				letter-spacing: 0rem;
-				font-family: Arial;
-				margin-bottom: 0px;
-				color: black;
-				text-shadow: 0px -1px 0px darkgrey;
-				font-style: italic;
-				text-decoration: underline;
-		}
-		#sidebar .desc {
-				color:  darkblue;
-				font-size: 22px;
-		}
-		#aboutbtn{
-				margin-right: 10px;
-		}
-		.cmt{
-		    font-size: 25px;
-		    background: none;
-		    color: blue;
-		    border: 1.4px dashed;
-		    text-decoration: underline;
-		    padding-bottom: 2px;
-		margin-top:9px;
-		margin-bottom: 2px;
-		box-shadow: 0px 1px 4px 3px grey;
-		}
-		.cmt:hover{
-		border: 1.4px dashed;
-		    box-shadow: 4px 5px 9px dimgrey;
-		}
-		.reply{
-			margin-left: 10px;
-			margin-top: 8px;
-		}
-		.cmt1{
-    font-size: 25px;
-    background: none;
-    color: blue;
-    border: 1.4px dashed;
-    text-decoration: underline;
-    padding-bottom: 2px;
-    margin-top:0px;
-    margin-left: 4px;
-    margin-bottom: 2px;
-    box-shadow: 0px 1px 4px 3px grey;
-    }
+}
+#content{
+text-align: left;
+}
+#sidebar {
+background:#ffffff;
+padding:15px;
+border-radius:2px;
+margin:20px auto 40px auto;
+word-wrap:break-word;
+margin-top: 2px;
+width: 400px;
+}
+#sidebar img {
+border-radius:0px;
+width: 80%;
+height: auto;
+}
+#sidebar .title {
+font-size: 32px;
+letter-spacing: 0rem;
+font-family: Arial;
+margin-bottom: 0px;
+color: black;
+text-shadow: 0px -1px 0px darkgrey;
+font-style: italic;
+text-decoration: underline;
+}
+#sidebar .desc {
+color:  darkblue;
+font-size: 22px;
+}
+#aboutbtn{
+margin-right: 10px;
+}
+.cmt{
+font-size: 25px;
+background: none;
+color: blue;
+border: 1.4px dashed;
+text-decoration: underline;
+padding-bottom: 2px;
+margin-top:9px;
+margin-bottom: 2px;
+box-shadow: 0px 1px 4px 3px grey;
+}
+.cmt:hover{
+border: 1.4px dashed;
+box-shadow: 4px 5px 9px dimgrey;
+}
+.reply{
+margin-left: 10px;
+margin-top: 8px;
+}
+.cmt1{
+font-size: 25px;
+background: none;
+color: blue;
+border: 1.4px dashed;
+text-decoration: underline;
+padding-bottom: 2px;
+margin-top:0px;
+margin-left: 4px;
+margin-bottom: 2px;
+box-shadow: 0px 1px 4px 3px grey;
+}
 
 .cmt1:hover{
-    border: 1.4px dashed;
-    box-shadow: 4px 5px 9px dimgrey;
-    }
-		@media print{
-                body{
-                        max-width:none;
-                }
+border: 1.4px dashed;
+box-shadow: 4px 5px 9px dimgrey;
+}
+@media print{
+        body{
+                max-width:none;
         }
-		@media screen and (max-width: 600px) {
-				#sidebar{
-				max-width: 90%;
-				}
-				#profile {
-                                margin-right: 4em;
-                                }
-				button {
-				text-shadow: none;
-				}
-				#sidebar img{
-				max-width: 100%;
-				}
-				textarea{
-				max-width: 90%
-				}
-		}
-	</style>
+}
+@media screen and (max-width: 600px) {
+#sidebar{
+max-width: 90%;
+}
+#profile {
+                        margin-right: 4em;
+                        }
+button {
+text-shadow: none;
+}
+#sidebar img{
+max-width: 100%;
+}
+textarea{
+max-width: 90%
+}
+}
+</style>
 </head>
 <body>
-		<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
-		<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id = "img1" alt="GENDEREV BANNER" src="Paint_palette.png">
+<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
+<div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id = "img1" alt="GENDEREV BANNER" src="Paint_palette.png">
 <div class="cursor cursor--small"></div>
-      <canvas class="cursor cursor--canvas" resize></canvas>
+<canvas class="cursor cursor--canvas" resize></canvas>
 
-				<center>
+<center>
 
-				<div class="post">
+<div class="post">
 
-		<p id="question">˚✧What are you thinking about?✧˚</p>
-		<textarea id="ityped" placeholder="Say more?" required></textarea>
-		<br>
-		<button type="button" id="postbtn"> post 📩</button>
-		</div>
-		</center>
-		
-		<!-- POSTS -->
-		<center>
-		<div id="content">
-		<p id="file-content"></p>
-		</div></center>
-    <center><div id="hidden" hidden><h3>Share the revolution.</h3>
-		<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgenderev.com&text=I%20just%20created%20gender">twitter</a>・✧・<a class="tumblr-share-button" href="https://www.tumblr.com/share">tumblr</a>・✧・<a href="mailto:info@example.com?&subject=&body=https://genderev.com is the future">email</a></div></center>
-		<center><br><br>
-		<div class="buttons">
-		<button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
-		</div></center>
+<p id="question">˚✧What are you thinking about?✧˚</p>
+<textarea id="ityped" placeholder="Say more?" required></textarea>
+<br>
+<button type="button" id="postbtn"> post 📩</button>
+</div>
+</center>
+
+<!-- POSTS -->
+<center>
+<div id="content">
+<p id="file-content"></p>
+</div></center>
+<center><div id="hidden" hidden><h3>Share the revolution.</h3>
+<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgenderev.com&text=I%20just%20created%20gender">twitter</a>・✧・<a class="tumblr-share-button" href="https://www.tumblr.com/share">tumblr</a>・✧・<a href="mailto:info@example.com?&subject=&body=https://genderev.com is the future">email</a></div></center>
+<center><br><br>
+<div class="buttons">
+<button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
+</div></center>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
@@ -324,104 +363,97 @@ hr {
 
 <script>
 
-new TypeWriter('#ityped', ['you know who is transphobic? say it', 'admins are awful at this school.'], {writeDelay: 200});
-
+new TypeWriter('#ityped', ['you know who is transphobic? say it'], {writeDelay: 200});
 var person = new blockstack.Person(profile)
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-
-
-
 function fetchData() {
-    userSession.getFile("statuses.json", { decrypt: false })
-    .then((file) => {
-    var statuses = JSON.parse(file);
-    console.log(statuses);
-	for (i in statuses) {
-	d = new Date(statuses[i].created_at)
-        n = d.getTime()
-	  var childElement = document.createElement('div');
-	var parentid = statuses[i].text
-	var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-	var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
-	childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
-	document.getElementById("content").appendChild(childElement);
-	var att = document.createAttribute("items");
-	att.value = "democlass";
-	childElement.setAttributeNode(att);
-  	console.log(moment(statuses.created_at).fromNow());
-	}
- 	});
-    $('#hidden').show();
+userSession.getFile("statuses.json", { decrypt: false })
+.then((file) => {
+var statuses = JSON.parse(file);
+console.log(statuses);
+for (i in statuses) {
+  d = new Date(statuses[i].created_at)
+  n = d.getTime()
+  var childElement = document.createElement('div');
+  var parentid = statuses[i].text
+  var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
+  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
+  var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
+  childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
+  document.getElementById("content").appendChild(childElement);
+  var att = document.createAttribute("items");
+  att.value = "democlass";
+  childElement.setAttributeNode(att);
+  console.log(moment(statuses.created_at).fromNow());
+ }
+});
+$('#hidden').show();
 $('.reply').hide()
 }
 $(document).ready(function(){
 fetchData();
 });
- $(document).on('click', '.cmt', function () {
-      $('.reply').show();
+$(document).on('click', '.cmt', function () {
+$('.reply').show();
 });
- $(document).on('click', '.cmt1', function () {
-      $('.reply').hide();
+$(document).on('click', '.cmt1', function () {
+$('.reply').hide();
 });
-
-
-
 $('#login-button').click(function() {
-	signOut();
+signOut();
 })
 
 $("#aboutbtn").click(function() {
-  window.location.href =("about.html");
+window.location.href =("about.html");
 });
 $("#profile").click(function() {
-  window.location.href =("profile.html");
+window.location.href =("profile.html");
 });
 
 $("#helpbtn").click(function() {
-  window.location.href = ("help.html");
+window.location.href = ("help.html");
 });
 $("#postbtn").click(function() {
-  var self = $("#postbtn");
-  if (!self.data("add")) {
-  self.data("add", true);
-  self.text("posted!");
-  setTimeout(function() {
-  self.text("post 💌").data("add", false);
-  }, 1100);
-  }
-  var statusText = document.getElementById("ityped").value;
-  console.log(statusText);
+var self = $("#postbtn");
+if (!self.data("add")) {
+self.data("add", true);
+self.text("posted!");
+setTimeout(function() {
+self.text("post 💌").data("add", false);
+}, 1100);
+}
+var statusText = document.getElementById("ityped").value;
+console.log(statusText);
 
- window.scroll({
-  top: 200,
-  left: 0,
-  behavior: 'smooth'
+window.scroll({
+top: 200,
+left: 0,
+behavior: 'smooth'
 });
 var div = document.createElement("div");
 div.innerHTML = statusText + "<br><br>" + "<span style='color:black;font-size:23px'>" + moment(Date()).fromNow()  +"</span>"+ "<br><hr><br>";
 $("#file-content").prepend(div);
-    function saveNewStatus() {
-    userSession.getFile("statuses.json", { decrypt: false })
-    .then((file) => {
-    var statuses = JSON.parse(file);
-	var status = {
-        parent_id: statuses.length + 1,
-        username: username,
-        text: statusText,
-        created_at: Date()
-  };
-    statuses.unshift(status);
+function saveNewStatus() {
+userSession.getFile("statuses.json", { decrypt: false })
+.then((file) => {
+var statuses = JSON.parse(file);
+var status = {
+parent_id: statuses.length + 1,
+username: username,
+text: statusText,
+created_at: Date()
+};
+statuses.unshift(status);
 // second arg of putFile is JSON.stringify(statuses)
-    userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
-    });
+userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
+});
 }
-  saveNewStatus();
-  $("#ityped").val("");
-  });
+saveNewStatus();
+$("#ityped").val("");
+});
 $("#postbtn").attr('disabled','disabled');
 $("#ityped").keyup(function(){
 if ((document.getElementById("ityped").value).trim() !== ""){
@@ -432,15 +464,15 @@ $("#postbtn").removeAttr('disabled');
 var input = document.getElementById("ityped");
 // Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup",
-  function(event) {
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode ===
-  13) {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    // Trigger the button element with a click
-    document.getElementById("postbtn").click();
-  }
+function(event) {
+// Number 13 is the "Enter" key on the keyboard
+if (event.keyCode ===
+13) {
+// Cancel the default action, if needed
+event.preventDefault();
+// Trigger the button element with a click
+document.getElementById("postbtn").click();
+}
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
@@ -451,26 +483,26 @@ let clientY = -100;
 const innerCursor = document.querySelector(".cursor--small");
 
 const initCursor = () => {
-  // add listener to track the current mouse position
-  document.addEventListener("mousemove", e => {
-    clientX = e.clientX;
-    clientY = e.clientY;
-  });
+// add listener to track the current mouse position
+document.addEventListener("mousemove", e => {
+clientX = e.clientX;
+clientY = e.clientY;
+});
 
-  // transform the innerCursor to the current mouse position
-  // use requestAnimationFrame() for smooth performance
-  const render = () => {
-    innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
-    // if you are already using TweenMax in your project, you might as well
-    // use TweenMax.set() instead
-    // TweenMax.set(innerCursor, {
-    //   x: clientX,
-    //   y: clientY
-    // });
+// transform the innerCursor to the current mouse position
+// use requestAnimationFrame() for smooth performance
+const render = () => {
+innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+// if you are already using TweenMax in your project, you might as well
+// use TweenMax.set() instead
+// TweenMax.set(innerCursor, {
+//   x: clientX,
+//   y: clientY
+// });
 
-    requestAnimationFrame(render);
-  };
-  requestAnimationFrame(render);
+requestAnimationFrame(render);
+};
+requestAnimationFrame(render);
 };
 
 initCursor();
@@ -480,54 +512,54 @@ let isStuck = false;
 let showCursor = false;
 let group, stuckX, stuckY, fillOuterCursor;
 const initCanvas = () => {
-  const canvas = document.querySelector(".cursor--canvas");
-  const shapeBounds = {
-    width: 75,
-    height: 75
-  };
-  paper.setup(canvas);
-  const strokeColor = "rgba(255, 0, 0, 0.5)";
-  const strokeWidth = 1;
-  const segments = 8;
-  const radius = 15;
-  // we'll need these later for the noisy circle
-  const noiseScale = 150; // speed
-  const noiseRange = 4; // range of distortion
-  let isNoisy = false; // state
+const canvas = document.querySelector(".cursor--canvas");
+const shapeBounds = {
+width: 75,
+height: 75
+};
+paper.setup(canvas);
+const strokeColor = "red";
+const strokeWidth = 1;
+const segments = 8;
+const radius = 15;
+// we'll need these later for the noisy circle
+const noiseScale = 150; // speed
+const noiseRange = 4; // range of distortion
+let isNoisy = false; // state
 
-  // the base shape for the noisy circle
-  const polygon = new paper.Path.RegularPolygon(
-    new paper.Point(0, 0),
-    segments,
-    radius
-  );
-  polygon.strokeColor = strokeColor;
-  polygon.strokeWidth = strokeWidth;
-  polygon.smooth();
-  group = new paper.Group([polygon]);
-  group.applyMatrix = false;
-  const noiseObjects = polygon.segments.map(() => new SimplexNoise());
-  let bigCoordinates = [];
-  // function for linear interpolation of values
-  const lerp = (a, b, n) => {
-    return (1 - n) * a + n * b;
-  };
-  // function to map a value from one range to another range
-  const map = (value, in_min, in_max, out_min, out_max) => {
-    return (
-      ((value - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
-    );
-  };
-  // the draw loop of Paper.js
-  // (60fps with requestAnimationFrame under the hood)
-  paper.view.onFrame = event => {
-    // using linear interpolation, the circle will move 0.2 (20%)
-    // of the distance between its current position and the mouse
-    // coordinates per Frame
-    lastX = lerp(lastX, clientX, 0.2);
-    lastY = lerp(lastY, clientY, 0.2);
-    group.position = new paper.Point(lastX, lastY);
-  }
+// the base shape for the noisy circle
+const polygon = new paper.Path.RegularPolygon(
+new paper.Point(0, 0),
+segments,
+radius
+);
+polygon.strokeColor = strokeColor;
+polygon.strokeWidth = strokeWidth;
+polygon.smooth();
+group = new paper.Group([polygon]);
+group.applyMatrix = false;
+const noiseObjects = polygon.segments.map(() => new SimplexNoise());
+let bigCoordinates = [];
+// function for linear interpolation of values
+const lerp = (a, b, n) => {
+return (1 - n) * a + n * b;
+};
+// function to map a value from one range to another range
+const map = (value, in_min, in_max, out_min, out_max) => {
+return (
+((value - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+);
+};
+// the draw loop of Paper.js
+// (60fps with requestAnimationFrame under the hood)
+paper.view.onFrame = event => {
+// using linear interpolation, the circle will move 0.2 (20%)
+// of the distance between its current position and the mouse
+// coordinates per Frame
+lastX = lerp(lastX, clientX, 0.2);
+lastY = lerp(lastY, clientY, 0.2);
+group.position = new paper.Point(lastX, lastY);
+}
 }
 initCanvas();
 </script>
@@ -535,11 +567,11 @@ initCanvas();
 <script>
 $(function() {
 
-  $("body").prognroll({
-    height: 5, // progress bar height
-    color: "#333399", // progress bar background color
-    custom: false // if you make it true, you can add your custom div and see it's scroll progress on the page
-  });
+$("body").prognroll({
+height: 5, // progress bar height
+color: "#333399", // progress bar background color
+custom: false // if you make it true, you can add your custom div and see it's scroll progress on the page
+});
 });
 </script>
 <script async src="js/signedin.js"></script>
