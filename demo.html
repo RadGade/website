@@ -222,6 +222,9 @@ $('#login-button').click(function() {
 // var n = d.getTime();
 $('#postbtn').click(function() {
 		var self = $(this);
+		var inputFile = "writtenpost.json";
+		var textInput = document.getElementById("ityped").value; 
+	
 		if (!self.data('add')) {
 				self.data('add', true);
 				self.text('posted!');
@@ -229,8 +232,42 @@ $('#postbtn').click(function() {
 					self.text('post 💌').data('add', false);
 					}, 1100);
 		}
-		userSession.putFile(n.json, document.getElementById("ityped").value, {encrypt: false});
-		document.getElementById("entries").innerHTML = userSession.getFile(n.json,{decrypt: false});
+		console.log(textInput);
+	
+		
+		userSession.putFile(inputFile, textInput, {
+			encrypt: false
+		}).then(function() {
+		    alert('File: ' + inputFile + ' saved');
+		});
+		
+		 
+	//checking for file
+		var files = [];
+		userSession.listFiles(function(filename) {
+		    files.push(filename);
+		    return true; // to continue files listing
+		  }).then(function(filesCount) {
+		    console.log('Files count: ' + filesCount);
+		    showFilesList(files);
+		  });
+		
+	//get file
+		userSession.getFile(inputFile, {
+		    decrypt: false,
+		    // You also can set these options (read more in docs):
+		    // app (you can get files from other app)
+		    // username (you can get other users' files, but you need to know their username)
+		    // verify (you can check if files signature is valid)
+		    // zoneFileLookupURL (The URL to use for zonefile lookup)
+		  }).then(function(content) {
+		    showFileContent(content);
+		  }).catch(function(err) {
+		    console.error(err);
+		    alert('Error occured, check console');
+		  });
+	
+		document.getElementById("entries").innerHTML = userSession.getFile(inputFile,{decrypt: false});
 		$('#ityped').val('')
 });
 </script>
