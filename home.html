@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js" crossorigin="anonymous" as="script">
 <link rel="prefetch" href="js/home.js" as="script">
-<!-- <link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
+<link rel="preload" href="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous" as="script">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" crossorigin="anonymous" as="script">
+<link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="favicon.ico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="favicon.ico/apple-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="76x76" href="favicon.ico/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="favicon.ico/apple-icon-114x114.png"> -->
+<link rel="apple-touch-icon" sizes="114x114" href="favicon.ico/apple-icon-114x114.png">
 <link rel="apple-touch-icon" sizes="120x120" href="favicon.ico/apple-icon-120x120.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
-<link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
 <link rel="manifest" href="manifest.json"></link>
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -350,35 +354,37 @@ max-width: 90%
 <div class="buttons">
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/blockstack.js"></script>
 <script src="js/home.js"></script>
-<script src="js/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 var person = new blockstack.Person(profile)
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
+console.log(username);
 function fetchData() {
 userSession.getFile("statuses.json", { decrypt: false })
 .then((file) => {
-var statuses = JSON.parse(file);	
-var childElement = document.createElement('div');
-var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
-var att = document.createAttribute("items");
-att.value = "democlass";
-for (var i=0, il=statuses.length; i<il; i++) {
+var statuses = JSON.parse(file);
+console.log(statuses);
+for (i in statuses) {
   d = new Date(statuses[i].created_at)
-  n = d.getTime
+  n = d.getTime()
+  var childElement = document.createElement('div');
   var parentid = statuses[i].text
   var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
   var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
+  var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
   childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
   document.getElementById("content").appendChild(childElement);
+  var att = document.createAttribute("items");
+  att.value = "democlass";
   childElement.setAttributeNode(att);
-}
+  console.log(moment(statuses.created_at).fromNow());
+ }
 });
 $('#hidden').show();
 $('.reply').hide()
@@ -395,12 +401,14 @@ $('.reply').hide();
 $('#login-button').click(function() {
 signOut();
 })
+
 $("#aboutbtn").click(function() {
 window.location.href =("about.html");
 });
 $("#profile").click(function() {
 window.location.href =("profile.html");
 });
+
 $("#helpbtn").click(function() {
 window.location.href = ("help.html");
 });
@@ -415,6 +423,7 @@ self.text("post 💌").data("add", false);
 }
 var statusText = document.getElementById("ityped").value;
 console.log(statusText);
+
 window.scroll({
 top: 200,
 left: 0,
@@ -447,18 +456,23 @@ if ((document.getElementById("ityped").value).trim() !== ""){
 $("#postbtn").removeAttr('disabled');
 }
 });
+// Get the input field
 var input = document.getElementById("ityped");
+// Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup",
 function(event) {
+// Number 13 is the "Enter" key on the keyboard
 if (event.keyCode ===
 13) {
+// Cancel the default action, if needed
 event.preventDefault();
+// Trigger the button element with a click
 document.getElementById("postbtn").click();
 }
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
-<script src="js/simplex-noise.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
 <script>
 let clientX = -100;
 let clientY = -100;
@@ -545,6 +559,7 @@ group.position = new paper.Point(lastX, lastY);
 }
 initCanvas();
 </script>
+<!-- <script src="js/prognroll.js"></script> -->
 <script>
 $(function() {
 $("body").prognroll({
