@@ -3,8 +3,7 @@
 <head>
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js" as="script">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"as="script">
-<link rel="prefetch" href="js/home.js" crossorigin="anonymous" as="script">
-<link rel="preload" href="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous" as="script">
+<link rel="prefetch" href="js/home.js" as="script">
 <link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="favicon.ico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="favicon.ico/apple-icon-72x72.png">
@@ -363,11 +362,15 @@ var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
+	
 function fetchData() {
 userSession.getFile("statuses.json", { decrypt: false })
 .then((file) => {
 var statuses = JSON.parse(file);
 console.log(statuses);
+if (statuses.length == 0){
+statuses = []
+}else{
 for (i in statuses) {
   d = new Date(statuses[i].created_at)
   n = d.getTime()
@@ -383,6 +386,7 @@ for (i in statuses) {
   childElement.setAttributeNode(att);
   console.log(moment(statuses.created_at).fromNow());
  }
+}
 });
 $('#hidden').show();
 $('.reply').hide()
