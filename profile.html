@@ -10,17 +10,14 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
 <link rel="icon" href="/android-icon-192x192.png">
 <link rel="preload" href="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous" as="script">
-<link rel="preload" href=src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" integrity="sha384-0/Bpau9EagSLZ9dHVEkul9dE9BfaYopWWJ8ynwuk3Rwwxcn9wAeysVYtixDLSXA3" crossorigin="anonymous" as="script">
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <bold><title>GENDEREV</title></bold>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- <script src="https://unpkg.com/blockstack@19.3.0/dist/blockstack.js" integrity="sha384-kscoAgc5pZqovHWSKndfyn3OeKHfRSh+Xc5wYc+E02BuyQV2zwEEHJ7p5drKnRrX" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="js/blockstack-setup.js"></script>
-
 <bold><title>GENDEREV</title></bold>
 <style>
 button {
@@ -85,7 +82,6 @@ transition: 0.1s;
 ::placeholder {
 color: dimgrey;
 }
-
 textarea:hover {
 box-shadow: 0px 0px 5px black;
 border-radius: 3px;
@@ -94,7 +90,6 @@ border-radius: 3px;
 display: flex;
 align-items: center;
 justify-content: center
-
 }
 #title br + br {margin-top: 0.825rem;}
 #title {
@@ -128,7 +123,6 @@ border: 1px solid blue;
 color: blue;
 }
 button:hover {
-
 box-shadow: 0px 0px 10px 2px black;
 border: 1px solid black;
 }
@@ -140,7 +134,6 @@ background-size: cover;
 background-attachment: fixed;
 font-family: arial;
 }
-
 a:link, a:visited {
 text-decoration: underline;
 text-shadow: 0px 0px 1px black;
@@ -213,27 +206,17 @@ margin-right: 10px;
 		label{margin:none;padding:none;}
 }
 </style>
-<script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 </head>
-
 <body>
 <div class="buttons"><button type="button" id ="profile">view feed </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
 <div class = "entries"><div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img src="Paint_palette.png"></center></div>
-
-
 <div class="edit">
 <input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
 <center><img style="margin-left:0px;"src="" width="374px" id="preview" alt="Image preview..."></center></div>
 <br><br>
-
-
 <div class="upload">
 <h3 id="heading-name">
-</h3>
-</div>
-
-
-	</div>
+</h3></div></div>
 <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
 <script>
 $(".upload").hide();
@@ -273,9 +256,5 @@ alert('Error: user is not signed in');
 })
 console.log(blockstack.lookupProfile("?page=30"));
 </script>
-<script>
-UPLOADCARE_PUBLIC_KEY = '607ba88c3a54d23653e6';
-</script>
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js" crossorigin="anonymous" defer></script>
 </body>
 </html>
