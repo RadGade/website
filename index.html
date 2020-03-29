@@ -248,8 +248,8 @@ document.getElementById("login-button").addEventListener("click", showLogin);
 //adding compatibility for older browsers	
 addEventListener('load', () => {
     // our worker code is likely already parsed and ready to execute!
-    const worker = new Worker('worker.js', { type: 'module' });
-	const worker2 = new Worker('worker2.js', { type: 'module' });
+    const worker = new Worker('worker.js');
+	const worker2 = new Worker('worker2.js');
   });
 
 </script>			
