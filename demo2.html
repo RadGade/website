@@ -348,14 +348,19 @@ $('#postbtn').click(function() {
 		}
 
 
-		userSession.putFile("profile.json", document.getElementById("ityped").value, {
+		userSession.putFile("status.json", document.getElementById("ityped").value, {
     		encrypt: false
 		    // contentType (You can set a Content-Type header for unencrypted data)
 		    // sign (You can sign the data with using Users Private Key)
 		});
 
-		userSession.getFile("profile.json",{ decrypt: false }).then((content) =>{console.log(content)})
-		document.getElementById("entries").innerText = content.innerText
+
+ 		userSession.getFile("status.json",{ decrypt: false }).then((content) =>{console.log(content);document.getElementById("entries").innerText = content.innerText
+
+
+
+)})
+
 
 		const GetFileOptions = {
 			decrypt: false
