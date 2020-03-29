@@ -7,6 +7,8 @@ const PRECACHE_URLS = [
   '/about.html',
   '/profile.html',
   '/js/bundle.js',
+  '/paint_palette.png',
+  '/favicon.ico/android-icon-192x192.png',
   '/js/blockstack.js'
 ];
 
