@@ -221,7 +221,8 @@ margin-right: 10px;
 $(".upload").hide();
 $("#preview").hide();
 const appConfig = new blockstack.AppConfig(['store_write', 'publish_data']);const appDomain = "https://genderev.com";var userSession = new blockstack.UserSession({appConfig,}); 
-var userData = blockstack.loadUserData();
+const UserSession = blockstack.UserSession
+var userData = UserSession.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
