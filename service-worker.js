@@ -2,8 +2,6 @@ const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
-  '/js/blockstack.js',
-  '/js/bundle.js',
   'index.html',
   './', // Alias for index.html
   '/about.html',
