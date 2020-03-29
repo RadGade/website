@@ -234,7 +234,7 @@ $('#postbtn').click(function() {
 		    // contentType (You can set a Content-Type header for unencrypted data)
 		    // sign (You can sign the data with using Users Private Key)
 		});
-		document.getElementById("entries").innerHTML = userSession.getFile(n, decrypt: false);
+		document.getElementById("entries").innerHTML = userSession.getFile(n,{decrypt: false});
 		$('#ityped').val('')
 });
 </script>
