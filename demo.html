@@ -229,8 +229,8 @@ $('#postbtn').click(function() {
 					self.text('post 💌').data('add', false);
 					}, 1100);
 		}
-		userSession.putFile(n, document.getElementById("ityped").value, {encrypt: false});
-		document.getElementById("entries").innerHTML = userSession.getFile(n,{decrypt: false});
+		userSession.putFile(n.json, document.getElementById("ityped").value, {encrypt: false});
+		document.getElementById("entries").innerHTML = userSession.getFile(n.json,{decrypt: false});
 		$('#ityped').val('')
 });
 </script>
