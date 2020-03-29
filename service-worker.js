@@ -2,14 +2,14 @@ const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
+  '/js/blockstack.js',
+  '/js/bundle.js',
   'index.html',
   './', // Alias for index.html
   '/about.html',
-  '/profile.html',
-  '/js/bundle.js',
   '/Paint_palette.png',
   '/favicon.ico/android-icon-192x192.png',
-  '/js/blockstack.js'
+  '/help.html'
 ];
 
 // The install handler takes care of precaching the resources we always need.
