@@ -371,7 +371,7 @@ userSession.getFile("statuses.json", { decrypt: false })
 .then((file) => {
 var statuses = JSON.parse(file);
 console.log(statuses);
-for (i in statuses) {
+for (var i=0, il=statuses.length; i<il; i++) {
   d = new Date(statuses[i].created_at)
   n = d.getTime()
   var childElement = document.createElement('div');
