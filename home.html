@@ -438,6 +438,7 @@ userSession.getFile("statuses.json", { decrypt: false })
 
 	
 .then((file) => {
+console.log(" in the then"); 
 console.log(file);
 var statuses = JSON.parse(file);
 var status = {
