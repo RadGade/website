@@ -246,13 +246,13 @@ document.getElementById("login-button").addEventListener("click", showLogin);
     navigator.serviceWorker.register('/service-worker.js')
   }
 //adding compatibility for older browsers
-var worker = new Worker('blockstack.js');
+var worker = new Worker('/js/blockstack.js');
 worker.addEventListener('message', function(e) {
   console.log('Worker said: ', e.data);
 }, false);
 worker.postMessage('Hello World'); // Send data to our worker.
 
-var worker2 = new Worker('bundle.js');
+var worker2 = new Worker('/js/bundle.js');
 worker2.addEventListener('message', function(e) {
   console.log('Worker said: ', e.data);
 }, false);
