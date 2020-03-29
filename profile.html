@@ -211,7 +211,7 @@ margin-right: 10px;
 <center><img style="margin-left:0px;"src="" width="374px" id="preview" alt="Image preview..."></center></div>
 <br><br>
 <div class="upload">
-<h3 id="heading-name"></h3></div></div>
+<h3 id="heading-name">you</h3></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
 <script>
@@ -222,7 +222,7 @@ const userData = blockstack.loadUserData()
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-document.getElementById('heading-name').innerHTML ="*" + username;
+document.getElementById('heading-name').innerHTML="*" + username;
 $('#login-button').click(function() {
 signOut();
 });
