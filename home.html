@@ -433,24 +433,23 @@ $("#file-content").prepend(div);
 	
 function saveNewStatus() 
 	
-//userSession.putFile("statuses.json", { encrypt: false }) 
-userSession.getFile("statuses.json", { decrypt: false })
+	//userSession.putFile("statuses.json", { encrypt: false }) 
+	userSession.getFile("statuses.json", { decrypt: false }
 
-	
-.then((file) => {
-console.log(" in the then"); 
-console.log(file);
-var statuses = JSON.parse(file);
-var status = {
-parent_id: statuses.length + 1,
-username: username,
-text: statusText,
-created_at: Date()
-};
-statuses.unshift(status);
-// second arg of putFile is JSON.stringify(statuses)
-userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
-});
+	.then((file) => {
+	console.log(" in the then"); 
+	console.log(file);
+	var statuses = JSON.parse(file);
+	var status = {
+	parent_id: statuses.length + 1,
+	username: username,
+	text: statusText,
+	created_at: Date()
+	};
+	statuses.unshift(status);
+	// second arg of putFile is JSON.stringify(statuses)
+	userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
+	});
 }
 saveNewStatus();
 $("#ityped").val("");
