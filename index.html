@@ -213,6 +213,8 @@ font-weight: lighter;
 <img src="Paint_palette.png" alt="Genderev Banner">
 <div class="desc"><center><h4>Columbia's gender revolution</h4></center></div>
 <div id="pages"><center><a href="about.html">[ about ]</a>&nbsp-&nbsp<a href="help.html">[ help ]</a></div></center></div>
+<script src="js/blockstack.js"></script>   
+<script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" integrity="sha384-w8M+NgNUrD+UkwgcFHBTPPeZywuw9w+AqGg/7SSAuOSePyAj9FVwrCrmvunemmf6" crossorigin="anonymous"></script> 
 <script>
 const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
 const appDomain = "https://genderev.com";
@@ -245,12 +247,7 @@ document.getElementById("login-button").addEventListener("click", showLogin);
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
   }
-//adding compatibility for older browsers	
-addEventListener('load', () => {
-    // our worker code is likely already parsed and ready to execute!
-    const worker = new Worker('worker.js');
-	const worker2 = new Worker('worker2.js');
-  });
+
 
 </script>			
 </body></html>
