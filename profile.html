@@ -225,7 +225,7 @@ var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-document.getElementById('heading-name').innerText ="*" + username;
+document.getElementById('heading-name').innerHTML ="*" + username;
 $('#login-button').click(function() {
 signOut();
 });
