@@ -430,9 +430,15 @@ behavior: 'smooth'
 var div = document.createElement("div");
 div.innerHTML = statusText + "<br><br>" + "<span style='color:black;font-size:23px'>" + moment(Date()).fromNow()  +"</span>"+ "<br><hr><br>";
 $("#file-content").prepend(div);
-function saveNewStatus() {
+	
+function saveNewStatus() 
+	
+//userSession.putFile("statuses.json", { encrypt: false }) 
 userSession.getFile("statuses.json", { decrypt: false })
+
+	
 .then((file) => {
+console.log(file);
 var statuses = JSON.parse(file);
 var status = {
 parent_id: statuses.length + 1,
