@@ -7,17 +7,9 @@
 <script src="https://unpkg.com/blockstack@19.4.0-beta.1/dist/blockstack.js" integrity="sha384-UnkhaTA3XqTl/a79lTWO+C85bbXyM8IIUYtSLfrkkNQJcCxocVZv8nHaMzrvS9ZH" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="js/blockstack-setup.js"></script>
-
-
-
 <bold><title>GENDEREV</title></bold>
-
-
-
 <style>
-
 		button {
-
 			border-color: transparent;
 			border-radius: 3px;
 			border-style: solid;
@@ -45,11 +37,9 @@
 				margin-bottom: 10px;
 				transition: 0.1s;
 		}
-
 		::placeholder {
 				color: dimgrey;
 		}
-
 		textarea:hover {
 				box-shadow: 0px 0px 5px black;
 				border-radius: 3px;
@@ -58,11 +48,8 @@
 				display: flex;
 				align-items: center;
 				justify-content: center
-
 		}
-
 		#title br + br {margin-top: 0.825rem;}
-
 		#title {
 				text-align: center;
 				color: #000AFF;
@@ -74,8 +61,6 @@
 						text-shadow: 0px -1px 0px darkgrey;
 						font-family: Arial;
 				}
-
-
 		#question {
 				color: #000AFF;
 				font-family: 'Arial', sans-serif;
@@ -84,85 +69,51 @@
 				font-weight: 400;
 				text-shadow: 0px 0px 1px darkblue;
 				margin-bottom: 10px;
-
-
 		}
-
-
 		#profile {
 				margin-right: 210px;
 				color: darkblue;
 				box-shadow: 0px 0px 10px 2px darkblue;
-
 				}
-
 		#profile:hover{
 				box-shadow: 0px 0px 10px 2px blue;
 			border: 1px solid blue;
 			color: blue;
 				}
-
 		button:hover {
-
 			box-shadow: 0px 0px 10px 2px black;
 			border: 1px solid black;
-
 		}
-
 		body {
 				text-shadow: 0px 0px 15px #b68989;
 				font-size: 25px;
 				color: darkblue;
-
 				background-size: cover;
 				background-attachment: fixed;
-
-
 				font-family: arial;
-
 		}
-
-
-
-
-
 		a:link, a:visited {
 				text-decoration: underline;
 				text-shadow: 0px 0px 1px black;
 				color: blue;
 				transition: 0.1s;
-
 		}
-
-
 		a:hover {
-
 				text-shadow: 0px 2px 2px #006600;
-
 		}
-
 		#entries {
-
-
 				box-shadow:0px 0px 9px 2px black;
-
 				border-radius:1px;
 				padding-top: 15px;
 				padding-bottom: 15px;
-
-
 				width: 400px;
 				word-wrap:break-word;
 				background: #fff;
 				transition: 0.1s;
-
 		}
-
 		#entries:hover {
 				box-shadow:0px 0px 20px 2px  darkblue;
-
 		}
-
 		#postbtn {
 				border-color: red;
 			border-radius: 12px;
@@ -177,20 +128,12 @@
 			color: #800000;
 			text-shadow: none;
 		}
-
 		#postbtn:hover {
 				 box-shadow: 0px 0px 20px red;
 		 border: 3px groove red;
 		 text-shadow: 1px 1px 1px  red;
-
 		}
-
-
-
 		#sidebar {
-
-
-
 				background:#ffffff;
 				padding:15px;
 				border-radius:2px;
@@ -198,20 +141,13 @@
 				word-wrap:break-word;
 				margin-top: 2px;
 				width: 400px;
-
-
 		}
-
-
-
 		#sidebar img {
 				border-radius:0px;
 				width: 80%;
 				height: auto;
 		}
-
 		#sidebar .title {
-
 				font-size: 32px;
 				letter-spacing: 0rem;
 				font-family: Arial;
@@ -221,14 +157,10 @@
 				font-style: italic;
 				text-decoration: underline;
 		}
-
-
 		#sidebar .desc {
 				color:  darkblue;
 				font-size: 22px;
-
 		}
-
 		#aboutbtn{
 				margin-right: 10px;
 		}
@@ -289,7 +221,6 @@ $('#login-button').click(function() {
 var d = new Date();
 var n = d.getTime();
 $('#postbtn').click(function() {
-
 		var self = $(this);
 		if (!self.data('add')) {
 				self.data('add', true);
@@ -304,11 +235,6 @@ $('#postbtn').click(function() {
 		    // sign (You can sign the data with using Users Private Key)
 		});
 		document.getElementById("entries").innerHTML = userSession.getFile(n, decrypt: false);
-
-// 		function showFileContent(content) {
-// 			document.getElementById('entries').innerHTML = content;
-
-// 		}
 		$('#ityped').val('')
 });
 </script>
