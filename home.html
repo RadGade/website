@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js" crossorigin="anonymous" as="script"> -->
+<!-- <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js" crossorigin="anonymous" as="script"> -->
 <link rel="prefetch" href="js/home.js" as="script">
 <link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="favicon.ico/apple-icon-60x60.png">
@@ -361,33 +363,33 @@ var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-// function fetchData() {
-// userSession.getFile("statuses.json", { decrypt: false })
-// .then((file) => {
-// var statuses = JSON.parse(file);
-// console.log(statuses);
-// for (var i=0, il=statuses.length; i<il; i++) {
-//   d = new Date(statuses[i].created_at)
-//   n = d.getTime()
-//   var childElement = document.createElement('div');
-//   var parentid = statuses[i].text
-//   var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-//   var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-//   var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
-//   childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
-//   document.getElementById("content").appendChild(childElement);
-//   var att = document.createAttribute("items");
-//   att.value = "democlass";
-//   childElement.setAttributeNode(att);
-//   console.log(moment(statuses.created_at).fromNow());
-//  }
-// });
+function fetchData() {
+userSession.getFile("statuses.json", { decrypt: false })
+.then((file) => {
+var statuses = JSON.parse(file);
+console.log(statuses);
+for (var i=0, il=statuses.length; i<il; i++) {
+  d = new Date(statuses[i].created_at)
+  n = d.getTime()
+  var childElement = document.createElement('div');
+  var parentid = statuses[i].text
+  var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
+  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
+  var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
+  childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
+  document.getElementById("content").appendChild(childElement);
+  var att = document.createAttribute("items");
+  att.value = "democlass";
+  childElement.setAttributeNode(att);
+  console.log(moment(statuses.created_at).fromNow());
+ }
+});
 $('#hidden').show();
 $('.reply').hide()
 }
-// $(document).ready(function(){
-// fetchData();
-// });
+$(document).ready(function(){
+fetchData();
+});
 $(document).on('click', '.cmt', function () {
 $('.reply').show();
 });
@@ -429,26 +431,27 @@ var div = document.createElement("div");
 div.innerHTML = statusText + "<br><br>" + "<span style='color:black;font-size:23px'>" + moment(Date()).fromNow()  +"</span>"+ "<br><hr><br>";
 $("#file-content").prepend(div);
 	
-function saveNewStatus() 
+function saveNewStatus(){ 
 	
-	//userSession.putFile("statuses.json", { encrypt: false }) 
-	userSession.getFile("statuses.json", { decrypt: false }
-
+userSession.putFile("statuses.json", { encrypt: false }) 
+userSession.getFile("statuses.json", { decrypt: false })	
+	
 	.then((file) => {
 	console.log(" in the then"); 
 	console.log(file);
 	var statuses = JSON.parse(file);
-	var status = {
-	parent_id: statuses.length + 1,
-	username: username,
-	text: statusText,
-	created_at: Date()
-	};
-	statuses.unshift(status);
-	// second arg of putFile is JSON.stringify(statuses)
-	userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
+		var status = {
+			parent_id: statuses.length + 1,
+			username: username,
+			text: statusText,
+			created_at: Date()
+		};
+		statuses.unshift(status);
+		// second arg of putFile is JSON.stringify(statuses)
+		userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
 	});
 }
+		    
 saveNewStatus();
 $("#ityped").val("");
 });
@@ -473,14 +476,106 @@ document.getElementById("postbtn").click();
 }
 });
 </script>
+<!-- below: was making statuses load slower -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+<script>
+let clientX = -100;
+let clientY = -100;
+const innerCursor = document.querySelector(".cursor--small");
+
+const initCursor = () => {
+// add listener to track the current mouse position
+document.addEventListener("mousemove", e => {
+clientX = e.clientX;
+clientY = e.clientY;
+});
+
+// transform the innerCursor to the current mouse position
+// use requestAnimationFrame() for smooth performance
+const render = () => {
+innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+// if you are already using TweenMax in your project, you might as well
+// use TweenMax.set() instead
+// TweenMax.set(innerCursor, {
+//   x: clientX,
+//   y: clientY
+// });
+
+requestAnimationFrame(render);
+};
+requestAnimationFrame(render);
+};
+
+initCursor();
+let lastX = 0;
+let lastY = 0;
+let isStuck = false;
+let showCursor = false;
+let group, stuckX, stuckY, fillOuterCursor;
+const initCanvas = () => {
+const canvas = document.querySelector(".cursor--canvas");
+const shapeBounds = {
+width: 75,
+height: 75
+};
+paper.setup(canvas);
+const strokeColor = "red";
+const strokeWidth = 1;
+const segments = 8;
+const radius = 15;
+// we'll need these later for the noisy circle
+const noiseScale = 150; // speed
+const noiseRange = 4; // range of distortion
+let isNoisy = false; // state
+
+// the base shape for the noisy circle
+const polygon = new paper.Path.RegularPolygon(
+new paper.Point(0, 0),
+segments,
+radius
+);
+polygon.strokeColor = strokeColor;
+polygon.strokeWidth = strokeWidth;
+polygon.smooth();
+group = new paper.Group([polygon]);
+group.applyMatrix = false;
+const noiseObjects = polygon.segments.map(() => new SimplexNoise());
+let bigCoordinates = [];
+// function for linear interpolation of values
+const lerp = (a, b, n) => {
+return (1 - n) * a + n * b;
+};
+// function to map a value from one range to another range
+const map = (value, in_min, in_max, out_min, out_max) => {
+return (
+((value - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+);
+};
+// the draw loop of Paper.js
+// (60fps with requestAnimationFrame under the hood)
+paper.view.onFrame = event => {
+// using linear interpolation, the circle will move 0.2 (20%)
+// of the distance between its current position and the mouse
+// coordinates per Frame
+lastX = lerp(lastX, clientX, 0.2);
+lastY = lerp(lastY, clientY, 0.2);
+group.position = new paper.Point(lastX, lastY);
+}
+}
+initCanvas();
+</script> -->
+<!-- <script src="js/prognroll.js"></script> -->
 <script>
 $(function() {
 $("body").prognroll({
-height: 5, 
-color: "#333399", 
-custom: false 
+height: 5, // progress bar height
+color: "#333399", // progress bar background color
+custom: false // if you make it true, you can add your custom div and see it's scroll progress on the page
 });
 });
 </script>
+<!-- <script async src="js/signedin.js"></script>
+ -->
 </body>
 </html>
