@@ -1,4 +1,5 @@
-let CACHE_NAME = 'v1'self.addEventListener('install', (event) => {
+let CACHE_NAME = 'v1'
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
     .then(cache => cache.addAll('./404.html'))
