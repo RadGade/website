@@ -362,21 +362,16 @@ var person = new blockstack.Person(profile)
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
-console.log(username);
-	
 function fetchData() {
 userSession.getFile("statuses.json", { decrypt: false })
 .then((file) => {
-var statuses = JSON.parse(file);
-console.log(statuses);
-	
+var statuses = JSON.parse(file);	
 var childElement = document.createElement('div');
 var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
 var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
 var att = document.createAttribute("items");
 att.value = "democlass";
-
-for (i in statuses) {
+for (var i=0, il=statuses.length; i<il; i++) {
   d = new Date(statuses[i].created_at)
   n = d.getTime
   var parentid = statuses[i].text
@@ -402,14 +397,12 @@ $('.reply').hide();
 $('#login-button').click(function() {
 signOut();
 })
-
 $("#aboutbtn").click(function() {
 window.location.href =("about.html");
 });
 $("#profile").click(function() {
 window.location.href =("profile.html");
 });
-
 $("#helpbtn").click(function() {
 window.location.href = ("help.html");
 });
@@ -424,7 +417,6 @@ self.text("post 💌").data("add", false);
 }
 var statusText = document.getElementById("ityped").value;
 console.log(statusText);
-
 window.scroll({
 top: 200,
 left: 0,
@@ -457,17 +449,12 @@ if ((document.getElementById("ityped").value).trim() !== ""){
 $("#postbtn").removeAttr('disabled');
 }
 });
-// Get the input field
 var input = document.getElementById("ityped");
-// Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup",
 function(event) {
-// Number 13 is the "Enter" key on the keyboard
 if (event.keyCode ===
 13) {
-// Cancel the default action, if needed
 event.preventDefault();
-// Trigger the button element with a click
 document.getElementById("postbtn").click();
 }
 });
