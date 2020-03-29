@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js" as="script">
-<link rel="preload" href="js/simplex-noise.min.js"as="script">
 <link rel="prefetch" href="js/home.js" as="script">
 <!-- <link rel="apple-touch-icon" sizes="57x57" href="favicon.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="favicon.ico/apple-icon-60x60.png">
@@ -352,10 +350,10 @@ max-width: 90%
 <div class="buttons">
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/blockstack.js"></script>
 <script src="js/home.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+<script src="js/moment.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 var person = new blockstack.Person(profile)
@@ -546,9 +544,6 @@ group.position = new paper.Point(lastX, lastY);
 }
 }
 initCanvas();
-</script>
-<!-- <script src="js/prognroll.js"></script> -->
-<script>
 $(function() {
 $("body").prognroll({
 height: 5, // progress bar height
