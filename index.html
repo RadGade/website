@@ -217,8 +217,6 @@ font-weight: lighter;
 <!-- <script src="js/blockstack.js"></script> -->
 <!-- <script src="https://unpkg.com/@blockstack/connect@2.3.1/dist/bundle.js" integrity="sha384-w8M+NgNUrD+UkwgcFHBTPPeZywuw9w+AqGg/7SSAuOSePyAj9FVwrCrmvunemmf6" crossorigin="anonymous"></script> -->
 <script>
-var worker = new Worker('blockstack.js');
-var worker = new Worker('bundle.js');
 const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
 const appDomain = "https://genderev.com";
 var userSession = new blockstack.UserSession({
@@ -250,5 +248,18 @@ document.getElementById("login-button").addEventListener("click", showLogin);
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
   }
+//adding compatibility for older browsers
+var worker = new Worker('blockstack.js');
+worker.addEventListener('message', function(e) {
+  console.log('Worker said: ', e.data);
+}, false);
+worker.postMessage('Hello World'); // Send data to our worker.
+
+var worker2 = new Worker('bundle.js');
+worker2.addEventListener('message', function(e) {
+  console.log('Worker said: ', e.data);
+}, false);
+worker2.postMessage('Hello World'); // Send data to our worker.
+
 </script>			
 </body></html>
