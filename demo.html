@@ -220,6 +220,11 @@ $('#login-button').click(function() {
 <script>
 // var d = new Date();
 // var n = d.getTime();
+	
+function updatePost(content) {
+  document.getElementById('entries').innerHTML = content;
+}
+	
 $('#postbtn').click(function() {
 		var self = $(this);
 		var inputFile = "writtenpost.json";
@@ -243,11 +248,10 @@ $('#postbtn').click(function() {
 				var files = [];
 				userSession.listFiles(function(filename) {
 				    files.push(filename);
-				    return true; // to continue files listing					                               console.log(typeof content);sel                                        console.log(typeof f);sel                                console.log(typeof f);
-                                console.log(typeof files);    
+				    return true; // to continue files listing
 				  }).then(function(filesCount) {
 				    console.log('Files count: ' + filesCount);
-				    showFilesList(files);
+				    console.log(JSON.stringify(files, '\t', 2));
 				console.log(typeof files);
 				  });
 
@@ -259,15 +263,20 @@ $('#postbtn').click(function() {
 				    // username (you can get other users' files, but you need to know their username)
 				    // verify (you can check if files signature is valid)
 				    // zoneFileLookupURL (The URL to use for zonefile lookup)
-				  }).then(function(file) {
-				    showFileContent(file);
-
+				  }).then(function(content) {
+				    console.log(file);
+				    console.log(content);
+				    console.log(JSON.stringify(file));
+				    console.log(JSON.stringify(content));
+					
+				    updatePost(content);
+				    console.log(typeof content);
 				  }).catch(function(err) {
 				    console.error(err);
 				    alert('Error occured, check console');
 				  });
 
-				document.getElementById("entries").innerHTML = userSession.getFile(inputFile,{decrypt: false});
+				document.getElementById("").innerHTML = userSession.getFile(inputFile,{decrypt: false});
 			$('#ityped').val('')
 		});
 		
