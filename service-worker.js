@@ -4,7 +4,8 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
     .then(cache => cache.addAll('./404.html'))
   )
-})self.addEventListener('fetch', (event) => {
+})
+self.addEventListener('fetch', (event) => {
   if (event.request.method === 'GET') {
     event.respondWith(
       caches.match(event.request)
