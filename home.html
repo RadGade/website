@@ -361,33 +361,33 @@ var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-function fetchData() {
-userSession.getFile("statuses.json", { decrypt: false })
-.then((file) => {
-var statuses = JSON.parse(file);
-console.log(statuses);
-for (var i=0, il=statuses.length; i<il; i++) {
-  d = new Date(statuses[i].created_at)
-  n = d.getTime()
-  var childElement = document.createElement('div');
-  var parentid = statuses[i].text
-  var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-  var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
-  childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
-  document.getElementById("content").appendChild(childElement);
-  var att = document.createAttribute("items");
-  att.value = "democlass";
-  childElement.setAttributeNode(att);
-  console.log(moment(statuses.created_at).fromNow());
- }
-});
+// function fetchData() {
+// userSession.getFile("statuses.json", { decrypt: false })
+// .then((file) => {
+// var statuses = JSON.parse(file);
+// console.log(statuses);
+// for (var i=0, il=statuses.length; i<il; i++) {
+//   d = new Date(statuses[i].created_at)
+//   n = d.getTime()
+//   var childElement = document.createElement('div');
+//   var parentid = statuses[i].text
+//   var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
+//   var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
+//   var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
+//   childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
+//   document.getElementById("content").appendChild(childElement);
+//   var att = document.createAttribute("items");
+//   att.value = "democlass";
+//   childElement.setAttributeNode(att);
+//   console.log(moment(statuses.created_at).fromNow());
+//  }
+// });
 $('#hidden').show();
 $('.reply').hide()
 }
-$(document).ready(function(){
-fetchData();
-});
+// $(document).ready(function(){
+// fetchData();
+// });
 $(document).on('click', '.cmt', function () {
 $('.reply').show();
 });
