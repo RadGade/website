@@ -5,7 +5,7 @@ const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
   '/about.html',
-  '/Paint_palette.png',
+  '/paint_palette.png',
   '/favicon.ico/android-icon-192x192.png',
   '/help.html'
 ];
