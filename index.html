@@ -199,13 +199,7 @@ font-weight: lighter;
 	margin-right: 185px;
 	}
 }
-</style>
-<script>
-//adding offline cache service worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-  }
-</script>       
+</style>   
 </head>
 <body>
 <div class="top">
@@ -247,5 +241,13 @@ blockstackConnect.showBlockstackConnect(authOptions);
 }
 document.getElementById("signup-button").addEventListener("click", showLogin);
 document.getElementById("login-button").addEventListener("click", showLogin);
-</script>			
+</script>
+<script>
+//adding offline cache service worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+  }
+</script>       
+
+
 </body></html>
