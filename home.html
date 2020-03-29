@@ -369,10 +369,7 @@ userSession.getFile("statuses.json", { decrypt: false })
 .then((file) => {
 var statuses = JSON.parse(file);
 console.log(statuses);
-if (statuses.length == 0){
-statuses = []
-}else{
-for (i in statuses) {
+for (var i=0, il=statuses.length; i<il; i++) {
   d = new Date(statuses[i].created_at)
   n = d.getTime()
   var childElement = document.createElement('div');
@@ -386,7 +383,6 @@ for (i in statuses) {
   att.value = "democlass";
   childElement.setAttributeNode(att);
   console.log(moment(statuses.created_at).fromNow());
- }
 }
 });
 $('#hidden').show();
