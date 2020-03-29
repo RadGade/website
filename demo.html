@@ -243,7 +243,8 @@ $('#postbtn').click(function() {
 				var files = [];
 				userSession.listFiles(function(filename) {
 				    files.push(filename);
-				    return true; // to continue files listing
+				    return true; // to continue files listing					                               console.log(typeof content);sel                                        console.log(typeof f);sel                                console.log(typeof f);
+                                console.log(typeof files);    
 				  }).then(function(filesCount) {
 				    console.log('Files count: ' + filesCount);
 				    showFilesList(files);
@@ -258,9 +259,9 @@ $('#postbtn').click(function() {
 				    // username (you can get other users' files, but you need to know their username)
 				    // verify (you can check if files signature is valid)
 				    // zoneFileLookupURL (The URL to use for zonefile lookup)
-				  }).then(function(content) {
-				    showFileContent(content);
-				console.log(typeof content);
+				  }).then(function(file) {
+				    showFileContent(file);
+
 				  }).catch(function(err) {
 				    console.error(err);
 				    alert('Error occured, check console');
