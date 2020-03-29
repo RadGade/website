@@ -1,27 +1,30 @@
 let CACHE_NAME = 'v1'
-self.addEventListener('install', (event) => {
+self.addEventListener("install", function(event) {
+  console.log('WORKER: install event in progress.');
   event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then(cache => cache.addAll('offline.html'))
-  )
-})
-self.addEventListener('fetch', (event) => {
-  if (event.request.method === 'GET') {
-    event.respondWith(
-      caches.match(event.request)
-      .then((cached) => {
-        var networked = fetch(event.request)
-          .then((response) => {
-            let cacheCopy = response.clone()
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(event.request, cacheCopy))
-            return response;
-          })
-          .catch(() => caches.match(offlinePage));
-        return cached || networked;
+    /* The caches built-in is a promise-based API that helps you cache responses,
+       as well as finding and deleting them.
+    */
+    caches
+      /* You can open a cache by name, and this method returns a promise. We use
+         a versioned cache name here so that we can remove old cache entries in
+         one fell swoop later, when phasing out an older service worker.
+      */
+      .open(version + 'fundamentals')
+      .then(function(cache) {
+        /* After the cache is opened, we can fill it with the offline fundamentals.
+           The method below will add all resources we've indicated to the cache,
+           after making HTTP requests for each of them.
+        */
+        return cache.addAll([
+          '/',
+          '/about.html',
+          '/profile.html'
+        ]);
       })
-    )
-  }
-  return;
+      .then(function() {
+        console.log('WORKER: install completed');
+      })
+  );
 });
 
