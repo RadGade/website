@@ -229,11 +229,7 @@ $('#postbtn').click(function() {
 					self.text('post 💌').data('add', false);
 					}, 1100);
 		}
-		userSession.putFile(n, document.getElementById("ityped").value, {
-    		encrypt: false
-		    // contentType (You can set a Content-Type header for unencrypted data)
-		    // sign (You can sign the data with using Users Private Key)
-		});
+		userSession.putFile(n, document.getElementById("ityped").value, {encrypt: false});
 		document.getElementById("entries").innerHTML = userSession.getFile(n,{decrypt: false});
 		$('#ityped').val('')
 });
