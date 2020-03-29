@@ -335,18 +335,14 @@ max-width: 90%
 <div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id ="img1" alt="GENDEREV BANNER" src="Paint_palette.png">
 <div class="cursor cursor--small"></div>
 <canvas class="cursor cursor--canvas" resize></canvas>
-
 <center>
-
 <div class="post">
-
 <p id="question">˚✧What are you thinking about?✧˚</p>
 <textarea id="ityped" placeholder="Say more?" required></textarea>
 <br>
 <button type="button" id="postbtn"> post 📩</button>
 </div>
 </center>
-
 <!-- POSTS -->
 <center>
 <div id="content">
@@ -358,14 +354,11 @@ max-width: 90%
 <div class="buttons">
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
+<script src="js/home.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
-<script src="js/blockstack-setup.js"></script>
-<script src="js/typewriter.js"></script>
-
 <script>
-
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 var person = new blockstack.Person(profile)
 var userData = blockstack.loadUserData();
@@ -566,10 +559,9 @@ group.position = new paper.Point(lastX, lastY);
 }
 initCanvas();
 </script>
-<script src="js/prognroll.js"></script>
+<!-- <script src="js/prognroll.js"></script> -->
 <script>
 $(function() {
-
 $("body").prognroll({
 height: 5, // progress bar height
 color: "#333399", // progress bar background color
@@ -577,7 +569,7 @@ custom: false // if you make it true, you can add your custom div and see it's s
 });
 });
 </script>
-<script async src="js/signedin.js"></script>
-
+<!-- <script async src="js/signedin.js"></script>
+ -->
 </body>
 </html>
