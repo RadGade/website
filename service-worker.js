@@ -2,10 +2,10 @@ const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
+  '/paint_palette.png',
   'index.html',
   './', // Alias for index.html
   '/about.html',
-  '/paint_palette.png',
   '/favicon.ico/android-icon-192x192.png',
   '/help.html'
 ];
