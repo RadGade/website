@@ -357,14 +357,12 @@ $("#postbtn").click(function() {
 
 		gun.get('status').on(function(data, key) {
 		console.log(data.status);
-		  var postContent = "<span>" + data.status + "</span><br>"
-		  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
-			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
-		  innerHTML =  postContent + postDate + displayUser
-			var p = $("#content")
-			var node = document.createElement("div");
-			node.html(innerHTML)
-			document.getElementById("content").appendChild(node);
+		var postContent = "<span>" + data.status + "</span><br>"
+		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
+		var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
+		innerHTML =  postContent + postDate + displayUser
+		//var p = $("#content")
+			$(#content).append(innerHTML);
 			//p.html(innerHTML)
 		})
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
