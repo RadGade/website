@@ -350,8 +350,9 @@ var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
 $("#postbtn").click(function() {
+	var input = $("#ityped").val();
 	var gun = Gun()
-	gun.get('status').put({ status: $("#ityped").val()});
+	gun.get('status').put({ status: input});
 	
 	gun.get('status').on(function(data, key) {
 	console.log(data.status);
@@ -376,7 +377,7 @@ $("#postbtn").click(function() {
 	left: 0,
 	behavior: 'smooth'
 	});
-	$("#ityped").val("");
+	$(input).val(""); //may not work
 
 });
 $("#postbtn").attr('disabled','disabled');
