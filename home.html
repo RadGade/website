@@ -364,17 +364,6 @@ var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-$('#hidden').show();
-$('.reply').hide()
-$(document).on('click', '.cmt', function () {
-$('.reply').show();
-});
-$(document).on('click', '.cmt1', function () {
-$('.reply').hide();
-});
-$('#login-button').click(function() {
-signOut();
-})
 $("#postbtn").click(function() {
 	var self = $("#postbtn");
 	if (!self.data("add")) {
@@ -393,7 +382,7 @@ $("#postbtn").click(function() {
 
 
 	var gun = Gun()
-	gun.get('status').put({ status: input});
+	gun.get('status').put({ status: $("#ityped").val();});
 	gun.get('status').on(function(data, key) {
 	console.log(data.status);
 	  var postContent = "<span>" + data.status + "</span><br>"
@@ -413,6 +402,7 @@ input.addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
+$('#login-button').click(function() {signOut();})
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
