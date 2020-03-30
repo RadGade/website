@@ -218,10 +218,18 @@ $('#login-button').click(function() {
 })
 </script>
 <script>
-var d = new Date();
-var n = d.getTime();
+// var d = new Date();
+// var n = d.getTime();
+	
+function updatePost(content) {
+  document.getElementById('entries').innerHTML = content;
+}
+	
 $('#postbtn').click(function() {
 		var self = $(this);
+		var inputFile = "writtenpost.json";
+		var textInput = document.getElementById("ityped").value; 
+	
 		if (!self.data('add')) {
 				self.data('add', true);
 				self.text('posted!');
@@ -229,31 +237,53 @@ $('#postbtn').click(function() {
 					self.text('post 💌').data('add', false);
 					}, 1100);
 		}
-		userSession.putFile(n, document.getElementById("ityped").value, {
-    		encrypt: false
-		    // contentType (You can set a Content-Type header for unencrypted data)
-		    // sign (You can sign the data with using Users Private Key)
+		console.log(textInput);
+	
+		
+		userSession.putFile(inputFile, textInput, {
+			encrypt: false
+		}).then(function() {
+		    alert('File: ' + inputFile + ' saved');
+				//checking for file
+				var files = [];
+				userSession.listFiles(function(filename) {
+				    files.push(filename);
+				    return true; // to continue files listing
+				  }).then(function(filesCount) {
+				    console.log('Files count: ' + filesCount);
+				    console.log(JSON.stringify(files, '\t', 2));
+				console.log(typeof files);
+				  });
+
+			//get file
+				userSession.getFile(inputFile, {
+				    decrypt: false,
+				    // You also can set these options (read more in docs):
+				    // app (you can get files from other app)
+				    // username (you can get other users' files, but you need to know their username)
+				    // verify (you can check if files signature is valid)
+				    // zoneFileLookupURL (The URL to use for zonefile lookup)
+				  }).then(function(content) {
+				    //console.log(file);
+				    console.log(content);
+				    //console.log(JSON.stringify(file));
+				    console.log(JSON.stringify(content));
+					
+				    updatePost(content);
+				    console.log(typeof content);
+				  }).catch(function(err) {
+				    console.error(err);
+				    alert('Error occured, check console');
+				  });
+
+				document.getElementById("").innerHTML = userSession.getFile(inputFile,{decrypt: false});
+			$('#ityped').val('')
 		});
-		document.getElementById("entries").innerHTML = userSession.getFile(n, decrypt: false);
-		$('#ityped').val('')
+		
+		 
+
+		
 });
-</script>
-<script>
-// export async function getUserAppFileUrl(
-//   path: string, username: string, appOrigin: string,
-//   zoneFileLookupURL?: string
-// ): Promise<string|null> {
-//   const profile = await lookupProfile(username, zoneFileLookupURL)
-//   let bucketUrl: string = null
-//   if (profile.hasOwnProperty('apps')) {
-//     if (profile.apps.hasOwnProperty(appOrigin)) {
-//       const url = profile.apps[appOrigin]
-//       const bucket = url.replace(/\/?(\?|#|$)/, '/$1')
-//       bucketUrl = `${bucket}${path}`
-//     }
-//   }
-//   return bucketUrl
-// }
 </script>
 </body>
 </html>
