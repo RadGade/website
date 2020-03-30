@@ -400,8 +400,8 @@ $("#postbtn").click(function() {
 	  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
 		var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
 	  innerHTML =  postContent + postDate + displayUser
-		var p = $('p')
-		p.text(innerHTML)
+		var p = $('#file-content')
+		p.text(data.status+"<br>"+username)
 	  // document.getElementById("content").appendChild(p);
 	})
 
