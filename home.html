@@ -358,7 +358,7 @@ max-width: 90%
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-var input = document.getElementById("ityped");
+var input = $("#ityped").val();
 var person = new blockstack.Person(profile)
 var userData = blockstack.loadUserData();
 var user = userData.username;
