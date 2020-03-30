@@ -393,10 +393,10 @@ $("#postbtn").click(function() {
 
 
 	var gun = Gun()
-	gun.get('status').put({ status: input});
+	gun.get('status').put({ status1: input});
 	gun.get('status').on(function(data, key) {
 
-	  var postContent = "<span class = 'postcontent'>" + data.status + "</span>"
+	  var postContent = "<span class = 'postcontent'>" + data.status1 + "</span>"
 	  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
 		var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
 	  innerHTML =  postContent + postDate + displayUser
