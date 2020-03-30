@@ -363,8 +363,9 @@ $("#postbtn").click(function() {
 		  innerHTML =  postContent + postDate + displayUser
 			var p = $("#content")
 			var node = document.createElement("div");
+			node.html(innerHTML)
 			document.getElementById("content").appendChild(node);
-			 // p.html(innerHTML)
+			//p.html(innerHTML)
 		})
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
@@ -377,7 +378,7 @@ $("#postbtn").click(function() {
 
 $("#postbtn").attr('disabled','disabled');
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
-input.addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
+document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
