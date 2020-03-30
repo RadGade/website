@@ -363,7 +363,7 @@ $("#postbtn").click(function() {
 		  innerHTML =  postContent + postDate + displayUser
 			var p = $("#content")
 			var node = document.createElement("div");
-			p.appendChild(node);
+			document.getElementById("content").appendChild(node);
 			 // p.html(innerHTML)
 		})
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
