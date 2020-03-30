@@ -350,44 +350,23 @@ max-width: 90%
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
 
+<script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://unpkg.com/blockstack@21.0.0/dist/blockstack.js" integrity="sha384-zbpmDp1R7a7Eyh11zgCQlx8vx50WvRyGsZ1+ke6SEogm2ahOAIrnURy+cLjYE3jq" crossorigin="anonymous"></script>
-<script src="js/home.js"></script>	
+<script src="js/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
+var input = document.getElementById("ityped");
 var person = new blockstack.Person(profile)
 var userData = blockstack.loadUserData();
 var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
-function fetchData() {
-userSession.getFile("statuses.json", { decrypt: false })
-.then((file) => {
-var statuses = JSON.parse(file);
-console.log(statuses);
-for (var i=0, il=statuses.length; i<il; i++) {
-  d = new Date(statuses[i].created_at)
-  n = d.getTime()
-  var childElement = document.createElement('div');
-  var parentid = statuses[i].text
-  var postContent = "<span class = 'postcontent'>" + parentid + "</span>"
-  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(statuses[i].created_at).fromNow() + "</span>"
-  var reply=  "<div class='reply'><textarea placeholder='Type your reply.'></textarea>" +"<button type=button' class='cmt1'>post</button></div>"
-  childElement.innerHTML =  "<span id='" + n + "'><br>" + postContent + "</span>"+"<br><br>" + "<a href='https://genderev.com/home#" +n+"'>"+postDate +"</a><br><span style='color:black;font-size:21px'>from *"+ statuses[i].username +"</span><br><button type='button' class='cmt'>reply</button>" + reply + "<br><hr>"
-  document.getElementById("content").appendChild(childElement);
-  var att = document.createAttribute("items");
-  att.value = "democlass";
-  childElement.setAttributeNode(att);
-  console.log(moment(statuses.created_at).fromNow());
- }
-});
 $('#hidden').show();
 $('.reply').hide()
 }
-$(document).ready(function(){
-fetchData();
-});
 $(document).on('click', '.cmt', function () {
 $('.reply').show();
 });
@@ -397,91 +376,47 @@ $('.reply').hide();
 $('#login-button').click(function() {
 signOut();
 })
-
-$("#aboutbtn").click(function() {
-window.location.href =("about.html");
-});
-$("#profile").click(function() {
-window.location.href =("profile.html");
-});
-
-$("#helpbtn").click(function() {
-window.location.href = ("help.html");
-});
 $("#postbtn").click(function() {
-var self = $("#postbtn");
-if (!self.data("add")) {
-self.data("add", true);
-self.text("posted!");
-setTimeout(function() {
-self.text("post 💌").data("add", false);
-}, 1100);
-}
-var statusText = document.getElementById("ityped").value;
-console.log(statusText);
-
-window.scroll({
-top: 200,
-left: 0,
-behavior: 'smooth'
-});
-var div = document.createElement("div");
-div.innerHTML = statusText + "<br><br>" + "<span style='color:black;font-size:23px'>" + moment(Date()).fromNow()  +"</span>"+ "<br><hr><br>";
-$("#file-content").prepend(div);
-	
-function saveNewStatus(){ 
-	
-userSession.putFile("statuses.json", { encrypt: false }) 
-userSession.getFile("statuses.json", { decrypt: false })	
-	
-	.then((file) => {
-	console.log(" in the then"); 
-	console.log(file);
-	var statuses = JSON.parse(file);
-		var status = {
-			parent_id: statuses.length + 1,
-			username: username,
-			text: statusText,
-			created_at: Date()
-		};
-		statuses.unshift(status);
-		// second arg of putFile is JSON.stringify(statuses)
-		userSession.putFile("statuses.json",JSON.stringify(statuses),{ encrypt: false })
+	var self = $("#postbtn");
+	if (!self.data("add")) {
+	self.data("add", true);
+	self.text("posted!");
+	setTimeout(function() {
+	self.text("post 💌").data("add", false);
+	}, 1100);
+	}
+	window.scroll({
+	top: 200,
+	left: 0,
+	behavior: 'smooth'
 	});
-}
-		    
-saveNewStatus();
-$("#ityped").val("");
+	$("#ityped").val("");
+
+
+	var gun = Gun()
+	gun.get('status').put({ status: input.val() });
+	gun.get('status').on(function(data, key) {
+
+	  var postContent = "<span class = 'postcontent'>" + data.status + "</span>"
+	  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
+		var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
+	  innerHTML =  postContent + postDate + displayUser
+		var p = $('p')
+		p.text(innerHTML)
+	  // document.getElementById("content").appendChild(p);
+	})
+
+
 });
 $("#postbtn").attr('disabled','disabled');
-$("#ityped").keyup(function(){
-if ((document.getElementById("ityped").value).trim() !== ""){
-$("#postbtn").removeAttr('disabled');
-}
-});
-// Get the input field
-var input = document.getElementById("ityped");
-// Execute a function when the user releases a key on the keyboard
-input.addEventListener("keyup",
-function(event) {
-// Number 13 is the "Enter" key on the keyboard
-if (event.keyCode ===
-13) {
-// Cancel the default action, if needed
-event.preventDefault();
-// Trigger the button element with a click
-document.getElementById("postbtn").click();
-}
-});
+$("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
+input.addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
+$("#aboutbtn").click(function() {window.location.href =("about.html");});
+$("#profile").click(function() {window.location.href =("profile.html");});
+$("#helpbtn").click(function() {window.location.href = ("help.html");});
 </script>
 <script>
-$(function() {
-$("body").prognroll({
-height: 5, 
-color: "#333399", 
-custom: false 
-});
-});
+$(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
 </body>
 </html>
