@@ -350,6 +350,19 @@ var user = userData.username;
 var username = user.replace(".id.blockstack", "");
 console.log(username);
 $("#postbtn").click(function() {
+	var gun = Gun()
+	gun.get('status').put({ status: $("#ityped").val()});
+	
+	gun.get('status').on(function(data, key) {
+	console.log(data.status);
+	  var postContent = "<span>" + data.status + "</span><br>"
+	  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
+		var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
+	  innerHTML =  postContent + postDate + displayUser
+		var p = $('#file-content')
+		p.html(innerHTML)
+	  // document.getElementById("content").appendChild(p);
+	})
 	var self = $("#postbtn");
 	if (!self.data("add")) {
 	self.data("add", true);
@@ -364,21 +377,6 @@ $("#postbtn").click(function() {
 	behavior: 'smooth'
 	});
 	$("#ityped").val("");
-
-
-	var gun = Gun()
-	gun.get('status').put({ status: $("#ityped").val()});
-	gun.get('status').on(function(data, key) {
-	console.log(data.status);
-	  var postContent = "<span>" + data.status + "</span><br>"
-	  var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
-		var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username
-	  innerHTML =  postContent + postDate + displayUser
-		var p = $('#file-content')
-		p.html(innerHTML)
-	  // document.getElementById("content").appendChild(p);
-	})
-
 
 });
 $("#postbtn").attr('disabled','disabled');
