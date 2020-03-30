@@ -53,23 +53,38 @@
  </style>
 </head>
 <body>
-  <form class="ui form">
+  <form class="ui form" id="sign">
   <center><h1>GENDEREV guarantees your privacy by encrypting everything.</h1></center><br>
  <center><h1> Join the revolution.</h1></center>
  <br>
   <div class="field">
     <label>Username</label>
-    <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+    <input type="text" id="alias" name="username" placeholder="Username" autocomplete="username" required>
   </div><br>
   <div class="field">
     <label>Password</label>
-    <input type="password" name="password" placeholder="Password" autocomplete="new-password" required>
+    <input type="password" id="pass" name="password" placeholder="Password" autocomplete="new-password" required>
   </div><br>
-  <button class="ui button" type="submit">Sign Up</button>
+  <button class="ui button" id="up" type="submit" value="sign up"></button>
 </form>
-<script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/lib/webrtc.js"></script>
+    <script>
+    var gun = Gun(['http://localhost:8765/gun', 'https://gunjs.herokuapp.com/gun']);
+    var user = gun.user();
+    $('#up').on('click', function(e){
+      user.create($('#alias').val(), $('#pass').val());
+      user.recall({sessionStorage: true})
+    });
+    $('#sign').on('submit', function(e){
+      e.preventDefault();
+      user.auth($('#alias').val(), $('#pass').val());
+      window.location.href =("home.html");
+    });
+
+  </script>
 </body>
 
 </html>

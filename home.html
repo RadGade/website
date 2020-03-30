@@ -344,10 +344,29 @@ max-width: 90%
 var gun = Gun() //initiates database
 
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
+$("#postbtn").attr('disabled','disabled');
+
 
 console.log(username);
+$("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
+document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#postbtn").click(function() {
 		var input = $("#ityped").val();
+
+
+		// e.preventDefault();
+		// if(!user.is){ return }
+		// user.get('said').set($('#ityped').val());
+		//
+		// function UI(say, id){
+    //   var li = $('#' + id).get(0) || $('<li>').attr('id', id).appendTo('ul');
+    //   $(li).text(say);
+    // };
+		//
+		//
+    // user.get('said').map().once(UI);
+
+
 		gun.get('status').put({ status: input});
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
@@ -357,18 +376,13 @@ $("#postbtn").click(function() {
 			innerHTML =  postContent + postDate + displayUser
 			})
 		$("#content").append(innerHTML);
-
-		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
-		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
-		window.scroll({top: 200,left: 0,behavior: 'smooth'});
-		$input.val(""); //might work
-});
-
+var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
+setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
+window.scroll({top: 200,left: 0,behavior: 'smooth'});
+$('#ityped').val(""); //definitely will work
+$("#postbtn").attr('disabled','disabled');});
 
 
-$("#postbtn").attr('disabled','disabled');
-$("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
-document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});

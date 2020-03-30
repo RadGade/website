@@ -53,21 +53,35 @@
   </style>
  </head>
  <body>
-   <form class="ui form">
+   <form class="ui form" id="sign">
   <center><h1> Enter the revolution.</h1></center><br>
    <div class="field">
      <label>Username</label>
-     <input type="text" name="username" placeholder="Username" autocomplete="username" required>
+     <input type="text" name="username" id="alias" placeholder="Username" autocomplete="username" required>
    </div><br>
    <div class="field">
      <label>Password</label>
-     <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+     <input type="password" name="password" type="password" placeholder="passphrase" autocomplete="current-password" required>
    </div><br>
-   <button class="ui button" type="submit">Submit</button>
+   <button class="ui button" id="in" value="sign in" type="submit"></button>
  </form>
  <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/gun/lib/webrtc.js"></script>
+ <script>
+    var gun = Gun(['http://localhost:8765/gun', 'https://gunjs.herokuapp.com/gun']);
+    var user = gun.user();
+
+    $('#sign').on('submit', function(e){
+      e.preventDefault();
+      user.auth($('#alias').val(), $('#pass').val());
+      window.location.href =("home.html");
+      user.recall({sessionStorage: true})
+    });
+
+
+  </script>
  </body>
 
  </html>
