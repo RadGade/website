@@ -343,6 +343,19 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun() //initiates database
+if (user.is) {
+ console.log('You are logged in');
+} else {
+ console.log('You are not logged in');
+}
+
+//get username
+// gun.get('~@alias').once((data, key)=>{});
+//data is a gun node object and key is a string with ~ before alias
+// {
+//     "_": aliasObject
+//    "~pubKeyOfUser": pubKeyObject
+// }
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#postbtn").click(function() {
@@ -358,7 +371,6 @@ $("#postbtn").click(function() {
 		//
 		//
     // user.get('said').map().once(UI);
-
 
 		gun.get('status').put({ status: input});
 			gun.get('status').on(function(data, key) {
