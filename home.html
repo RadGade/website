@@ -10,7 +10,6 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <bold><title>GENDEREV</title></bold>
-
 <style>
 .cursor {
 position: fixed;
@@ -126,7 +125,6 @@ display: flex;
 align-items: center;
 justify-content: center
 }
-
 #title br + br {margin-top: 0.825rem;}
 #title {
 text-align: center;
@@ -174,7 +172,6 @@ font-family: arial;
 a:link, a:visited {
 text-shadow: 0px 0px 1px black;
 color: blue;
-
 }
 a:active {
 text-shadow: 0px 2px 2px black;
@@ -281,7 +278,6 @@ margin-left: 4px;
 margin-bottom: 2px;
 box-shadow: 0px 1px 4px 3px grey;
 }
-
 .cmt1:hover{
 border: 1.4px dashed;
 box-shadow: 4px 5px 9px dimgrey;
@@ -343,6 +339,7 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun() //initiates database
+user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
