@@ -339,6 +339,7 @@ max-width: 90%
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/moment.min.js"></script>
+<script src="js/home.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
@@ -365,8 +366,8 @@ $("#postbtn").click(function() {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
 			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
-			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username +"<br><br>" //need to integrate sea for username
-			innerHTML =  postContent + postDate + displayUser
+// 			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username +"<br><br>" 
+			innerHTML =  postContent + postDate
 			})
 		$("#content").append(innerHTML);
 
@@ -382,7 +383,6 @@ $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $('#login-button').click(function() {user.leave(opt, cb);})
 </script>
-<script src="js/prognroll.js"></script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
