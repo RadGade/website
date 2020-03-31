@@ -7,4 +7,3 @@
   Referrer-Policy: no-referrer
   Server: Apache
   server: Apache
-  Content-Security-Policy: default-src https: 'unsafe-eval' 'unsafe-inline'
