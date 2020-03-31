@@ -10,7 +10,6 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js" as="script">
-	
 <bold><title>GENDEREV</title></bold>
 <style>
 .cursor {
@@ -19,7 +18,6 @@ left: 0;
 top: 0;
 pointer-events: none;
 }
-
 .cursor--small {
 width: 5px;
 height: 5px;
@@ -73,7 +71,6 @@ cursor: not-allowed;
 #postbtn:active{
   animation: mymove .8s;
 }
-
   @keyframes mymove {
     from {color: black;}
     to {color: red;}
@@ -338,7 +335,7 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 
 var gun = Gun();
-var user = gun.user();
+user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
