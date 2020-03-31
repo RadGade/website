@@ -28,7 +28,7 @@ border-radius: 50%;
 z-index: 11000;
 background: darkblue;
 }
-a:active{
+a:hover{
 	background-size: 100% 15%;
   background-repeat: repeat-x;
   background-position: left 0% bottom 10%;
@@ -51,6 +51,7 @@ a:active{
     hsl(239, 91%, 69%) 87.5%,
     hsl(239, 91%, 69%) 100%
   );
+	text-decoration: none;
 }
 button:active{
 -moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
@@ -174,10 +175,9 @@ a:link, a:visited {
 text-decoration: underline;
 text-shadow: 0px 0px 1px black;
 color: blue;
-transition: 0.1s;
 
 }
-a:hover {
+a:active {
 text-shadow: 0px 2px 2px black;
 }
 #hidden{
@@ -366,7 +366,7 @@ $("#postbtn").click(function() {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
 			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
-// 			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username +"<br><br>" 
+// 			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username +"<br><br>"
 			innerHTML =  postContent + postDate
 			})
 		$("#content").append(innerHTML);
