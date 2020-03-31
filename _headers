@@ -7,3 +7,4 @@
   Referrer-Policy: no-referrer
   Server: Apache
   server: Apache
+  Content-Security-Policy-Report-Only: default-src https:; report-uri /csp-violation-report-endpoint/
