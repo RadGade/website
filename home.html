@@ -336,15 +336,15 @@ max-width: 90%
 <script src="js/home.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-$("#postbtn").attr('disabled','disabled');
-gun = Gun(['https://gunjs.herokuapp.com/gun']); //initiates database
-user = gun.user();
+
+var gun = Gun(['https://gunjs.herokuapp.com/gun']);
+var user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
  console.log('You are not logged in');
 }
-
+$("#postbtn").attr('disabled','disabled'
 //get username
 // gun.get('~@alias').once((data, key)=>{});
 //data is a gun node object and key is a string with ~ before alias
