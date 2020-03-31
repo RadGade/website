@@ -412,7 +412,7 @@
 </form>
   <script src="https://d33wubrfki0l68.cloudfront.net/bundles/8af87b142932005228ee3949c945c18e87c4d18b.js"></script>
     <script>
-    var gun = Gun(['https://gunjs.herokuapp.com/gun']);
+    var gun = Gun();
     var user = gun.user();
     $('#up').on('click', function(e){
       user.create($('#alias').val(), $('#pass').val());
