@@ -9,8 +9,9 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js" as="script">
+	
 <bold><title>GENDEREV</title></bold>
-
 <style>
 .cursor {
 position: fixed;
@@ -126,7 +127,6 @@ display: flex;
 align-items: center;
 justify-content: center
 }
-
 #title br + br {margin-top: 0.825rem;}
 #title {
 text-align: center;
@@ -174,7 +174,6 @@ font-family: arial;
 a:link, a:visited {
 text-shadow: 0px 0px 1px black;
 color: blue;
-
 }
 a:active {
 text-shadow: 0px 2px 2px black;
@@ -281,7 +280,6 @@ margin-left: 4px;
 margin-bottom: 2px;
 box-shadow: 0px 1px 4px 3px grey;
 }
-
 .cmt1:hover{
 border: 1.4px dashed;
 box-shadow: 4px 5px 9px dimgrey;
@@ -334,21 +332,19 @@ max-width: 90%
 <div class="buttons">
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
-<script src="js/jquery.js"></script>
-<script src="js/gun.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/moment.min.js"></script>
+<script src="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js"></script>
 <script src="js/home.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-$("#postbtn").attr('disabled','disabled');
-var gun = Gun() //initiates database
+
+var gun = Gun(['https://gunjs.herokuapp.com/gun']);
+var user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
  console.log('You are not logged in');
 }
-
+$("#postbtn").attr('disabled','disabled')
 //get username
 // gun.get('~@alias').once((data, key)=>{});
 //data is a gun node object and key is a string with ~ before alias
