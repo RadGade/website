@@ -5,6 +5,8 @@ const PRECACHE_URLS = [
   '/paint_palette.png',
   'index.html',
   './', // Alias for index.html
+  '/icon.png',
+  '/favicon.ico/shield.svg',
   '/about.html',
   '/favicon.ico/android-icon-192x192.png',
   '/help.html'
@@ -57,4 +59,3 @@ self.addEventListener('fetch', event => {
     );
   }
 });
-
