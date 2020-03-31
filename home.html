@@ -339,7 +339,7 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun() //initiates database
-user = gun.user();
+var user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
