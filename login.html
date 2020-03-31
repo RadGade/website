@@ -15,32 +15,60 @@
   <meta name="description" content="Genderev Log-In">
   <link rel="stylesheet" href="css/semantic.css">
   <style>
+  body {
+     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
   .ui.form .field > label{
     font-size: 20px;
-    font-family:'Helvetica Neue';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: normal;
   }
   .ui.button{
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: normal;
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    background-color: white;
+    color: dimgrey;
+    margin-left: 2px;
+  }
+  .ui.button:hover {
+      box-shadow: 0 4px 20px 0 rgba(229, 77, 6, 0.75);
+      background-color: white;
+      color: black;
+  }
+  .ui.button:active {
+      box-shadow: 0 4px 30px 0 rgba(229, , 6, 0.75);
+      background-color: white;
+      color: black;
+      text-decoration: underline;
+      -moz-transform:  translate(0px, 2px) skew(1deg, 0deg);
+      -webkit-transform: translate(0px, 2px) skew(1deg, 0deg);
+      -o-transform: translate(0px, 2px) skew(1deg, 0deg);
+      -ms-transform:  translate(0px, 2px) skew(1deg, 0deg);
+      transform:  translate(0px, 2px) skew(1deg, 0deg);
   }
   .ui.form ::placeholder{
     font-weight: lighter;
     font-size: 18px;
-  }
-  img{
-    width: 300px;
-    height: auto;
+    color: dimgrey;
   }
   h1 {
     font-weight: lighter;
   }
-
+  img {
+    height: 120px;
+    width: 120px;
+  }
   @media (min-width: 700px) and (max-width: 1280px) {
     .ui.form{
       padding-top: 80px;
       margin-left: auto;
       margin-right: auto;
-      width: 630px;
+      width: 560px;
+    }
+    img {
+      height: 120px;
+      width: 120px;
     }
   }
   @media only screen and (max-width: 700px) {
@@ -49,12 +77,17 @@
      margin-left: 20px;
      margin-right: 20px;
    }
+   img {
+     height: 90px;
+     width: 90px;
+   }
   }
   </style>
  </head>
  <body>
    <form class="ui form" id="sign">
-  <center><h1> Enter the revolution.</h1></center><br>
+  <center><h1> Enter the revolution.</h1></center>
+  <center><img src="icon.png" alt="Genderev protects you."></center>
    <div class="field">
      <label>Username</label>
      <input type="text" name="username" id="alias" placeholder="Username" autocomplete="username" required>
@@ -63,7 +96,7 @@
      <label>Password</label>
      <input type="password" name="password" type="password" placeholder="passphrase" autocomplete="current-password" required>
    </div><br>
-   <button class="ui button" id="in" value="sign in" type="submit">Sign In</button>
+   <button class="ui button" id="in" value="sign in" type="submit">sign in</button>
  </form>
  <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>

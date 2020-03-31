@@ -343,7 +343,6 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun() //initiates database
-console.log(username);
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#postbtn").click(function() {
@@ -370,7 +369,7 @@ $("#postbtn").click(function() {
 			innerHTML =  postContent + postDate + displayUser
 			})
 		$("#content").append(innerHTML);
-	
+
 var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 window.scroll({top: 200,left: 0,behavior: 'smooth'});
@@ -381,7 +380,7 @@ $("#postbtn").attr('disabled','disabled');});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
-$('#login-button').click(function() {signOut();})
+$('#login-button').click(function() {user.leave(opt, cb);})
 </script>
 <script src="js/prognroll.js"></script>
 <script>
