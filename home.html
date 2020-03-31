@@ -359,7 +359,7 @@ $("#postbtn").click(function() {
 		//
     // user.get('said').map().once(UI);
 
-
+		console.log(gun.user(pubkey).get('profile').get('name'))
 		gun.get('status').put({ status: input});
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
