@@ -14,6 +14,7 @@
  <html lang="en">
  <title>Sign In - GENDEREV</title>
  <meta name="description" content="Genderev Log-In">
+ <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/8af87b142932005228ee3949c945c18e87c4d18b.js" as="script">
  <style>
  .ui.button {
     font-size: 20px;
@@ -63,11 +64,9 @@
   position: relative;
   max-width: 100%;
 }
-
 .ui.form > p {
   margin: 1em 0em;
 }
-
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
@@ -80,7 +79,6 @@
   clear: both;
   margin: 0em;
 }
-
 .ui.form .field > label {
   display: block;
   margin: 0em 0em 0.28571429rem 0em;
@@ -89,8 +87,6 @@
   font-weight: bold;
   text-transform: none;
 }
-
-
 .ui.form textarea,
 .ui.form input:not([type]),
 .ui.form input[type="date"],
@@ -107,7 +103,6 @@
   width: 100%;
   vertical-align: top;
 }
-
 .ui.form input:not([type]),
 .ui.form input[type="date"],
 .ui.form input[type="datetime-local"],
@@ -137,18 +132,9 @@
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
-
-
-
-
-
-
-
-
 .ui.form input.attached {
   width: auto;
 }
-
 .ui.form select {
   display: block;
   height: auto;
@@ -163,15 +149,11 @@
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
-
-
-
 .ui.form .field .ui.input,
 .ui.form .fields .field .ui.input,
 .ui.form .wide.field .ui.input {
   width: 100%;
 }
-
 .ui.form .inline.fields .field:not(.wide) .ui.input,
 .ui.form .inline.field:not(.wide) .ui.input {
   width: auto;
@@ -182,14 +164,11 @@
 .ui.form .field .ui.input input {
   width: auto;
 }
-
-
 .ui.form .field.field input:-webkit-autofill:focus {
   -webkit-box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
           box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
   border-color: #D5C315 !important;
 }
-
 .ui.form ::-webkit-input-placeholder {
   color: rgba(191, 191, 191, 0.87);
 }
@@ -208,7 +187,6 @@
 .ui.form :focus::-moz-placeholder {
   color: rgba(115, 115, 115, 0.87);
 }
-
 .ui.form input:not([type]):focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
@@ -228,7 +206,6 @@
   -webkit-box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
           box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
-
 .ui.form .grouped.fields {
   display: block;
   margin: 0em 0em 1em;
@@ -249,9 +226,6 @@
   margin: 0.5em 0em;
   padding: 0em;
 }
-
-
-/* Split fields */
 .ui.form .fields {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,9 +248,6 @@
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-
-
-
 @media only screen and (max-width: 767px) {
   .ui.form .fields {
     -ms-flex-wrap: wrap;
@@ -305,26 +276,13 @@
     width: 100% !important;
     margin: 0em 0em 1em;
   }
-}
-
-
-/*--------------------
-     Equal Width
----------------------*/
-
-.ui[class*="equal width"].form .fields > .field,
+}.ui[class*="equal width"].form .fields > .field,
 .ui.form [class*="equal width"].fields > .field {
   width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-}
-
-/*--------------------
-    Inline Fields
----------------------*/
-
-.ui.form .inline.fields {
+}.ui.form .inline.fields {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -334,8 +292,6 @@
   margin: 0em;
   padding: 0em 1em 0em 0em;
 }
-
-/* Inline Label */
 .ui.form .inline.fields > label,
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
@@ -351,13 +307,9 @@
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;
 }
-
-/* Grouped Inline Label */
 .ui.form .inline.fields > label {
   margin: 0.035714em 1em 0em 0em;
 }
-
-
 .ui.form {
   font-size: 1rem;
 }
@@ -458,10 +410,7 @@
   </div><br>
   <button class="ui button ui-button" id="up" type="submit" value="sign up">sign up</button>
 </form>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/gun.js"></script>
-  <script src="js/sea.js"></script>
-  <script src="js/webrtc.js"></script>
+  <script src="https://d33wubrfki0l68.cloudfront.net/bundles/8af87b142932005228ee3949c945c18e87c4d18b.js"></script>
     <script>
     var gun = Gun(['https://gunjs.herokuapp.com/gun']);
     var user = gun.user();
