@@ -338,8 +338,8 @@ max-width: 90%
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
-var gun = Gun(['https://gunjs.herokuapp.com/gun']); //initiates database
-var user = gun.user();
+gun = Gun(['https://gunjs.herokuapp.com/gun']); //initiates database
+user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
