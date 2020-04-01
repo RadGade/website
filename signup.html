@@ -417,9 +417,9 @@
     <script>
     var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
     var user = gun.user();
+    user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
    $('#up').on('click', function(e){
       user.create($('#alias').val(), $('#pass').val());
-      user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
       // gun.get("~@alias").once(callback) to prevent username duplicates?
    });
 
