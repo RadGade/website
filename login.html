@@ -426,9 +426,10 @@
       user.auth($('#alias').val(), $('#pass').val());
       window.location.href =("home.html");
     });
-    $( document ).ready(function() {
-      user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
-    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+     const user = gun.user();
+     user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
+  });
 
 
   //   gun.on("auth",function(ack){

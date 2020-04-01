@@ -338,9 +338,9 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 var user = gun.user();
-$( document ).ready(function() {
-		user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
-		console.log( "ready!" );
+window.addEventListener('DOMContentLoaded', (event) => {
+   const user = gun.user();
+   user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
 });
 if (user.is) {
  console.log('You are logged in');
