@@ -409,7 +409,7 @@
      <label>Password</label>
      <input type="password" name="password" type="password" placeholder="passphrase" autocomplete="current-password" required>
    </div><br>
-   <button class="ui button" id="in" value="sign in" type="submit">sign in</button>
+   <button class="ui button" id="in" value="sign in" type="button">sign in</button>
  </form>
   <script src="js/jquery.min.js"></script>
  <script src="js/gun.js"></script>
@@ -423,7 +423,7 @@
     $('#sign').on('submit', function(e){
       e.preventDefault();
       user.auth($('#alias').val(), $('#pass').val());
-      window.location.href =("home.html");
+//       window.location.href =("home.html");
 //       user.recall({sessionStorage: true})
     });
 
