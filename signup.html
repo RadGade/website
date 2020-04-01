@@ -419,9 +419,10 @@
     var user = gun.user();
    $('#up').on('click', function(e){
       user.create($('#alias').val(), $('#pass').val());
+      user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
       // gun.get("~@alias").once(callback) to prevent username duplicates?
-      user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); }) 
    });
+
     $('#sign').on('submit', function(e){
       e.preventDefault();
       user.auth($('#alias').val(), $('#pass').val());

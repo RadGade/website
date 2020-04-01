@@ -423,10 +423,20 @@
     $('#sign').on('submit', function(e){
       e.preventDefault();
       user.auth($('#alias').val(), $('#pass').val());
+      user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
       window.location.href =("home.html");
       user.recall({sessionStorage: true})
     });
 
+
+  //   gun.on("auth",function(ack){
+  //   console.log("we're in gunslinger auth");
+  //   gun.get(location.host).on(function(data){
+  //     //TODO: decide namespace to listen and hook to MM posting
+  //     //subscribe to master dataset (this is here for demo only
+  //     console.log("data changed",Array.from(arguments));
+  //   });
+  // });
 
   </script>
  </body>

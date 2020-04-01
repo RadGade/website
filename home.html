@@ -343,6 +343,12 @@ if (user.is) {
 } else {
  console.log('You are not logged in');
 }
+
+$( document ).ready(function() {
+		user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
+		console.log( "ready!" );
+});
+
 $("#postbtn").attr('disabled','disabled')
 //get username
 // gun.get('~@alias').once((data, key)=>{});
