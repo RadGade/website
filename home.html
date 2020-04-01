@@ -352,6 +352,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		// gun.get("~@hello").once(console.log)
 		gun.get('~@hello').once((data, key)=>{console.log});
 		gun.get('~@hello').once((data, key)=>{});
+		user.recall(opt, cb(put))
+		console.log(user.recall(opt, cb(put)))
+		// user.recall(opt, put)
+		// console.log(user.recall(opt, put)) may not be correct
 
 
 		//data is a gun node object and key is a string with ~ before alias
