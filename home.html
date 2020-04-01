@@ -335,16 +335,20 @@ max-width: 90%
 <script src="js/webrtc.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
-new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
-const user = gun.user();
 window.addEventListener('DOMContentLoaded', (event) => {
+	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+	const user = gun.user();
    user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
 	if (user.is) {
 	console.log('You are logged in');
 	} else {
 	console.log('You are not logged in');
 	}
+
+
+	
+	new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
+
 
 $("#postbtn").attr('disabled','disabled')
 //get username
@@ -373,7 +377,7 @@ $("#postbtn").click(function() {
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
-			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span>"
+			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
 // 			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username +"<br><br>"
 			innerHTML =  postContent + postDate
 			})
