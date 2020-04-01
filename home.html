@@ -330,11 +330,12 @@ max-width: 90%
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
 <script src="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script src="js/home.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-// gun = Gun();
-user = gun.user();
+var gun = Gun();
+var user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
