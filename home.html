@@ -337,15 +337,14 @@ max-width: 90%
 <script>
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
-
-
+	const user = gun.user();
 	user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
 		console.log('You are logged in');
 		} else {
 		console.log('You are not logged in');
 		}
-		const user = gun.user();
+
 		console.log(user)
 
 		//data is a gun node object and key is a string with ~ before alias
