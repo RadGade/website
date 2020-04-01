@@ -411,8 +411,7 @@
    <label>Password</label>
    <input type="password" id="pass" name="password" placeholder="Password" autocomplete="new-password" required>
  </div><br>
- <button class="ui button ui-button" id="up" type="submit" value="log in">sign up</button>
- <button class="ui button ui-button" id="logout" type="submit" value="log out">Log out</button>
+ <button class="ui button ui-button" id="up" type="submit" value="log in">log in</button>
 </form>
   <script src="js/jquery.min.js"></script>
  <script src="js/gun.js"></script>
@@ -456,10 +455,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
      });
 
    });
-   $('#logout').on('click',function(e){
-     e.preventDefault();
-     user.leave();
-   })
    $('#up').on('click', function(e){
      e.preventDefault();
      frm.submit();

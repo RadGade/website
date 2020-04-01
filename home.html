@@ -337,16 +337,15 @@ max-width: 90%
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
-var user = gun.user();
+const user = gun.user();
 window.addEventListener('DOMContentLoaded', (event) => {
-   const user = gun.user();
    user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
-});
-if (user.is) {
- console.log('You are logged in');
-} else {
- console.log('You are not logged in');
-}
+	if (user.is) {
+	console.log('You are logged in');
+	} else {
+	console.log('You are not logged in');
+	}
+
 $("#postbtn").attr('disabled','disabled')
 //get username
 // gun.get('~@alias').once((data, key)=>{});
@@ -388,7 +387,13 @@ $("#postbtn").attr('disabled','disabled');});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
-$('#login-button').click(function() {user.leave(opt, cb);window.location.href =("index.html");})
+	
+$('#login-button').on('click',function(e){
+e.preventDefault();
+user.leave();
+window.location.href =("index.html");
+ })
+});
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
