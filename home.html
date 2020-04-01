@@ -346,9 +346,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		console.log('You are not logged in');
 		}
 		// get username
-		gun.get("~@alias").once(console.log)
-		gun.get('~@alias').once((data, key)=>{console.log});
-		gun.get('~@alias').once((data, key)=>{});
+		// gun.get("~@alias").once(console.log)
+		// gun.get('~@alias').once((data, key)=>{console.log});
+		// gun.get('~@alias').once((data, key)=>{});
+		gun.get("~@hello").once(console.log)
+		gun.get('~@hello').once((data, key)=>{console.log});
+		gun.get('~@hello').once((data, key)=>{});
 
 
 		//data is a gun node object and key is a string with ~ before alias
@@ -395,16 +398,12 @@ var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.tex
 setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 window.scroll({top: 200,left: 0,behavior: 'smooth'});
 $('#ityped').val(""); //definitely will work
-$("#postbtn").attr('disabled','disabled');});
+$("#postbtn").attr('disabled','disabled');
+});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
-
-$('#login-button').on('click',function(e){
-e.preventDefault();
-user.leave();
-window.location.href =("index.html");
- })
+$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 });
 </script>
 <script>
