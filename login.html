@@ -419,14 +419,15 @@
  <script>
     var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
     var user = gun.user();
-    user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
 
 
     $('#sign').on('submit', function(e){
       e.preventDefault();
       user.auth($('#alias').val(), $('#pass').val());
       window.location.href =("home.html");
-      user.recall({sessionStorage: true})
+    });
+    $( document ).ready(function() {
+      user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
     });
 
 

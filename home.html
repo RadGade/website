@@ -338,17 +338,15 @@ max-width: 90%
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 var user = gun.user();
+$( document ).ready(function() {
+		user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
+		console.log( "ready!" );
+});
 if (user.is) {
  console.log('You are logged in');
 } else {
  console.log('You are not logged in');
 }
-
-$( document ).ready(function() {
-		user.recall({sessionStorage:true},function(uob){ console.log("Gunslinger logged back in"); })
-		console.log( "ready!" );
-});
-
 $("#postbtn").attr('disabled','disabled')
 //get username
 // gun.get('~@alias').once((data, key)=>{});
