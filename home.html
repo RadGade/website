@@ -374,7 +374,7 @@ $("#postbtn").click(function() {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
 			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
-			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
+			var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
 			innerHTML =  postContent + postDate + displayUser
 			})
 		$("#content").append(innerHTML);
