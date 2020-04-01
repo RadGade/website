@@ -10,7 +10,6 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js" as="script"> -->
-
 <bold><title>GENDEREV</title></bold>
 <style>
 .cursor {
@@ -19,7 +18,6 @@ left: 0;
 top: 0;
 pointer-events: none;
 }
-
 .cursor--small {
 width: 5px;
 height: 5px;
@@ -73,7 +71,6 @@ cursor: not-allowed;
 #postbtn:active{
   animation: mymove .8s;
 }
-
   @keyframes mymove {
     from {color: black;}
     to {color: red;}
@@ -337,8 +334,7 @@ max-width: 90%
 <script src="js/home.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-
-var gun = Gun(['https://gunjs.herokuapp.com/gun']);
+var gun = Gun();
 var user = gun.user();
 if (user.is) {
  console.log('You are logged in');
@@ -368,7 +364,6 @@ $("#postbtn").click(function() {
 		//
 		//
     // user.get('said').map().once(UI);
-
 		gun.get('status').put({ status: input});
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
@@ -384,8 +379,6 @@ setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 window.scroll({top: 200,left: 0,behavior: 'smooth'});
 $('#ityped').val(""); //definitely will work
 $("#postbtn").attr('disabled','disabled');});
-
-
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});

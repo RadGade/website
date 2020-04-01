@@ -40,7 +40,6 @@ button:active{
 transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 }
 a:hover{
-	/* margin-bottom: 3.5rem; */
 	background-size: 100% 15%;
   background-repeat: repeat-x;
   background-position: left 0% bottom 10%;
@@ -100,7 +99,6 @@ color:  black;
 text-shadow: 0px -1px 0px darkgrey;
 font-family: Arial;
 }
-/* #question {
 color: #000AFF;
 font-family: 'Arial', sans-serif;
 font-size: 27px;
@@ -172,14 +170,12 @@ padding-right:17px;
 margin-right: 10px;
 }
 #sidebar .title {
-
     font-size: 32px;
     letter-spacing: 0rem;
     font-family: Arial;
     color: black;
     text-shadow: 0px -1px 0px darkgrey;
     font-style: italic;
-
 }
 #preview{
 	box-shadow:
@@ -188,8 +184,7 @@ margin-right: 10px;
   0 12px 10px rgba(0, 0, 0, 0.06),
   0 22px 17px rgba(0, 0, 0, 0.072),
   0 41px 33px rgba(0, 0, 0, 0.086),
-  0 10px 10px rgba(0, 0, 0, 0.12)
-;
+  0 10px 10px rgba(0, 0, 0, 0.12);
 }
 @media screen and (max-width: 600px) {
 	 #sidebar{
@@ -227,7 +222,6 @@ margin-right: 10px;
 <script>
 $(".upload").hide();
 $("#preview").hide();
-
 // document.getElementById('heading-name').innerHTML="*" + username;
 $('#login-button').click(function() {
 signOut();
@@ -235,7 +229,6 @@ signOut();
 $('#profile').click(function() {
 window.location.href =("home.html");
 });
-
 function previewFile() {
 const preview = document.getElementById('preview');
 console.log(preview);
@@ -251,10 +244,6 @@ reader.readAsDataURL(file);
 }
 $("#preview").show()
 }
-
-
-
 </script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" defer></script> -->
 </body>
 </html>
