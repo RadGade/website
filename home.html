@@ -352,8 +352,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		// gun.get("~@hello").once(console.log)
 		gun.get('~@hello').once((data, key)=>{console.log});
 		gun.get('~@hello').once((data, key)=>{});
-		user.recall({sessionStorage:true},cb(put))
-		console.log(user.recall({sessionStorage:true},cb(put)))
+		user.recall({sessionStorage:true},put)
+		console.log(user.recall({sessionStorage:true},put))
 		// user.recall(opt, put)
 		// console.log(user.recall(opt, put)) may not be correct
 
