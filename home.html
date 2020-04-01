@@ -336,8 +336,8 @@ max-width: 90%
 <script src="js/moment.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-gun = Gun();
-user = gun.user();
+var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+var user = gun.user();
 if (user.is) {
  console.log('You are logged in');
 } else {
