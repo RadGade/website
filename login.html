@@ -1,449 +1,448 @@
- <!DOCTYPE html>
- <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
-  <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
-  <link rel="manifest" href="manifest.json"></link>
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="favicon.ico/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Genderev, Gender Revolution, GendeRevolution">
-  <html lang="en">
-  <title>Log In - GENDEREV</title>
-  <meta name="description" content="Genderev Log-In">
-  <style>
-  .ui.form {
-  position: relative;
-  max-width: 100%;
-  }
-  .ui.form > p {
-    margin: 1em 0em;
-  }
-  .ui.form .field {
-    clear: both;
-    margin: 0em 0em 1em;
-  }
-  .ui.form .field:last-child,
-  .ui.form .fields:last-child .field {
-    margin-bottom: 0em;
-  }
-  .ui.form .fields .field {
-    clear: both;
-    margin: 0em;
-  }
-  .ui.form .field > label {
-    display: block;
-    margin: 0em 0em 0.28571429rem 0em;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 0.92857143em;
-    font-weight: bold;
-    text-transform: none;
-  }
-  .ui.form textarea,
-  .ui.form input:not([type]),
-  .ui.form input[type="date"],
-  .ui.form input[type="datetime-local"],
-  .ui.form input[type="email"],
-  .ui.form input[type="number"],
-  .ui.form input[type="password"],
-  .ui.form input[type="search"],
-  .ui.form input[type="tel"],
-  .ui.form input[type="time"],
-  .ui.form input[type="text"],
-  .ui.form input[type="file"],
-  .ui.form input[type="url"] {
-    width: 100%;
-    vertical-align: top;
-  }
-  .ui.form input:not([type]),
-  .ui.form input[type="date"],
-  .ui.form input[type="datetime-local"],
-  .ui.form input[type="email"],
-  .ui.form input[type="number"],
-  .ui.form input[type="password"],
-  .ui.form input[type="search"],
-  .ui.form input[type="tel"],
-  .ui.form input[type="time"],
-  .ui.form input[type="text"],
-  .ui.form input[type="file"],
-  .ui.form input[type="url"] {
-    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
-    margin: 0em;
-    outline: none;
-    -webkit-appearance: none;
-    tap-highlight-color: rgba(255, 255, 255, 0);
-    line-height: 1.21428571em;
-    padding: 0.67857143em 1em;
-    font-size: 1em;
-    background: #FFFFFF;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    color: rgba(0, 0, 0, 0.87);
-    border-radius: 0.28571429rem;
-    -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-            box-shadow: 0em 0em 0em 0em transparent inset;
-    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-    transition: color 0.1s ease, border-color 0.1s ease;
-  }
+ <meta charset="UTF-8"/>
+ <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
+ <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
+ <link rel="manifest" href="manifest.json"></link>
+ <meta name="msapplication-TileColor" content="#ffffff">
+ <meta name="msapplication-TileImage" content="favicon.ico/ms-icon-144x144.png">
+ <meta name="theme-color" content="#ffffff">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="keywords" content="Genderev, Gender Revolution, GendeRevolution">
+ <html lang="en">
+ <title>Log In - GENDEREV</title>
+ <meta name="description" content="Genderev Log-In">
+ <style>
+ .ui.form {
+ position: relative;
+ max-width: 100%;
+ }
+ .ui.form > p {
+   margin: 1em 0em;
+ }
+ .ui.form .field {
+   clear: both;
+   margin: 0em 0em 1em;
+ }
+ .ui.form .field:last-child,
+ .ui.form .fields:last-child .field {
+   margin-bottom: 0em;
+ }
+ .ui.form .fields .field {
+   clear: both;
+   margin: 0em;
+ }
+ .ui.form .field > label {
+   display: block;
+   margin: 0em 0em 0.28571429rem 0em;
+   color: rgba(0, 0, 0, 0.87);
+   font-size: 0.92857143em;
+   font-weight: bold;
+   text-transform: none;
+ }
+ .ui.form textarea,
+ .ui.form input:not([type]),
+ .ui.form input[type="date"],
+ .ui.form input[type="datetime-local"],
+ .ui.form input[type="email"],
+ .ui.form input[type="number"],
+ .ui.form input[type="password"],
+ .ui.form input[type="search"],
+ .ui.form input[type="tel"],
+ .ui.form input[type="time"],
+ .ui.form input[type="text"],
+ .ui.form input[type="file"],
+ .ui.form input[type="url"] {
+   width: 100%;
+   vertical-align: top;
+ }
+ .ui.form input:not([type]),
+ .ui.form input[type="date"],
+ .ui.form input[type="datetime-local"],
+ .ui.form input[type="email"],
+ .ui.form input[type="number"],
+ .ui.form input[type="password"],
+ .ui.form input[type="search"],
+ .ui.form input[type="tel"],
+ .ui.form input[type="time"],
+ .ui.form input[type="text"],
+ .ui.form input[type="file"],
+ .ui.form input[type="url"] {
+   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+   margin: 0em;
+   outline: none;
+   -webkit-appearance: none;
+   tap-highlight-color: rgba(255, 255, 255, 0);
+   line-height: 1.21428571em;
+   padding: 0.67857143em 1em;
+   font-size: 1em;
+   background: #FFFFFF;
+   border: 1px solid rgba(34, 36, 38, 0.15);
+   color: rgba(0, 0, 0, 0.87);
+   border-radius: 0.28571429rem;
+   -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+           box-shadow: 0em 0em 0em 0em transparent inset;
+   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+   transition: color 0.1s ease, border-color 0.1s ease;
+ }
 
-  .ui.button {
-      font-size: 20px;
-      font-weight: normal;
-      box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
-      background-color: white;
-      color: dimgrey;
-      margin-left: 2px;
-  }
-  .ui.button, .ui.buttons .button, .ui.buttons .or {
-      font-size: 1rem;
-  }
-  .ui.button {
-      cursor: pointer;
-      display: inline-block;
-      min-height: 1em;
-      outline: 0;
-      border: none;
-      vertical-align: baseline;
-      background: #e0e1e2 none;
-      color: rgba(0,0,0,.6);
-      font-family: Lato,"Helvetica Neue",Arial,Helvetica,sans-serif;
-      margin: 0 .25em 0 0;
-      padding: .78571429em 1.5em .78571429em;
-      text-transform: none;
-      text-shadow: none;
-      font-weight: 700;
-      line-height: 1em;
-      font-style: normal;
-      text-align: center;
-      text-decoration: none;
-      border-radius: .28571429rem;
-      -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
-      box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -webkit-transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-      transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-      transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
-      transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-      will-change: "";
-      -webkit-tap-highlight-color: transparent;
-  }
+ .ui.button {
+     font-size: 20px;
+     font-weight: normal;
+     box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+     background-color: white;
+     color: dimgrey;
+     margin-left: 2px;
+ }
+ .ui.button, .ui.buttons .button, .ui.buttons .or {
+     font-size: 1rem;
+ }
+ .ui.button {
+     cursor: pointer;
+     display: inline-block;
+     min-height: 1em;
+     outline: 0;
+     border: none;
+     vertical-align: baseline;
+     background: #e0e1e2 none;
+     color: rgba(0,0,0,.6);
+     font-family: Lato,"Helvetica Neue",Arial,Helvetica,sans-serif;
+     margin: 0 .25em 0 0;
+     padding: .78571429em 1.5em .78571429em;
+     text-transform: none;
+     text-shadow: none;
+     font-weight: 700;
+     line-height: 1em;
+     font-style: normal;
+     text-align: center;
+     text-decoration: none;
+     border-radius: .28571429rem;
+     -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+     box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     -webkit-transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
+     transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
+     transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+     transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
+     will-change: "";
+     -webkit-tap-highlight-color: transparent;
+ }
 
-  .ui.form input.attached {
-    width: auto;
-  }
+ .ui.form input.attached {
+   width: auto;
+ }
 
-  .ui.form select {
-    display: block;
-    height: auto;
-    width: 100%;
-    background: #FFFFFF;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 0.28571429rem;
-    -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-            box-shadow: 0em 0em 0em 0em transparent inset;
-    padding: 0.62em 1em;
-    color: rgba(0, 0, 0, 0.87);
-    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-    transition: color 0.1s ease, border-color 0.1s ease;
-  }
-  .ui.form .field .ui.input,
-  .ui.form .fields .field .ui.input,
-  .ui.form .wide.field .ui.input {
-    width: 100%;
-  }
-  .ui.form .inline.fields .field:not(.wide) .ui.input,
-  .ui.form .inline.field:not(.wide) .ui.input {
-    width: auto;
-    vertical-align: middle;
-  }
-  .ui.form .fields .field .ui.input input,
-  .ui.form .field .ui.input input {
-    width: auto;
-  }
-  .ui.form .field.field input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
-            box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
-    border-color: #D5C315 !important;
-  }
-  .ui.form ::-webkit-input-placeholder {
-    color: rgba(191, 191, 191, 0.87);
-  }
-  .ui.form :-ms-input-placeholder {
-    color: rgba(191, 191, 191, 0.87) !important;
-  }
-  .ui.form ::-moz-placeholder {
-    color: rgba(191, 191, 191, 0.87);
-  }
-  .ui.form :focus::-webkit-input-placeholder {
-    color: rgba(115, 115, 115, 0.87);
-  }
-  .ui.form :focus:-ms-input-placeholder {
-    color: rgba(115, 115, 115, 0.87) !important;
-  }
-  .ui.form :focus::-moz-placeholder {
-    color: rgba(115, 115, 115, 0.87);
-  }
-  .ui.form input:not([type]):focus,
-  .ui.form input[type="date"]:focus,
-  .ui.form input[type="datetime-local"]:focus,
-  .ui.form input[type="email"]:focus,
-  .ui.form input[type="number"]:focus,
-  .ui.form input[type="password"]:focus,
-  .ui.form input[type="search"]:focus,
-  .ui.form input[type="tel"]:focus,
-  .ui.form input[type="time"]:focus,
-  .ui.form input[type="text"]:focus,
-  .ui.form input[type="file"]:focus,
-  .ui.form input[type="url"]:focus {
-    color: rgba(0, 0, 0, 0.95);
-    border-color: #85B7D9;
-    border-radius: 0.28571429rem;
-    background: #FFFFFF;
-    -webkit-box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
-            box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
-  }
+ .ui.form select {
+   display: block;
+   height: auto;
+   width: 100%;
+   background: #FFFFFF;
+   border: 1px solid rgba(34, 36, 38, 0.15);
+   border-radius: 0.28571429rem;
+   -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+           box-shadow: 0em 0em 0em 0em transparent inset;
+   padding: 0.62em 1em;
+   color: rgba(0, 0, 0, 0.87);
+   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+   transition: color 0.1s ease, border-color 0.1s ease;
+ }
+ .ui.form .field .ui.input,
+ .ui.form .fields .field .ui.input,
+ .ui.form .wide.field .ui.input {
+   width: 100%;
+ }
+ .ui.form .inline.fields .field:not(.wide) .ui.input,
+ .ui.form .inline.field:not(.wide) .ui.input {
+   width: auto;
+   vertical-align: middle;
+ }
+ .ui.form .fields .field .ui.input input,
+ .ui.form .field .ui.input input {
+   width: auto;
+ }
+ .ui.form .field.field input:-webkit-autofill:focus {
+   -webkit-box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+           box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+   border-color: #D5C315 !important;
+ }
+ .ui.form ::-webkit-input-placeholder {
+   color: rgba(191, 191, 191, 0.87);
+ }
+ .ui.form :-ms-input-placeholder {
+   color: rgba(191, 191, 191, 0.87) !important;
+ }
+ .ui.form ::-moz-placeholder {
+   color: rgba(191, 191, 191, 0.87);
+ }
+ .ui.form :focus::-webkit-input-placeholder {
+   color: rgba(115, 115, 115, 0.87);
+ }
+ .ui.form :focus:-ms-input-placeholder {
+   color: rgba(115, 115, 115, 0.87) !important;
+ }
+ .ui.form :focus::-moz-placeholder {
+   color: rgba(115, 115, 115, 0.87);
+ }
+ .ui.form input:not([type]):focus,
+ .ui.form input[type="date"]:focus,
+ .ui.form input[type="datetime-local"]:focus,
+ .ui.form input[type="email"]:focus,
+ .ui.form input[type="number"]:focus,
+ .ui.form input[type="password"]:focus,
+ .ui.form input[type="search"]:focus,
+ .ui.form input[type="tel"]:focus,
+ .ui.form input[type="time"]:focus,
+ .ui.form input[type="text"]:focus,
+ .ui.form input[type="file"]:focus,
+ .ui.form input[type="url"]:focus {
+   color: rgba(0, 0, 0, 0.95);
+   border-color: #85B7D9;
+   border-radius: 0.28571429rem;
+   background: #FFFFFF;
+   -webkit-box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+           box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+ }
 
-  .ui.form .grouped.fields {
-    display: block;
-    margin: 0em 0em 1em;
-  }
-  .ui.form .grouped.fields:last-child {
-    margin-bottom: 0em;
-  }
-  .ui.form .grouped.fields > label {
-    margin: 0em 0em 0.28571429rem 0em;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 0.92857143em;
-    font-weight: bold;
-    text-transform: none;
-  }
-  .ui.form .grouped.fields .field,
-  .ui.form .grouped.inline.fields .field {
-    display: block;
-    margin: 0.5em 0em;
-    padding: 0em;
-  }
-  .ui.form .fields {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    margin: 0em -0.5em 1em;
-  }
-  .ui.form .fields > .field {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-  .ui.form .fields > .field:first-child {
-    border-left: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
-  @media only screen and (max-width: 767px) {
-    .ui.form .fields {
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-    }
-    .ui[class*="equal width"].form:not(.unstackable) .fields > .field,
-    .ui.form:not(.unstackable) [class*="equal width"].fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .three.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .three.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .four.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .four.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .five.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .five.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .six.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .six.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .seven.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .seven.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .eight.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .eight.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .nine.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .nine.fields:not(.unstackable) > .field,
-    .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .fields,
-    .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .field {
-      width: 100% !important;
-      margin: 0em 0em 1em;
-    }
-  }
-  .ui[class*="equal width"].form .fields > .field,
-  .ui.form [class*="equal width"].fields > .field {
-    width: 100%;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-  }
-  .ui.form .inline.fields {
-    margin: 0em 0em 1em;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .ui.form .inline.fields .field {
-    margin: 0em;
-    padding: 0em 1em 0em 0em;
-  }
-  .ui.form .inline.fields > label,
-  .ui.form .inline.fields .field > label,
-  .ui.form .inline.fields .field > p,
-  .ui.form .inline.field > label,
-  .ui.form .inline.field > p {
-    display: inline-block;
-    width: auto;
-    margin-top: 0em;
-    margin-bottom: 0em;
-    vertical-align: baseline;
-    font-size: 0.92857143em;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.87);
-    text-transform: none;
-  }
-  .ui.form .inline.fields > label {
-    margin: 0.035714em 1em 0em 0em;
-  }
-  .ui.form {
-    font-size: 1rem;
-  }
-  .ui.large.form {
-    font-size: 1.14285714rem;
-  }
-  .ui.big.form {
-    font-size: 1.28571429rem;
-  }
-  .ui.huge.form {
-    font-size: 1.42857143rem;
-  }
-  .ui.massive.form {
-    font-size: 1.71428571rem;
-  }
-  body {
-     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  .ui.form .field > label{
-    font-size: 20px;
+ .ui.form .grouped.fields {
+   display: block;
+   margin: 0em 0em 1em;
+ }
+ .ui.form .grouped.fields:last-child {
+   margin-bottom: 0em;
+ }
+ .ui.form .grouped.fields > label {
+   margin: 0em 0em 0.28571429rem 0em;
+   color: rgba(0, 0, 0, 0.87);
+   font-size: 0.92857143em;
+   font-weight: bold;
+   text-transform: none;
+ }
+ .ui.form .grouped.fields .field,
+ .ui.form .grouped.inline.fields .field {
+   display: block;
+   margin: 0.5em 0em;
+   padding: 0em;
+ }
+ .ui.form .fields {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+       -ms-flex-direction: row;
+           flex-direction: row;
+   margin: 0em -0.5em 1em;
+ }
+ .ui.form .fields > .field {
+   -webkit-box-flex: 0;
+       -ms-flex: 0 1 auto;
+           flex: 0 1 auto;
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+ }
+ .ui.form .fields > .field:first-child {
+   border-left: none;
+   -webkit-box-shadow: none;
+           box-shadow: none;
+ }
+ @media only screen and (max-width: 767px) {
+   .ui.form .fields {
+     -ms-flex-wrap: wrap;
+         flex-wrap: wrap;
+   }
+   .ui[class*="equal width"].form:not(.unstackable) .fields > .field,
+   .ui.form:not(.unstackable) [class*="equal width"].fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .two.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .three.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .three.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .four.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .four.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .five.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .five.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .six.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .six.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .seven.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .seven.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .eight.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .eight.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .nine.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .nine.fields:not(.unstackable) > .field,
+   .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .fields,
+   .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .field {
+     width: 100% !important;
+     margin: 0em 0em 1em;
+   }
+ }
+ .ui[class*="equal width"].form .fields > .field,
+ .ui.form [class*="equal width"].fields > .field {
+   width: 100%;
+   -webkit-box-flex: 1;
+       -ms-flex: 1 1 auto;
+           flex: 1 1 auto;
+ }
+ .ui.form .inline.fields {
+   margin: 0em 0em 1em;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+ }
+ .ui.form .inline.fields .field {
+   margin: 0em;
+   padding: 0em 1em 0em 0em;
+ }
+ .ui.form .inline.fields > label,
+ .ui.form .inline.fields .field > label,
+ .ui.form .inline.fields .field > p,
+ .ui.form .inline.field > label,
+ .ui.form .inline.field > p {
+   display: inline-block;
+   width: auto;
+   margin-top: 0em;
+   margin-bottom: 0em;
+   vertical-align: baseline;
+   font-size: 0.92857143em;
+   font-weight: bold;
+   color: rgba(0, 0, 0, 0.87);
+   text-transform: none;
+ }
+ .ui.form .inline.fields > label {
+   margin: 0.035714em 1em 0em 0em;
+ }
+ .ui.form {
+   font-size: 1rem;
+ }
+ .ui.large.form {
+   font-size: 1.14285714rem;
+ }
+ .ui.big.form {
+   font-size: 1.28571429rem;
+ }
+ .ui.huge.form {
+   font-size: 1.42857143rem;
+ }
+ .ui.massive.form {
+   font-size: 1.71428571rem;
+ }
+ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: normal;
-  }
-  .ui.button{
-    font-size: 20px;
-    font-weight: normal;
-    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
-    background-color: white;
-    color: dimgrey;
-    margin-left: 2px;
-  }
-  .ui.button:hover {
-      box-shadow: 0 4px 30px 0 rgba(229, 77, 6, 0.75);
-      background-color: white;
-      color: black;
-  }
-  .ui.button:active {
-      box-shadow: 2px 1px 5px rgba(229, 77, 6, 0.75) inset;
-      background-color: white;
-      color: black;
-      text-decoration: underline;
-      -moz-transform:  translate(0px, 2px) skew(1deg, 0deg);
-      -webkit-transform: translate(0px, 2px) skew(1deg, 0deg);
-      -o-transform: translate(0px, 2px) skew(1deg, 0deg);
-      -ms-transform:  translate(0px, 2px) skew(1deg, 0deg);
-      transform:  translate(0px, 2px) skew(1deg, 0deg);
-  }
-  .ui.form ::placeholder{
-    font-weight: lighter;
-    font-size: 18px;
-    color: dimgrey;
-  }
-  h1 {
-    font-weight: lighter;
-  }
-  img {
-    height: 120px;
-    width: 120px;
-  }
-  @media (min-width: 700px) and (max-width: 1280px) {
-    .ui.form{
-      padding-top: 80px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 560px;
-    }
-    img {
-      height: 120px;
-      width: 120px;
-    }
-  }
-  @media only screen and (max-width: 700px) {
+ }
+ .ui.form .field > label{
+   font-size: 20px;
+   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+   font-weight: normal;
+ }
+ .ui.button{
+   font-size: 20px;
+   font-weight: normal;
+   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+   background-color: white;
+   color: dimgrey;
+   margin-left: 2px;
+ }
+ .ui.button:hover {
+     box-shadow: 0 4px 30px 0 rgba(229, 77, 6, 0.75);
+     background-color: white;
+     color: black;
+ }
+ .ui.button:active {
+     box-shadow: 2px 1px 5px rgba(229, 77, 6, 0.75) inset;
+     background-color: white;
+     color: black;
+     text-decoration: underline;
+     -moz-transform:  translate(0px, 2px) skew(1deg, 0deg);
+     -webkit-transform: translate(0px, 2px) skew(1deg, 0deg);
+     -o-transform: translate(0px, 2px) skew(1deg, 0deg);
+     -ms-transform:  translate(0px, 2px) skew(1deg, 0deg);
+     transform:  translate(0px, 2px) skew(1deg, 0deg);
+ }
+ .ui.form ::placeholder{
+   font-weight: lighter;
+   font-size: 18px;
+   color: dimgrey;
+ }
+ h1 {
+   font-weight: lighter;
+ }
+ img {
+   height: 120px;
+   width: 120px;
+ }
+ @media (min-width: 700px) and (max-width: 1280px) {
    .ui.form{
      padding-top: 80px;
-     margin-left: 20px;
-     margin-right: 20px;
+     margin-left: auto;
+     margin-right: auto;
+     width: 560px;
    }
    img {
-     height: 90px;
-     width: 90px;
+     height: 120px;
+     width: 120px;
    }
+ }
+ @media only screen and (max-width: 700px) {
+  .ui.form{
+    padding-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
-  </style>
- </head>
- <body>
-   <form class="ui form" id="sign" method="post">
- <center><h1>GENDEREV guarantees your privacy by encrypting everything.</h1></center><br>
- <center><img src="data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0NzkuOTYzIDQ3OS45NjMiIHZpZXdCb3g9IjAgMCA0NzkuOTYzIDQ3OS45NjMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZTkzZTNhIi8+PHN0b3Agb2Zmc2V0PSIuMzQ2IiBzdG9wLWNvbG9yPSIjZWQ2ODNjIi8+PHN0b3Agb2Zmc2V0PSIuNzE3IiBzdG9wLWNvbG9yPSIjZjM5MDNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmRjNzBjIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoOCAwIDAgLTggNDU1LjEzMDMgNDk0MC45NjYzKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSItNTAuOTMwNiIgeDI9IjQuNzg2NCIgeGxpbms6aHJlZj0iI2EiIHkxPSI1ODcuNjIzMSIgeTI9IjU4Ny42MjMxIi8+PGxpbmVhckdyYWRpZW50IGlkPSJjIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDggMCAwIC04IDQ1NS4xMzAzIDQ5NDAuOTY2MykiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTUwLjkzMDYiIHgyPSI0Ljc4NjQiIHhsaW5rOmhyZWY9IiNhIiB5MT0iNTg3LjYyMTMiIHkyPSI1ODcuNjIxMyIvPjxsaW5lYXJHcmFkaWVudCBpZD0iZCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg4IDAgMCAtOCA0NTUuMTMwMyA0OTQwLjk2NjMpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ii01MC45MzA2IiB4Mj0iNC43ODY0IiB4bGluazpocmVmPSIjYSIgeTE9IjU4MS42MjEzIiB5Mj0iNTgxLjYyMTMiLz48cGF0aCBkPSJtNDAyLjk0OSA2NC41NjQtMTYwLTY0Yy0xLjkwNy0uNzUyLTQuMDI5LS43NTItNS45MzYgMGwtMTYwIDY0Yy0zLjA0IDEuMjE0LTUuMDMzIDQuMTU4LTUuMDMyIDcuNDMydjI0OS42NDhjLjEwNiAzNi41MDMgMTkuMjQ4IDcwLjMwNyA1MC40OTYgODkuMTc2bDExMy4zODQgNjhjMi41MzUgMS41MjMgNS43MDUgMS41MjMgOC4yNCAwbDExMy4zODQtNjhjMzEuMjQ4LTE4Ljg2OSA1MC4zOS01Mi42NzMgNTAuNDk2LTg5LjE3NnYtMjQ5LjY0OGMuMDAyLTMuMjczLTEuOTkyLTYuMjE3LTUuMDMyLTcuNDMyem0tMTAuOTY4IDI1Ny4wOGMtLjA5IDMwLjg4Ny0xNi4yODcgNTkuNDktNDIuNzI4IDc1LjQ1NmwtMTA5LjI3MiA2NS41NjgtMTA5LjI3Mi02NS42Yy0yNi40MzEtMTUuOTYtNDIuNjI2LTQ0LjU0OC00Mi43MjgtNzUuNDI0di0yNDQuMjMybDE1Mi02MC44IDE1MiA2MC44eiIgZmlsbD0idXJsKCNiKSIvPjxwYXRoIGQ9Im0xODMuOTgxIDE3NS45OTZ2NDBoLTE2Yy00LjQxOCAwLTggMy41ODItOCA4djEyOGMwIDQuNDE4IDMuNTgyIDggOCA4aDE0NGM0LjQxOCAwIDgtMy41ODIgOC04di0xMjhjMC00LjQxOC0zLjU4Mi04LTgtOGgtMTZ2LTQwYzAtMzAuOTI4LTI1LjA3Mi01Ni01Ni01NnMtNTYgMjUuMDcyLTU2IDU2em0xMjAgMTY4aC0xMjh2LTExMmgxMjh6bS0yNC0xNjh2NDBoLTgwdi00MGMwLTIyLjA5MSAxNy45MDktNDAgNDAtNDBzNDAgMTcuOTA5IDQwIDQweiIgZmlsbD0idXJsKCNjKSIvPjxwYXRoIGQ9Im0yMzkuOTgxIDI0Ny45OTZjLTEzLjIyNC0uMDI1LTIzLjk2NCAxMC42NzUtMjMuOTg5IDIzLjg5OS0uMDE5IDEwLjE3NCA2LjM5MyAxOS4yNDkgMTUuOTg5IDIyLjYyOXYzMy40NzJoMTZ2LTMzLjQ3MmMxMi40NzMtNC4zOTMgMTkuMDIzLTE4LjA2NiAxNC42MjktMzAuNTM5LTMuMzc5LTkuNTk2LTEyLjQ1NC0xNi4wMDgtMjIuNjI5LTE1Ljk4OXptMCAzMmMtNC40MTggMC04LTMuNTgyLTgtOHMzLjU4Mi04IDgtOCA4IDMuNTgyIDggOC0zLjU4MSA4LTggOHoiIGZpbGw9InVybCgjZCkiLz48L3N2Zz4=" alt="Genderev is safe."></center>
+  img {
+    height: 90px;
+    width: 90px;
+  }
+ }
+ </style>
+</head>
+<body>
+  <form class="ui form" id="sign" method="post">
+<center><h1>GENDEREV guarantees your privacy by encrypting everything.</h1></center><br>
+<center><img src="data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0NzkuOTYzIDQ3OS45NjMiIHZpZXdCb3g9IjAgMCA0NzkuOTYzIDQ3OS45NjMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxsaW5lYXJHcmFkaWVudCBpZD0iYSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZTkzZTNhIi8+PHN0b3Agb2Zmc2V0PSIuMzQ2IiBzdG9wLWNvbG9yPSIjZWQ2ODNjIi8+PHN0b3Agb2Zmc2V0PSIuNzE3IiBzdG9wLWNvbG9yPSIjZjM5MDNmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmRjNzBjIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoOCAwIDAgLTggNDU1LjEzMDMgNDk0MC45NjYzKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSItNTAuOTMwNiIgeDI9IjQuNzg2NCIgeGxpbms6aHJlZj0iI2EiIHkxPSI1ODcuNjIzMSIgeTI9IjU4Ny42MjMxIi8+PGxpbmVhckdyYWRpZW50IGlkPSJjIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDggMCAwIC04IDQ1NS4xMzAzIDQ5NDAuOTY2MykiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTUwLjkzMDYiIHgyPSI0Ljc4NjQiIHhsaW5rOmhyZWY9IiNhIiB5MT0iNTg3LjYyMTMiIHkyPSI1ODcuNjIxMyIvPjxsaW5lYXJHcmFkaWVudCBpZD0iZCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg4IDAgMCAtOCA0NTUuMTMwMyA0OTQwLjk2NjMpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ii01MC45MzA2IiB4Mj0iNC43ODY0IiB4bGluazpocmVmPSIjYSIgeTE9IjU4MS42MjEzIiB5Mj0iNTgxLjYyMTMiLz48cGF0aCBkPSJtNDAyLjk0OSA2NC41NjQtMTYwLTY0Yy0xLjkwNy0uNzUyLTQuMDI5LS43NTItNS45MzYgMGwtMTYwIDY0Yy0zLjA0IDEuMjE0LTUuMDMzIDQuMTU4LTUuMDMyIDcuNDMydjI0OS42NDhjLjEwNiAzNi41MDMgMTkuMjQ4IDcwLjMwNyA1MC40OTYgODkuMTc2bDExMy4zODQgNjhjMi41MzUgMS41MjMgNS43MDUgMS41MjMgOC4yNCAwbDExMy4zODQtNjhjMzEuMjQ4LTE4Ljg2OSA1MC4zOS01Mi42NzMgNTAuNDk2LTg5LjE3NnYtMjQ5LjY0OGMuMDAyLTMuMjczLTEuOTkyLTYuMjE3LTUuMDMyLTcuNDMyem0tMTAuOTY4IDI1Ny4wOGMtLjA5IDMwLjg4Ny0xNi4yODcgNTkuNDktNDIuNzI4IDc1LjQ1NmwtMTA5LjI3MiA2NS41NjgtMTA5LjI3Mi02NS42Yy0yNi40MzEtMTUuOTYtNDIuNjI2LTQ0LjU0OC00Mi43MjgtNzUuNDI0di0yNDQuMjMybDE1Mi02MC44IDE1MiA2MC44eiIgZmlsbD0idXJsKCNiKSIvPjxwYXRoIGQ9Im0xODMuOTgxIDE3NS45OTZ2NDBoLTE2Yy00LjQxOCAwLTggMy41ODItOCA4djEyOGMwIDQuNDE4IDMuNTgyIDggOCA4aDE0NGM0LjQxOCAwIDgtMy41ODIgOC04di0xMjhjMC00LjQxOC0zLjU4Mi04LTgtOGgtMTZ2LTQwYzAtMzAuOTI4LTI1LjA3Mi01Ni01Ni01NnMtNTYgMjUuMDcyLTU2IDU2em0xMjAgMTY4aC0xMjh2LTExMmgxMjh6bS0yNC0xNjh2NDBoLTgwdi00MGMwLTIyLjA5MSAxNy45MDktNDAgNDAtNDBzNDAgMTcuOTA5IDQwIDQweiIgZmlsbD0idXJsKCNjKSIvPjxwYXRoIGQ9Im0yMzkuOTgxIDI0Ny45OTZjLTEzLjIyNC0uMDI1LTIzLjk2NCAxMC42NzUtMjMuOTg5IDIzLjg5OS0uMDE5IDEwLjE3NCA2LjM5MyAxOS4yNDkgMTUuOTg5IDIyLjYyOXYzMy40NzJoMTZ2LTMzLjQ3MmMxMi40NzMtNC4zOTMgMTkuMDIzLTE4LjA2NiAxNC42MjktMzAuNTM5LTMuMzc5LTkuNTk2LTEyLjQ1NC0xNi4wMDgtMjIuNjI5LTE1Ljk4OXptMCAzMmMtNC40MTggMC04LTMuNTgyLTgtOHMzLjU4Mi04IDgtOCA4IDMuNTgyIDggOC0zLjU4MSA4LTggOHoiIGZpbGw9InVybCgjZCkiLz48L3N2Zz4=" alt="Genderev is safe."></center>
 <center><h1> Join the revolution.</h1></center>
 <br>
- <div class="field">
-   <label>Username</label>
-   <input type="text" id="alias" name="username" placeholder="Username" autocomplete="username" required>
- </div><br>
- <div class="field">
-   <label>Password</label>
-   <input type="password" id="pass" name="password" placeholder="Password" autocomplete="new-password" required>
- </div><br>
- <button class="ui button ui-button" id="up" type="submit" value="log in">log in</button>
+<div class="field">
+  <label>Username</label>
+  <input type="text" id="alias" name="username" placeholder="Username" autocomplete="username" required>
+</div><br>
+<div class="field">
+  <label>Password</label>
+  <input type="password" id="pass" name="password" placeholder="Password" autocomplete="new-password" required>
+</div><br>
+<button class="ui button ui-button" id="up" type="submit" value="log in">log in</button>
 </form>
-  <script src="js/jquery.min.js"></script>
- <script src="js/gun.js"></script>
- <script src="js/sea.js"></script>
- <script src="js/webrtc.js"></script>
+ <script src="js/jquery.min.js"></script>
+<script src="js/gun.js"></script>
+<script src="js/sea.js"></script>
+<script src="js/webrtc.js"></script>
 
- <script>
- var gun = Gun(["https://genderevapp.herokuapp.com/gun"]);
+<script>
+var gun = Gun(["https://genderevapp.herokuapp.com/gun"]);
 function gohome(){
- window.location = "/home.html";
+window.location = "/home.html";
 }
 window.addEventListener("DOMContentLoaded", (event) => {
-   var user = gun.user();
-   user.recall({sessionStorage:true},function(uob){
-     // if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
-       setTimeout(gohome,1);
-   });
-   var frm = $("#sign");
-   frm.on("submit",function(e){
-     e.stopPropagation();
-     e.preventDefault();
-    user.auth($("#alias").val(), $("#pass").val());
-   });
-   $("#up").on("click", function(e){
-     e.preventDefault();
-     frm.submit();
-     gohome();
-   });
+  var user = gun.user();
+  user.recall({sessionStorage:true},function(uob){
+    // if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
+      setTimeout(gohome,1);
+  });
+  var frm = $("#sign");
+  frm.on("submit",function(e){
+    e.stopPropagation();
+    e.preventDefault();
+   user.auth($("#alias").val(), $("#pass").val());
+  });
+  $("#up").on("click", function(e){
+    e.preventDefault();
+    frm.submit();
+  });
 
 });
 
-  </script>
- </body>
+ </script>
+</body>
 
- </html>
+</html>

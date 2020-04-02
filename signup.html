@@ -36,7 +36,7 @@
     vertical-align: baseline;
     background: #e0e1e2 none;
     color: rgba(0,0,0,.6);
-    font-family: Lato,"Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
     margin: 0 .25em 0 0;
     padding: .78571429em 1.5em .78571429em;
     text-transform: none;
@@ -57,7 +57,7 @@
     transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
     transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
     transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-    will-change: "";
+    will-change: '';
     -webkit-tap-highlight-color: transparent;
 }
  .ui.form {
@@ -115,7 +115,7 @@
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
@@ -415,59 +415,57 @@
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-  <script>
-  var gun = Gun(["https://genderevapp.herokuapp.com/gun"]);
-  function gohome(){
-    window.location = "/home.html";
-  }
-  window.addEventListener("DOMContentLoaded", (event) => {
-      var user = gun.user();
-      user.recall({sessionStorage:true},function(uob){
-        if(confirm("we are already logged in, going home")){
-          setTimeout(gohome,5);
+<script>
+var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+function gohome(){window.location = "/home.html";}
+window.addEventListener('DOMContentLoaded', (event) => {
+  var user = gun.user();
+  user.recall({sessionStorage:true},function(uob){
+    if(confirm("we are already logged in, going home")){
+      setTimeout(gohome,5);
+    }
+  });
+  var frm = $('#sign');
+  frm.on('submit',function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    user.create($('#alias').val(), $('#pass').val(),function(ack){
+      if(ack.err) {
+          user.auth($('#alias').val(), $('#pass').val());
         }
       });
-      var frm = $("#sign");
-      frm.on("submit",function(e){
-        e.stopPropagation();
-        e.preventDefault();
-        user.create($("#alias").val(), $("#pass").val(),function(ack){
-          if(ack.err) {
-              user.auth($("#alias").val(), $("#pass").val());
-            }
-          });
-        });
-      $("#up").on("click", function(e){
-        e.preventDefault();
-        frm.submit();
-      });
-      gun.on("auth",function(){
-          gohome();
-      });
-  })
+    });
+  $('#up').on('click', function(e){
+    e.preventDefault();
+    frm.submit();
+  });
+  gun.on('auth',function(){
+      gohome();
+  });
+})
 //old long signup
-//     var gun = Gun(["https://genderevapp.herokuapp.com/gun"]);
+//     var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 // function gohome(){
 //   window.location = "/home.html";
 // }
-// window.addEventListener("DOMContentLoaded", (event) => {
+// window.addEventListener('DOMContentLoaded', (event) => {
 //     var user = gun.user();
 //     user.recall({sessionStorage:true},function(uob){
 //       if(confirm("we are already logged in, going home")){
 //         setTimeout(gohome,5);
 //       }
 //     });
-//     var frm = $("#sign");
-//     frm.on("submit",function(e){
+//     var frm = $('#sign');
+//     frm.on('submit',function(e){
 //       e.stopPropagation();
 //       e.preventDefault();
-//       console.log("not posting anything thx");
-//       user.create($("#alias").val(), $("#pass").val(),function(ack){
+//       console.log('not posting anything thx');
+//       user.create($('#alias').val(), $('#pass').val(),function(ack){
 //         if(ack.err) {
 //           alert(ack.err);
 //           if(ack.err == "User already created!") {
-//             console.log("well lets try auth if the user was created already");
-//             user.auth($("#alias").val(), $("#pass").val(),function(lack){
+//             console.log('well lets try auth if the user was created already');
+//             user.auth($('#alias').val(), $('#pass').val(),function(lack){
 //               if(lack.err) {
 //                 alert(lack.err);
 //               } else {
@@ -475,22 +473,22 @@
 //               }
 //             })
 //           } else {
-//             alert("cannot continue :(")
+//             alert('cannot continue :(')
 //           }
 //         }
 //
 //       });
 //
 //     });
-//     $("#logout").on("click",function(e){
+//     $('#logout').on('click',function(e){
 //     	e.preventDefault();
 //       user.leave();
 //     })
-//     $("#up").on("click", function(e){
+//     $('#up').on('click', function(e){
 //       e.preventDefault();
 //       frm.submit();
 //     });
-//     gun.on("auth",function(){
+//     gun.on('auth',function(){
 //
 //       if(confirm("gun on auth, go home in 5 seconds or debug")){
 //         setTimeout(gohome,5000);
