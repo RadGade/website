@@ -341,9 +341,11 @@ $("#postbtn").attr('disabled','disabled');
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 	const user = gun.user();
-	console.log(user);
 
 	user.recall({sessionStorage:true},function(uob){
+		console.log(user);
+		console.log(user.is);
+		console.log(user.is.alias);
 		if (user.is) {
 		console.log('You are logged in');
 		} else {
