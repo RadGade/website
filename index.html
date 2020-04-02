@@ -200,7 +200,10 @@ font-weight: lighter;
 <div class="top">
 <div id="sidebar">
 <div class ="title" role="heading" aria-level="1"><a href="/">GENDEREV</a></div>
-<div class="buttons"><button type="button" class="signup btn" id="signup-button">sign up</button>&nbsp &nbsp <button type="button" class ="btn" id="login-button">log in</button></div>
+<div class="buttons">
+<form action="signup.html"><button type="button" class="signup btn" id="signup-button">sign up</button></form>
+&nbsp &nbsp
+<form action="login.html"><button type="button" class ="btn" id="login-button">log in</button></form></div>
 <div id="content">
 <br><div>you know what? We need a revolution.<br><br><span class="black">a few seconds ago</span><br><hr><br></div>
 <div>honestly I think we need the world to change.<br><br><span class="black">a few seconds ago</span><br><hr></div>
@@ -210,10 +213,10 @@ font-weight: lighter;
 <div id="pages"><center><a href="about.html">[ about ]</a>&nbsp-&nbsp<a href="help.html">[ help ]</a></div></center></div>
 <script>
 
-document.getElementById("signup-button").onclick = function() {myFunction()};
-document.getElementById("login-button").onclick = function() {myFunc()};
-function myFunction() {window.location.href = ("signup.html");}
-function myFunc() {window.location.href = ("login.html");}
+// document.getElementById("signup-button").onclick = function() {myFunction()};
+// document.getElementById("login-button").onclick = function() {myFunc()};
+// function myFunction() {window.location.href = ("signup.html");}
+// function myFunc() {window.location.href = ("login.html");}
 // $("#signup-button").click(function() {window.location.href = ("signup.html");});
 // $("#login-button").click(function() {window.location.href = ("login.html");});
 </script>
