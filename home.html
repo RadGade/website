@@ -348,28 +348,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		} else {
 		console.log('You are not logged in');
 		}
-
-		$("#postbtn").click(function() {
-				var input = $("#ityped").val();
-
-				gun.get('status').put({ status: input});
-					gun.get('status').on(function(data, key) {
-					console.log(data.status);
-					var postContent = "<span>" + data.status + "</span><br>"
-					var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
-					var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
-					innerHTML =  postContent + postDate + displayUser
-					})
-				$("#content").append(innerHTML);
-			var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
-			setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
-			window.scroll({top: 200,left: 0,behavior: 'smooth'});
-			$('#ityped').val(""); //definitely will work
-			$("#postbtn").attr('disabled','disabled');
-		});
-
 	})
 
+	$("#postbtn").click(function() {
+			var input = $("#ityped").val();
+			gun.get('status').put({ status: input});
+			gun.get('status').on(function(data, key) {
+				console.log(data.status);
+				var postContent = "<span>" + data.status + "</span><br>"
+				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
+				var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
+				innerHTML =  postContent + postDate + displayUser
+				})
+			$("#content").append(innerHTML);
+		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
+		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
+		window.scroll({top: 200,left: 0,behavior: 'smooth'});
+		$('#ityped').val(""); //definitely will work
+		$("#postbtn").attr('disabled','disabled');
+	});
 
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
