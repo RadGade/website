@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+<script src="path/to/dayjs/dayjs.min.js"></script>
+<script>
+  dayjs().format()
+  var relativeTime = require('dayjs/plugin/relativeTime')
+  dayjs.extend(relativeTime)
+</script>
+	
 <link rel="prefetch" href="js/home.js" as="script">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
 <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
@@ -374,7 +382,7 @@ $("#postbtn").click(function() {
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
-			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
+			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + dayjs().fromNow() + "</span><br>"
 			var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
 			innerHTML =  postContent + postDate + displayUser
 			})
