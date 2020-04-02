@@ -340,7 +340,7 @@ max-width: 90%
 <!-- <script> I don't understand this, will come back to it
   dayjs.extend(window.dayjs_plugin_relativeTime)
 </script>	 -->
-
+<!-- Just trying to make this page work again -->
 <script>
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
@@ -371,9 +371,9 @@ $("#postbtn").click(function() {
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
-			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + dayjs().fromNow() + "</span><br>"
+// 			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + dayjs().fromNow() + "</span><br>"
 			var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
-			innerHTML =  postContent + postDate + displayUser
+			innerHTML =  postContent + displayUser //postContent + postDate + displayUser
 			})
 		$("#content").append(innerHTML);
 
