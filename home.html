@@ -343,17 +343,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const user = gun.user();
 
 	user.recall({sessionStorage:true},function(uob){
-		console.log(user);
-		console.log(user.is);
 		if (user.is) {
 		console.log('You are logged in');
 		console.log(user);
-		console.log(user.is);
 		} else {
 		console.log('You are not logged in');
 		}
-		console.log(user);
-		console.log(user.is);
 	});
 
 	$("#postbtn").click(function() {
