@@ -338,7 +338,6 @@ max-width: 90%
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 	const user = gun.user();
-	$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 
 	user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
@@ -346,9 +345,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		} else {
 		console.log('You are not logged in');
 		}
-
-
-
+		get username
+		gun.get('~@alias').once((data, key)=>{});
+		console.log(gun.get('~@alias').once((data, key)=>{});)
+		gun.get('~@alias').once((data, key)=>{});
+		gun.get("~@alias").once(console.log)
 
 		//data is a gun node object and key is a string with ~ before alias
 		// {
@@ -358,8 +359,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
+	})
 
-
+new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 
 
 $("#postbtn").attr('disabled','disabled')
@@ -368,25 +370,41 @@ $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#postbtn").click(function() {
 		var input = $("#ityped").val();
-
+		// e.preventDefault();
+		// if(!user.is){ return }
+		// user.get('said').set($('#ityped').val());
+		//
+		// function UI(say, id){
+    //   var li = $('#' + id).get(0) || $('<li>').attr('id', id).appendTo('ul');
+    //   $(li).text(say);
+    // };
+		//
+		//
+    // user.get('said').map().once(UI);
 		gun.get('status').put({ status: input});
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
 			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
-			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
-			innerHTML =  postContent + postDate + displayUser
+// 			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ username +"<br><br>"
+			innerHTML =  postContent + postDate
 			})
 		$("#content").append(innerHTML);
 
 var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 window.scroll({top: 200,left: 0,behavior: 'smooth'});
-$('#ityped').val("");
-$("#postbtn").attr('disabled','disabled');
-});
+$('#ityped').val(""); //definitely will work
+$("#postbtn").attr('disabled','disabled');});
+$("#aboutbtn").click(function() {window.location.href =("about.html");});
+$("#profile").click(function() {window.location.href =("profile.html");});
+$("#helpbtn").click(function() {window.location.href = ("help.html");});
 
-	})
+$('#login-button').on('click',function(e){
+e.preventDefault();
+user.leave();
+window.location.href =("index.html");
+ })
 });
 </script>
 <script>
