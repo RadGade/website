@@ -341,7 +341,13 @@ max-width: 90%
   dayjs.extend(window.dayjs_plugin_relativeTime)
 </script>	 -->
 <!-- Just trying to make this page work again -->
-<script>
+<script>	
+$("#aboutbtn").click(function() {window.location.href =("about.html");});
+$("#profile").click(function() {window.location.href =("profile.html");});
+$("#helpbtn").click(function() {window.location.href = ("help.html");});
+$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+
+
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 	const user = gun.user();
@@ -383,10 +389,7 @@ window.scroll({top: 200,left: 0,behavior: 'smooth'});
 $('#ityped').val(""); //definitely will work
 $("#postbtn").attr('disabled','disabled');
 });
-$("#aboutbtn").click(function() {window.location.href =("about.html");});
-$("#profile").click(function() {window.location.href =("profile.html");});
-$("#helpbtn").click(function() {window.location.href = ("help.html");});
-$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+
 	})
 });
 </script>
