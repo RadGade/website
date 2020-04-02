@@ -437,10 +437,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
   $('#up').on('click', function(e){
     e.preventDefault();
     frm.submit();
+    gohome(); //optimistic UI
   });
-  gun.on('auth',function(){
-      gohome();
-  });
+  // gun.on('auth',function(){
+  //     gohome();
+  // });
 })
 //old long signup
 //     var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
