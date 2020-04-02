@@ -69,7 +69,7 @@
   .ui.form input[type="text"],
   .ui.form input[type="file"],
   .ui.form input[type="url"] {
-    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
     margin: 0em;
     outline: none;
     -webkit-appearance: none;
@@ -107,7 +107,7 @@
       vertical-align: baseline;
       background: #e0e1e2 none;
       color: rgba(0,0,0,.6);
-      font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+      font-family: Lato,"Helvetica Neue",Arial,Helvetica,sans-serif;
       margin: 0 .25em 0 0;
       padding: .78571429em 1.5em .78571429em;
       text-transform: none;
@@ -128,7 +128,7 @@
       transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
       transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
       transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-      will-change: '';
+      will-change: "";
       -webkit-tap-highlight-color: transparent;
   }
 
@@ -419,52 +419,27 @@
  <script src="js/webrtc.js"></script>
 
  <script>
- var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+ var gun = Gun(["https://genderevapp.herokuapp.com/gun"]);
 function gohome(){
  window.location = "/home.html";
 }
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener("DOMContentLoaded", (event) => {
    var user = gun.user();
    user.recall({sessionStorage:true},function(uob){
-     if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
-       setTimeout(gohome,500);
-     }
+     // if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
+       setTimeout(gohome,1);
    });
-   var frm = $('#sign');
-   frm.on('submit',function(e){
+   var frm = $("#sign");
+   frm.on("submit",function(e){
      e.stopPropagation();
      e.preventDefault();
-     console.log('not posting anything thx');
-     user.create($('#alias').val(), $('#pass').val(),function(ack){
-       if(ack.err) {
-         alert(ack.err);
-         if(ack.err == "User already created!") {
-           console.log('well lets try auth if the user was created already');
-           user.auth($('#alias').val(), $('#pass').val(),function(lack){
-             if(lack.err) {
-               alert(lack.err);
-             } else {
-               //noop - the auth handler takes care of the rest
-             }
-           })
-         } else {
-           alert('cannot continue :(')
-         }
-       }
-
-     });
-
+    user.auth($("#alias").val(), $("#pass").val());
    });
-   $('#up').on('click', function(e){
+   $("#up").on("click", function(e){
      e.preventDefault();
      frm.submit();
    });
-   gun.on('auth',function(){
 
-     if(confirm("gun on auth, go home or debug")){
-       setTimeout(gohome,500);
-     }
-   })
 });
 
   </script>

@@ -415,58 +415,86 @@
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-    <script>
-    var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
-function gohome(){
-  window.location = "/home.html";
-}
+<script>
+var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+function gohome(){window.location = "/home.html";}
 window.addEventListener('DOMContentLoaded', (event) => {
-    var user = gun.user();
-    user.recall({sessionStorage:true},function(uob){
-      if(confirm("we are already logged in, going home.html in 5 seconds after you have okayed, or staying for debug if you cancel")){
-        setTimeout(gohome,5000);
-      }
-    });
-    var frm = $('#sign');
-    frm.on('submit',function(e){
-      e.stopPropagation();
-      e.preventDefault();
-      console.log('not posting anything thx');
-      user.create($('#alias').val(), $('#pass').val(),function(ack){
-        if(ack.err) {
-          alert(ack.err);
-          if(ack.err == "User already created!") {
-            console.log('well lets try auth if the user was created already');
-            user.auth($('#alias').val(), $('#pass').val(),function(lack){
-              if(lack.err) {
-                alert(lack.err);
-              } else {
-                //noop - the auth handler takes care of the rest
-              }
-            })
-          } else {
-            alert('cannot continue :(')
-          }
+  var user = gun.user();
+  user.recall({sessionStorage:true},function(uob){
+    if(confirm("we are already logged in, going home")){
+      setTimeout(gohome,5);
+    }
+  });
+  var frm = $('#sign');
+  frm.on('submit',function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    user.create($('#alias').val(), $('#pass').val(),function(ack){
+      if(ack.err) {
+          user.auth($('#alias').val(), $('#pass').val());
         }
-
       });
-
     });
-    $('#logout').on('click',function(e){
-    	e.preventDefault();
-      user.leave();
-    })
-    $('#up').on('click', function(e){
-      e.preventDefault();
-      frm.submit();
-    });
-    gun.on('auth',function(){
-
-      if(confirm("gun on auth, go home in 5 seconds or debug")){
-        setTimeout(gohome,5000);
-      }
-    })
-});
+  $('#up').on('click', function(e){
+    e.preventDefault();
+    frm.submit();
+  });
+  gun.on('auth',function(){
+      gohome();
+  });
+})
+//old long signup
+//     var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+// function gohome(){
+//   window.location = "/home.html";
+// }
+// window.addEventListener('DOMContentLoaded', (event) => {
+//     var user = gun.user();
+//     user.recall({sessionStorage:true},function(uob){
+//       if(confirm("we are already logged in, going home")){
+//         setTimeout(gohome,5);
+//       }
+//     });
+//     var frm = $('#sign');
+//     frm.on('submit',function(e){
+//       e.stopPropagation();
+//       e.preventDefault();
+//       console.log('not posting anything thx');
+//       user.create($('#alias').val(), $('#pass').val(),function(ack){
+//         if(ack.err) {
+//           alert(ack.err);
+//           if(ack.err == "User already created!") {
+//             console.log('well lets try auth if the user was created already');
+//             user.auth($('#alias').val(), $('#pass').val(),function(lack){
+//               if(lack.err) {
+//                 alert(lack.err);
+//               } else {
+//                 //noop - the auth handler takes care of the rest
+//               }
+//             })
+//           } else {
+//             alert('cannot continue :(')
+//           }
+//         }
+//
+//       });
+//
+//     });
+//     $('#logout').on('click',function(e){
+//     	e.preventDefault();
+//       user.leave();
+//     })
+//     $('#up').on('click', function(e){
+//       e.preventDefault();
+//       frm.submit();
+//     });
+//     gun.on('auth',function(){
+//
+//       if(confirm("gun on auth, go home in 5 seconds or debug")){
+//         setTimeout(gohome,5000);
+//       }
+//     })
+// });
 
   </script>
 </body>
