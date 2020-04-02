@@ -63,7 +63,7 @@
 				}
 		#question {
 				color: #000AFF;
-				font-family: 'Arial', sans-serif;
+				font-family: "Arial", sans-serif;
 				font-size: 27px;
 				line-height: 1.25;
 				font-weight: 400;
@@ -213,45 +213,45 @@
 						<center><br><br><div class="buttons"><button id="aboutbtn" href="/about"> about </button>&nbsp<button href="/help"> help </button></div></center>
 <script src="https://unpkg.com/@blockstack/connect"/></script>
 <script>
-$('#login-button').click(function() {
+$("#login-button").click(function() {
 	signOut();
 })
 </script>
 <script>
 // var d = new Date();
 // var n = d.getTime();
-	
+
 function updatePost(content) {
-  document.getElementById('entries').innerHTML = content;
+  document.getElementById("entries").innerHTML = content;
 }
-	
-$('#postbtn').click(function() {
+
+$("#postbtn").click(function() {
 		var self = $(this);
 		var inputFile = "writtenpost.json";
-		var textInput = document.getElementById("ityped").value; 
-	
-		if (!self.data('add')) {
-				self.data('add', true);
-				self.text('posted!');
+		var textInput = document.getElementById("ityped").value;
+
+		if (!self.data("add")) {
+				self.data("add", true);
+				self.text("posted!");
 				setTimeout(function() {
-					self.text('post 💌').data('add', false);
+					self.text("post 💌").data("add", false);
 					}, 1100);
 		}
 		console.log(textInput);
-	
-		
+
+
 		userSession.putFile(inputFile, textInput, {
 			encrypt: false
 		}).then(function() {
-		    alert('File: ' + inputFile + ' saved');
+		    alert("File: " + inputFile + " saved");
 				//checking for file
 				var files = [];
 				userSession.listFiles(function(filename) {
 				    files.push(filename);
 				    return true; // to continue files listing
 				  }).then(function(filesCount) {
-				    console.log('Files count: ' + filesCount);
-				    console.log(JSON.stringify(files, '\t', 2));
+				    console.log("Files count: " + filesCount);
+				    console.log(JSON.stringify(files, "\t", 2));
 				console.log(typeof files);
 				  });
 
@@ -260,7 +260,7 @@ $('#postbtn').click(function() {
 				    decrypt: false,
 				    // You also can set these options (read more in docs):
 				    // app (you can get files from other app)
-				    // username (you can get other users' files, but you need to know their username)
+				    // username (you can get other users" files, but you need to know their username)
 				    // verify (you can check if files signature is valid)
 				    // zoneFileLookupURL (The URL to use for zonefile lookup)
 				  }).then(function(content) {
@@ -268,21 +268,21 @@ $('#postbtn').click(function() {
 				    console.log(content);
 				    //console.log(JSON.stringify(file));
 				    console.log(JSON.stringify(content));
-					
+
 				    updatePost(content);
 				    console.log(typeof content);
 				  }).catch(function(err) {
 				    console.error(err);
-				    alert('Error occured, check console');
+				    alert("Error occured, check console");
 				  });
 
 				document.getElementById("").innerHTML = userSession.getFile(inputFile,{decrypt: false});
-			$('#ityped').val('')
+			$("#ityped").val("")
 		});
-		
-		 
 
-		
+
+
+
 });
 </script>
 </body>

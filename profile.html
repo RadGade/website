@@ -100,7 +100,7 @@ text-shadow: 0px -1px 0px darkgrey;
 font-family: Arial;
 }
 color: #000AFF;
-font-family: 'Arial', sans-serif;
+font-family: "Arial", sans-serif;
 font-size: 27px;
 line-height: 1.25;
 font-weight: 400;
@@ -222,17 +222,15 @@ margin-right: 10px;
 <script>
 $(".upload").hide();
 $("#preview").hide();
-// document.getElementById('heading-name').innerHTML="*" + username;
-$('#login-button').click(function() {
-signOut();
-});
-$('#profile').click(function() {
+// document.getElementById("heading-name").innerHTML="*" + username;
+$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+$("#profile").click(function() {
 window.location.href =("home.html");
 });
 function previewFile() {
-const preview = document.getElementById('preview');
+const preview = document.getElementById("preview");
 console.log(preview);
-const file = document.querySelector('input[type=file]').files[0];
+const file = document.querySelector("input[type=file]").files[0];
 console.log(file);
 const reader = new FileReader();
 reader.addEventListener("load", function () {
