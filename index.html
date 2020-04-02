@@ -211,7 +211,7 @@ font-weight: lighter;
 <div class="buttons">
 <form action="signup.html"><button type="submit" class="signup btn" id="signup-button">sign up</button></form>
 &nbsp &nbsp
-<form action="login.html"><button type="submit" class ="btn" id="login-button">log in</button></form></div>
+<button type="submit" class ="btn" id="login-button">log in</button></div> //JS might be better > form action
 <div id="content">
 <br><div>you know what? We need a revolution.<br><br><span class="black">a few seconds ago</span><br><hr><br></div>
 <div>I think we need the world to change.<br><br><span class="black">a few seconds ago</span><br><hr></div>
@@ -220,11 +220,10 @@ font-weight: lighter;
 <div class="desc"><center><h4>Columbia's gender revolution</h4></center></div>
 <div id="pages"><center><a href="about.html">[ about ]</a>&nbsp-&nbsp<a href="help.html">[ help ]</a></div></center></div>
 <script>
-
-// document.getElementById("signup-button").onclick = function() {myFunction()};
-// document.getElementById("login-button").onclick = function() {myFunc()};
-// function myFunction() {window.location.href = ("signup.html");}
-// function myFunc() {window.location.href = ("login.html");}
+document.getElementById("signup-button").onclick = function() {myFunction()};
+document.getElementById("login-button").onclick = function() {myFunc()};
+function myFunction() {window.location.href = ("signup.html");}
+function myFunc() {window.location.href = ("login.html");}
 // $("#signup-button").click(function() {window.location.href = ("signup.html");});
 // $("#login-button").click(function() {window.location.href = ("login.html");});
 </script>
