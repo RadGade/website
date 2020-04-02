@@ -342,7 +342,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 	const user = gun.user();
 
-	user.recall({sessionStorage:true},function(uob){
+	user.recall({sessionStorage:true},function(){
+		console.log(user);
+		console.log(user.is);
 		if (user.is) {
 		console.log('You are logged in');
 		console.log(user);
@@ -350,10 +352,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		} else {
 		console.log('You are not logged in');
 		}
-
+		console.log(user);
+		console.log(user.is);
 	});
-	console.log(user);
-	console.log(user.is);
+
 	$("#postbtn").click(function() {
 			const user = gun.user();
 			var input = $("#ityped").val();
