@@ -338,6 +338,8 @@ max-width: 90%
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 	const user = gun.user();
+	$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+
 	user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
 		console.log('You are logged in');
@@ -345,9 +347,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		console.log('You are not logged in');
 		}
 
-		console.log(user)
-		console.log(user.is.alias)
-		console.log(user["is"]["alias"])
+
+
 
 		//data is a gun node object and key is a string with ~ before alias
 		// {
@@ -359,7 +360,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 
 
 $("#postbtn").attr('disabled','disabled')
@@ -382,13 +382,10 @@ $("#postbtn").click(function() {
 var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 window.scroll({top: 200,left: 0,behavior: 'smooth'});
-$('#ityped').val(""); //definitely will work
+$('#ityped').val("");
 $("#postbtn").attr('disabled','disabled');
 });
-$("#aboutbtn").click(function() {window.location.href =("about.html");});
-$("#profile").click(function() {window.location.href =("profile.html");});
-$("#helpbtn").click(function() {window.location.href = ("help.html");});
-$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+
 	})
 });
 </script>
