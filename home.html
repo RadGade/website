@@ -341,15 +341,15 @@ var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	const user = gun.user();
+	// user.recall({sessionStorage:true},function(uob){
+	// 	if (user.is){
+	// 	console.log('You are logged in');
+	// 	} else {
+	// 	console.log('You are not logged in');
+	// 	}
+	// });
 	user.recall({sessionStorage:true},function(uob){
-		if (user.is){
-		console.log('You are logged in');
-		} else {
-		console.log('You are not logged in');
-		}
-	});
-	user.recall({sessionStorage:true},function(uob){
-	    console.log(user)
+	    console.log(user);
   });
 
 	$("#postbtn").click(function() {
