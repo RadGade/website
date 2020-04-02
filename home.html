@@ -345,8 +345,7 @@ max-width: 90%
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
-
-
+new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
@@ -360,12 +359,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		console.log('You are not logged in');
 		}
 
-		console.log(user)
-		console.log(user.is.alias)
-		console.log(user["is"]["alias"])
+		
 
 
-new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
+
 
 
 $("#postbtn").attr('disabled','disabled')
