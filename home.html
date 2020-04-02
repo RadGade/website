@@ -345,11 +345,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
 		console.log('You are logged in');
-		console.log(user);
 		} else {
 		console.log('You are not logged in');
 		}
 	});
+	user.recall({sessionStorage:true},function(uob){
+	    console.log(user);
+  });
 
 	$("#postbtn").click(function() {
 			const user = gun.user();
