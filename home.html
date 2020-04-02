@@ -12,21 +12,6 @@
 <!-- <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js" as="script"> -->
 <bold><title>GENDEREV</title></bold>
 <style>
-.cursor {
-position: fixed;
-left: 0;
-top: 0;
-pointer-events: none;
-}
-.cursor--small {
-width: 5px;
-height: 5px;
-left: -2.5px;
-top: -2.5px;
-border-radius: 50%;
-z-index: 11000;
-background: darkblue;
-}
 a:hover{
 	background-size: 100% 15%;
   background-repeat: repeat-x;
@@ -100,6 +85,7 @@ transition: 0.1s;
 }
 textarea {
 margin-top: 0px;
+margin-bottom: 10px;
 height: 150px;
 font-family:Arial;
 font-size: 25px;
@@ -163,11 +149,11 @@ body {
 text-shadow: 0px 0px 1px #b68989;
 font-size: 25px;
 color: darkblue;
-
 background-size: cover;
 background-attachment: fixed;
 font-family: arial;
 }
+
 a:link, a:visited {
 text-shadow: 0px 0px 1px black;
 color: blue;
@@ -242,13 +228,8 @@ text-shadow: 0px -1px 0px darkgrey;
 font-style: italic;
 margin-bottom: 4px;
 }
-#sidebar .desc {
-color:  darkblue;
-font-size: 22px;
-}
-#aboutbtn{
-margin-right: 10px;
-}
+#sidebar .desc {color: darkblue; font-size: 22px;}
+#aboutbtn{margin-right: 10px;}
 .cmt{
 font-size: 25px;
 background: none;
@@ -284,53 +265,108 @@ box-shadow: 0px 1px 4px 3px grey;
 border: 1.4px dashed;
 box-shadow: 4px 5px 9px dimgrey;
 }
-@media print{
-        body{
-                max-width:none;
-        }
-}
+@media print{body{max-width:none;}}
 @media screen and (max-width: 600px) {
-#sidebar{
-max-width: 90%;
+#sidebar{max-width: 90%;}
+#profile {margin-right: 5em;}
+button {text-shadow: none;}
+#sidebar img{max-width: 100%;}
+textarea{max-width: 90%}
 }
-#profile {margin-right: 5em;
-                       }
-button {
-text-shadow: none;
+
+
+/* Container for flexboxes */
+.wrapper {
+  display: -webkit-flex;
+  display: flex;
 }
-#sidebar img{
-max-width: 100%;
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+	display-items: center;
 }
-textarea{
-max-width: 90%
+/* nav>a:hover{
+	background-image: none;
+	text-decoration: underline;
+} */
+.underline{
+	text-decoration: underline;
 }
+/* Style the content */
+section {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  padding: 10px;
+}
+
+aside {
+	padding-top: 125px;
+	width:300px;
+	text-align: center;
+}
+
+ul{
+	padding-top: 105px;
+	list-style-type: none;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
 }
 </style>
 </head>
 <body>
-<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
+
+<div class="wrapper">
+
+<nav><ul>
+<li><a>✧view profile✧</a></li><br>
+<li><a>✧make report✧</a></li><br>
+<li><a>✧about✧</a></li><br>
+<li><a>✧help✧</a></li><br>
+
+</ul></nav>
+
+<section>
+	<header>
+	<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
+	</header>
 <div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id ="img1" alt="GENDEREV BANNER" src="Paint_palette.png">
-<div class="cursor cursor--small"></div>
-<canvas class="cursor cursor--canvas" resize></canvas>
 <center>
 <div class="post">
 <p id="question">˚✧What are you thinking about?✧˚</p>
 <textarea id="ityped" placeholder="Say more?" required></textarea>
-<br>
 <button type="button" id="postbtn"> post 📩</button>
 </div>
 </center>
-<!-- POSTS -->
 <center>
 <div id="content">
 <p id="file-content"></p>
 </div></center>
 <center><div id="hidden" hidden><h3>Share the revolution.</h3>
-<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgenderev.com&text=I%20just%20created%20gender">twitter</a>・✧・<a class="tumblr-share-button" href="https://www.tumblr.com/share">tumblr</a>・✧・<a href="mailto:info@example.com?&subject=&body=https://genderev.com is the future">email</a></div></center>
-<center><br><br>
+<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgenderev.com&text=I%20just%20created%20gender">twitter</a>・✧・<a class="tumblr-share-button" href="https://www.tumblr.com/share">tumblr</a>・✧・<a href="mailto:info@example.com?&subject=&body=https://genderev.com is the future">email</a>
+</div></center>
+<footer>
+<center><br>
 <div class="buttons">
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
+</footer>
+</section>
+
+<aside><span class="underline">events</span></aside>
+</div>
+
+
+
 <script src="js/jquery.min.js"></script>
 <script src="js/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
@@ -354,7 +390,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 	    console.log(user);
   });
-
 	$("#postbtn").click(function() {
 			const user = gun.user();
 			var input = $("#ityped").val();
@@ -373,17 +408,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		$('#ityped').val(""); //definitely will work
 		$("#postbtn").attr('disabled','disabled');
 	});
-
-
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
-
-
-
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
-
 $('#login-button').on('click',function(e){
 e.preventDefault();
 user.leave();
