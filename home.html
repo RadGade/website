@@ -334,7 +334,13 @@ max-width: 90%
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script src="js/sanitize-html.min.js"></script>
-<script src="js/dayjs.min.js"></script>
+<script src="js/dayjs.min.js"></script>	
+<script src="path/to/dayjs/plugin/relativeTime"></script>
+<!-- Load plugin as window.dayjs_plugin_NAME -->
+<script>
+  dayjs.extend(window.dayjs_plugin_relativeTime)
+</script>	
+	
 <script>
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
