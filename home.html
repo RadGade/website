@@ -342,7 +342,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 	const user = gun.user();
 
-	user.recall({sessionStorage:true},function(){
+	user.recall({sessionStorage:true},function(uob){
 		console.log(user);
 		console.log(user.is);
 		if (user.is) {
