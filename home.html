@@ -330,17 +330,10 @@ max-width: 90%
 </div></center>
 <script src="js/jquery.min.js"></script>
 <script src="js/home.js"></script>
-<script src="js/gun.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<script src="js/sanitize-html.min.js"></script>
-<script src="js/dayjs.min.js"></script>
-<script src="js/relativeTime"></script>
-<!-- Load plugin as window.dayjs_plugin_NAME -->
-<!-- <script> I don't understand this, will come back to it
-  dayjs.extend(window.dayjs_plugin_relativeTime)
-</script>	 -->
-
+<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
@@ -355,6 +348,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		console.log(user)
 		console.log(user.is.alias)
 		console.log(user["is"]["alias"])
+
+		//data is a gun node object and key is a string with ~ before alias
+		// {
+		//     "_": aliasObject
+		//    "~pubKeyOfUser": pubKeyObject
+		// }
+
+
+
 
 
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
@@ -371,8 +373,8 @@ $("#postbtn").click(function() {
 			gun.get('status').on(function(data, key) {
 			console.log(data.status);
 			var postContent = "<span>" + data.status + "</span><br>"
-			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + dayjs().fromNow() + "</span><br>"
-			var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
+			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
+			var displayUser = "</a><br><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
 			innerHTML =  postContent + postDate + displayUser
 			})
 		$("#content").append(innerHTML);
