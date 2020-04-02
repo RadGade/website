@@ -348,7 +348,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		} else {
 		console.log('You are not logged in');
 		}
-	
+		console.log(user)
+	})
 
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
@@ -367,8 +368,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		$('#ityped').val(""); //definitely will work
 		$("#postbtn").attr('disabled','disabled');
 	});
-	})
-	
+
+
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 
