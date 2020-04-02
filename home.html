@@ -336,7 +336,7 @@ max-width: 90%
 <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-$("#postbtn").attr('disabled','disabled')
+$("#postbtn").attr('disabled','disabled');
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
@@ -345,28 +345,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
 		console.log('You are logged in');
+		console.log(user);
+		$("#postbtn").click(function() {
+				var input = $("#ityped").val();
+				gun.get('status').put({ status: input});
+				gun.get('status').on(function(data, key) {
+					console.log(data.status);
+					var postContent = "<span>" + data.status + "</span><br>";
+					var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+					var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
+					innerHTML =  postContent + postDate + displayUser;
+					});
+				$("#content").append(innerHTML);
+			var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
+			setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
+			window.scroll({top: 200,left: 0,behavior: 'smooth'});
+			$('#ityped').val(""); //definitely will work
+			$("#postbtn").attr('disabled','disabled');
+		});
 		} else {
 		console.log('You are not logged in');
 		}
-		console.log(user)
-	})
 
-	$("#postbtn").click(function() {
-			var input = $("#ityped").val();
-			gun.get('status').put({ status: input});
-			gun.get('status').on(function(data, key) {
-				console.log(data.status);
-				var postContent = "<span>" + data.status + "</span><br>"
-				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>"
-				var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>"
-				innerHTML =  postContent + postDate + displayUser
-				})
-			$("#content").append(innerHTML);
-		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
-		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
-		window.scroll({top: 200,left: 0,behavior: 'smooth'});
-		$('#ityped').val(""); //definitely will work
-		$("#postbtn").attr('disabled','disabled');
 	});
 
 
@@ -383,7 +383,7 @@ $('#login-button').on('click',function(e){
 e.preventDefault();
 user.leave();
 window.location.href =("index.html");
- })
+ });
 });
 </script>
 <script>
