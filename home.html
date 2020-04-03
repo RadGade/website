@@ -480,8 +480,13 @@ user.recall({sessionStorage:true},function(uob){
 			var input = $("#ityped").val();
 				if(!user.is){window.location.href =("signup.html"); }
 				user.get('statuses').set($('#ityped').val());
-				var statuses = Gun().get('statuses')
-				console.log(statuses)
+
+				gun.get('statuses').put({
+				  title: input,
+					user: user.is.alias,
+				})
+
+
 
 				// $('#said').on('submit', function(e){
 				// 	e.preventDefault();
@@ -489,15 +494,6 @@ user.recall({sessionStorage:true},function(uob){
 				// 	user.get('said').set($('#say').val());
 				// 	$('#say').val("");
 				// });
-
-		gun.map().on(function(statuses, id){
-			var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('#file-content');
-			if(statuses){
-				$(p).text(statuses);
-			} else {
-				$(p).hide();
-			}
-		});
 		// gun.get('status').put({ status: input }); //put the input with the category of status
 		// 	gun.get('status').on(function(data, key) {
 		// 		console.log(data.status);
@@ -515,6 +511,7 @@ user.recall({sessionStorage:true},function(uob){
 		$("#postbtn").attr('disabled','disabled');
 		$("#hidden").show()
 	});
+
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
@@ -536,6 +533,25 @@ $('#login-button').on('click',function(e){e.preventDefault();user.leave();window
 // 		p.html(html)
 // 	}
 // })
+
+
+
+// gun.get('users').get(username).on(function(user){
+// 	// update in real-time
+// 	if (user.online) {
+// 		view.show.active(user.name)
+// 	} else {
+// 		view.show.offline(user.name)
+// 	}
+// })
+
+gun.get('statuses').on(function(statuses){
+	var postContent = "<span>" + statuses.title + "</span><br>";
+	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ statuses.user +"<br><hr><br>";
+	innerHTML =  postContent + postDate + displayUser;
+	$("#content").append(innerHTML);
+})
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
