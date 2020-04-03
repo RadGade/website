@@ -458,7 +458,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 	    console.log(user);
 			var user = gun.user();
-			var alias = user.is && user.is.alias ? user.is.alias
 			console.log(alias);
   });
 	$("#postbtn").click(function() {
@@ -468,8 +467,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			gun.get('status').on(function(data, key) {
 				console.log(data.status);
 				var user = gun.user();
-				var alias = user.is && user.is.alias ? user.is.alias 
-				console.log(alias)
+				var alias = user.is && user.is.alias ? user.is.alias:
+				console.log(user["is"]["alias"])
 				var postContent = "<span>" + data.status + "</span><br>";
 				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br><hr><br>";
 				// var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
