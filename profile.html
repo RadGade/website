@@ -262,6 +262,8 @@ footer{width:100%;}
 $(".post").hide();
 $("#content").hide();
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
+const user = gun.user();
+
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	document.getElementById("heading-name").innerHTML="*" + user.is.alias;
