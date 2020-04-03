@@ -463,9 +463,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	// });
 	user.recall({sessionStorage:true},function(uob){
 	    console.log(user);
-			var user = gun.user()
+			var user = gun.user();
 			var alias = user.is && user.is.alias ? user.is.alias : 'Guest';
-			console.log(alias)
+			console.log(alias);
   });
 	$("#postbtn").click(function() {
 			const user = gun.user();
