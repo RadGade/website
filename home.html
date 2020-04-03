@@ -471,22 +471,21 @@ user.recall({sessionStorage:true},function(uob){
 		console.log(user["is"]["alias"])
 
 	})
-	var status = Gun().get('status') //this is saying that the var todos puts items in the Gun category(data) "todos"
+	// var status = Gun().get('status') //this is saying that the var todos puts items in the Gun category(data) "todos"
 
 	// GUN already stores vector/timestamp for every item, you can do Gun.state.is(node, 'key') to get it (node needs to be data node), if you want to generate a timestamp (using time sync, if gun/nts.js is enabled) do Gun.state().
 	//change password-> user.auth(alias, passphrase, callback, { change: 'new-pass-value' })
 
 	$("#postbtn").click(function() {
-			const user = gun.user();
 			var input = $("#ityped").val();
-			status.set({title: input})
-			status.set({user: user.is.alias})
+			gun.get('status').put({ status: input });
+			gun.get('status').put({user: user.is.alias})
 			event.preventDefault() //prevents form refresh
 			console.log(status.title)
 			console.log(status.user)
 
 
-		// gun.get('status').put({ status: input, user: user.is.alias}); //put the input with the category of status
+		// gun.get('status').put({ status: input }); //put the input with the category of status
 		// 	gun.get('status').on(function(data, key) {
 		// 		console.log(data.status);
 		// 		var user = gun.user();
