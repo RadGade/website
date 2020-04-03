@@ -278,7 +278,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			console.log(user.is.alias)
 			console.log(user["is"]["alias"])
 
-		})
+
 	document.getElementById("heading-name").innerHTML="*" + user.is.alias;
 	$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 	$("#profile").click(function() {window.location.href =("home.html");});
@@ -298,6 +298,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		$("#preview").show()
 	}
 
+	})
 
 })
 </script>
