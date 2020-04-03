@@ -12,6 +12,20 @@
 <!-- <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/26fa825ee43251bb4efc7dddb833215c9f356533.js" as="script"> -->
 <bold><title>GENDEREV</title></bold>
 <style>
+.newevent{
+	margin-top: 10px;
+	border:none;
+	box-shadow: 0px 0px 10px grey;
+	color: darkblue;
+	font-size: 20px;
+}
+.newevent:hover{
+	box-shadow: 0px 0px 16px grey;
+	border: none;
+}
+.newevent:active{
+	box-shadow: inset 1px 1px 3px 1px darkblue;
+}
 a:hover{
 	background-size: 100% 15%;
   background-repeat: repeat-x;
@@ -43,11 +57,6 @@ button:active{
 -o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 -ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
-}
-.cursor--canvas {
-width: 100vw;
-height: 100vh;
-z-index: 12000;
 }
 #postbtn:disabled {
 opacity: 0.6;
@@ -95,15 +104,34 @@ width: 400px;
 margin-bottom: 10px;
 transition: 0.1s;
 }
+textarea:hover {
+box-shadow: 0px 0px 5px black;
+border-radius: 3px;
+}
+
+.event:hover{
+	box-shadow: 0px 0px 5px black;
+	border-radius: 3px;
+}
+.event{
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-family:Arial;
+	font-size: 19px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	transition: 0.1s;
+	width: 200px;
+}
+label{
+	margin-bottom: 0px;
+	text-align: left;
+}
 ::placeholder {
 color: dimgrey;
 }
 .reply{
 display:none;
-}
-textarea:hover {
-box-shadow: 0px 0px 5px black;
-border-radius: 3px;
 }
 .buttons {
 display: flex;
@@ -146,7 +174,7 @@ box-shadow: 0px 0px 10px 2px black;
 border: 1px solid black;
 }
 body {
-text-shadow: 0px 0px 1px #b68989;
+text-shadow: 0px 0px 1.2px #b68989;
 font-size: 25px;
 color: darkblue;
 background-size: cover;
@@ -210,9 +238,67 @@ word-wrap:break-word;
 margin-top: 2px;
 width: 400px;
 }
+
+/* Container for flexboxes */
+.wrapper {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+	text-align: right;
+}
+
+li {
+	border-right: 1px dashed black;
+	padding-right: 10px;
+	margin-right: 20px;
+	text-shadow: 0px 0px 1px black;
+
+}
+
+.underline{
+	border-bottom: double 2px darkblue;
+	text-shadow: -1px -1px 0.3px black;
+	font-size: 25px;
+
+}
+/* Style the content */
+section {
+  -webkit-flex: 1.5;
+  -ms-flex: 1.5;
+  flex: 1.5;
+}
+
+::placeholder{
+	color: #484646;
+}
+
+aside {
+	padding-top: 125px;
+	margin-left: 20px;
+	width:300px;
+	text-align: left;
+	letter-spacing: 1px;
+	text-shadow: 0px 0px .9px black;
+	font-size: 21px;
+	-webkit-flex: 1.2;
+  -ms-flex: 1.2;
+  flex: 1.2;
+}
+
+
+ul{
+	padding-top: 105px;
+	list-style-type: none;
+}
 #sidebar img {
 border-radius:0px;
-width: 90%;
+width: 100%;
 height: auto;
 -webkit-box-shadow: -1px 1px 9px 0px #000000;
 -moz-box-shadow: -1px 1px 9px 0px #000000;
@@ -249,6 +335,20 @@ box-shadow: 4px 5px 9px dimgrey;
 margin-left: 10px;
 margin-top: 8px;
 }
+nav > ul > li > a:link{
+text-decoration: underline black;
+letter-spacing: 1px;
+color: darkblue;
+}
+ nav > ul > li > a:hover {
+	text-decoration: none;
+	background-size: 0% 0%;
+	text-decoration: underline double darkblue;
+	text-shadow: -1px 0px 0.8px black;
+}
+nav > ul > li > a:active {
+	text-shadow: 0px 0px 0.5px blue;
+}
 .cmt1{
 font-size: 25px;
 background: none;
@@ -266,61 +366,27 @@ border: 1.4px dashed;
 box-shadow: 4px 5px 9px dimgrey;
 }
 @media print{body{max-width:none;}}
-@media screen and (max-width: 600px) {
+
+
+@media screen and (min-width: 830px) {
+	header, footer {
+		display: none;
+	}
+}
+@media screen and (max-width: 830px) {
+	nav, aside {
+		display: none;
+	}
+}
+@media screen and (max-width: 500px) {
 #sidebar{max-width: 90%;}
-#profile {margin-right: 5em;}
+#profile {margin-right: 7.3em;}
 button {text-shadow: none;}
-#sidebar img{max-width: 100%;}
+#sidebar img{max-width: 90%;}
 textarea{max-width: 90%}
+
 }
 
-
-/* Container for flexboxes */
-.wrapper {
-  display: -webkit-flex;
-  display: flex;
-}
-
-/* Style the navigation menu */
-nav {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-	display-items: center;
-}
-/* nav>a:hover{
-	background-image: none;
-	text-decoration: underline;
-} */
-.underline{
-	text-decoration: underline;
-}
-/* Style the content */
-section {
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  padding: 10px;
-}
-
-aside {
-	padding-top: 125px;
-	width:300px;
-	text-align: center;
-}
-
-ul{
-	padding-top: 105px;
-	list-style-type: none;
-}
-
-/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  section {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-}
 </style>
 </head>
 <body>
@@ -328,10 +394,11 @@ ul{
 <div class="wrapper">
 
 <nav><ul>
-<li><a>✧view profile✧</a></li><br>
-<li><a>✧make report✧</a></li><br>
-<li><a>✧about✧</a></li><br>
-<li><a>✧help✧</a></li><br>
+<li id="liprofile"><a href="profile.html">view profile</a></li><br>
+<li><a href="about.html">about</a></li><br>
+<li><a href="help.html">help</a></li><br>
+<li><a href="">make report</a></li><br>
+<li><a href="index.html">log out</a></li><br>
 
 </ul></nav>
 
@@ -343,7 +410,7 @@ ul{
 <center>
 <div class="post">
 <p id="question">˚✧What are you thinking about?✧˚</p>
-<textarea id="ityped" placeholder="Say more?" required></textarea>
+<textarea id="ityped" placeholder="Say more?"></textarea>
 <button type="button" id="postbtn"> post 📩</button>
 </div>
 </center>
@@ -362,7 +429,14 @@ ul{
 </footer>
 </section>
 
-<aside><span class="underline">events</span></aside>
+<aside>
+<span class="underline">events</span>
+<br><br><label>name of event:</label><br><input class="event"></input><br><label>time:</label><br><input class="event" ></input><br><label>place:</label><br><input class="event" ></input><br><label>details:</label><br><input class="event" ></input><br><button class="newevent">new event</button>
+</aside>
+
+
+
+
 </div>
 
 
@@ -397,7 +471,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			gun.get('status').on(function(data, key) {
 				console.log(data.status);
 				var postContent = "<span>" + data.status + "</span><br>";
-				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br><hr><br>";
 				// var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
 				innerHTML =  postContent + postDate //+ displayUser;
 				});
