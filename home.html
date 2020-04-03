@@ -478,8 +478,6 @@ user.recall({sessionStorage:true},function(uob){
 
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
-
-				e.preventDefault();
 				if(!user.is){window.location.href =("signup.html"); }
 				user.get('statuses').set($('#ityped').val());
 
@@ -492,7 +490,7 @@ user.recall({sessionStorage:true},function(uob){
 
 		function UI(ityped, id){
       var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('file-content');
-      $(p).text(say);
+      $(p).text(ityped);
     };
 		// gun.get('status').put({ status: input }); //put the input with the category of status
 		// 	gun.get('status').on(function(data, key) {
