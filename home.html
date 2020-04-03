@@ -485,8 +485,8 @@ user.recall({sessionStorage:true},function(uob){
 				console.log(data.status);
 				var user = gun.user();
 				var postContent = "<span>" + data.status + "</span><br>";
-				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br><hr><br>";
-				var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
+				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+				var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><hr><br>";
  				innerHTML =  postContent + postDate + displayUser;
 				});
 			$("#content").append(innerHTML);
