@@ -482,6 +482,9 @@ user.recall({sessionStorage:true},function(uob){
 			status.set({title: input})
 			status.set({user: user.is.alias})
 			event.preventDefault() //prevents form refresh
+			console.log(status.title)
+			console.log(status.user)
+
 
 		// gun.get('status').put({ status: input, user: user.is.alias}); //put the input with the category of status
 		// 	gun.get('status').on(function(data, key) {
