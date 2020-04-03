@@ -449,16 +449,7 @@ $("#postbtn").attr('disabled','disabled');
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 
 window.addEventListener('DOMContentLoaded', (event) => {
-	const user = gun.user();
-	user.recall({sessionStorage:true},function(uob){
-		if (user.is){
-		console.log('You are logged in');
-		} else {
-		console.log('You are not logged in');
-		}
-	});
-
-// 	    console.log(user.is.alias);
+const user = gun.user();
 
 	$("#postbtn").click(function() {
 			const user = gun.user();
