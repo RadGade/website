@@ -454,9 +454,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   $("#in").on("click", function(e){
     e.preventDefault();
     frm.submit();
-    gohome();
   });
-
+  gun.on('auth',function(){
+      gohome();
+  });
 });
 
  </script>
