@@ -265,6 +265,7 @@ li {
 	border-bottom: double 2px darkblue;
 	text-shadow: -1px -1px 0.3px black;
 	font-size: 25px;
+	color: darkblue;
 
 }
 /* Style the content */
@@ -289,6 +290,7 @@ aside {
 	-webkit-flex: 1.2;
   -ms-flex: 1.2;
   flex: 1.2;
+	color: black;
 }
 
 
@@ -336,14 +338,14 @@ margin-left: 10px;
 margin-top: 8px;
 }
 nav > ul > li > a:link{
-text-decoration: underline black;
+text-decoration: underline darkblue;
 letter-spacing: 1px;
-color: darkblue;
+color: black;
 }
  nav > ul > li > a:hover {
 	text-decoration: none;
 	background-size: 0% 0%;
-	text-decoration: underline double darkblue;
+	text-decoration: underline dashed darkblue;
 	text-shadow: -1px 0px 0.8px black;
 }
 nav > ul > li > a:active {
@@ -435,10 +437,7 @@ textarea{max-width: 90%}
 </aside>
 
 
-
-
 </div>
-
 
 
 <script src="js/jquery.min.js"></script>
@@ -454,34 +453,42 @@ var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	const user = gun.user();
-	// user.recall({sessionStorage:true},function(uob){
-	// 	if (user.is){
-	// 	console.log('You are logged in');
-	// 	} else {
-	// 	console.log('You are not logged in');
-	// 	}
-	// });
-	user.recall({sessionStorage:true},function(uob){
-	    console.log(user);
-			var user = gun.user();
-			var alias = user.is && user.is.alias ? user.is.alias : 'Guest';
-			console.log(alias);
-  });
+
 	$("#postbtn").click(function() {
 			const user = gun.user();
 			var input = $("#ityped").val();
-			gun.get('status').put({ status: input});
+		gun.get('status').put({ status: input}); //put the input with the category of status
 			gun.get('status').on(function(data, key) {
 				console.log(data.status);
 				var user = gun.user();
-				// var alias = user.is && user.is.alias ? user.is.alias : 'Guest';
-				console.log(user.is.alias);
 				var postContent = "<span>" + data.status + "</span><br>";
 				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br><hr><br>";
 				// var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
 				innerHTML =  postContent + postDate //+ displayUser;
 				});
 			$("#content").append(innerHTML);
+
+			// var todos = Gun().get('todos') //this is saying that the var todos puts items in the Gun category(data) "todos"
+			//
+			//       $('form').on('submit', function (event) {
+			//         var input = $('form').find('input')
+			//         todos.set({title: input.val()})
+			//         input.val('')
+			//         event.preventDefault() //prevents form refresh
+			//       })
+			// todos.map().on(function (todo, id) {
+      //   var li = $('#' + id)
+      //   if (!li.get(0)) {
+      //     li = $('<li>').attr('id', id).appendTo('ul') //this is the line I need to modify
+      //   }
+      //   if (todo) {
+      //     var html = todo.title
+      //     li.html(html)
+      //   }
+      // })
+
+			// GUN already stores vector/timestamp for every item, you can do Gun.state.is(node, 'key') to get it (node needs to be data node), if you want to generate a timestamp (using time sync, if gun/nts.js is enabled) do Gun.state().
+			//change password-> user.auth(alias, passphrase, callback, { change: 'new-pass-value' })
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
