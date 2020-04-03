@@ -478,13 +478,22 @@ user.recall({sessionStorage:true},function(uob){
 
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
-			gun.get('status').put({ status: input });
-			gun.get('status').put({user: user.is.alias})
-			event.preventDefault() //prevents form refresh
-			console.log(status.title)
-			console.log(status.user)
 
+				e.preventDefault();
+				if(!user.is){window.location.href =("signup.html"); }
+				user.get('statuses').set($('#ityped').val());
 
+				// $('#said').on('submit', function(e){
+				// 	e.preventDefault();
+				// 	if(!user.is){ return }
+				// 	user.get('said').set($('#say').val());
+				// 	$('#say').val("");
+				// });
+
+		function UI(ityped, id){
+      var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('file-content');
+      $(p).text(say);
+    };
 		// gun.get('status').put({ status: input }); //put the input with the category of status
 		// 	gun.get('status').on(function(data, key) {
 		// 		console.log(data.status);
@@ -495,8 +504,6 @@ user.recall({sessionStorage:true},function(uob){
  		// 		innerHTML =  postContent + postDate + displayUser;
 		// 		});
 		// 	$("#content").append(innerHTML);
-
-
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
@@ -509,26 +516,22 @@ document.getElementById("ityped").addEventListener("keyup",function(event) {if (
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
-$('#login-button').on('click',function(e){
-e.preventDefault();
-user.leave();
-window.location.href =("index.html");
- });
+$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 });
-status.map().on(function (status, id) {
-	var p = $('#' + id)
-	if (!p.get(0)) {
-		p = $('<p>').attr('id', id).appendTo('file-content') //this is the line I need to modify
-	}
-	if (status) {
-		// var html = status.title
-		var postContent = "<span>" + status.title + "</span><br>";
-		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
-		var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ status.user +"<br><hr><br>";
-		html =  postContent + postDate + displayUser;
-		p.html(html)
-	}
-})
+// status.map().on(function (status, id) {
+// 	var p = $('#' + id)
+// 	if (!p.get(0)) {
+// 		p = $('<p>').attr('id', id).appendTo('#file-content') //this is the line I need to modify
+// 	}
+// 	if (status) {
+// 		// var html = status.title
+// 		var postContent = "<span>" + status.title + "</span><br>";
+// 		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+// 		var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ status.user +"<br><hr><br>";
+// 		html =  postContent + postDate + displayUser;
+// 		p.html(html)
+// 	}
+// })
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
