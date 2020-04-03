@@ -448,15 +448,15 @@ var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	const user = gun.user();
-	// user.recall({sessionStorage:true},function(uob){
-	// 	if (user.is){
-	// 	console.log('You are logged in');
-	// 	} else {
-	// 	console.log('You are not logged in');
-	// 	}
-	// });
+	user.recall({sessionStorage:true},function(uob){
+		if (user.is){
+		console.log('You are logged in');
+		} else {
+		console.log('You are not logged in');
+		}
+	});
 	
-	    console.log(user);
+// 	    console.log(user.is.alias);
 
 	$("#postbtn").click(function() {
 			const user = gun.user();
@@ -465,9 +465,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			gun.get('status').on(function(data, key) {
 				console.log(data.status);
 				var user = gun.user();
-// 				var alias = user.is && user.is.alias ? user.is.alias:
-				console.log(alias);
-// 				console.log(user["is"]["alias"])
 				var postContent = "<span>" + data.status + "</span><br>";
 				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br><hr><br>";
 				// var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
