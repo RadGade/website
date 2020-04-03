@@ -428,6 +428,7 @@
     <input type="password" name="password" id="pass" type="password" placeholder="passphrase" autocomplete="current-password" required>
   </div><br>
   <button class="ui button" id="in" value="sign in" type="submit">sign in</button>
+  <button class="ui button ui-button" id="back" type="button">go back</button>
 </form>
  <script src="js/jquery.min.js"></script>
 <script src="js/gun.js"></script>
@@ -457,6 +458,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
   gun.on('auth',function(){
       gohome();
+  });
+  $('#back').on('click', function(e){
+    e.preventDefault();
+    window.history.back()
   });
 });
 
