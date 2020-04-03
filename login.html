@@ -389,7 +389,25 @@
     padding-top: 80px;
     margin-left: 20px;
     margin-right: 20px;
+    width: 90%
   }
+  .ui.form textarea,
+  .ui.form input:not([type]),
+  .ui.form input[type="date"],
+  .ui.form input[type="datetime-local"],
+  .ui.form input[type="email"],
+  .ui.form input[type="number"],
+  .ui.form input[type="password"],
+  .ui.form input[type="search"],
+  .ui.form input[type="tel"],
+  .ui.form input[type="time"],
+  .ui.form input[type="text"],
+  .ui.form input[type="file"],
+  .ui.form input[type="url"] {
+    width: 95%;
+    vertical-align: top;
+  }
+
   img {
     height: 90px;
     width: 90px;
@@ -407,7 +425,7 @@
   </div><br>
   <div class="field">
     <label>Password</label>
-    <input type="password" name="password" type="password" placeholder="passphrase" autocomplete="current-password" required>
+    <input type="password" name="password" id="pass"type="password" placeholder="passphrase" autocomplete="current-password" required>
   </div><br>
   <button class="ui button" id="in" value="sign in" type="submit">sign in</button>
 </form>

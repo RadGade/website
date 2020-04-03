@@ -391,6 +391,22 @@
     height: 90px;
     width: 90px;
   }
+  .ui.form textarea,
+  .ui.form input:not([type]),
+  .ui.form input[type="date"],
+  .ui.form input[type="datetime-local"],
+  .ui.form input[type="email"],
+  .ui.form input[type="number"],
+  .ui.form input[type="password"],
+  .ui.form input[type="search"],
+  .ui.form input[type="tel"],
+  .ui.form input[type="time"],
+  .ui.form input[type="text"],
+  .ui.form input[type="file"],
+  .ui.form input[type="url"] {
+    width: 95%;
+    vertical-align: top;
+  }
  }
  </style>
 </head>
@@ -437,11 +453,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   $('#up').on('click', function(e){
     e.preventDefault();
     frm.submit();
-    gohome(); //optimistic UI
   });
-  // gun.on('auth',function(){
-  //     gohome();
-  // });
+  gun.on('auth',function(){
+      gohome();
+  });
 })
   </script>
 </body>
