@@ -434,13 +434,7 @@ textarea{max-width: 90%}
 <br><br><label>name of event:</label><br><input class="event"></input><br><label>time:</label><br><input class="event" ></input><br><label>place:</label><br><input class="event" ></input><br><label>details:</label><br><input class="event" ></input><br><button class="newevent">new event</button>
 </aside>
 
-
-
-
 </div>
-
-
-
 <script src="js/jquery.min.js"></script>
 <script src="js/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
@@ -475,7 +469,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 				console.log(data.status);
 				var user = gun.user();
 				// var alias = user.is && user.is.alias ? user.is.alias : 'Guest';
-				console.log(user.is.alias);
+				console.log(user.is);
 				var postContent = "<span>" + data.status + "</span><br>";
 				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br><hr><br>";
 				// var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ user.is.alias +"<br><br>";
