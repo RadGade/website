@@ -466,42 +466,12 @@ user.recall({sessionStorage:true},function(uob){
 		} else {
 		console.log('You are not logged in');
 		}
-
 		console.log(user)
 		console.log(user.is.alias)
 		console.log(user["is"]["alias"])
 
-		//data is a gun node object and key is a string with ~ before alias
-		// {
-		//     "_": aliasObject
-		//    "~pubKeyOfUser": pubKeyObject
-		// }
-
-
-
 	})
 	var status = Gun().get('status') //this is saying that the var todos puts items in the Gun category(data) "todos"
-
-				$('#postbtn').on('click', function (event) {
-					var input = $('#ityped').val()
-					status.set({title: input.val()})
-					status.set({user: user.is.alias})
-					event.preventDefault() //prevents form refresh
-				})
-	status.map().on(function (status, id) {
-		var p = $('#' + id)
-		if (!p.get(0)) {
-			p = $('<p>').attr('id', id).appendTo('file-content') //this is the line I need to modify
-		}
-		if (status) {
-			// var html = status.title
-			var postContent = "<span>" + status.title + "</span><br>";
-			var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
-			var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ status.user +"<br><hr><br>";
-			html =  postContent + postDate + displayUser;
-			p.html(html)
-		}
-	})
 
 	// GUN already stores vector/timestamp for every item, you can do Gun.state.is(node, 'key') to get it (node needs to be data node), if you want to generate a timestamp (using time sync, if gun/nts.js is enabled) do Gun.state().
 	//change password-> user.auth(alias, passphrase, callback, { change: 'new-pass-value' })
@@ -509,16 +479,20 @@ user.recall({sessionStorage:true},function(uob){
 	$("#postbtn").click(function() {
 			const user = gun.user();
 			var input = $("#ityped").val();
-		gun.get('status').put({ status: input, user: user.is.alias}); //put the input with the category of status
-			gun.get('status').on(function(data, key) {
-				console.log(data.status);
-				var user = gun.user();
-				var postContent = "<span>" + data.status + "</span><br>";
-				var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
-				var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
- 				innerHTML =  postContent + postDate + displayUser;
-				});
-			$("#content").append(innerHTML);
+			status.set({title: input})
+			status.set({user: user.is.alias})
+			event.preventDefault() //prevents form refresh
+
+		// gun.get('status').put({ status: input, user: user.is.alias}); //put the input with the category of status
+		// 	gun.get('status').on(function(data, key) {
+		// 		console.log(data.status);
+		// 		var user = gun.user();
+		// 		var postContent = "<span>" + data.status + "</span><br>";
+		// 		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+		// 		var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
+ 		// 		innerHTML =  postContent + postDate + displayUser;
+		// 		});
+		// 	$("#content").append(innerHTML);
 
 
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
@@ -539,6 +513,20 @@ user.leave();
 window.location.href =("index.html");
  });
 });
+status.map().on(function (status, id) {
+	var p = $('#' + id)
+	if (!p.get(0)) {
+		p = $('<p>').attr('id', id).appendTo('file-content') //this is the line I need to modify
+	}
+	if (status) {
+		// var html = status.title
+		var postContent = "<span>" + status.title + "</span><br>";
+		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
+		var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ status.user +"<br><hr><br>";
+		html =  postContent + postDate + displayUser;
+		p.html(html)
+	}
+})
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
