@@ -43,6 +43,12 @@ button:active{
 -ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 }
+#heading-name{
+text-decoration: underline;
+text-align: right;
+padding-left: 17px;
+padding-right:17px;
+}
 button {
 border-color: transparent;
 border-radius: 3px;
@@ -264,9 +270,6 @@ $("#content").hide();
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
 
-
-
-
 window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 			if (user.is) {
@@ -274,12 +277,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			} else {
 			console.log('You are not logged in');
 			}
-			console.log(user)
-			console.log(user.is.alias)
-			console.log(user["is"]["alias"])
-
-
 	document.getElementById("heading-name").innerHTML="*" + user.is.alias;
+}
+	})
 	$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 	$("#profile").click(function() {window.location.href =("home.html");});
 	function previewFile() {
@@ -289,17 +289,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	console.log(file);
 	const reader = new FileReader();
 	reader.addEventListener("load", function () {
-		// convert image file to base64 string
-		preview.src = reader.result;
-		}, false);
-		if (file) {
-		reader.readAsDataURL(file);
-		}
-		$("#preview").show()
+	// convert image file to base64 string
+	preview.src = reader.result;
+	}, false);
+	if (file) {
+	reader.readAsDataURL(file);
 	}
-
-	})
-
+	$("#preview").show()
+	$("#aboutbtn").click(function() {window.location.href =("about.html");});
+	$("#helpbtn").click(function() {window.location.href = ("help.html");});
 })
 </script>
 </body>
