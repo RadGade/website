@@ -436,10 +436,7 @@ textarea{max-width: 90%}
 <br><br><label>name of event:</label><br><input class="event"></input><br><label>time:</label><br><input class="event" ></input><br><label>place:</label><br><input class="event" ></input><br><label>details:</label><br><input class="event" ></input><br><button class="newevent">new event</button>
 </aside>
 
-
 </div>
-
-
 <script src="js/jquery.min.js"></script>
 <script src="js/home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
@@ -449,10 +446,19 @@ textarea{max-width: 90%}
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
-var gun = Gun(['https://genderevapp.herokuapp.com/gun']);
+var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 
 window.addEventListener('DOMContentLoaded', (event) => {
 	const user = gun.user();
+	user.recall({sessionStorage:true},function(uob){
+		if (user.is){
+		console.log('You are logged in');
+		} else {
+		console.log('You are not logged in');
+		}
+	});
+
+// 	    console.log(user.is.alias);
 
 	$("#postbtn").click(function() {
 			const user = gun.user();
