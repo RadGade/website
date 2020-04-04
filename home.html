@@ -460,7 +460,7 @@ new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200})
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 
-window.addEventListener('DOMContentLoaded', (event) => {
+// window.addEventListener('DOMContentLoaded', (event) => {
 const user = gun.user();
 
 user.recall({sessionStorage:true},function(uob){
@@ -521,7 +521,7 @@ $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-});
+// });
 // status.map().on(function (status, id) {
 // 	var p = $('#' + id)
 // 	if (!p.get(0)) {
