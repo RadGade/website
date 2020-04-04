@@ -548,13 +548,21 @@ $('#login-button').on('click',function(e){e.preventDefault();user.leave();window
 // 	}
 // })
 
-gun.get('statuses').on(function(statuses){
+gun.get('statuses').map().on(function(statuses){
 	var postContent = "<span>" + statuses.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ statuses.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
-	$("#content").append(innerHTML);
+	$("#content").prepend(innerHTML);
 })
+gun.map().on(function(statuses, id){
+        var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('p');
+        if(statuses){
+          $(p).text(statuses);
+        } else {
+          $(p).hide();
+        }
+      });
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
