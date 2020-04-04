@@ -482,14 +482,12 @@ user.recall({sessionStorage:true},function(uob){
 
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
-				if(!user.is){window.location.href =("signup.html"); }
-				user.get('statuses').set($('#ityped').val());
 
-				status = gun.get('statuses').put({
+
+				status = gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
 				})
-				gun.get('statuses').set(status);
 
 
 				// $('#said').on('submit', function(e){
@@ -517,7 +515,11 @@ user.recall({sessionStorage:true},function(uob){
 	});
 
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
+document.getElementById("ityped").addEventListener("keyup",function(event) {if(!user.is){window.location.href =("signup.html"); }});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
+
+
+
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
