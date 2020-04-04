@@ -542,7 +542,7 @@ gun.get('statuses').map().on(function(data, key){
 	console.log(data.title)
 	console.log(data.user)
 	console.log(data.date)
-	$("#content").append(innerHTML);
+	$("#content").prepend(innerHTML);
 })
 console.log(gun.get('statuses').once())
 // gun.map().on(function(statuses, id){
