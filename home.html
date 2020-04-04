@@ -486,7 +486,7 @@ user.recall({sessionStorage:true},function(uob){
 				gun.get('statuses').put({
 				  title: input,
 					user: user.is.alias,
-					date: Date()
+					date: Date(),
 				})
 
 
@@ -539,6 +539,9 @@ gun.get('statuses').map().on(function(data, key){
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
+	console.log(data.title)
+	console.log(data.user)
+	console.log(data.date)
 	$("#content").append(innerHTML);
 })
 console.log(gun.get('statuses').once())
