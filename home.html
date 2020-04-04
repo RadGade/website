@@ -483,10 +483,10 @@ user.recall({sessionStorage:true},function(uob){
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
 
-
-				status = gun.get('statuses').set({
+				gun.get('statuses').put({
 				  title: input,
 					user: user.is.alias,
+					date: Date()
 				})
 
 
@@ -525,23 +525,6 @@ $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 // });
-// status.map().on(function (status, id) {
-// 	var p = $('#' + id)
-// 	if (!p.get(0)) {
-// 		p = $('<p>').attr('id', id).appendTo('#file-content') //this is the line I need to modify
-// 	}
-// 	if (status) {
-// 		// var html = status.title
-// 		var postContent = "<span>" + status.title + "</span><br>";
-// 		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
-// 		var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ status.user +"<br><hr><br>";
-// 		html =  postContent + postDate + displayUser;
-// 		p.html(html)
-// 	}
-// })
-
-
-
 // gun.get('users').get(username).on(function(user){
 // 	// update in real-time
 // 	if (user.online) {
@@ -550,11 +533,11 @@ $('#login-button').on('click',function(e){e.preventDefault();user.leave();window
 // 		view.show.offline(user.name)
 // 	}
 // })
-
-gun.get('statuses').on(function(statuses){
-	var postContent = "<span>" + statuses.title + "</span><br>";
-	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
-	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ statuses.user +"<br><hr><br>";
+//gun.get('statuses').on(function(statuses){
+gun.get('statuses').map().on(function(data, key){
+	var postContent = "<span>" + data.title + "</span><br>";
+	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
+	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
 	$("#content").append(innerHTML);
 })
