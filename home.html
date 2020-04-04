@@ -483,7 +483,7 @@ user.recall({sessionStorage:true},function(uob){
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
 
-				gun.get('statuses').put({
+				gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
 					date: Date(),
