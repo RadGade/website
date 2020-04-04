@@ -463,12 +463,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     // if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
       setTimeout(gohome,1);
   });
-  var frm = $("#sign");
-  frm.on("submit",function(e){
-    e.stopPropagation();
-    e.preventDefault();
-   user.auth($("#alias").val(), $("#pass").val());
-  });
+  //fixing login behavior
+  // var frm = $("#sign");
+  // frm.on("submit",function(e){
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  //  user.auth($("#alias").val(), $("#pass").val());
+  // });
 
 var input = document.getElementById("pass");
 
@@ -484,9 +485,11 @@ input.addEventListener("keyup", function(event) {
 });
   $("#in").on("click", function(e){
     e.preventDefault();
-    frm.submit();
     $("button").hide()
     $(".loader").show()
+    e.stopPropagation();
+    e.preventDefault();
+    user.auth($("#alias").val(), $("#pass").val());
   });
   gun.on('auth',function(){
       gohome();
