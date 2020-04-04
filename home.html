@@ -459,7 +459,7 @@ nav > ul > .liprofile > a:hover{
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
-var gun = Gun(['https://amark-gun-3.glitch.me/gun']).get('statuses');
+var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
 
 // window.addEventListener('DOMContentLoaded', (event) => {
 const user = gun.user();
@@ -485,11 +485,11 @@ user.recall({sessionStorage:true},function(uob){
 				if(!user.is){window.location.href =("signup.html"); }
 				user.get('statuses').set($('#ityped').val());
 
-				gun.get('statuses').put({
+				status = gun.get('statuses').put({
 				  title: input,
 					user: user.is.alias,
 				})
-
+				gun.get('statuses').set(status);
 
 
 				// $('#said').on('submit', function(e){
@@ -549,14 +549,14 @@ $('#login-button').on('click',function(e){e.preventDefault();user.leave();window
 // 	}
 // })
 
-gun.map().get('statuses').on(function(statuses){
+gun.get('statuses').on(function(statuses){
 	var postContent = "<span>" + statuses.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ statuses.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
 	$("#content").append(innerHTML);
 })
-
+console.log(gun.get('statuses').once())
 // gun.map().on(function(statuses, id){
 //         var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('p');
 //         if(statuses){
