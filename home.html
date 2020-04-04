@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="Genderev, Gender Revolution, GendeRevolution, home">
 <html lang="en">
+<meta charset="utf-8"/>
 <meta name="description" content="Homepage">
 <bold><title>GENDEREV</title></bold>
 <style>
@@ -458,7 +459,7 @@ nav > ul > .liprofile > a:hover{
 <script>
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
-var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
+var gun = Gun(['https://amark-gun-3.glitch.me/gun']).get('statuses');
 
 // window.addEventListener('DOMContentLoaded', (event) => {
 const user = gun.user();
@@ -548,21 +549,22 @@ $('#login-button').on('click',function(e){e.preventDefault();user.leave();window
 // 	}
 // })
 
-gun.get('statuses').map().on(function(statuses){
+gun.map().get('statuses').on(function(statuses){
 	var postContent = "<span>" + statuses.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ statuses.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
-	$("#content").prepend(innerHTML);
+	$("#content").append(innerHTML);
 })
-gun.map().on(function(statuses, id){
-        var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('p');
-        if(statuses){
-          $(p).text(statuses);
-        } else {
-          $(p).hide();
-        }
-      });
+
+// gun.map().on(function(statuses, id){
+//         var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('p');
+//         if(statuses){
+//           $(p).text(statuses);
+//         } else {
+//           $(p).hide();
+//         }
+//       });
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
