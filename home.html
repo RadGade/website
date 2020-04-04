@@ -460,7 +460,7 @@ new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200})
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 
-window.addEventListener('DOMContentLoaded', (event) => {
+// window.addEventListener('DOMContentLoaded', (event) => {
 const user = gun.user();
 
 user.recall({sessionStorage:true},function(uob){
@@ -554,7 +554,7 @@ gun.get('statuses').on(function(statuses){
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ statuses.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
 	$("#content").append(innerHTML);
-})
+// })
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
