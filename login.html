@@ -14,6 +14,19 @@
  <title>Log In - GENDEREV</title>
  <meta name="description" content="Genderev Log-In">
  <style>
+ .loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid rgba(229, 77, 6, 0.75); /* Blue */
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
  .ui.form {
  position: relative;
  max-width: 100%;
@@ -429,6 +442,8 @@
     <label>Password</label>
     <input type="password" name="password" id="pass" type="password" placeholder="passphrase" autocomplete="current-password" required>
   </div><br>
+   <center><div class="loader" hidden></div></center>
+   <br>
   <button class="ui button" id="in" value="sign in" type="submit">sign in</button>
   <button class="ui button ui-button" id="back" type="button">go back</button>
 </form>
@@ -457,6 +472,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   $("#in").on("click", function(e){
     e.preventDefault();
     frm.submit();
+    $("button").hide()
+    $(".loader").show()
   });
   gun.on('auth',function(){
       gohome();
