@@ -235,9 +235,9 @@ font-weight: lighter;
 <div id="sidebar">
 <div class ="title" role="heading" aria-level="1"><a href="/">GENDEREV</a></div>
 <div class="buttons">
-<form action="signup.html"><button type="submit" class="signup btn" id="signup-button">sign up</button></form>
+<button type="submit" class="signup btn" id="signup-button">sign up</button>
 &nbsp &nbsp
-<form action="login.html"><button type="submit" class ="btn" id="login-button">log in</button></form></div>
+<button type="submit" class ="btn" id="login-button">log in</button></div>
 <div id="content">
 <div>you know what? We need a revolution.<br><br><span class="black">a few seconds ago</span><br><hr><br></div>
 <div>I think we need the world to change.<br><br><span class="black">a few seconds ago</span><br><hr></div>
@@ -246,6 +246,10 @@ font-weight: lighter;
 <div class="desc"><center><h4>Freely express yourself at any time.</h4><p class="subtleline"><a href="home.html">Post statuses.</a>&nbsp<br><br><a href="profile.html">Share pictures.</a>&nbsp<a href="home.html">View events.</a></p></center></div>
 <footer><div id="pages"><center><a href="about.html"> about</a>&nbsp-&nbsp<a href="login.html"> log in </a>&nbsp-&nbsp<a href="signup.html">sign up </a></footer></center></div></div>
 <script>
+document.getElementById("signup-button").onclick = function() {myFunction()};
+document.getElementById("login-button").onclick = function() {myFunc()};
+function myFunction() {window.location.href = ("signup.html");}
+function myFunc() {window.location.href = ("login.html");}
 //adding offline cache service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
