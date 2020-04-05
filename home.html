@@ -404,6 +404,9 @@ nav > ul > .liprofile > a:hover{
 #helpbtn {
 	margin-right: 10px;
 }
+h2,h3 {
+	font-weight: normal;
+}
 </style>
 </head>
 <body>
@@ -449,7 +452,8 @@ nav > ul > .liprofile > a:hover{
 
 <aside>
 <span class="underline">events</span>
-<br><br><label>name of event:</label><br><input class="event"></input><br><label>time:</label><br><input class="event" ></input><br><label>place:</label><br><input class="event" ></input><br><label>details:</label><br><input class="event" ></input><br><button class="newevent">new event</button>
+<br><br><label>name of event:</label><br><input id="named" class="event"></input><br><label>time:</label><br><input id="time" class="event" ></input><br><label>place:</label><br><input id="place" class="event" ></input><br>
+<label>details:</label><br><input id="details" class="event" ></input><br><button class="newevent">new event</button>
 </aside>
 
 </div>
@@ -464,6 +468,15 @@ new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200})
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
 const user = gun.user();
+
+gun.get('events').map().on(function(data, key){
+	var postContent = "<span>" + data.named + "</span><br>";
+	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + data.time + "</span><br>";
+	var details = `<h2>${data.place}</h2><br><h3>${data.details}</h3>`
+	var displayUser = `<div style='color:black;font-size:21px'>posted by *${data.user}</div><hr><br>`;
+	innerHTML =  postContent + postDate + displayUser;
+	$("#aside").prepend(innerHTML);
+})
 
 gun.get('statuses').map().on(function(data, key){
 	var postContent = "<span>" + data.title + "</span><br>";
@@ -493,6 +506,28 @@ user.recall({sessionStorage:true},function(uob){
 		$('#ityped').val(""); //definitely will work
 		$("#postbtn").attr('disabled','disabled');
 		$("#hidden").show()
+	});
+
+	$(".newevent").click(function() {
+			var named = $("#named").val();
+			var time = $("#time").val();
+			var place = $("#place").val();
+			var details = $("#details").val();
+
+				gun.get('events').set({
+				  named: named,
+					time: time,
+					place: place,
+					details: details,
+					user: user.is.alias,
+					})
+		var self = $(".newevent");if (!self.data("add")) {self.data("add", true);self.text("posted!");
+		setTimeout(function() {self.text("new event").data("add", false);}, 1100);}
+		window.scroll({top: 350,left: 0,behavior: 'smooth'});
+		$("#named").val("");
+		$("#time").val("");
+		$("#place").val("");
+		$("#details").val("");
 	});
 
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
