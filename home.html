@@ -60,11 +60,11 @@ button:active{
 -ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 }
-#postbtn:disabled {
+#postbtn:disabled,  #imagebtn:disabled{
 opacity: 0.6;
 cursor: not-allowed;
 }
-#postbtn:active{
+#postbtn:active, #imagebtn:active{
   animation: mymove .8s;
 }
   @keyframes mymove {
@@ -102,7 +102,7 @@ font-family:Arial;
 font-size: 25px;
 border-radius: 2px;
 padding: 3px;
-width: 400px;
+width: 98%;
 margin-bottom: 10px;
 transition: 0.1s;
 }
@@ -209,7 +209,7 @@ transition: 0.1s;
 #entries:hover {
 box-shadow:0px 0px 20px 2px  darkblue;
 }
-#postbtn {
+#postbtn, #imagebtn, #lbl{
 border-color: red;
 border-radius: 12px;
 border-style: groove;
@@ -222,8 +222,9 @@ font-size: 25px;
 box-shadow: 0px 0px 4px 4px pink;
 color: #800000;
 text-shadow: none;
+padding: 2px;
 }
-#postbtn:hover {
+#postbtn:hover, #imagebtn:hover, #lbl:hover {
 box-shadow: 0px 0px 20px red;
 border: 3px groove red;
 text-shadow: 1px 1px 1px  red;
@@ -235,7 +236,7 @@ text-align: left;
 background:#ffffff;
 padding:15px;
 border-radius:2px;
-margin:20px auto 40px auto;
+margin:20px auto 0px auto;
 word-wrap:break-word;
 margin-top: 2px;
 width: 400px;
@@ -429,6 +430,11 @@ nav > ul > .liprofile > a:hover{
 <p id="question">˚✧What are you thinking about?✧˚</p>
 <textarea id="ityped" placeholder="Say more?"></textarea>
 <button type="button" id="postbtn"> post 📩</button>
+<button type="button" id="imagebtn" hidden> post 📩</button>
+<input type="file" id="upload_img" style="display:none;" onchange="previewFile()">
+<label id="lbl" for="upload_img">🖼 upload</label><br><br>
+<img src="" id="preview">
+</div>
 </div>
 </center>
 <br>
@@ -466,10 +472,11 @@ var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
 const user = gun.user();
 
 gun.get('statuses').map().on(function(data, key){
+	var postImage = "<img style='height:auto; width: 100%;' src='" + data.image + "'>";
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
-	innerHTML =  postContent + postDate + displayUser;
+	innerHTML =  postImage + postContent + postDate + displayUser;
 	$("#content").prepend(innerHTML);
 })
 user.recall({sessionStorage:true},function(uob){
@@ -478,24 +485,61 @@ user.recall({sessionStorage:true},function(uob){
 		} else {
 		console.log('You are not logged in');
 		}
-	})
-	$("#postbtn").click(function() {
+})
+$("#postbtn").click(function() {
 			var input = $("#ityped").val();
-
-				gun.get('statuses').set({
+			var image = default.png
+			gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
 					date: Date(),
-					})
+					img: image,
+			})
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
 		$('#ityped').val(""); //definitely will work
 		$("#postbtn").attr('disabled','disabled');
 		$("#hidden").show()
+});
+	function previewFile() {
+		const preview = document.getElementById("preview");
+		const file = document.querySelector("input[type=file]").files[0];
+		const reader = new FileReader();
+		reader.addEventListener("load", function () {
+		// convert image file to base64 string
+		preview.src = reader.result;
+		}, false);
+		if (file) {
+		reader.readAsDataURL(file);
+		}
+		$("#postbtn").hide()
+		$("#lbl").hide();
+		$("#imagebtn").show();
+		$("#imagebtn").attr('disabled','disabled');
+	}
+
+$("#imagebtn").click(function() {
+		var image = document.getElementById("preview").src
+		gun.get('statuses').set({
+					title: input,
+					img: image,
+					user: user.is.alias,
+					date: Date(),
+		})
+			gun.get('user').set({
+					caption: input,
+					img: image,
+					user: user.is.alias,
+					date: Date(),
+		})
+		window.scroll({top: 200,left: 0,behavior: 'smooth'});$('#ityped').val("");$("#postbtn").show();$("#lbl").show();$("#postbtn").attr('disabled','disabled');$("#hidden").show();
 	});
 
+
+
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
+$("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#imagebtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if(!user.is){window.location.href =("signup.html"); }});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
