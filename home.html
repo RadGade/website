@@ -22,17 +22,22 @@ div.events{
 	font-size: 20px;
 	font-family: arial;
 	padding-bottom: 10px;
-	border: 1px dashed grey;
-
+	padding-top: 3px;
+	border-radius: 3px;
+	box-shadow: inset 2px 2px 5px lightgrey;
+	letter-spacing: 0px;
 }
 .first{
 	text-transform: uppercase;
 	font-size: 28px;
 }
 .underline1{
-	color: dimgrey;
+	text-decoration: underline;
 	margin-top: 8px;
 	font-size: 25px;
+	font-weight: 200;
+	letter-spacing: 0px;
+	font-style: italic;
 }
 .newevent{
 	margin-top: 10px;
@@ -493,7 +498,7 @@ const user = gun.user();
 gun.get('statuses').map().on(function(data, key){
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
-	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
+	var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
 	$("#content").prepend(innerHTML);
 })
@@ -502,7 +507,7 @@ gun.get('events').map().on(function(data, key){
 	var postContent = "<div class = 'events'><div class='first'>" + data.named + "</div>";
 	var postDate = "<div class='underline1'>when</div><div>" + data.time + "</span><br>";
 	var details = "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>"
-	var displayUser ="<div style='color:black;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>"
+	var displayUser ="<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>"
 	innerHTML =  postContent + postDate + details + displayUser;
 	$("aside").append(innerHTML);
 })
