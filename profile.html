@@ -258,7 +258,6 @@ footer{width:100%;}
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
-
 window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 			if (user.is) {
@@ -267,6 +266,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			console.log('You are not logged in');
 			}
 			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
+			// gun.get('~@alias').once((data, key)=>{});
+			console.log(gun.get(user.is.alias).once();)
+			console.log(gun.get('~@alias').once();)
+			console.log(gun.get('user').once();)
+
+
+
+
 		})
 		$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 		$("#profile").click(function() {window.location.href =("home.html");});
