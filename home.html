@@ -488,7 +488,9 @@ user.recall({sessionStorage:true},function(uob){
 })
 $("#postbtn").click(function() {
 			var input = $("#ityped").val();
-			var image = default.png
+			var imge = document.createElement("IMG")
+			imge.src = "default.png"
+			var image = imge.src
 			gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
