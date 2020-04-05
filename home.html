@@ -60,11 +60,11 @@ button:active{
 -ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
 }
-#postbtn:disabled,  #imagebtn:disabled{
+#postbtn:disabled {
 opacity: 0.6;
 cursor: not-allowed;
 }
-#postbtn:active, #imagebtn:active{
+#postbtn:active{
   animation: mymove .8s;
 }
   @keyframes mymove {
@@ -102,7 +102,7 @@ font-family:Arial;
 font-size: 25px;
 border-radius: 2px;
 padding: 3px;
-width: 98%;
+width: 400px;
 margin-bottom: 10px;
 transition: 0.1s;
 }
@@ -209,7 +209,7 @@ transition: 0.1s;
 #entries:hover {
 box-shadow:0px 0px 20px 2px  darkblue;
 }
-#postbtn, #imagebtn, #lbl{
+#postbtn {
 border-color: red;
 border-radius: 12px;
 border-style: groove;
@@ -222,9 +222,8 @@ font-size: 25px;
 box-shadow: 0px 0px 4px 4px pink;
 color: #800000;
 text-shadow: none;
-padding: 2px;
 }
-#postbtn:hover, #imagebtn:hover, #lbl:hover {
+#postbtn:hover {
 box-shadow: 0px 0px 20px red;
 border: 3px groove red;
 text-shadow: 1px 1px 1px  red;
@@ -236,7 +235,7 @@ text-align: left;
 background:#ffffff;
 padding:15px;
 border-radius:2px;
-margin:20px auto 0px auto;
+margin:20px auto 40px auto;
 word-wrap:break-word;
 margin-top: 2px;
 width: 400px;
@@ -430,11 +429,6 @@ nav > ul > .liprofile > a:hover{
 <p id="question">˚✧What are you thinking about?✧˚</p>
 <textarea id="ityped" placeholder="Say more?"></textarea>
 <button type="button" id="postbtn"> post 📩</button>
-<button type="button" id="imagebtn" hidden> post 📩</button>
-<input type="file" id="upload_img" style="display:none;">
-<label id="lbl" for="upload_img">🖼 upload</label><br><br>
-<img src="" id="preview">
-</div>
 </div>
 </center>
 <br>
@@ -472,11 +466,10 @@ var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
 const user = gun.user();
 
 gun.get('statuses').map().on(function(data, key){
-	var postImage = "<img style='height:auto; width: 100%;' src='" + data.image + "'>";
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
-	innerHTML =  postImage + postContent + postDate + displayUser;
+	innerHTML =  postContent + postDate + displayUser;
 	$("#content").prepend(innerHTML);
 })
 user.recall({sessionStorage:true},function(uob){
@@ -485,65 +478,24 @@ user.recall({sessionStorage:true},function(uob){
 		} else {
 		console.log('You are not logged in');
 		}
-})
-$("#postbtn").click(function() {
+	})
+	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
-			var image = "data:image/png;base64,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AAAAHGlET1QAAAACAAAAAAAAAA0AAAAoAAAADQAAAA0AAAE4EXW+PgAAAQRJREFUeAHs18ENACAMAzG6/9CA2IKTu0GdfDL73nIECBAgQIAAAQIECBAg8L3AGHjfZ+gBAgQIECBAgAABAgQIPAEDTxEIECBAgAABAgQIECAQETDwIkF6gwABAgQIECBAgAABAgaeDhAgQIAAAQIECBAgQCAiYOBFgvQGAQIECBAgQIAAAQIEDDwdIECAAAECBAgQIECAQETAwIsE6Q0CBAgQIECAAAECBAgYeDpAgAABAgQIECBAgACBiICBFwnSGwQIECBAgAABAgQIEDDwdIAAAQIECBAgQIAAAQIRAQMvEqQ3CBAgQIAAAQIECBAgYODpAAECBAgQIECAAAECBCICBwAA///ThFXuAAABGklEQVTt18EJwDAMA0B7/6FdE2h2iLhA00JfOvujnj3lECBAgAABAgQIECBAgMDzAq3gPT9DAQgQIECAAAECBAgQIHAEFDyLQIAAAQIECBAgQIAAgRABBS9kkGIQIECAAAECBAgQIEBAwbMDBAgQIECAAAECBAgQCBFQ8EIGKQYBAgQIECBAgAABAgQUPDtAgAABAgQIECBAgACBEAEFL2SQYhAgQIAAAQIECBAgQEDBswMECBAgQIAAAQIECBAIEVDwQgYpBgECBAgQIECAAAECBBQ8O0CAAAECBAgQIECAAIEQAQUvZJBiECBAgAABAgQIECBAQMEL24GZqdrnf9943dX77FV7n/f954MAAQIECBAgQIAAgQiBDyAfcbPllS8oAAAAAElFTkSuQmCC"
-			gun.get('statuses').set({
+
+				gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
 					date: Date(),
-					img: image,
-			})
+					})
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
 		$('#ityped').val(""); //definitely will work
 		$("#postbtn").attr('disabled','disabled');
 		$("#hidden").show()
-});
-
-$("input").change(function(){
-	function previewFile() {
-		const preview = document.getElementById("preview");
-		const file = document.querySelector("input[type=file]").files[0];
-		const reader = new FileReader();
-		reader.addEventListener("load", function () {
-		// convert image file to base64 string
-		preview.src = reader.result;
-		}, false);
-		if (file) {
-		reader.readAsDataURL(file);
-		}
-		$("#postbtn").hide()
-		$("#lbl").hide();
-		$("#imagebtn").show();
-		$("#imagebtn").attr('disabled','disabled');
-	}
-});
-
-$("#imagebtn").click(function() {
-		var input = $("#ityped").val();
-		var image = document.getElementById("preview").src
-		gun.get('statuses').set({
-					title: input,
-					img: image,
-					user: user.is.alias,
-					date: Date(),
-		})
-			gun.get('user').set({
-					caption: input,
-					img: image,
-					user: user.is.alias,
-					date: Date(),
-		})
-		window.scroll({top: 200,left: 0,behavior: 'smooth'});$('#ityped').val("");$("#postbtn").show();$("#lbl").show();$("#postbtn").attr('disabled','disabled');$("#hidden").show();
 	});
 
-
-
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
-$("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#imagebtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if(!user.is){window.location.href =("signup.html"); }});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
