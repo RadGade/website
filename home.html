@@ -464,8 +464,6 @@ nav > ul > .liprofile > a:hover{
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 $("#postbtn").attr('disabled','disabled');
 var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
-
-// window.addEventListener('DOMContentLoaded', (event) => {
 const user = gun.user();
 
 user.recall({sessionStorage:true},function(uob){
@@ -475,11 +473,6 @@ user.recall({sessionStorage:true},function(uob){
 		console.log('You are not logged in');
 		}
 	})
-	// var status = Gun().get('status') //this is saying that the var todos puts items in the Gun category(data) "todos"
-
-	// GUN already stores vector/timestamp for every item, you can do Gun.state.is(node, 'key') to get it (node needs to be data node), if you want to generate a timestamp (using time sync, if gun/nts.js is enabled) do Gun.state().
-	//change password-> user.auth(alias, passphrase, callback, { change: 'new-pass-value' })
-
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
 
@@ -487,25 +480,6 @@ user.recall({sessionStorage:true},function(uob){
 				  title: input,
 					user: user.is.alias,
 					date: Date(),
-				})
-
-
-				// $('#said').on('submit', function(e){
-				// 	e.preventDefault();
-				// 	if(!user.is){ return }
-				// 	user.get('said').set($('#say').val());
-				// 	$('#say').val("");
-				// });
-		// gun.get('status').put({ status: input }); //put the input with the category of status
-		// 	gun.get('status').on(function(data, key) {
-		// 		console.log(data.status);
-		// 		var user = gun.user();
-		// 		var postContent = "<span>" + data.status + "</span><br>";
-		// 		var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(Date()).fromNow() + "</span><br>";
-		// 		var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
- 		// 		innerHTML =  postContent + postDate + displayUser;
-		// 		});
-		// 	$("#content").append(innerHTML);
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
@@ -517,43 +491,19 @@ user.recall({sessionStorage:true},function(uob){
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if(!user.is){window.location.href =("signup.html"); }});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
-
-
-
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $("#report").click(function() {window.location.href = ("report.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-// });
-// gun.get('users').get(username).on(function(user){
-// 	// update in real-time
-// 	if (user.online) {
-// 		view.show.active(user.name)
-// 	} else {
-// 		view.show.offline(user.name)
-// 	}
-// })
-//gun.get('statuses').on(function(statuses){
+
 gun.get('statuses').map().on(function(data, key){
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
-	console.log(data.title)
-	console.log(data.user)
-	console.log(data.date)
 	$("#content").prepend(innerHTML);
 })
-console.log(gun.get('statuses').once())
-// gun.map().on(function(statuses, id){
-//         var p = $('#' + id).get(0) || $('<p>').attr('id', id).appendTo('p');
-//         if(statuses){
-//           $(p).text(statuses);
-//         } else {
-//           $(p).hide();
-//         }
-//       });
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
