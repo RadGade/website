@@ -472,14 +472,13 @@ gun.get('statuses').map().on(function(data, key){
 	innerHTML =  postContent + postDate + displayUser;
 	$("#content").prepend(innerHTML);
 })
-
-// user.recall({sessionStorage:true},function(uob){
-// 		if (user.is) {
-// 		console.log('You are logged in');
-// 		} else {
-// 		console.log('You are not logged in');
-// 		}
-// 	})
+user.recall({sessionStorage:true},function(uob){
+		if (user.is) {
+		console.log('You are logged in');
+		} else {
+		console.log('You are not logged in');
+		}
+	})
 	$("#postbtn").click(function() {
 			var input = $("#ityped").val();
 
