@@ -263,7 +263,7 @@ footer{width:100%;}
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
 
-// window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 			if (user.is) {
 			console.log('You are logged in');
@@ -271,14 +271,13 @@ const user = gun.user();
 			console.log('You are not logged in');
 			}
 			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
-
+		})
+		$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+		$("#profile").click(function() {window.location.href =("home.html");});
+		$("#aboutbtn").click(function() {window.location.href =("about.html");});
+		$("#helpbtn").click(function() {window.location.href =("help.html");});
 })
 
-	// })
-	$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
-	$("#profile").click(function() {window.location.href =("home.html");});
-	$("#aboutbtn").click(function() {window.location.href =("about.html");});
-	$("#helpbtn").click(function() {window.location.href =("help.html");});
 
 	function previewFile() {
 	const preview = document.getElementById("preview");
