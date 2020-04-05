@@ -402,6 +402,9 @@ nav > ul > .liprofile > a:link{
 nav > ul > .liprofile > a:hover{
 	color:blue;
 }
+#helpbtn {
+	margin-right: 10px;
+}
 </style>
 </head>
 <body>
@@ -429,6 +432,7 @@ nav > ul > .liprofile > a:hover{
 <button type="button" id="postbtn"> post 📩</button>
 </div>
 </center>
+<br>
 <center>
 <div id="content">
 <p id="file-content"></p>
@@ -439,7 +443,7 @@ nav > ul > .liprofile > a:hover{
 <footer>
 <br><center>
 <div class="buttons">
-<button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
+<button type="button" id = "helpbtn"> help </button>&nbsp<button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id="report"> report </button>
 </div></center>
 </footer>
 </section>
@@ -470,10 +474,6 @@ user.recall({sessionStorage:true},function(uob){
 		} else {
 		console.log('You are not logged in');
 		}
-		console.log(user)
-		console.log(user.is.alias)
-		console.log(user["is"]["alias"])
-
 	})
 	// var status = Gun().get('status') //this is saying that the var todos puts items in the Gun category(data) "todos"
 
@@ -523,6 +523,7 @@ document.getElementById("ityped").addEventListener("keyup",function(event) {if (
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
+$("#report").click(function() {window.location.href = ("report.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 // });
 // gun.get('users').get(username).on(function(user){

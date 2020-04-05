@@ -11,6 +11,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <bold><title>GENDEREV</title></bold>
 <style>
+.newevent{
+	margin-top: 10px;
+	border:none;
+	box-shadow: 0px 0px 10px grey;
+	color: black;
+	font-size: 20px;
+}
+.newevent:hover{
+	box-shadow: 0px 0px 16px grey;
+	border: none;
+}
+.newevent:active{
+	box-shadow: inset 1px 1px 3px 1px red;
+}
+.event:hover{
+	box-shadow: 0px 0px 5px black;
+	border-radius: 3px;
+}
+.event{
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-family:Arial;
+	font-size: 19px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	transition: 0.1s;
+}
 a:hover{
 	background-size: 100% 15%;
   background-repeat: repeat-x;
@@ -106,18 +133,12 @@ background-size: cover;
 background-attachment: fixed;
 font-family: arial;
 }
-
 a:link, a:visited {
 text-shadow: 0px 0px 1px black;
 color: blue;
 }
 a:active {
 text-shadow: 0px 2px 2px black;
-}
-#hidden{
-width: 400px;
-word-wrap:break-word;
-background: none;
 }
 #entries {
 box-shadow:0px 0px 9px 2px black;
@@ -172,41 +193,7 @@ margin-bottom: 4px;
 }
 #sidebar .desc {color: darkblue; font-size: 22px;}
 #aboutbtn{margin-right: 10px;}
-.cmt{
-font-size: 25px;
-background: none;
-color: blue;
-border: 1.4px dashed;
-text-decoration: underline;
-padding-bottom: 2px;
-margin-top:9px;
-margin-bottom: 2px;
-box-shadow: 0px 1px 4px 3px grey;
-}
-.cmt:hover{
-border: 1.4px dashed;
-box-shadow: 4px 5px 9px dimgrey;
-}
-.reply{
-margin-left: 10px;
-margin-top: 8px;
-}
-.cmt1{
-font-size: 25px;
-background: none;
-color: blue;
-border: 1.4px dashed;
-text-decoration: underline;
-padding-bottom: 2px;
-margin-top:0px;
-margin-left: 4px;
-margin-bottom: 2px;
-box-shadow: 0px 1px 4px 3px grey;
-}
-.cmt1:hover{
-border: 1.4px dashed;
-box-shadow: 4px 5px 9px dimgrey;
-}
+
 @media print{body{max-width:none;}}
 
 @media screen and (max-width: 500px) {
@@ -222,28 +209,46 @@ footer{width:100%;}
 #sidebar img{width: 93%;}
 #sidebar .desc {margin-bottom: 5px;}
 }
-
+input, textarea{
+	width: 100%
+}
+section{
+	text-align: left;
+}
+label{
+	font-size: 21px;
+	color: black;
+}
+h1{
+	font-weight: lighter;
+	text-decoration: underline;
+	color: black;
+}
 </style>
 </head>
 <body>
-
-
-
 	<header>
 	<div class="buttons"><button type="button" id ="profile">view feed</button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
 	</header>
 <div id="sidebar"><center><div class="title"><a href="home.html">GENDEREV</a></div><img id ="img1" alt="GENDEREV BANNER" src="Paint_palette.png">
 <center>
-<div class="post">
-
-</div>
+<h1> Submit Report</h1>
 </center>
-
 <center>
 <div id="content">
 </div>
 </center>
-
+<section>
+<form action="mailto:grboard@columbia.edu" method="post" enctype="text/plain" >
+<label>Type of Discrimination:</label><br>
+<input class="event"type="text" name="Type of Discrimination" required></input><br>
+<label>Person At Fault:</label><br>
+<input class="event" type="text" name="Person At Fault" required></input><br>
+<label>Details:</label><br>
+<textarea class="event" type="text" name="Details" required></textarea>
+<br><center><button class="newevent" type="submit">submit report</button></center>
+</form>
+</section>
 
 <footer>
 <br><center>
@@ -251,41 +256,17 @@ footer{width:100%;}
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
 </footer>
-</section>
 
 <script src="js/jquery.min.js"></script>
-<script src="js/home.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-<script src="js/sea.js"></script>
-<script src="js/webrtc.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 <script>
-$(".post").hide();
-$("#content").hide();
-var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
-
-window.addEventListener('DOMContentLoaded', (event) => {
-	document.getElementById("heading-name").innerHTML="*" + user.is.alias;
-	$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
-	$("#profile").click(function() {window.location.href =("home.html");});
-	function previewFile() {
-	const preview = document.getElementById("preview");
-	console.log(preview);
-	const file = document.querySelector("input[type=file]").files[0];
-	console.log(file);
-	const reader = new FileReader();
-	reader.addEventListener("load", function () {
-		// convert image file to base64 string
-		preview.src = reader.result;
-		}, false);
-		if (file) {
-		reader.readAsDataURL(file);
-		}
-		$("#preview").show()
-	}
-
-
-})
+$('form').submit(function(){
+			$('input[type="text"]').val('');
+			$('textarea[type="text"]').val('');
+});
+$("#aboutbtn").click(function() {window.location.href =("about.html");});
+$("#profile").click(function() {window.location.href =("home.html");});
+$("#helpbtn").click(function() {window.location.href = ("help.html");});
+$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 </script>
 </body>
 </html>
