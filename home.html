@@ -14,12 +14,33 @@
 <meta name="description" content="Homepage">
 <bold><title>GENDEREV</title></bold>
 <style>
+div.events{
+	padding-left: 10px;
+	margin-bottom: 40px;
+	margin-right: 1px;
+	max-width: 240px;
+	font-size: 20px;
+	font-family: arial;
+	padding-bottom: 10px;
+	border: 1px dashed grey;
+
+}
+.first{
+	text-transform: uppercase;
+	font-size: 28px;
+}
+.underline1{
+	color: dimgrey;
+	margin-top: 8px;
+	font-size: 25px;
+}
 .newevent{
 	margin-top: 10px;
 	border:none;
 	box-shadow: 0px 0px 10px grey;
 	color: darkblue;
 	font-size: 20px;
+	margin-bottom: 30px;
 }
 .newevent:hover{
 	box-shadow: 0px 0px 16px grey;
@@ -469,21 +490,21 @@ $("#postbtn").attr('disabled','disabled');
 var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
 const user = gun.user();
 
-gun.get('events').map().on(function(data, key){
-	var postContent = "<span>" + data.named + "</span><br>";
-	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + data.time + "</span><br>";
-	var details = `<h2>${data.place}</h2><br><h3>${data.details}</h3>`
-	var displayUser = `<div style='color:black;font-size:21px'>posted by *${data.user}</div><hr><br>`;
-	innerHTML =  postContent + postDate + displayUser;
-	$("#aside").prepend(innerHTML);
-})
-
 gun.get('statuses').map().on(function(data, key){
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + moment(data.date).fromNow() + "</span><br>";
 	var displayUser = "</a><span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	innerHTML =  postContent + postDate + displayUser;
 	$("#content").prepend(innerHTML);
+})
+
+gun.get('events').map().on(function(data, key){
+	var postContent = "<div class = 'events'><div class='first'>" + data.named + "</div>";
+	var postDate = "<div class='underline1'>when</div><div>" + data.time + "</span><br>";
+	var details = "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>"
+	var displayUser ="<div style='color:black;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>"
+	innerHTML =  postContent + postDate + details + displayUser;
+	$("aside").append(innerHTML);
 })
 user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
