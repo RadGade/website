@@ -251,7 +251,7 @@ footer{width:100%;}
 
 
 <center>
-	<input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
+	<br><input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
 	<center><img style="margin-left:0px;"src="" width="374px" id="preview"></center>
 	<center><textarea id="caption" placeholder="write photo caption here" hidden></textarea></center>
 	<center><button type="button" id="imagebtn" hidden> post 📩</button></center></div>
@@ -299,11 +299,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
       gun.get(user.is.alias).map().on(function(data, key){
       	image =  "<li><img src='"+data.img+"'><br>";
-        caption = "<p>"+data.caption"</p><br>"
-        date = "<p>"+data.date"</p><br>"
+        caption = "<p>"+data.caption+"</p><br>"
+        date = "<p>"+data.date+"</p><br>"
         name = "<p>from*"+data.user+"</p></li>"
         li = image + caption + date + name
-        console.log(data.img)
       	$("#gallery").prepend(li);
       })
 
