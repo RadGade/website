@@ -342,10 +342,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 						user: user.is.alias,
 						date: Date(),
 			})
+      console.log(image);
+      console.log(input);
 			$("#imagebtn").hide()
 			$("textarea").hide()
 			$("label").show()
 			$("#upload_img").val("")
+			$("#preview").attr("src","");
 		}); //click image button function
 	}) //gun function
 }) // window dom load function
