@@ -284,9 +284,9 @@ footer{width:100%;}
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
+// window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
-			var us = user.is.alias
-			document.getElementById("heading-name").innerHTML="*" + us;
+			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
       gun.get(us).map().on(function(data, key){
         li = "<li><img src='"+data.img+"'>" + "<p style='color:black;font-size:25px;'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
       	$("#gallery").prepend(li);
@@ -295,10 +295,10 @@ const user = gun.user();
 		$("#imagebtn").click(function() {
         input = $("textarea").val();
 				image =  document.getElementById("preview").src
-				gun.get(us).set({
+				gun.get(user.is.alias).set({
 						caption: input,
 						img: image,
-						user: us,
+						user: user.is.alias,
 						date: Date(),
 			})
       console.log(image);
@@ -310,6 +310,7 @@ const user = gun.user();
 			$("#preview").attr("src","");
 		}); //click image button function
 	}) //gun function
+// }) // window dom load function
 	function previewFile() {
 	const preview = document.getElementById("preview");
 	const file = document.querySelector("input[type=file]").files[0];
