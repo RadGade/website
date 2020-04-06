@@ -284,17 +284,9 @@ footer{width:100%;}
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
-window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
-			if (user.is) {
-			console.log('You are logged in');
-			} else {
-			console.log('You are not logged in');
-			}
-			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
-
 			var us = user.is.alias
-
+			document.getElementById("heading-name").innerHTML="*" + us;
       gun.get(us).map().on(function(data, key){
         li = "<li><img src='"+data.img+"'>" + "<p style='color:black;font-size:25px;'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
       	$("#gallery").prepend(li);
@@ -303,10 +295,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		$("#imagebtn").click(function() {
         input = $("textarea").val();
 				image =  document.getElementById("preview").src
-				gun.get(user.is.alias).set({
+				gun.get(us).set({
 						caption: input,
 						img: image,
-						user: user.is.alias,
+						user: us,
 						date: Date(),
 			})
       console.log(image);
@@ -318,7 +310,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			$("#preview").attr("src","");
 		}); //click image button function
 	}) //gun function
-}) // window dom load function
 	function previewFile() {
 	const preview = document.getElementById("preview");
 	const file = document.querySelector("input[type=file]").files[0];
