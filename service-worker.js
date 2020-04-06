@@ -1,4 +1,4 @@
-const PRECACHE = 'precache-v4';
+const PRECACHE = 'precache-v5';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
@@ -6,6 +6,9 @@ const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
   '/about.html',
+  '/js/gun.js',
+  '/js/sea.js',
+  '/js/webrtc.js',
   '/favicon.ico/android-icon-192x192.png',
   '/help.html'
 ];

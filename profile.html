@@ -294,7 +294,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			}
 			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
 
-      gun.get(user.is.alias).map().on(function(data, key){
+			var us = user.is.alias
+
+      gun.get(us).map().on(function(data, key){
       	image =  "<li><img src='"+data.img+"'>";
         caption = "<p style='color:black;font-size:25px;'>"+data.caption+"</p>"
         date = "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>"
