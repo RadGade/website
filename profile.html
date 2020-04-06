@@ -287,7 +287,7 @@ var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
 
 
-window.addEventListener('DOMContentLoaded', (event) => {
+// window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
 			if (user.is) {
 			console.log('You are logged in');
@@ -323,7 +323,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			$("#preview").attr("src","");
 		}); //click image button function
 	}) //gun function
-}) // window dom load function
+//}) // window dom load function
 	function previewFile() {
 	const preview = document.getElementById("preview");
 	const file = document.querySelector("input[type=file]").files[0];
