@@ -329,8 +329,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
 
       gun.get(user.is.alias).map().on(function(data, key){
-      	li =  "<li><img src='"+data.image+"'></li>";
-      	$("#gallery").prepend(li);
+        console.log(data.image);
+      })
+
+      gun.get(user.is.alias).on(function(data, key){
+        console.log(data.image);
       })
 
 		$("#imagebtn").click(function() {
