@@ -273,7 +273,6 @@ footer{width:100%;}
 </div>
 </center>
 </section>
-
 <div class="navbar" id="myNavbar">
 	<center><label for="upload_img">✧・˚・∘upload📸∘・˚・✧</label></center>
 </div>
@@ -297,11 +296,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			var us = user.is.alias
 
       gun.get(us).map().on(function(data, key){
-      	image =  "<li><img src='"+data.img+"'>";
-        caption = "<p style='color:black;font-size:25px;'>"+data.caption+"</p>"
-        date = "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>"
-        name = "from *"+data.user+"</p></li>"
-        li = image + caption + date + name
+        li = "<li><img src='"+data.img+"'>" + "<p style='color:black;font-size:25px;'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
       	$("#gallery").prepend(li);
       })
 
@@ -329,7 +324,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const file = document.querySelector("input[type=file]").files[0];
 	const reader = new FileReader();
 	reader.addEventListener("load", function () {
-	// convert image file to base64 string
 	preview.src = reader.result;
 	}, false);
 	if (file) {
@@ -338,7 +332,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	$("#imagebtn").show();
 	$("#caption").show();
 }
-
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 $("#profile").click(function() {window.location.href =("home.html");});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
