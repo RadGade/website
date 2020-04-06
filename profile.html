@@ -298,9 +298,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
       gun.get(user.is.alias).map().on(function(data, key){
       	image =  "<li><img src='"+data.img+"'>";
-        caption = "<p>"+data.caption+"</p>"
+        caption = "<p style='color:black;font-size:21px'>"+data.caption+"</p>"
         date = "<p style='color:black;font-size:18px'>"+moment(data.date).fromNow()+"</p>"
-        name = "<p>from*"+data.user+"</p></li>"
+        name = "<p style='color:black;font-size:21px'>from *"+data.user+"</p></li>"
         li = image + caption + date + name
       	$("#gallery").prepend(li);
       })
