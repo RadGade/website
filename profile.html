@@ -288,13 +288,15 @@ footer{width:100%;}
 	<center><img style="margin-left:0px;"src="" width="374px" id="preview"></center>
 	<center><textarea id="caption" placeholder="write photo caption here" hidden></textarea></center>
 	<center><button type="button" id="imagebtn" hidden> post 📩</button></center></div>
-</center>
 
-<center>
-	<div class="docs-galley mb-3">
-	<ul id ="gallery" class="docs-pictures clearfix">
-	</ul>
-</div>
+  <center>
+  	<div class="docs-galley mb-3">
+  	<ul id ="gallery" class="docs-pictures clearfix">
+  	</ul>
+  </div>
+  </center>
+
+
 </center>
 
 
@@ -333,8 +335,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 		$("#imagebtn").click(function() {
         input = $("textarea").val();
-				const preview = document.getElementById("preview");
-				image = preview.src;
+				image =  document.getElementById("preview").src 
 				gun.get(user.is.alias).set({
 						caption: input,
 						img: image,
