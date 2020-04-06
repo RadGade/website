@@ -281,7 +281,7 @@ footer{width:100%;}
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<script src="js/moment.min.js"></script>
+<script src="js/humanized_time_span.js"></script>
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
@@ -299,7 +299,7 @@ const user = gun.user();
       gun.get(user.is.alias).map().on(function(data, key){
       	image =  "<li><img src='"+data.img+"'>";
         caption = "<p style='color:black;font-size:25px;'>"+data.caption+"</p>"
-        date = "<p style='color:black;font-size:18px'>"+moment(data.date).fromNow()+"<br>"
+        date = "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>"
         name = "from *"+data.user+"</p></li>"
         li = image + caption + date + name
       	$("#gallery").prepend(li);
