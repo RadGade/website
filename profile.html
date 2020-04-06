@@ -13,17 +13,18 @@
 <meta name="description" content="Profile">
 <bold><title>GENDEREV</title></bold>
 <style>
-label {
-	text-shadow: 0px 1px 3px grey;
-	border: 1px black dashed;
-	font-size: 21px;
+body {
+text-shadow: 0px 1px 3px grey;
+font-size: 25px;
+color: darkblue;
+background-size: cover;
+background-attachment: fixed;
+font-family: arial;
 }
-
-ul {
-	list-style-type: none;
-}
-li {
-	text-shadow: 0px 1px 3px grey;
+.buttons {
+display: flex;
+align-items: center;
+justify-content: center
 }
 button {
 border-color: transparent;
@@ -39,6 +40,99 @@ box-shadow: 0px 0px 4px 4px black;
 color: black;
 text-shadow: none;
 transition: 0.1s;
+}
+button:active{
+-moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-webkit-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+}
+#profile {
+color: darkblue;
+box-shadow: 0px 0px 10px 2px darkblue;
+}
+#profile:hover{
+box-shadow: 0px 0px 10px 2px blue;
+border: 1px solid blue;
+color: blue;
+}
+button:hover {
+box-shadow: 0px 0px 10px 2px black;
+border: 1px solid black;
+}
+#sidebar {
+background:#ffffff;
+padding:15px;
+border-radius:2px;
+margin:20px auto 40px auto;
+word-wrap:break-word;
+margin-top: 2px;
+width: 400px;
+}
+#sidebar img {
+border-radius:0px;
+width: 100%;
+height: auto;
+-webkit-box-shadow: -1px 1px 9px 0px #000000;
+-moz-box-shadow: -1px 1px 9px 0px #000000;
+box-shadow: -1px 1px 9px 0px #000000;
+}
+#sidebar .title {
+font-size: 32px;
+letter-spacing: 0rem;
+font-family: Arial;
+margin-bottom: 0px;
+color: black;
+text-shadow: 0px -1px 0px darkgrey;
+font-style: italic;
+margin-bottom: 4px;
+}
+a:link, a:visited {
+text-shadow: 0px 0px 1px black;
+color: blue;
+}
+a:active {
+text-shadow: 0px 2px 2px black;
+}
+a:hover{
+	background-size: 100% 15%;
+  background-repeat: repeat-x;
+  background-position: left 0% bottom 10%;
+	background-image: linear-gradient(
+    90deg,
+    hsl(284, 91%, 69%) 0%,
+    hsl(284, 91%, 69%) 12.5%,
+    hsl(329, 91%, 69%) 12.5%,
+    hsl(329, 91%, 69%) 25%,
+    hsl(14, 91%, 69%) 25%,
+    hsl(14, 91%, 69%) 37.5%,
+    hsl(59, 91%, 69%) 37.5%,
+    hsl(59, 91%, 69%) 50%,
+    hsl(104, 91%, 69%) 50%,
+    hsl(104, 91%, 69%) 62.5%,
+    hsl(149, 91%, 69%) 62.5%,
+    hsl(149, 91%, 69%) 75%,
+    hsl(194, 91%, 69%) 75%,
+    hsl(194, 91%, 69%) 87.5%,
+    hsl(239, 91%, 69%) 87.5%,
+    hsl(239, 91%, 69%) 100%
+  );
+	text-decoration: none;
+}
+
+#sidebar .desc {color: darkblue; font-size: 22px;}
+#title br + br {margin-top: 0.825rem;}
+#title {
+text-align: center;
+color: #000AFF;
+line-height: 1.375;
+font-weight: 400;
+font-size: 32px;
+margin-bottom: 0px;
+color:  black;
+text-shadow: 0px -1px 0px darkgrey;
+font-family: Arial;
 }
 textarea {
 margin-top: 0px;
@@ -60,109 +154,7 @@ textarea:hover {
 box-shadow: 0px 0px 5px black;
 border-radius: 3px;
 }
-.buttons {
-display: flex;
-align-items: center;
-justify-content: center
-}
-#title br + br {margin-top: 0.825rem;}
-#title {
-text-align: center;
-color: #000AFF;
-line-height: 1.375;
-font-weight: 400;
-font-size: 32px;
-margin-bottom: 0px;
-color:  black;
-text-shadow: 0px -1px 0px darkgrey;
-font-family: Arial;
-}
-#profile {
-color: darkblue;
-box-shadow: 0px 0px 10px 2px darkblue;
-}
-#profile:hover{
-box-shadow: 0px 0px 10px 2px blue;
-border: 1px solid blue;
-color: blue;
-}
-button:hover {
-box-shadow: 0px 0px 10px 2px black;
-border: 1px solid black;
-}
-body {
-text-shadow: 0px 1px 3px grey;
-font-size: 25px;
-color: darkblue;
-background-size: cover;
-background-attachment: fixed;
-font-family: arial;
-}
 
-a:link, a:visited {
-text-shadow: 0px 0px 1px black;
-color: blue;
-}
-a:active {
-text-shadow: 0px 2px 2px black;
-}
-#hidden{
-width: 400px;
-word-wrap:break-word;
-background: none;
-}
-#entries {
-box-shadow:0px 0px 9px 2px black;
-border-radius:1px;
-padding-top: 15px;
-padding-bottom: 15px;
-width: 400px;
-word-wrap:break-word;
-background: none;
-transition: 0.1s;
-}
-#entries:hover {
-box-shadow:0px 0px 20px 2px  darkblue;
-}
-#content{
-text-align: left;
-}
-#sidebar {
-background:#ffffff;
-padding:15px;
-border-radius:2px;
-margin:20px auto 40px auto;
-word-wrap:break-word;
-margin-top: 2px;
-width: 400px;
-}
-section {
-  -webkit-flex: 1.5;
-  -ms-flex: 1.5;
-  flex: 1.5;
-}
-::placeholder{
-	color: #484646;
-}
-#sidebar img {
-border-radius:0px;
-width: 100%;
-height: auto;
--webkit-box-shadow: -1px 1px 9px 0px #000000;
--moz-box-shadow: -1px 1px 9px 0px #000000;
-box-shadow: -1px 1px 9px 0px #000000;
-}
-#sidebar .title {
-font-size: 32px;
-letter-spacing: 0rem;
-font-family: Arial;
-margin-bottom: 0px;
-color: black;
-text-shadow: 0px -1px 0px darkgrey;
-font-style: italic;
-margin-bottom: 4px;
-}
-#sidebar .desc {color: darkblue; font-size: 22px;}
 #imagebtn {
 border-color: lightblue;
 border-radius: 12px;
@@ -190,53 +182,42 @@ text-shadow: 1px 1px 1px  mediumblue;
     from {color: black;}
     to {color: mediumblue;}
   }
-a:hover{
-	background-size: 100% 15%;
-  background-repeat: repeat-x;
-  background-position: left 0% bottom 10%;
-	background-image: linear-gradient(
-    90deg,
-    hsl(284, 91%, 69%) 0%,
-    hsl(284, 91%, 69%) 12.5%,
-    hsl(329, 91%, 69%) 12.5%,
-    hsl(329, 91%, 69%) 25%,
-    hsl(14, 91%, 69%) 25%,
-    hsl(14, 91%, 69%) 37.5%,
-    hsl(59, 91%, 69%) 37.5%,
-    hsl(59, 91%, 69%) 50%,
-    hsl(104, 91%, 69%) 50%,
-    hsl(104, 91%, 69%) 62.5%,
-    hsl(149, 91%, 69%) 62.5%,
-    hsl(149, 91%, 69%) 75%,
-    hsl(194, 91%, 69%) 75%,
-    hsl(194, 91%, 69%) 87.5%,
-    hsl(239, 91%, 69%) 87.5%,
-    hsl(239, 91%, 69%) 100%
-  );
-	text-decoration: none;
-}
-button:active{
--moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
--webkit-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
--o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
--ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
-}
-#heading-name{
-text-decoration: underline;
-text-align: right;
-padding-left: 17px;
-padding-right:17px;
-text-shadow: 0px 1px 3px grey;
-color: black;
-}
-#user-posts, #user-comments {
+	#heading-name{
 	text-decoration: underline;
 	text-align: right;
 	padding-left: 17px;
 	padding-right:17px;
+	text-shadow: 0px 1px 3px grey;
+	color: black;
+	}
+	#user-posts, #user-comments {
+		text-decoration: underline;
+		text-align: right;
+		padding-left: 17px;
+		padding-right:17px;
+	}
+#hidden{
+width: 400px;
+word-wrap:break-word;
+background: none;
+}
+section {
+  -webkit-flex: 1.5;
+  -ms-flex: 1.5;
+  flex: 1.5;
+}
+label {
+	text-shadow: 0px 1px 3px grey;
+	border: 1px black dashed;
+	font-size: 21px;
 }
 
+ul {
+	list-style-type: none;
+}
+li {
+	text-shadow: 0px 1px 3px grey;
+}
 @media print{body{max-width:none;}}
 
 @media screen and (max-width: 500px) {
@@ -263,27 +244,7 @@ footer{width:100%;}
 	background: white;
 	color: black;
 }
-/* @media screen and (max-width: 600px) {
-  .navbar a:not(:first-child) {display: none;}
-  .navbar a.icon {
-    float: right;
-    display: block;
-  }
-}
 
-@media screen and (max-width: 600px) {
-  .navbar.responsive .icon {
-    position: absolute;
-    right: 0;
-    bottom:0;
-  }
-  .navbar.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-} */
 </style>
 </head>
 <body>
@@ -312,13 +273,6 @@ footer{width:100%;}
 </div>
 </center>
 </section>
-<footer>
-<br>
-<center>
-<div class="buttons">
-
-</div></center>
-</footer>
 
 <div class="navbar" id="myNavbar">
 	<center><label for="upload_img">✧・˚・∘upload📸∘・˚・✧</label></center>
