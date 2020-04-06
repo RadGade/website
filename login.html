@@ -473,7 +473,7 @@ var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 function gohome(){
 window.location = "/home.html";
 }
-// window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", (event) => {
   var user = gun.user();
   user.recall({sessionStorage:true},function(uob){
     // if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
@@ -499,11 +499,8 @@ window.location = "/home.html";
     e.preventDefault();
     window.history.back()
   });
-// });
-
+});
  </script>
- <script src="js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
 </body>
 
 </html>
