@@ -330,10 +330,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
       	li =  "<li><img src='"+data.image+"'></li>";
       	$("#gallery").prepend(li);
       })
-      
+
 		$("#imagebtn").click(function() {
+        input = $("textarea").val();
 				const preview = document.getElementById("preview");
-				image = preview.src
+				image = preview.src;
 				gun.get(user.is.alias).set({
 						caption: input,
 						img: image,
