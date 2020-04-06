@@ -335,7 +335,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 		$("#imagebtn").click(function() {
         input = $("textarea").val();
-				image =  document.getElementById("preview").src 
+				image =  document.getElementById("preview").src
 				gun.get(user.is.alias).set({
 						caption: input,
 						img: image,
@@ -346,7 +346,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			$("textarea").hide()
 			$("label").show()
 			$("#upload_img").val("")
-			$("#preview").attr("src","");
 		}); //click image button function
 	}) //gun function
 }) // window dom load function
