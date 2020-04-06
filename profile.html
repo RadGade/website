@@ -15,6 +15,7 @@
 <style>
 label {
 	text-shadow: 0px 1px 3px grey;
+	font-weight: 600;
 }
 
 ul {
@@ -341,9 +342,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
       gun.get(user.is.alias).map().on(function(data, key){
       	image =  "<li><img src='"+data.img+"'>";
-        caption = "<p style='color:black;font-size:21px'>"+data.caption+"</p>"
-        date = "<p style='color:black;font-size:18px'>"+moment(data.date).fromNow()+"</p>"
-        name = "<p style='color:black;font-size:21px'>from *"+data.user+"</p></li>"
+        caption = "<p style='color:black;font-size:21px;font-weight: bolder;'>"+data.caption+"</p>"
+        date = "<p style='color:black;font-size:18px'>"+moment(data.date).fromNow()+"<br>"
+        name = "from *"+data.user+"</p></li>"
         li = image + caption + date + name
       	$("#gallery").prepend(li);
       })
