@@ -13,6 +13,9 @@
 <meta name="description" content="Profile">
 <bold><title>GENDEREV</title></bold>
 <style>
+ul {
+	list-style-type: none;
+}
 button {
 border-color: transparent;
 border-radius: 3px;
@@ -254,7 +257,7 @@ footer{width:100%;}
 	<br><input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center><label for="upload_img">🖼 upload</label></center><br>
 	<center><img style="margin-left:0px;"src="" width="374px" id="preview"></center>
 	<center><textarea id="caption" placeholder="write photo caption here" hidden></textarea></center>
-	<center><button type="button" id="imagebtn" hidden> post 📩</button></center></div>
+	<center><button type="button" id="imagebtn" hidden> post 📩</button></center>
 
   <h3 id="heading-name"></h3>
   <h4 id="user-posts"></h4>
@@ -264,12 +267,8 @@ footer{width:100%;}
   	</ul>
   </div>
   </center>
-
-
+</div>
 </center>
-
-
-
 <footer>
 <br>
 <center>
@@ -282,7 +281,7 @@ footer{width:100%;}
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<!-- <script async src="js/moment.min.js"></script> -->
+<script src="js/moment.min.js"></script>
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
@@ -298,9 +297,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
 
       gun.get(user.is.alias).map().on(function(data, key){
-      	image =  "<li><img src='"+data.img+"'><br>";
-        caption = "<p>"+data.caption+"</p><br>"
-        date = "<p>"+data.date+"</p><br>"
+      	image =  "<li><img src='"+data.img+"'>";
+        caption = "<p>"+data.caption+"</p>"
+        date = "<p style='color:black;font-size:18px'>"+moment(data.date).fromNow()+"</p>"
         name = "<p>from*"+data.user+"</p></li>"
         li = image + caption + date + name
       	$("#gallery").prepend(li);
