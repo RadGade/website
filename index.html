@@ -249,8 +249,13 @@ a.green {
 <footer><div id="pages"><center><a id="medium" href="about.html"> about</a>&nbsp-&nbsp<a class="green" href="login.html"> log in </a>&nbsp-&nbsp<a class="green" href="signup.html">sign up </a></footer></center></div></div>
 <script>
 //adding offline cache service worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-  }
+  // if ('serviceWorker' in navigator) {
+  //   navigator.serviceWorker.register('/service-worker.js')
+  // }
+	if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
 </script>
 </body></html>
