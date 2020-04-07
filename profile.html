@@ -255,8 +255,8 @@ header{width:100%;}
 <center>
 	<br><input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center></center><br>
 	<center><img style="margin-left:0px; width:93%;" src="" id="preview"></center>
-	<center><textarea id="caption" placeholder="write photo caption here" hidden></textarea></center>
-	<center><button type="button" id="imagebtn" hidden> post 📩</button></center>
+	<center><textarea id="caption" placeholder="write photo caption here"></textarea></center>
+	<center><button type="button" id="imagebtn"> post 📩</button></center>
 
   <h3 id="heading-name"></h3>
   <h4 id="user-posts"></h4>
@@ -278,6 +278,8 @@ header{width:100%;}
 <script src="js/webrtc.js"></script>
 <script src="js/humanized_time_span.js"></script>
 <script>
+$("#caption").hide()
+$("#imagebtn").hide()
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
 const user = gun.user();
 // window.addEventListener('DOMContentLoaded', (event) => {
@@ -314,7 +316,7 @@ const user = gun.user();
 		}); //click image button function
 	}) //gun function
 // }) // window dom load function
-	function previewFile() {
+	function previewFile(){
 	const preview = document.getElementById("preview");
 	const file = document.querySelector("input[type=file]").files[0];
 	const reader = new FileReader();
