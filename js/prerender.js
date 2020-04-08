@@ -446,7 +446,7 @@ let t,e;const n=new Set,o=document.createElement("link"),s=o.relList&&o.relList.
 function buttonRender() {
   var x = document.createElement("link");
   x.setAttribute("rel", "prerender");
-  x.setAttribute("href", location.href);
+  x.setAttribute("href", window.location.href);
   document.head.appendChild(x);
 }
 
