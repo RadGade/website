@@ -468,7 +468,6 @@
 <script src="js/webrtc.js"></script>
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
-function gohome(){window.location = "/home.html";}
 window.addEventListener('DOMContentLoaded', (event) => {
   var user = gun.user();
   user.recall({sessionStorage:true},function(uob){
@@ -480,6 +479,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   frm.on('submit',function(e){
     e.stopPropagation();
     e.preventDefault();
+    var user = gun.user();
     user.create($('#alias').val(), $('#pass').val(),function(ack){
       if(ack.err) {
           user.auth($('#alias').val(), $('#pass').val());
@@ -493,7 +493,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $(".loader").show()
   });
   gun.on('auth',function(){
-      gohome();
+      window.location = "/home.html";
   });
   $('#back').on('click', function(e){
     e.preventDefault();
