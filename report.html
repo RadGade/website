@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
 <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
 <link rel="manifest" href="manifest.json">
-<link rel="canonical" href="http://genderev.com/report">
+<link rel="canonical" href="https://genderev.com/report">
 <meta charset="UTF-8"/>
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -259,8 +259,8 @@ h1{
 <button type="button" id="aboutbtn"> about </button>&nbsp<button type="button" id = "helpbtn"> help </button>
 </div></center>
 </footer>
-
 <script src="js/jquery.min.js"></script>
+<script async src="js/prerender.js"></script>
 <script>
 $('form').submit(function(){
 			$('input[type="text"]').val('');
@@ -270,6 +270,16 @@ $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("home.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
+
+function buttonRender() {
+  var x = document.createElement("link");
+  x.setAttribute("rel", "prerender");
+  x.setAttribute("href", "profile.html");
+  document.head.appendChild(x);
+}
+document.getElementById("profile").onmouseover = function() {buttonRender()};
+document.getElementById("profile").ontouchstart = function() {buttonRender()};
+
 </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
 <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
 <link rel="manifest" href="manifest.json">
-<link rel="canonical" href="http://genderev.com/home">
+<link rel="canonical" href="https://genderev.com/home">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -490,6 +490,7 @@ nav > ul > .liprofile > a:hover{
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script src="js/humanized_time_span.js"></script>
+<script async src="js/prerender.js"></script>
 <script>
 var gun = Gun(['https://amark-gun-3.glitch.me/gun'])
 const user = gun.user();
@@ -578,7 +579,14 @@ $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $("#report").click(function() {window.location.href = ("report.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 
-
+function buttonRender() {
+  var x = document.createElement("link");
+  x.setAttribute("rel", "prerender");
+  x.setAttribute("href", "profile.html");
+  document.head.appendChild(x);
+}
+document.getElementById("profile").onmouseover = function() {buttonRender()};
+document.getElementById("profile").ontouchstart = function() {buttonRender()};
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
