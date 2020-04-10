@@ -477,8 +477,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
   var frm = $('#sign');
   frm.on('submit',function(e){
+    console.log("in damned function");
+    console.log($('#alias').val());
     e.stopPropagation();
     e.preventDefault();
+    console.log($('#alias').val());
     var user = gun.user();
     console.log($('#alias').val());
     console.log($('#pass').val());
