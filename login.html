@@ -471,46 +471,58 @@
 <script src="js/webrtc.js"></script>
 
 <script>
-var gun = Gun(['https://superpeer2.unubo.app/gun']);
+var gun = Gun(['https://superpeer2.unubo.app/gun'])
 function gohome(){
-window.location.href = "/home.html";
+window.location = "/home.html";
 }
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener('DOMContentLoaded', (event) => {
   var user = gun.user();
   user.recall({sessionStorage:true},function(uob){
-    // if(confirm("we are already logged in, going home.html after you have okayed, or staying for debug if you cancel")){
-      setTimeout(gohome,1);
+    if(confirm("we are already logged in, going home.html in 5 seconds after you have okayed, or staying for debug if you cancel")){
+      setTimeout(gohome,5000);
+    }
   });
-  var frm = $("#sign");
-  frm.on("submit",function(e){
+  var frm = $('#sign');
+  frm.on('submit',function(e){
     e.stopPropagation();
     e.preventDefault();
-   user.auth($("#alias").val(), $("#pass").val());
-  });
+    console.log('not posting anything thx');
+    user.create($('#alias').val(), $('#pass').val(),function(ack){
+      if(ack.err) {
+        alert(ack.err);
+        if(ack.err == "User already created!") {
+          console.log('well lets try auth if the user was created already');
+          user.auth($('#alias').val(), $('#pass').val(),function(lack){
+            if(lack.err) {
+              alert(lack.err);
+            } else {
+              //noop - the auth handler takes care of the rest
+            }
+          })
+        } else {
+          alert('cannot continue :(')
+        }
+      }
 
-  $("#in").on("click", function(e){
+    });
+
+  });
+  $('#logout').on('click',function(e){
+    e.preventDefault();
+    user.leave();
+  })
+  $('#up').on('click', function(e){
     e.preventDefault();
     frm.submit();
-    $("button").hide()
-    $(".loader").show()
   });
   gun.on('auth',function(){
-      gohome();
-  });
-  $('#back').on('click', function(e){
-    e.preventDefault();
-    window.history.back()
-  });
+
+    if(confirm("gun on auth, go home in 5 seconds or debug")){
+      setTimeout(gohome,5000);
+    }
+  })
 });
 
-// function buttonRender() {
-//   var x = document.createElement("link");
-//   x.setAttribute("rel", "prerender");
-//   x.setAttribute("href", "home.html");
-//   document.head.appendChild(x);
-// }
-document.getElementById("in").onmouseover = function() {buttonRender()};
-document.getElementById("in").ontouchstart = function() {buttonRender()};
  </script>
 <!-- <script async src="js/prerender.js"></script> -->
 </body>
