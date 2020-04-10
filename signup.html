@@ -480,9 +480,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     e.stopPropagation();
     e.preventDefault();
     var user = gun.user();
+    console.log($('#alias').val());
+    console.log($('#pass').val());
+    
     user.create($('#alias').val(), $('#pass').val(),function(ack){
-      if(ack.err) {
+      if(ack.ok) {
           user.auth($('#alias').val(), $('#pass').val());
+        } else if(ack.err){
+          console.log("Error signing in.");
+          console.log(ack.err);
         }
       });
     });
