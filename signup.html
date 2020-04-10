@@ -478,43 +478,45 @@ user.recall({sessionStorage:true},function(uob){
   }
 });
 var frm = $('#sign');
-frm.on('submit',function(){ //e
+frm.on('submit',function(e){
   // e.stopPropagation();
-  // e.preventDefault();
-  // console.log('not posting anything thx');
-  user.create($('#alias').val(), $('#pass').val())//,function(ack){
-  //   if(ack.ok) {
-  //     alert(ack.ok);
-  //     if(ack.ok == "User already created!") {
-  //       console.log('well lets try auth if the user was created already');
-  //       user.auth($('#alias').val(), $('#pass').val(),function(lack){
-  //         if(lack.err) {
-  //           alert(lack.err);
-  //         } else {
-  //           //noop - the auth handler takes care of the rest
-  //         }
-  //       })
-  //     } else {
-  //       alert('cannot continue :(')
-  //     }
-  //   }
-  //
-  // });
+  e.preventDefault();
+  user.create($('#alias').val(), $('#pass').val(),function(ack){
+    console.log('function ack');
+    if(ack.ok) {
+      alert(ack.ok);
+      if(ack.ok == "User already created!") {
+        console.log('well lets try auth if the user was created already');
+        user.auth($('#alias').val(), $('#pass').val())//,function(lack){
+          // if(lack.err) {
+          //   alert(lack.err);
+          // } else {
+          //   //noop - the auth handler takes care of the rest
+          // }
+        })
+      } else {
+        alert('cannot continue :(')
+      }
+    }
+
+  });
+
 });
 $('#logout').on('click',function(e){
   e.preventDefault();
   user.leave();
 })
-$('#up').on('click', function(){ //e
-  // e.preventDefault();
+$('#up').on('click', function(e){
+  e.preventDefault();
   frm.submit();
 });
 gun.on('create',function(){
   user.auth($('#alias').val(), $('#pass').val());
 })
 gun.on('auth',function(){
+
   if(confirm("gun on auth, go home or debug")){
-    setTimeout(gohome,50);
+    setTimeout(gohome,500);
   }
 })
 });
