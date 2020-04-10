@@ -458,6 +458,7 @@
    <center><div class="loader" hidden></div></center>
    <br>
   <button class="ui button ui-button" id="up" type="submit" value="sign up">sign up</button>
+  <button id="in" hidden></button>
 </form>
 <br>
 <br>
@@ -475,23 +476,37 @@ window.addEventListener('DOMContentLoaded', (event) => {
       setTimeout(gohome,5);
     }
   });
-  var frm = $('#sign');
-  frm.on('submit',function(e){
-    e.stopPropagation();
-    e.preventDefault();
-    user.create($('#alias').val(), $('#pass').val(),function(ack){
-      if(ack.ok) {
-        console.log(ack.ok)
-        user.auth($('#alias').val(), $('#pass').val());
-        }
-      });
-    });
-  $('#up').on('click', function(e){
-    e.preventDefault();
-    frm.submit();
-    $("button").hide()
-    $(".loader").show()
-  });
+
+
+$('#up').on('click', function(e){
+  user.create($('#alias').val(), $('#pass').val());
+  $('#in').click();
+});
+
+$('#in').on('click', function(e){
+  e.preventDefault();
+  user.auth($('#alias').val(), $('#pass').val());
+});
+
+
+  //
+  // var frm = $('#sign');
+  // frm.on('submit',function(e){
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  //   user.create($('#alias').val(), $('#pass').val())//,function(ack){
+  //     // if(ack.ok) {
+  //     //   console.log(ack.ok)
+  //       user.auth($('#alias').val(), $('#pass').val());
+  //       // }
+  //     });
+  //   });
+  // $('#up').on('click', function(e){
+  //   e.preventDefault();
+  //   frm.submit();
+  //   $("button").hide()
+  //   $(".loader").show()
+  // });
   gun.on('auth',function(){
       gohome();
   });
