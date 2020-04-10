@@ -466,7 +466,7 @@
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script>
-var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
+var gun = Gun(['https://superpeer2.unubo.app/gun'])
 function gohome(){window.location = "/home.html";}
 window.addEventListener('DOMContentLoaded', (event) => {
   var user = gun.user();
@@ -481,7 +481,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     e.preventDefault();
     user.create($('#alias').val(), $('#pass').val(),function(ack){
       if(ack.ok) {
+        console.log(ack.ok)
           user.auth($('#alias').val(), $('#pass').val());
+          console.log(auth)
+
         }
       });
     });
