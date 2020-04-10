@@ -482,8 +482,10 @@ frm.on('submit',function(e){
   e.stopPropagation();
   e.preventDefault();
   console.log('not posting anything thx');
-  user.create($('#alias').val(), $('#pass').val(),function(ack){
-    if(ack.err) {
+  user.create($('#alias').val(), $('#pass').val();
+
+  user.auth($('#alias').val(), $('#pass').val(),function(ack){
+        if(ack.err) {
       alert(ack.err);
       if(ack.err == "User already created!") {
         console.log('well lets try auth if the user was created already');
