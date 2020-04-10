@@ -488,12 +488,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     e.preventDefault();
     window.history.back()
   });
+
+  user.recall({sessionStorage:true},function(uob){
+    if(confirm("we are already logged in, going home")){
+      setTimeout(gohome,5);
+    }
+  });
+
 })
-user.recall({sessionStorage:true},function(uob){
-  if(confirm("we are already logged in, going home")){
-    setTimeout(gohome,5);
-  }
-});
+
 </script>
 </body>
 </html>
