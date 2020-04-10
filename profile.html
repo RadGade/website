@@ -287,14 +287,19 @@ const user = gun.user();
 			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
 
 			function domData(){
-			var post = document.createElement("div");
+
+			let post = document.createDocumentFragment();
+			// var post = document.createElement("div");
 			gun.get(user.is.alias).map().on(function(data, key){
 			var postTextItem = document.createElement("div");
       postTextItem.innerHTML = "<li><img src='"+data.img+"'>" + "<p class='cap'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
 			$(post).prepend(postTextItem);
 			})
 			$("#gallery").prepend(post);
+
 			}
+
+
 			setTimeout(domData(),0)
 
 		$("#imagebtn").click(function() {

@@ -496,27 +496,25 @@ var gun = Gun(['https://superpeer2.unubo.app/gun'])
 const user = gun.user();
 
 function domData(){
-var status = document.createElement("div");
+var status = document.createDocumentFragment();
 gun.get('statuses').map().on(function(data, key){
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>";
 	var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
-	innerHTML =  postContent + postDate + displayUser;
 	var statusTextItem = document.createElement("div");
-	statusTextItem.innerHTML = innerHTML;
+	statusTextItem.innerHTML = postContent + postDate + displayUser;
 	status.appendChild(statusTextItem);
 })
 $("#content").prepend(status);
 
-var event = document.createElement("div");
+var event = document.createDocumentFragment();
 gun.get('events').map().on(function(data, key){
 	var postContent = "<div class = 'events'><div class='first'>" + data.named + "</div>";
 	var postDate = "<div class='underline1'>when</div><div>" + data.time + "</span><br>";
 	var details = "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>"
 	var displayUser ="<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>"
-	innerHTML =  postContent + postDate + details + displayUser;
 	var eventTextItem = document.createElement("div");
-	eventTextItem.innerHTML = innerHTML;
+	eventTextItem.innerHTML = postContent + postDate + details + displayUser;
 	event.appendChild(eventTextItem);
 })
 $("aside").append(event);
