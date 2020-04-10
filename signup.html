@@ -13,8 +13,10 @@
  <meta http-equiv="x-ua-compatible" content="ie=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta name="keywords" content="Genderev, Gender Revolution, GendeRevolution">
+ <html lang="en">
  <title>Sign In - GENDEREV</title>
  <meta name="description" content="Genderev Log-In">
+<!--  <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/8af87b142932005228ee3949c945c18e87c4d18b.js" as="script"> -->
  <style>
  .loader {
   border: 5px solid #f3f3f3; /* Light grey */
@@ -468,31 +470,11 @@
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 window.addEventListener('DOMContentLoaded', (event) => {
   var user = gun.user();
-  user.recall({sessionStorage:true},function(uob){
-    if(confirm("we are already logged in, going home")){
-      setTimeout(gohome,5);
-    }
-  });
   var frm = $('#sign');
-  frm.on('submit',function(e){
-    console.log("in damned function");
-    console.log($('#alias').val());
-    e.stopPropagation();
-    e.preventDefault();
-    console.log($('#alias').val());
-    var user = gun.user();
-    console.log($('#alias').val());
-    console.log($('#pass').val());
-
-    user.create($('#alias').val(), $('#pass').val(),function(ack){
-      if(ack.ok) {
+  frm.on('submit',function(){
+    user.create($('#alias').val(), $('#pass').val());
           user.auth($('#alias').val(), $('#pass').val());
-        } else if(ack.err){
-          console.log("Error signing in.");
-          console.log(ack.err);
-        }
       });
-    });
   $('#up').on('click', function(e){
     e.preventDefault();
     frm.submit();
@@ -507,6 +489,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     window.history.back()
   });
 })
+user.recall({sessionStorage:true},function(uob){
+  if(confirm("we are already logged in, going home")){
+    setTimeout(gohome,5);
+  }
+});
 </script>
 </body>
 </html>
