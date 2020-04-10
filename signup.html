@@ -487,19 +487,11 @@ frm.on('submit',function(e){
       alert(ack.ok);
       if(ack.ok == "User already created!") {
         console.log('well lets try auth if the user was created already');
-        user.auth($('#alias').val(), $('#pass').val())//,function(lack){
-          // if(lack.err) {
-          //   alert(lack.err);
-          // } else {
-          //   //noop - the auth handler takes care of the rest
-          // }
-        })
-      } else {
-        alert('cannot continue :(')
+        user.auth($('#alias').val(), $('#pass').val())
       }
     }
-
   });
+}) /
 
 });
 $('#logout').on('click',function(e){
