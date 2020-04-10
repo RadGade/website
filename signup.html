@@ -466,7 +466,6 @@
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<script async src="js/prerender.js"></script>
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -501,15 +500,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     window.history.back()
   });
 })
-function buttonRender() {
-  var x = document.createElement("link");
-  x.setAttribute("rel", "prerender");
-  x.setAttribute("href", "home.html");
-  document.head.appendChild(x);
-}
-document.getElementById("up").onmouseover = function() {buttonRender()};
-document.getElementById("up").ontouchstart = function() {buttonRender()};
-
 </script>
 </body>
 </html>
