@@ -477,16 +477,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 
+  $('#up').on('click', function(e){
+    user.create($('#alias').val(), $('#pass').val());
+  });
 
-$('#up').on('click', function(e){
-  user.create($('#alias').val(), $('#pass').val());
-  $('#in').click();
-});
-
-$('#in').on('click', function(e){
-  e.preventDefault();
-  user.auth($('#alias').val(), $('#pass').val());
-});
+  $('#sign').on('submit', function(e){
+    e.preventDefault();
+    user.auth($('#alias').val(), $('#pass').val());
+  });
 
 
   //
