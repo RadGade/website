@@ -238,6 +238,31 @@ a#medium{
 a.green {
 	color: mediumblue;
 }
+a#signup-button.signup.btn, a#login-button.btn{
+	border-color: transparent;
+	border-style: solid;
+	box-shadow: 0px 0px 4px 4px black;
+	color: black;
+	text-shadow: none;
+	text-shadow: 0px -1px 0px darkgrey;
+	text-decoration: none;
+}
+
+a#signup-button.signup.btn:hover, a#login-button.btn:hover{
+	background-image: none;
+	box-shadow: 0px 0px 10px 2px black;
+	border: 1px solid black;
+}
+
+a#signup-button.signup.btn:active, a#login-button.btn:active{
+background-image: none;
+-moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-webkit-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+}
+
 </style>
 </head>
 <body>
@@ -245,9 +270,9 @@ a.green {
 <div id="sidebar">
 <h1 class ="title"><a href="/">GENDEREV</a></h1>
 <div class="buttons">
-<form action="signup.html"><button type="submit" class="signup btn" id="signup-button">sign up</button></form>
+<a  href="signup.html" class="signup btn" id="signup-button">sign up</a>
 &nbsp; &nbsp;
-<form action="login.html"><button type="submit" class ="btn" id="login-button">log in</button></form></div>
+<a href="login.html" class ="btn" id="login-button">log in</a></div>
 <div id="content">
 <div>you know what? We need a revolution.<br><br><span class="black">a few seconds ago</span><br><hr><br></div>
 <div>I think we need the world to change.<br><br><span class="black">a few seconds ago</span><br><hr></div>
