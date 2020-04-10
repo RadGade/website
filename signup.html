@@ -482,6 +482,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     user.create($('#alias').val(), $('#pass').val(),function(ack){
       if(ack.err) {
         console.log(ack.err)
+        user.auth($('#alias').val(), $('#pass').val());
         }
       });
     });
@@ -490,9 +491,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     frm.submit();
     $("button").hide()
     $(".loader").show()
-  });
-  gun.on('create',function(){
-    user.auth($('#alias').val(), $('#pass').val());
   });
   gun.on('auth',function(){
       gohome();
