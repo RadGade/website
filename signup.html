@@ -471,9 +471,13 @@ var gun = Gun(['https://superpeer2.unubo.app/gun']);
 window.addEventListener('DOMContentLoaded', (event) => {
   var user = gun.user();
 
+  function gohome(){
+    window.location.href = "/home.html";
+  }
+
   $('#back').on('click', function(e){
     e.preventDefault();
-    window.history.back()
+    window.history.back();
   });
 
   user.recall({sessionStorage:true},function(uob){
@@ -485,14 +489,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   $('#up').on('click', function(){
     user.create($('#alias').val(), $('#pass').val());
     user.auth($('#alias').val(), $('#pass').val());
-    $("button").hide()
-    $(".loader").show()
+    $("button").hide();
+    $(".loader").show();
   });
   gun.on('auth',function(){
-      window.location.href = "/home.html";
+      setTimeout(gohome, 10000);
   });
 
-})
+});
 
 </script>
 </body>
