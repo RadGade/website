@@ -480,11 +480,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     e.stopPropagation();
     e.preventDefault();
     user.create($('#alias').val(), $('#pass').val(),function(ack){
-      if(ack.ok) {
-        console.log(ack.ok)
-          user.auth($('#alias').val(), $('#pass').val());
-          console.log(auth)
-
+      if(ack.err) {
+        console.log(ack.err)
         }
       });
     });
@@ -493,6 +490,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     frm.submit();
     $("button").hide()
     $(".loader").show()
+  });
+  gun.on('create',function(){
+    user.auth($('#alias').val(), $('#pass').val());
   });
   gun.on('auth',function(){
       gohome();
