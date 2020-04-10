@@ -479,7 +479,7 @@ user.recall({sessionStorage:true},function(uob){
 });
 var frm = $('#sign');
 frm.on('submit',function(e){
-  // e.stopPropagation();
+  e.stopPropagation();
   e.preventDefault();
   console.log('not posting anything thx');
   user.create($('#alias').val(), $('#pass').val(),function(ack){
