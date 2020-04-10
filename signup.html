@@ -6,7 +6,7 @@
  <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico/apple-icon-180x180.png">
  <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
  <link rel="manifest" href="manifest.json">
- <link rel="canonical" href="https://genderev.com/signup">
+ <link rel="canonical" href="http://genderev.com/signup">
  <meta name="msapplication-TileColor" content="#ffffff">
  <meta name="msapplication-TileImage" content="favicon.ico/ms-icon-144x144.png">
  <meta name="theme-color" content="#ffffff">
@@ -466,51 +466,40 @@
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script>
-var gun = Gun(['https://superpeer2.unubo.app/gun'])
-function gohome(){
-window.location = "/home.html";
-}
+var gun = Gun(['https://amark-gun-3.glitch.me/gun']);
+function gohome(){window.location = "/home.html";}
 window.addEventListener('DOMContentLoaded', (event) => {
-var user = gun.user();
-user.recall({sessionStorage:true},function(uob){
-  if(confirm("we are already logged in, going home.html in 5 seconds after you have okayed, or staying for debug if you cancel")){
-    setTimeout(gohome,5000);
-  }
-});
-var frm = $('#sign');
-frm.on('submit',function(e){
-  // e.stopPropagation();
-  e.preventDefault();
-  user.create($('#alias').val(), $('#pass').val(),function(ack){
-    console.log('function ack');
-    if(ack.ok) {
-      alert(ack.ok);
-      if(ack.ok == "User already created!") {
-        console.log('well lets try auth if the user was created already');
-        user.auth($('#alias').val(), $('#pass').val())
-      }
+  var user = gun.user();
+  user.recall({sessionStorage:true},function(uob){
+    if(confirm("we are already logged in, going home")){
+      setTimeout(gohome,5);
     }
   });
+  var frm = $('#sign');
+  frm.on('submit',function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    user.create($('#alias').val(), $('#pass').val(),function(ack){
+      if(ack.ok) {
+          user.auth($('#alias').val(), $('#pass').val());
+        }
+      });
+    });
+  $('#up').on('click', function(e){
+    e.preventDefault();
+    frm.submit();
+    $("button").hide()
+    $(".loader").show()
+  });
+  gun.on('auth',function(){
+      gohome();
+  });
+  $('#back').on('click', function(e){
+    e.preventDefault();
+    window.history.back()
+  });
 })
-});
-$('#logout').on('click',function(e){
-  e.preventDefault();
-  user.leave();
-})
-$('#up').on('click', function(e){
-  e.preventDefault();
-  frm.submit();
-});
-gun.on('create',function(){
-  user.auth($('#alias').val(), $('#pass').val());
-})
-gun.on('auth',function(){
 
-  if(confirm("gun on auth, go home or debug")){
-    setTimeout(gohome,500);
-  }
-})
-});
 </script>
 </body>
 </html>
