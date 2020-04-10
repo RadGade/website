@@ -480,8 +480,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     e.stopPropagation();
     e.preventDefault();
     user.create($('#alias').val(), $('#pass').val(),function(ack){
-      if(ack.err) {
-        console.log(ack.err)
+      if(ack.ok) {
+        console.log(ack.ok)
         user.auth($('#alias').val(), $('#pass').val());
         }
       });
