@@ -1,13 +1,21 @@
-const PRECACHE = 'precache-v6';
+const PRECACHE = 'precache-v7';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
-  '/paint_palette.png',
+  // '/paint_palette.png',
   'index.html',
   './', // Alias for index.html
   '/about.html',
   '/favicon.ico/android-icon-192x192.png',
-  '/help.html'
+  '/help.html',
+  '/gun.js',
+  '/home.js',
+  '/humanized_time_span.js',
+  '/jquery.min.js',
+  '/sea.js',
+  '/webrtc.js',
+  '/profile.html'
+
 ];
 
 // The install handler takes care of precaching the resources we always need.
@@ -36,24 +44,24 @@ self.addEventListener('activate', event => {
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
-self.addEventListener('fetch', event => {
-  // Skip cross-origin requests, like those for Google Analytics.
-  if (event.request.url.startsWith(self.location.origin)) {
-    event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-
-        return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
-          });
-        });
-      })
-    );
-  }
-});
+// self.addEventListener('fetch', event => {
+//   // Skip cross-origin requests, like those for Google Analytics.
+//   if (event.request.url.startsWith(self.location.origin)) {
+//     event.respondWith(
+//       caches.match(event.request).then(cachedResponse => {
+//         if (cachedResponse) {
+//           return cachedResponse;
+//         }
+//
+//         return caches.open(RUNTIME).then(cache => {
+//           return fetch(event.request).then(response => {
+//             // Put a copy of the response in the runtime cache.
+//             return cache.put(event.request, response.clone()).then(() => {
+//               return response;
+//             });
+//           });
+//         });
+//       })
+//     );
+//   }
+// });
