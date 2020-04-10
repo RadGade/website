@@ -490,7 +490,7 @@ nav > ul > .liprofile > a:hover{
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script src="js/humanized_time_span.js"></script>
-<script async src="js/prerender.js"></script>
+<!-- <script async src="js/prerender.js"></script> -->
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun'])
 const user = gun.user();
@@ -579,14 +579,14 @@ $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $("#report").click(function() {window.location.href = ("report.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 
-function buttonRender() {
-  var x = document.createElement("link");
-  x.setAttribute("rel", "prerender");
-  x.setAttribute("href", "profile.html");
-  document.head.appendChild(x);
-}
-document.getElementById("profile").onmouseover = function() {buttonRender()};
-document.getElementById("profile").ontouchstart = function() {buttonRender()};
+// function buttonRender() {
+//   var x = document.createElement("link");
+//   x.setAttribute("rel", "prerender");
+//   x.setAttribute("href", "profile.html");
+//   document.head.appendChild(x);
+// }
+// document.getElementById("profile").onmouseover = function() {buttonRender()};
+// document.getElementById("profile").ontouchstart = function() {buttonRender()};
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});

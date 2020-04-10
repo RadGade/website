@@ -260,7 +260,7 @@ h1{
 </div></center>
 </footer>
 <script src="js/jquery.min.js"></script>
-<script async src="js/prerender.js"></script>
+<!-- <script async src="js/prerender.js"></script> -->
 <script>
 $('form').submit(function(){
 			$('input[type="text"]').val('');
@@ -271,14 +271,14 @@ $("#profile").click(function() {window.location.href =("home.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 
-function buttonRender() {
-  var x = document.createElement("link");
-  x.setAttribute("rel", "prerender");
-  x.setAttribute("href", "profile.html");
-  document.head.appendChild(x);
-}
-document.getElementById("profile").onmouseover = function() {buttonRender()};
-document.getElementById("profile").ontouchstart = function() {buttonRender()};
+// function buttonRender() {
+//   var x = document.createElement("link");
+//   x.setAttribute("rel", "prerender");
+//   x.setAttribute("href", "profile.html");
+//   document.head.appendChild(x);
+// }
+// document.getElementById("profile").onmouseover = function() {buttonRender()};
+// document.getElementById("profile").ontouchstart = function() {buttonRender()};
 
 </script>
 </body>

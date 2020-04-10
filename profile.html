@@ -336,15 +336,6 @@ $("#helpbtn").click(function() {window.location.href =("help.html");});
 $( "#myNavbar" ).click(function() {
   $( "#upload_img" ).click();
 });
-
-function buttonRender() {
-  var x = document.createElement("link");
-  x.setAttribute("rel", "prerender");
-  x.setAttribute("href", "profile.html");
-  document.head.appendChild(x);
-}
-document.getElementById("profile").onmouseover = function() {buttonRender()};
-document.getElementById("profile").ontouchstart = function() {buttonRender()};
 </script>
 </body>
 </html>

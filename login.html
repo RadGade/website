@@ -503,15 +503,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-function buttonRender() {
-  var x = document.createElement("link");
-  x.setAttribute("rel", "prerender");
-  x.setAttribute("href", "home.html");
-  document.head.appendChild(x);
-}
+// function buttonRender() {
+//   var x = document.createElement("link");
+//   x.setAttribute("rel", "prerender");
+//   x.setAttribute("href", "home.html");
+//   document.head.appendChild(x);
+// }
 document.getElementById("in").onmouseover = function() {buttonRender()};
 document.getElementById("in").ontouchstart = function() {buttonRender()};
  </script>
-<script async src="js/prerender.js"></script>
+<!-- <script async src="js/prerender.js"></script> -->
 </body>
 </html>
