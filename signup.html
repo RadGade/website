@@ -13,10 +13,8 @@
  <meta http-equiv="x-ua-compatible" content="ie=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta name="keywords" content="Genderev, Gender Revolution, GendeRevolution">
- <html lang="en">
  <title>Sign In - GENDEREV</title>
  <meta name="description" content="Genderev Log-In">
-<!--  <link rel="prefetch" href="https://d33wubrfki0l68.cloudfront.net/bundles/8af87b142932005228ee3949c945c18e87c4d18b.js" as="script"> -->
  <style>
  .loader {
   border: 5px solid #f3f3f3; /* Light grey */
@@ -485,7 +483,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     var user = gun.user();
     console.log($('#alias').val());
     console.log($('#pass').val());
-    
+
     user.create($('#alias').val(), $('#pass').val(),function(ack){
       if(ack.ok) {
           user.auth($('#alias').val(), $('#pass').val());
