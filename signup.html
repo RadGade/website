@@ -478,10 +478,7 @@ user.recall({sessionStorage:true},function(uob){
   }
 });
 var frm = $('#sign');
-frm.on('submit',function(e){
-  e.stopPropagation();
-  e.preventDefault();
-  console.log('not posting anything thx');
+frm.on('submit',function(){
   user.create($('#alias').val(), $('#pass').val(),function(ack){
     if(ack.err) {
       alert(ack.err);
@@ -502,12 +499,7 @@ frm.on('submit',function(e){
   });
 
 });
-$('#logout').on('click',function(e){
-  e.preventDefault();
-  user.leave();
-})
-$('#up').on('click', function(e){
-  e.preventDefault();
+$('#up').on('click', function(){
   frm.submit();
 });
 gun.on('auth',function(){
