@@ -514,9 +514,8 @@ gun.on('create',function(){
   user.auth($('#alias').val(), $('#pass').val());
 })
 gun.on('auth',function(){
-
   if(confirm("gun on auth, go home or debug")){
-    setTimeout(gohome,500);
+    setTimeout(gohome,50);
   }
 })
 });
