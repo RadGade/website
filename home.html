@@ -15,18 +15,35 @@
 <meta name="description" content="Homepage">
 <bold><title>GENDEREV</title></bold>
 <style>
+:root{
+  --main-font:Arial;
+	--dark-blue: darkblue;
+	--black: black;
+	--blue: blue;
+	--grey: grey;
+	--dim-grey: dimgrey;
+	--transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+	--base-size: 25px;
+	--zero: 0px;
+	--two: 2px;
+	--trans: transparent;
+	--twenty-one: 21px;
+	--ten: 10px;
+	--three: 3px;
+  --one: 1px;
+}
 div.events{
-	padding-left: 10px;
+	padding-left: var(--ten);
 	margin-bottom: 40px;
-	margin-right: 1px;
+	margin-right: var(--one);
 	max-width: 240px;
 	font-size: 20px;
-	font-family: arial;
-	padding-bottom: 10px;
-	padding-top: 3px;
-	border-radius: 3px;
-	box-shadow: inset 2px 2px 5px lightgrey;
-	letter-spacing: 0px;
+	font-family: var(--main-font);
+	padding-bottom: var(--ten);
+	padding-top: var(--three);
+	border-radius: var(--three);
+	box-shadow: inset var(--two) var(--two) 5px lightgrey;
+	letter-spacing: var(--zero);
 }
 .first{
 	text-transform: uppercase;
@@ -35,25 +52,25 @@ div.events{
 .underline1{
 	text-decoration: underline;
 	margin-top: 8px;
-	font-size: 25px;
+	font-size: var(--base-size);
 	font-weight: 200;
-	letter-spacing: 0px;
+	letter-spacing: var(--zero);
 	font-style: italic;
 }
 .newevent{
-	margin-top: 10px;
+	margin-top: var(--ten);
 	border:none;
-	box-shadow: 0px 0px 10px grey;
-	color: darkblue;
+	box-shadow: 0px 0px var(--ten) var(--grey);
+	color: var(--dark-blue);
 	font-size: 20px;
 	margin-bottom: 30px;
 }
 .newevent:hover{
-	box-shadow: 0px 0px 16px grey;
+	box-shadow: 0px 0px 16px var(--grey);
 	border: none;
 }
 .newevent:active{
-	box-shadow: inset 1px 1px 3px 1px darkblue;
+	box-shadow: inset var(--one) var(--one) var(--three) var(--one) var(--dark-blue);
 }
 a:hover{
 	background-size: 100% 15%;
@@ -81,11 +98,11 @@ a:hover{
 	text-decoration: none;
 }
 button:active{
--moz-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
--webkit-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
--o-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
--ms-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
-transform: scale(1.02) translate(0px, 2px) skew(1deg, 0deg);
+-moz-transform: var(--transform);
+-webkit-transform: var(--transform);
+-o-transform: var(--transform);
+-ms-transform: var(--transform);
+transform: var(--transform);
 }
 #postbtn:disabled {
 opacity: 0.6;
@@ -95,7 +112,7 @@ cursor: not-allowed;
   animation: mymove .8s;
 }
   @keyframes mymove {
-    from {color: black;}
+    from {color: var(--black);}
     to {color: red;}
   }
 hr {
@@ -107,59 +124,59 @@ color: #333;
 text-align: center;
 }
 button {
-border-color: transparent;
-border-radius: 3px;
+border-color: var(--trans);
+border-radius: var(--three);
 border-style: solid;
-border-width: 1px;
+border-width: var(--one);
 box-sizing: unset;
-background-color: transparent;
-margin-top: 0px;
-font-family: Arial;
+background-color: var(--trans);
+margin-top: var(--zero);
+font-family: var(--main-font);
 font-size: 18px;
-box-shadow: 0px 0px 4px 4px black;
-color: black;
+box-shadow: 0px 0px 4px 4px var(--black);
+color: var(--black);
 text-shadow: none;
 transition: 0.1s;
 }
 textarea {
-margin-top: 0px;
-margin-bottom: 10px;
+margin-top: var(--zero);
+margin-bottom: var(--ten);
 height: 150px;
-font-family:Arial;
-font-size: 25px;
-border-radius: 2px;
-padding: 3px;
+font-family:var(--main-font);
+font-size: var(--base-size);
+border-radius: var(--two);
+padding: var(--three);
 width: 400px;
-margin-bottom: 10px;
+margin-bottom: var(--ten);
 transition: 0.1s;
 }
 textarea:hover {
-box-shadow: 0px 0px 5px black;
-border-radius: 3px;
+box-shadow: 0px 0px 5px var(--black);
+border-radius: var(--three);
 }
 .event:hover{
-	box-shadow: 0px 0px 5px black;
-	border-radius: 3px;
+	box-shadow: 0px 0px 5px var(--black);
+	border-radius: var(--three);
 }
 .event{
-	margin-top: 0px;
-	margin-bottom: 10px;
-	font-family:Arial;
+	margin-top: var(--zero);
+	margin-bottom: var(--ten);
+	font-family:var(--main-font);
 	font-size: 19px;
 	border-radius: 5px;
-	margin-bottom: 10px;
+	margin-bottom: var(--ten);
 	transition: 0.1s;
 	width: 200px;
 }
 label{
-	margin-bottom: 0px;
+	margin-bottom: var(--zero);
 	text-align: left;
 }
 #h1label{
 	text-align: center;
 }
 ::placeholder {
-color: dimgrey;
+color: var(--dim-grey);
 }
 .reply{
 display:none;
@@ -176,49 +193,49 @@ color: #000AFF;
 line-height: 1.375;
 font-weight: 400;
 font-size: 32px;
-		margin-bottom: 0px;
-		color:  black;
+		margin-bottom: var(--zero);
+		color:  var(--black);
 		text-shadow: 0px -1px 0px darkgrey;
-		font-family: Arial;
+		font-family: var(--main-font);
 }
 #question, h1 {
 color: #000AFF;
-font-family: 'Arial', sans-serif;
-font-size: 25px;
+font-family: 'var(--main-font)', sans-serif;
+font-size: var(--base-size);
 line-height: 1.25;
 font-weight: 400;
-text-shadow: 0px 0px 1px darkblue;
-margin-bottom: 10px;
+text-shadow: 0px 0px var(--one) var(--dark-blue);
+margin-bottom: var(--ten);
 }
 #profile {
 margin-right: 210px;
-color: darkblue;
-box-shadow: 0px 0px 10px 2px darkblue;
+color: var(--dark-blue);
+box-shadow: 0px 0px var(--ten) var(--two) var(--dark-blue);
 }
 #profile:hover{
-box-shadow: 0px 0px 10px 2px blue;
-border: 1px solid blue;
-color: blue;
+box-shadow: 0px 0px var(--ten) var(--two) blue;
+border: var(--one) solid var(--blue);
+color: var(--blue);
 }
 button:hover {
-box-shadow: 0px 0px 10px 2px black;
-border: 1px solid black;
+box-shadow: 0px 0px var(--ten) var(--two) var(--black);
+border: var(--one) solid var(--black);
 }
 body {
 text-shadow: 0px 0px 1.2px #b68989;
-font-size: 25px;
-color: darkblue;
+font-size: var(--base-size);
+color: var(--dark-blue);
 background-size: cover;
 background-attachment: fixed;
-font-family: arial;
+font-family: var(--main-font);
 }
 
 a:link, a:visited {
-text-shadow: 0px 0px 1px black;
-color: blue;
+text-shadow: 0px 0px var(--one) var(--black);
+color: var(--blue);
 }
 a:active {
-text-shadow: 0px 2px 2px black;
+text-shadow: 0px var(--two) var(--two) var(--black);
 }
 #hidden{
 width: 400px;
@@ -226,8 +243,8 @@ word-wrap:break-word;
 background: none;
 }
 #entries {
-box-shadow:0px 0px 9px 2px black;
-border-radius:1px;
+box-shadow:0px 0px 9px var(--two) var(--black);
+border-radius:var(--one);
 padding-top: 15px;
 padding-bottom: 15px;
 width: 400px;
@@ -236,26 +253,26 @@ background: none;
 transition: 0.1s;
 }
 #entries:hover {
-box-shadow:0px 0px 20px 2px  darkblue;
+box-shadow:var(--zero) var(--zero) 20px var(--two)  var(--dark-blue);
 }
 #postbtn {
 border-color: red;
 border-radius: 12px;
 border-style: groove;
-border-width: 3px;
+border-width: var(--three);
 box-sizing: unset;
-background-color: transparent;
-margin-top: 0px;
-font-family: Arial;
-font-size: 25px;
-box-shadow: 0px 0px 4px 4px pink;
+background-color: var(--trans);
+margin-top: var(--zero);
+font-family: var(--main-font);
+font-size: var(--base-size);
+box-shadow: var(--zero) var(--zero) 4px 4px pink;
 color: #800000;
 text-shadow: none;
 }
 #postbtn:hover {
-box-shadow: 0px 0px 20px red;
-border: 3px groove red;
-text-shadow: 1px 1px 1px  red;
+box-shadow: var(--zero) var(--zero) 20px red;
+border: var(--three) groove red;
+text-shadow: var(--one) var(--one) var(--one)  red;
 }
 #content{
 text-align: left;
@@ -263,20 +280,16 @@ text-align: left;
 #sidebar {
 background:#ffffff;
 padding:15px;
-border-radius:2px;
+border-radius:var(--two);
 margin:20px auto 40px auto;
 word-wrap:break-word;
-margin-top: 2px;
+margin-top: var(--two);
 width: 400px;
 }
-
-/* Container for flexboxes */
 .wrapper {
   display: -webkit-flex;
   display: flex;
 }
-
-/* Style the navigation menu */
 nav {
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -285,122 +298,112 @@ nav {
 }
 
 li {
-	border-right: 1px dashed black;
-	padding-right: 10px;
+	border-right: var(--one) dashed var(--black);
+	padding-right: var(--ten);
 	margin-right: 20px;
-	text-shadow: 0px 0px 1px black;
+	text-shadow: var(--zero) var(--zero) var(--one) var(--black);
 
 }
-
 .underline{
-	/* border-bottom: double 2px darkblue; */
-	/* text-shadow: -1px -1px 0.3px black; */
-	font-size: 25px;
-	color: darkblue;
-	text-shadow: -1px -1px 1px #eae9e9, 1px 1px 1px #000;
+	font-size: var(--base-size);
+	color: var(--dark-blue);
+	text-shadow: -1px -1px var(--one) #eae9e9, var(--one) var(--one) var(--one) #000;
 
 }
-/* Style the content */
 section {
   -webkit-flex: 1.5;
   -ms-flex: 1.5;
   flex: 1.5;
 }
-
 ::placeholder{
 	color: #484646;
 }
-
 aside {
 	padding-top: 125px;
 	margin-left: 20px;
 	width:300px;
 	text-align: left;
-	letter-spacing: 1px;
-	text-shadow: 0px 0px .9px black;
-	font-size: 21px;
+	letter-spacing: var(--one);
+	text-shadow: var(--zero) var(--zero) .9px var(--black);
+	font-size: var(--twenty-one);
 	-webkit-flex: 1.2;
   -ms-flex: 1.2;
   flex: 1.2;
-	color: black;
+	color: var(--black);
 }
-
-
 ul{
 	padding-top: 105px;
 	list-style-type: none;
 }
 #sidebar img {
-border-radius:0px;
+border-radius:var(--zero);
 width: 100%;
 height: auto;
--webkit-box-shadow: -1px 1px 9px 0px #000000;
--moz-box-shadow: -1px 1px 9px 0px #000000;
-box-shadow: -1px 1px 9px 0px #000000;
+-webkit-box-shadow: -1px var(--one) 9px var(--zero) #000000;
+-moz-box-shadow: -1px var(--one) 9px var(--zero) #000000;
+box-shadow: -1px var(--one) 9px var(--zero) #000000;
 }
 #sidebar .title {
 font-size: 32px;
 letter-spacing: 0rem;
-font-family: Arial;
-margin-bottom: 0px;
-color: black;
-text-shadow: 0px -1px 0px darkgrey;
+font-family: var(--main-font);
+margin-bottom: var(--zero);
+color: var(--black);
+text-shadow: var(--zero) -1px var(--zero) darkgrey;
 font-style: italic;
 margin-bottom: 4px;
 }
-#sidebar .desc {color: darkblue; font-size: 22px;}
-#aboutbtn{margin-right: 10px;}
+#sidebar .desc {color: var(--dark-blue); font-size: 22px;}
+#aboutbtn{margin-right: var(--ten);}
 .cmt{
-font-size: 25px;
+font-size: var(--base-size);
 background: none;
-color: blue;
+color: var(--blue);
 border: 1.4px dashed;
 text-decoration: underline;
-padding-bottom: 2px;
+padding-bottom: var(--two);
 margin-top:9px;
-margin-bottom: 2px;
-box-shadow: 0px 1px 4px 3px grey;
+margin-bottom: var(--two);
+box-shadow: var(--zero) var(--one) 4px var(--three) var(--grey);
 }
 .cmt:hover{
 border: 1.4px dashed;
-box-shadow: 4px 5px 9px dimgrey;
+box-shadow: 4px 5px 9px var(--dim-grey);
 }
 .reply{
-margin-left: 10px;
+margin-left: var(--ten);
 margin-top: 8px;
 }
 nav > ul > li > a:link{
-text-decoration: underline darkblue;
-letter-spacing: 1px;
-color: black;
+text-decoration: underline var(--dark-blue);
+letter-spacing: var(--one);
+color: var(--black);
 }
  nav > ul > li > a:hover {
 	background-size: 0% 0%;
-	text-decoration: underline dashed darkblue;
-	text-shadow: -1px 0px 0.8px black;
+	text-decoration: underline dashed var(--dark-blue);
+	text-shadow: -1px var(--zero) 0.8px var(--black);
 }
 nav > ul > li > a:active {
-	text-shadow: 0px 2px 2px black;
+	text-shadow: var(--zero) var(--two) var(--two) var(--black);
 }
 .cmt1{
-font-size: 25px;
+font-size: var(--base-size);
 background: none;
-color: blue;
+color: var(--blue);
 border: 1.4px dashed;
 text-decoration: underline;
-padding-bottom: 2px;
-margin-top:0px;
+padding-bottom: var(--two);
+margin-top:var(--zero);
 margin-left: 4px;
-margin-bottom: 2px;
-box-shadow: 0px 1px 4px 3px grey;
+margin-bottom: var(--two);
+box-shadow: var(--zero) var(--one) 4px var(--three) var(--grey);
 }
 .cmt1:hover{
 border: 1.4px dashed;
-box-shadow: 4px 5px 9px dimgrey;
+box-shadow: 4px 5px 9px var(--dim-grey);
 }
 @media print{body{max-width:none;}}
-
-
 @media screen and (min-width: 830px) {
 	header, footer {
 		display: none;
@@ -413,10 +416,10 @@ box-shadow: 4px 5px 9px dimgrey;
 }
 @media screen and (max-width: 500px) {
 #profile {margin-right: 3em;}
-#question{font-size: 21px;}
-h1{font-size: 21px;}
-#postbtn{font-size: 21px;}
-::placeholder{font-size: 21px;}
+#question{font-size: var(--twenty-one);}
+h1{font-size: var(--twenty-one);}
+#postbtn{font-size: var(--twenty-one);}
+::placeholder{font-size: var(--twenty-one);}
 button {text-shadow: none;}
 textarea{width: 93%;}
 header{width:100%;}
@@ -429,27 +432,22 @@ nav > ul > .liprofile > a:link{
 	color:mediumblue;
 }
 nav > ul > .liprofile > a:hover{
-	color:blue;
+	color:var(--blue);
 }
 #helpbtn {
-	margin-right: 10px;
+	margin-right: var(--ten);
 }
-
 </style>
 </head>
 <body>
-
 <div class="wrapper">
-
 <nav><ul>
 <li class="liprofile"><a href="profile.html">view profile</a></li><br>
 <li><a href="about.html">about</a></li><br>
 <li><a href="help.html">help</a></li><br>
 <li><a href="report.html">make report</a></li><br>
 <li><a href="index.html">log out</a></li><br>
-
 </ul></nav>
-
 <section>
 	<header>
 	<div class="buttons"><button type="button" id ="profile">view profile </button>  &nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" id="login-button">log out</button></div>
@@ -476,13 +474,11 @@ nav > ul > .liprofile > a:hover{
 </div></center>
 </footer>
 </section>
-
 <aside>
 <span class="underline">events</span>
 <br><br><form><label for="named">name of event:</label><br><input id="named" class="event"></input><br><label for="time">time:</label><br><input id="time" class="event" ></input><br><label for="place">place:</label><br><input id="place" class="event" ></input><br>
 <label for="details">details:</label><br><input id="details" class="event" ></input><br><button class="newevent">new event</button></form>
 </aside>
-
 </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/home.js"></script>
@@ -497,23 +493,15 @@ var t0 = performance.now();
 function updateScreen(time) {
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
-	var postContent = "<span>" + data.title + "</span><br>";
-	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>";
-	var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	var statusTextItem = document.createElement("div");
-	statusTextItem.innerHTML = postContent + postDate + displayUser;
+	statusTextItem.innerHTML = "<span>" + data.title + "</span><br>" + "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>" + "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	$(status).prepend(statusTextItem);
 })
 $("#content").prepend(status);
-
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
-	var postContent = "<div class = 'events'><div class='first'>" + data.named + "</div>";
-	var postDate = "<div class='underline1'>when</div><div>" + data.time + "</span><br>";
-	var details = "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>"
-	var displayUser ="<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>"
 	var eventTextItem = document.createElement("div");
-	eventTextItem.innerHTML = postContent + postDate + details + displayUser;
+	eventTextItem.innerHTML = "<div class = 'events'><div class='first'>" + data.named + "</div>" + "<div class='underline1'>when</div><div>" + data.time + "</span><br>" + "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>" + "<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>";
 	event.appendChild(eventTextItem);
 })
 $("aside").append(event);
@@ -534,7 +522,6 @@ user.recall({sessionStorage:true},function(uob){
 	})
 	$(postbtn).click(function() {
 			var input = $("#ityped").val();
-
 				gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
@@ -547,7 +534,6 @@ user.recall({sessionStorage:true},function(uob){
 		$(postbtn).attr('disabled','disabled');
 		$("#hidden").show()
 	});
-
 	$(".newevent").click(function() {
 			var named = $("#named").val();
 			var time = $("#time").val();
@@ -569,7 +555,6 @@ user.recall({sessionStorage:true},function(uob){
 		$("#place").val("");
 		$("#details").val("");
 	});
-
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if(!user.is){window.location.href =("signup.html"); }});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
@@ -578,16 +563,17 @@ $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $("#report").click(function() {window.location.href = ("report.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('/service-worker.js')
 }
+// var postContent = "<span>" + data.title + "</span><br>";
+// var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>";
+// var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
 <script src="js/prerender.js"></script>
-
 <!-- https://reddit.com/submit?url={url}&title={title} -->
 </body>
 </html>
