@@ -282,28 +282,31 @@ $("#caption").hide()
 $("#imagebtn").hide()
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
+var this.user = user.is.alias
 // window.addEventListener('DOMContentLoaded', (event) => {
 	user.recall({sessionStorage:true},function(uob){
-			document.getElementById("heading-name").innerHTML="*" + user.is.alias;
+			document.getElementById("heading-name").innerHTML="*" + this.user;
 
-			function domData(){
+function updateScreen(time) {
 			var post = document.createElement("div");
-			gun.get(user.is.alias).map().on(function(data, key){
+			gun.get(this.user).map().on(function(data, key){
 			var postTextItem = document.createElement("div");
       postTextItem.innerHTML = "<li><img src='"+data.img+"'>" + "<p class='cap'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
 			$(post).prepend(postTextItem);
 			})
 			$("#gallery").prepend(post);
-			}
-			setTimeout(domData(),0)
+		}
+
+requestAnimationFrame(updateScreen);
+
 
 		$("#imagebtn").click(function() {
         input = $("textarea").val();
 				image =  document.getElementById("preview").src
-				gun.get(user.is.alias).set({
+				gun.get(this.user).set({
 						caption: input,
 						img: image,
-						user: user.is.alias,
+						user: this.user,
 						date: Date(),
 			})
       console.log(image);
