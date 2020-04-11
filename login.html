@@ -88,7 +88,6 @@
    margin: 0em;
    outline: none;
    -webkit-appearance: none;
-   tap-highlight-color: rgba(255, 255, 255, 0);
    line-height: 1.21428571em;
    padding: 0.67857143em 1em;
    font-size: 1em;
@@ -143,7 +142,6 @@
      transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
      transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
      transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-     will-change: "";
      -webkit-tap-highlight-color: transparent;
  }
 
@@ -458,7 +456,7 @@
   </div><br>
   <div class="field">
     <label>Password</label>
-    <input type="password" name="password" id="pass" type="password" placeholder="passphrase" autocomplete="current-password" required>
+    <input name="password" id="pass" type="password" placeholder="passphrase" autocomplete="current-password" required>
   </div><br>
    <center><div class="loader" hidden></div></center>
 
