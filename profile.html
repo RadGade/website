@@ -83,7 +83,7 @@ border-radius:var(--two);
 margin:20px auto 40px auto;
 word-wrap:break-word;
 margin-top: var(--two);
-width: 33%;
+width: 35%;
 }
 .center{
 margin: 0 auto;
@@ -304,8 +304,11 @@ header{width:100%;}
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
 <script>
+var t2 = performance.now();
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
+var t3 = performance.now();
+console.log("Call to updateScreen took " + (t3 - t2) + " milliseconds.");
 user.recall({sessionStorage:true},function(uob){
 var current = user.is.alias;
 var t0 = performance.now();

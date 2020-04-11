@@ -495,8 +495,11 @@ nav > ul > .liprofile > a:hover{
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
 <script>
-var gun = Gun(['https://superpeer2.unubo.app/gun'])
+var t2 = performance.now();
+var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
+var t3 = performance.now();
+console.log("Call to updateScreen took " + (t3 - t2) + " milliseconds.");
 var t0 = performance.now();
 function updateScreen(time) {
 var status = document.createElement("div");
