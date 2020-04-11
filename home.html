@@ -503,7 +503,7 @@ gun.get('statuses').map().on(function(data, key){
 	var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
 	var statusTextItem = document.createElement("div");
 	statusTextItem.innerHTML = postContent + postDate + displayUser;
-	status.appendChild(statusTextItem);
+	$(status).prepend(statusTextItem);
 })
 $("#content").prepend(status);
 
@@ -588,5 +588,6 @@ if ('serviceWorker' in navigator) {
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
 <!-- <script src="js/prerender.js"></script> -->
+<!-- https://reddit.com/submit?url={url}&title={title} -->
 </body>
 </html>
