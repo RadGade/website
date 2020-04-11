@@ -287,6 +287,7 @@ const user = gun.user();
 			var current = user.is.alias
 			document.getElementById("heading-name").innerHTML="*" + current;
 
+var t0 = performance.now();
 function updateScreen(time) {
 			var post = document.createElement("div");
 			gun.get(current).map().on(function(data, key){
@@ -297,6 +298,8 @@ function updateScreen(time) {
 			$("#gallery").prepend(post);
 		}
 requestAnimationFrame(updateScreen);
+var t1 = performance.now();
+console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
 
 		$("#imagebtn").click(function() {
         input = $("textarea").val();

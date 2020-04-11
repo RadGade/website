@@ -495,15 +495,14 @@ nav > ul > .liprofile > a:hover{
 var gun = Gun(['https://superpeer2.unubo.app/gun'])
 const user = gun.user();
 
-function domData(){
+function updateScreen(time) {
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
 	var postContent = "<span>" + data.title + "</span><br>";
 	var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>";
 	var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
-	innerHTML =  postContent + postDate + displayUser;
 	var statusTextItem = document.createElement("div");
-	statusTextItem.innerHTML = innerHTML;
+	statusTextItem.innerHTML = postContent + postDate + displayUser;
 	status.appendChild(statusTextItem);
 })
 $("#content").prepend(status);
@@ -514,17 +513,17 @@ gun.get('events').map().on(function(data, key){
 	var postDate = "<div class='underline1'>when</div><div>" + data.time + "</span><br>";
 	var details = "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>"
 	var displayUser ="<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline underline dashed;'>from *"+data.user+"</div></div>"
-	innerHTML =  postContent + postDate + details + displayUser;
 	var eventTextItem = document.createElement("div");
-	eventTextItem.innerHTML = innerHTML;
+	eventTextItem.innerHTML = postContent + postDate + details + displayUser;
 	event.appendChild(eventTextItem);
 })
 $("aside").append(event);
 }
-domData();
+requestAnimationFrame(updateScreen);
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
-$("#postbtn").attr('disabled','disabled');
+var postbtn = $("#postbtn")
+$(postbtn).attr('disabled','disabled');
 user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
 		console.log('You are logged in');
@@ -532,7 +531,7 @@ user.recall({sessionStorage:true},function(uob){
 		console.log('You are not logged in');
 		}
 	})
-	$("#postbtn").click(function() {
+	$(postbtn).click(function() {
 			var input = $("#ityped").val();
 
 				gun.get('statuses').set({
@@ -544,7 +543,7 @@ user.recall({sessionStorage:true},function(uob){
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
 		$('#ityped').val(""); //definitely will work
-		$("#postbtn").attr('disabled','disabled');
+		$(postbtn).attr('disabled','disabled');
 		$("#hidden").show()
 	});
 
