@@ -282,56 +282,53 @@ $("#caption").hide()
 $("#imagebtn").hide()
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
-// window.addEventListener('DOMContentLoaded', (event) => {
-	user.recall({sessionStorage:true},function(uob){
-			var current = user.is.alias
-			document.getElementById("heading-name").innerHTML="*" + current;
-
+user.recall({sessionStorage:true},function(uob){
+var current = user.is.alias
 var t0 = performance.now();
 function updateScreen(time) {
-			var post = document.createElement("div");
-			gun.get(current).map().on(function(data, key){
-			var postTextItem = document.createElement("div");
-      postTextItem.innerHTML = "<li><img src='"+data.img+"'>" + "<p class='cap'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
-			$(post).prepend(postTextItem);
-			})
-			$("#gallery").prepend(post);
-		}
+document.getElementById("heading-name").innerHTML="*" + current;
+var post = document.createElement("div");
+gun.get(current).map().on(function(data, key){
+var postTextItem = document.createElement("div");
+postTextItem.innerHTML = "<li><img src='"+data.img+"'>" + "<p class='cap'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
+$(post).prepend(postTextItem);
+})
+$("#gallery").prepend(post);
+}
 requestAnimationFrame(updateScreen);
 var t1 = performance.now();
 console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
 
-		$("#imagebtn").click(function() {
-        input = $("textarea").val();
-				image =  document.getElementById("preview").src
-				gun.get(current).set({
-						caption: input,
-						img: image,
-						user: current,
-						date: Date(),
-			})
-      console.log(image);
-      console.log(input);
-			$("#imagebtn").hide()
-			$("textarea").hide()
-			$("label").show()
-			$("#upload_img").val("")
-			$("#preview").attr("src","");
-		}); //click image button function
-	}) //gun function
-// }) // window dom load function
-	function previewFile(){
-	const preview = document.getElementById("preview");
-	const file = document.querySelector("input[type=file]").files[0];
-	const reader = new FileReader();
-	reader.addEventListener("load", function () {
-	preview.src = reader.result;
-	}, false);
-	if (file) {
-	reader.readAsDataURL(file);
-	}
-	$("#imagebtn").show();
-	$("#caption").show();
+$("#imagebtn").click(function() {
+input = $("textarea").val();
+image =  document.getElementById("preview").src
+gun.get(current).set({
+caption: input,
+img: image,
+user: current,
+date: Date(),
+})
+console.log(image);
+console.log(input);
+$("#imagebtn").hide()
+$("textarea").hide()
+$("label").show()
+$("#upload_img").val("")
+$("#preview").attr("src","");
+}); //click image button function
+}) //gun function
+function previewFile(){
+const preview = document.getElementById("preview");
+const file = document.querySelector("input[type=file]").files[0];
+const reader = new FileReader();
+reader.addEventListener("load", function () {
+preview.src = reader.result;
+}, false);
+if (file) {
+reader.readAsDataURL(file);
+}
+$("#imagebtn").show();
+$("#caption").show();
 }
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
 $("#profile").click(function() {window.location.href =("home.html");});

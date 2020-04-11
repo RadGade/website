@@ -494,7 +494,7 @@ nav > ul > .liprofile > a:hover{
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun'])
 const user = gun.user();
-
+var t0 = performance.now();
 function updateScreen(time) {
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
@@ -520,6 +520,8 @@ gun.get('events').map().on(function(data, key){
 $("aside").append(event);
 }
 requestAnimationFrame(updateScreen);
+var t1 = performance.now();
+console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
 var postbtn = $("#postbtn")
