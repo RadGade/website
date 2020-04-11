@@ -7,3 +7,4 @@
   Referrer-Policy: no-referrer
   Server: Apache
   server: Apache
+  Cache-Control: max-age=31536000

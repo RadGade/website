@@ -14,6 +14,7 @@
  <meta http-equiv="x-ua-compatible" content="ie=edge">
  <title>Log In - GENDEREV</title>
  <meta name="description" content="Genderev Log-In">
+ <link rel="prerender" href="profile.html">
  <style>
  .loader {
   border: 5px solid #f3f3f3; /* Light grey */
@@ -463,12 +464,10 @@
 
   <button class="ui button" id="in" value="sign in" type="submit">sign in</button>
 </form>
-
- <script src="js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 function gohome(){
@@ -500,5 +499,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 });
  </script>
+ <script src="js/prerender.js"></script>
 </body>
 </html>
