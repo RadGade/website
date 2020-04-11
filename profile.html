@@ -267,7 +267,7 @@ header{width:100%;}
 
 <section>
 <center>
-	<br><input type="file" id="upload_img" style="display:none;" onchange="previewFile()"><center></center><br>
+	<br><input type="file" id="upload_img" style="display:none;" onchange="previewFile()"></center><br>
 	<center><img style="margin-left:0px; width:93%;" src="" id="preview"></center>
 	<center><textarea id="caption" placeholder="write photo caption here"></textarea></center>
 	<center><button type="button" id="imagebtn"> post 📩</button></center>
@@ -277,10 +277,7 @@ header{width:100%;}
   <center>
   	<ul id ="gallery">
   	</ul>
-  </div>
   </center>
-</div>
-</center>
 </section>
 <div class="navbar" id="myNavbar">
 	<center><label for="upload_img">✧・˚・∘upload📸∘・˚・✧</label></center>
@@ -291,19 +288,19 @@ header{width:100%;}
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
 <script>
-$("#caption").hide()
-$("#imagebtn").hide()
+$("#caption").hide();
+$("#imagebtn").hide();
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
 user.recall({sessionStorage:true},function(uob){
-var current = user.is.alias
+var current = user.is.alias;
 var t0 = performance.now();
 function updateScreen(time) {
-document.getElementById("heading-name").innerHTML="<h3>*" + current; +"</h3>"
+document.getElementById("heading-name").innerHTML="<h3>*" + current +"</h3>";
 var post = document.createElement("div");
 gun.get(current).map().on(function(data, key){
 var postTextItem = document.createElement("div");
-postTextItem.innerHTML = "<li><img src='"+data.img+"'>" + "<p class='cap'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>"
+postTextItem.innerHTML = "<li><img src='"+data.img+"'>" + "<p class='cap'>"+data.caption+"</p>" + "<p style='color:black;font-size:18px'>"+ humanized_time_span(data.date) +"<br>" + "from *"+data.user+"</p></li>";
 $(post).prepend(postTextItem);
 })
 $("#gallery").prepend(post);
@@ -315,19 +312,19 @@ console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
 $("#imagebtn").click(function() {
 var dirty = $("textarea").val();
 var input = DOMPurify.sanitize(dirty);
-image =  document.getElementById("preview").src
+image =  document.getElementById("preview").src;
 gun.get(current).set({
 caption: input,
 img: image,
 user: current,
-date: Date(),
+date: Date()
 })
 console.log(image);
 console.log(input);
-$("#imagebtn").hide()
-$("textarea").hide()
-$("label").show()
-$("#upload_img").val("")
+$("#imagebtn").hide();
+$("textarea").hide();
+$("label").show();
+$("#upload_img").val("");
 $("#preview").attr("src","");
 }); //click image button function
 }) //gun function
