@@ -336,6 +336,9 @@ $("#helpbtn").click(function() {window.location.href =("help.html");});
 $( "#myNavbar" ).click(function() {
   $( "#upload_img" ).click();
 });
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('/service-worker.js')
+}
 </script>
 </body>
 </html>
