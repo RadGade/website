@@ -290,7 +290,7 @@ header{width:100%;}
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<script src="js/humanized_time_span.js"></script>
+<script src="js/user.js"></script>
 <script>
 $("#caption").hide()
 $("#imagebtn").hide()
@@ -314,7 +314,8 @@ var t1 = performance.now();
 console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
 
 $("#imagebtn").click(function() {
-input = $("textarea").val();
+var dirty = $("textarea").val();
+var input = DOMPurify.sanitize(dirty);
 image =  document.getElementById("preview").src
 gun.get(current).set({
 caption: input,
