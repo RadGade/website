@@ -487,9 +487,6 @@ nav > ul > .liprofile > a:hover{color:var(--blue);}
 // var t3 = performance.now();
 // console.log("Call to Gun + gun.user() took " + (t3 - t2) + " milliseconds.");
 // var t0 = performance.now();
-
-
-
 function updateScreen(time) {
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
@@ -566,9 +563,6 @@ $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $("#report").click(function() {window.location.href = ("report.html");});
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-if ('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('/worker.js')
-}
 // var postContent = "<span>" + data.title + "</span><br>";
 // var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>";
 // var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
