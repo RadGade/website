@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+alias<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8"/>
@@ -466,6 +466,7 @@
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
+<script src="js/purify.min.js"></script>
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 function gohome(){
@@ -476,11 +477,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
   user.recall({sessionStorage:true},function(uob){
       setTimeout(gohome,1);
   });
+  dirty = $('#alias').val();
+  var alias = DOMPurify.sanitize(dirty);
+
+  dirty1 = $('#pass').val();
+  var pass = DOMPurify.sanitize(dirty1);
+
   var frm = $("#sign");
   frm.on("submit",function(e){
     e.stopPropagation();
     e.preventDefault();
-   user.auth($("#alias").val(), $("#pass").val());
+   user.auth(alias, pass);
   });
   $("#in").on("click", function(e){
     e.preventDefault();
