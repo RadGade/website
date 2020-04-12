@@ -13,6 +13,8 @@
 <meta charset="utf-8"/>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="Homepage">
+<link rel="dns-prefetch" href="wss://superpeer2.unubo.app/gun">
+<!-- wss://superpeer2.unubo.app/gun -->
 <title>GENDEREV</title>
 <style>
 :root{
@@ -366,6 +368,7 @@ border: 1.4px dashed;
 text-decoration: underline;
 padding-bottom: var(--two);
 margin-top:9px;
+margin-left: 2px;
 margin-bottom: var(--two);
 box-shadow: var(--zero) var(--one) 4px var(--three) var(--grey);
 }
@@ -479,31 +482,33 @@ nav > ul > .liprofile > a:hover{color:var(--blue);}
 <script src="js/top.js"></script>
 <script src="js/user.js"></script>
 <script>
+
 function updateScreen(time) {
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
 	var statusTextItem = document.createElement("div");
-	statusTextItem.innerHTML = "<span>" + data.title + "</span><br>" + "<span class = 'date postDate'>" + humanized_time_span(data.date) + "</span><br>" + "<span class='displayUser'>from *"+ data.user +"<br><hr><br>";
+	statusTextItem.innerHTML = "<span>" + data.title + "</span><br>" + "<span class = 'date postDate'>" + humanized_time_span(data.date) + "</span><br>" + "<span class='displayUser'>from *"+ data.user +"<br>" + "<button class='cmt'>reply</button>"+ "<hr><br>";
 	$(status).prepend(statusTextItem);
-})
+});
 $("#content").prepend(status);
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
 	var eventTextItem = document.createElement("div");
 	eventTextItem.innerHTML = "<div class = 'events'><div class='first'>" + data.named + "</div>" + "<div class='underline1'>when</div><div>" + data.time + "</span><br>" + "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>" + "<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *"+data.user+"</div></div>";
 	event.appendChild(eventTextItem);
-})
+});
 $("aside").append(event);
 }
 requestAnimationFrame(updateScreen);
+result = [];
 gun.get('genderev_users').map().on(function(data, key){
-  users = [data.user]
-  return users;
-})
-console.log(users);
+  result.unshift(data.user);
+  return result;
+});
+console.log(result);
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
-var postbtn = $("#postbtn")
+var postbtn = $("#postbtn");
 $(postbtn).attr('disabled','disabled');
 user.recall({sessionStorage:true},function(uob){
 		if (user.is) {
@@ -511,21 +516,22 @@ user.recall({sessionStorage:true},function(uob){
 		} else {
 		console.log('You are not logged in');
 		}
-	})
+	});
+
 	$(postbtn).click(function() {
 			var dirty = $("#ityped").val();
       var input = DOMPurify.sanitize(dirty);
 				gun.get('statuses').set({
 				  title: input,
 					user: user.is.alias,
-					date: Date(),
-					})
+					date: Date()
+					});
 		var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 		window.scroll({top: 200,left: 0,behavior: 'smooth'});
 		$('#ityped').val(""); //definitely will work
 		$(postbtn).attr('disabled','disabled');
-		$("#hidden").show()
+		$("#hidden").show();
 	});
 	$(".newevent").click(function() {
 			var named = encodeURI($("#named").val());
@@ -538,7 +544,7 @@ user.recall({sessionStorage:true},function(uob){
 					time: time,
 					place: place,
 					details: details,
-					user: user.is.alias,
+					user: user.is.alias
 					})
 		var self = $(".newevent");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 		setTimeout(function() {self.text("new event").data("add", false);}, 1100);}
@@ -555,10 +561,13 @@ $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#profile").click(function() {window.location.href =("profile.html");});
 $("#helpbtn").click(function() {window.location.href = ("help.html");});
 $("#report").click(function() {window.location.href = ("report.html");});
-$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-// var postContent = "<span>" + data.title + "</span><br>";
-// var postDate = "<span class = 'date' style='color:black;font-size:23px'>" + humanized_time_span(data.date) + "</span><br>";
-// var displayUser = "<span style='color:black;font-size:21px'>from *"+ data.user +"<br><hr><br>";
+$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
+
+$(".cmt").click(function() {
+console.log("hi");
+// var quote = $( this ).get( );
+// console.log(this);
+});
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
