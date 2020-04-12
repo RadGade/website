@@ -494,8 +494,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     e.stopPropagation();
     e.preventDefault();
    user.auth($("#alias").val(), $("#pass").val());
-   gun.get('genderev_users').set({user: encodeURI($('#alias').val())});
-   console.log(encodeURI($('#alias').val()));
+   gun.get('genderev_users').set({encodeURI($('#alias').val())});
   });
   $("#in").on("click", function(e){
     e.preventDefault();
