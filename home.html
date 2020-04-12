@@ -496,9 +496,11 @@ gun.get('events').map().on(function(data, key){
 $("aside").append(event);
 }
 requestAnimationFrame(updateScreen);
-gun.get('genderev_users').map().once(function(data, key){
- console.log(data.user);
+gun.get('genderev_users').map().on(function(data, key){
+  users = [data.user]
+  return users;
 })
+console.log(users);
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
 var postbtn = $("#postbtn")
