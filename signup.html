@@ -482,29 +482,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   $('#sign').on('submit', function(e){
     e.preventDefault();
     user.auth(encodeURI($('#alias').val()), encodeURI($('#pass').val()));
+    gun.get('genderev_users').set({user: user.is.encodeURI($('#alias').val())});
     $("button").hide()
     $(".loader").show()
   });
-
-
-  //
-  // var frm = $('#sign');
-  // frm.on('submit',function(e){
-  //   e.stopPropagation();
-  //   e.preventDefault();
-  //   user.create($('#alias').val(), $('#pass').val())//,function(ack){
-  //     // if(ack.ok) {
-  //     //   console.log(ack.ok)
-  //       user.auth($('#alias').val(), $('#pass').val());
-  //       // }
-  //     });
-  //   });
-  // $('#up').on('click', function(e){
-  //   e.preventDefault();
-  //   frm.submit();
-  //   $("button").hide()
-  //   $(".loader").show()
-  // });
   gun.on('auth',function(){
       gohome();
   });
