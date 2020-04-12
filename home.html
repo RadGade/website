@@ -344,7 +344,6 @@ border-radius:var(--zero);
 width: 100%;
 height: auto;
 -webkit-box-shadow: -1px var(--one) 9px var(--zero) #000000;
--moz-box-shadow: -1px var(--one) 9px var(--zero) #000000;
 box-shadow: -1px var(--one) 9px var(--zero) #000000;
 }
 #sidebar .title {
@@ -497,10 +496,9 @@ gun.get('events').map().on(function(data, key){
 $("aside").append(event);
 }
 requestAnimationFrame(updateScreen);
-console.log(gun.get('genderev_users').once())
-// var t1 = performance.now();
-//
-// console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
+gun.get('genderev_users').map().once(function(data, key){
+ console.log(data.user);
+})
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
 var postbtn = $("#postbtn")

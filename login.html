@@ -16,12 +16,25 @@
  <meta name="description" content="Genderev Log-In">
  <link rel="prerender" href="profile.html">
  <style>
+ :root{
+ 	--zero: 0px;
+ 	--two: 2px;
+ 	--trans: transparent;
+  --base-size: 25px;
+  --transform: translate(0px, 2px) skew(1deg, 0deg);
+  --fifteen:15px;
+  --ninety: 90px;
+  --eighty: 80px;
+  --twenty: 20px;
+  --one-twenty: 120px;
+  --zero-em: 0em;
+ }
  .loader {
-  border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid rgba(229, 77, 6, 0.75); /* Blue */
+  border: 5px solid #f3f3f3; 
+  border-top: 5px solid rgba(229, 77, 6, 0.75);
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: var(--base-size);
+  height: var(--base-size);
   animation: spin .5s linear infinite;
 }
 
@@ -34,23 +47,23 @@
  max-width: 100%;
  }
  .ui.form > p {
-   margin: 1em 0em;
+   margin: 1em var(--zero-em);
  }
  .ui.form .field {
    clear: both;
-   margin: 0em 0em 1em;
+   margin: var(--zero-em) var(--zero-em) 1em;
  }
  .ui.form .field:last-child,
  .ui.form .fields:last-child .field {
-   margin-bottom: 0em;
+   margin-bottom: var(--zero-em);
  }
  .ui.form .fields .field {
    clear: both;
-   margin: 0em;
+   margin: var(--zero-em);
  }
  .ui.form .field > label {
    display: block;
-   margin: 0em 0em 0.28571429rem 0em;
+   margin: var(--zero-em) var(--zero-em) 0.28571429rem var(--zero-em);
    color: rgba(0, 0, 0, 0.87);
    font-size: 0.92857143em;
    font-weight: bold;
@@ -85,7 +98,7 @@
  .ui.form input[type="file"],
  .ui.form input[type="url"] {
    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
-   margin: 0em;
+   margin: var(--zero-em);
    outline: none;
    -webkit-appearance: none;
    line-height: 1.21428571em;
@@ -95,16 +108,16 @@
    border: 1px solid rgba(34, 36, 38, 0.15);
    color: rgba(0, 0, 0, 0.87);
    border-radius: 0.28571429rem;
-   -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-           box-shadow: 0em 0em 0em 0em transparent inset;
+   -webkit-box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
+           box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
    transition: color 0.1s ease, border-color 0.1s ease;
  }
 
  .ui.button {
-     font-size: 20px;
+     font-size: var(--twenty);
      font-weight: normal;
-     box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+     box-shadow: 0 4px var(--fifteen) 0 rgba(229, 66, 10, 0.75);
      background-color: white;
      color: dimgrey;
      margin-left: 2px;
@@ -156,8 +169,8 @@
    background: #FFFFFF;
    border: 1px solid rgba(34, 36, 38, 0.15);
    border-radius: 0.28571429rem;
-   -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
-           box-shadow: 0em 0em 0em 0em transparent inset;
+   -webkit-box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
+           box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
    padding: 0.62em 1em;
    color: rgba(0, 0, 0, 0.87);
    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -178,8 +191,8 @@
    width: auto;
  }
  .ui.form .field.field input:-webkit-autofill:focus {
-   -webkit-box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
-           box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+   -webkit-box-shadow: var(--zero) var(--zero) var(--zero) 100px #FFFFF0 inset !important;
+           box-shadow: var(--zero) var(--zero) var(--zero) 100px #FFFFF0 inset !important;
    border-color: #D5C315 !important;
  }
  .ui.form ::-webkit-input-placeholder {
@@ -216,19 +229,19 @@
    border-color: #85B7D9;
    border-radius: 0.28571429rem;
    background: #FFFFFF;
-   -webkit-box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
-           box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+   -webkit-box-shadow: var(--zero) var(--zero-em) var(--zero-em) var(--zero-em) rgba(34, 36, 38, 0.35) inset;
+           box-shadow: var(--zero) var(--zero-em) var(--zero-em) var(--zero-em) rgba(34, 36, 38, 0.35) inset;
  }
 
  .ui.form .grouped.fields {
    display: block;
-   margin: 0em 0em 1em;
+   margin: var(--zero-em) var(--zero-em) 1em;
  }
  .ui.form .grouped.fields:last-child {
-   margin-bottom: 0em;
+   margin-bottom: var(--zero-em);
  }
  .ui.form .grouped.fields > label {
-   margin: 0em 0em 0.28571429rem 0em;
+   margin: var(--zero-em) var(--zero-em) 0.28571429rem var(--zero-em);
    color: rgba(0, 0, 0, 0.87);
    font-size: 0.92857143em;
    font-weight: bold;
@@ -237,8 +250,8 @@
  .ui.form .grouped.fields .field,
  .ui.form .grouped.inline.fields .field {
    display: block;
-   margin: 0.5em 0em;
-   padding: 0em;
+   margin: 0.5em var(--zero-em);
+   padding: var(--zero-em);
  }
  .ui.form .fields {
    display: -webkit-box;
@@ -248,7 +261,7 @@
    -webkit-box-direction: normal;
        -ms-flex-direction: row;
            flex-direction: row;
-   margin: 0em -0.5em 1em;
+   margin: var(--zero-em) -0.5em 1em;
  }
  .ui.form .fields > .field {
    -webkit-box-flex: 0;
@@ -288,7 +301,7 @@
    .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .fields,
    .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .field {
      width: 100% !important;
-     margin: 0em 0em 1em;
+     margin: var(--zero-em) var(--zero-em) 1em;
    }
  }
  .ui[class*="equal width"].form .fields > .field,
@@ -299,14 +312,14 @@
            flex: 1 1 auto;
  }
  .ui.form .inline.fields {
-   margin: 0em 0em 1em;
+   margin: var(--zero-em) var(--zero-em) 1em;
    -webkit-box-align: center;
        -ms-flex-align: center;
            align-items: center;
  }
  .ui.form .inline.fields .field {
-   margin: 0em;
-   padding: 0em 1em 0em 0em;
+   margin: var(--zero-em);
+   padding: var(--zero-em) 1em var(--zero-em) var(--zero-em);
  }
  .ui.form .inline.fields > label,
  .ui.form .inline.fields .field > label,
@@ -315,8 +328,8 @@
  .ui.form .inline.field > p {
    display: inline-block;
    width: auto;
-   margin-top: 0em;
-   margin-bottom: 0em;
+   margin-top: var(--zero-em);
+   margin-bottom: var(--zero-em);
    vertical-align: baseline;
    font-size: 0.92857143em;
    font-weight: bold;
@@ -324,7 +337,7 @@
    text-transform: none;
  }
  .ui.form .inline.fields > label {
-   margin: 0.035714em 1em 0em 0em;
+   margin: 0.035714em 1em var(--zero-em) var(--zero-em);
  }
  .ui.form {
    font-size: 1rem;
@@ -345,14 +358,14 @@
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
  }
  .ui.form .field > label{
-   font-size: 20px;
+   font-size: var(--twenty);
    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
    font-weight: normal;
  }
  .ui.button{
-   font-size: 20px;
+   font-size: var(--twenty);
    font-weight: normal;
-   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+   box-shadow: 0 4px var(--fifteen) 0 rgba(229, 66, 10, 0.75);
    background-color: white;
    color: dimgrey;
    margin-left: 2px;
@@ -367,11 +380,11 @@
      background-color: white;
      color: black;
      text-decoration: underline;
-     -moz-transform:  translate(0px, 2px) skew(1deg, 0deg);
-     -webkit-transform: translate(0px, 2px) skew(1deg, 0deg);
-     -o-transform: translate(0px, 2px) skew(1deg, 0deg);
-     -ms-transform:  translate(0px, 2px) skew(1deg, 0deg);
-     transform:  translate(0px, 2px) skew(1deg, 0deg);
+     -moz-transform:  var(--transform);
+     -webkit-transform: var(--transform);
+     -o-transform: var(--transform);
+     -ms-transform:  var(--transform);
+     transform:  var(--transform);
  }
  .ui.form ::placeholder{
    font-weight: lighter;
@@ -382,28 +395,28 @@
    font-weight: lighter;
  }
  img {
-   height: 120px;
-   width: 120px;
+   height: var(--one-twenty);
+   width: var(--one-twenty);
  }
  @media print{body{max-width:none;}}
 
  @media (min-width: 700px) and (max-width: 1280px) {
    .ui.form{
-     padding-top: 80px;
+     padding-top: var(--eighty);
      margin-left: auto;
      margin-right: auto;
      width: 560px;
    }
    img {
-     height: 120px;
-     width: 120px;
+     height: var(--one-twenty);
+     width: var(--one-twenty);
    }
  }
  @media only screen and (max-width: 700px) {
   .ui.form{
-    padding-top: 80px;
-    margin-left: 20px;
-    margin-right: 20px;
+    padding-top: var(--eighty);
+    margin-left: var(--twenty);
+    margin-right: var(--twenty);
     width: 90%
   }
   .ui.form textarea,
@@ -424,8 +437,8 @@
   }
 
   img {
-    height: 90px;
-    width: 90px;
+    height: var(--ninety);
+    width: var(--ninety);
   }
  }
  .bck{
@@ -435,8 +448,8 @@
    margin-right: 10px;
  }
  #back{
-   font-size: 15px;
-   box-shadow: 0 4px 15px 0 grey;
+   font-size: var(--fifteen);
+   box-shadow: 0 4px var(--fifteen) 0 grey;
 
  }
 
