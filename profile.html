@@ -344,7 +344,7 @@ $("#preview").attr("src","");
 }) //gun function
 function previewFile(){
 const preview = document.getElementById("preview");
-const file = document.querySelector("input[type=file]").files[0];
+const file = document.getElementById("upload_img").files[0];
 console.log(document.querySelector("input[type=file]"));
 console.log(file);
 const reader = new FileReader();
