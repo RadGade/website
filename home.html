@@ -13,7 +13,7 @@
 <meta charset="utf-8"/>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="Homepage">
-<link rel="dns-prefetch" href="https://superpeer2.unubo.app/gun">
+<link rel="preconnect" href="https://superpeer2.unubo.app/gun">
 <title>GENDEREV</title>
 <style>
 :root{
@@ -482,8 +482,7 @@ nav > ul > .liprofile > a:hover{color:var(--blue);}
 <script src="js/top.js"></script>
 <script src="js/user.js"></script>
 <script>
-var t0 = performance.now();
-// function updateScreen(time) {
+function updateScreen(time) {
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
 	var statusTextItem = document.createElement("div");
@@ -498,10 +497,12 @@ gun.get('events').map().on(function(data, key){
 	event.appendChild(eventTextItem);
 })
 $("aside").append(event);
-// }
-// requestAnimationFrame(updateScreen);
-var t1 = performance.now();
-console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
+}
+requestAnimationFrame(updateScreen);
+
+// var t1 = performance.now();
+//
+// console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
 var postbtn = $("#postbtn")
