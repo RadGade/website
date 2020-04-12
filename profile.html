@@ -8,6 +8,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="Genderev, Gender Revolution, GendeRevolution, profile">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -342,8 +343,6 @@ $("#preview").attr("src","");
 }); //click image button function
 }) //gun function
 function previewFile(){
-$("#imagebtn").show();
-$("#caption").show();
 const preview = document.getElementById("preview");
 const file = document.querySelector("input[type=file]").files[0];
 const reader = new FileReader();
@@ -353,6 +352,8 @@ preview.src = reader.result;
 if (file) {
 reader.readAsDataURL(file);
 }
+$("#imagebtn").show();
+$("#caption").show();
 }
 
 $('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
