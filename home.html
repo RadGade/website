@@ -529,10 +529,10 @@ user.recall({sessionStorage:true},function(uob){
 		$("#hidden").show()
 	});
 	$(".newevent").click(function() {
-			var named = $("#named").val();
-			var time = $("#time").val();
-			var place = $("#place").val();
-			var details = $("#details").val();
+			var named = encodeURI($("#named").val());
+			var time = encodeURI($("#time").val());
+			var place = encodeURI($("#place").val());
+			var details = encodeURI($("#details").val());
 
 				gun.get('events').set({
 				  named: named,
