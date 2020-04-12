@@ -303,12 +303,8 @@ header{width:100%;}
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
+<script src="js/top.js"></script>
 <script>
-var t2 = performance.now();
-var gun = Gun(['https://superpeer2.unubo.app/gun']);
-const user = gun.user();
-var t3 = performance.now();
-console.log("Call to Gun + gun.user() took " + (t3 - t2) + " milliseconds.");
 user.recall({sessionStorage:true},function(uob){
 var current = user.is.alias;
 var t0 = performance.now();
