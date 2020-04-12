@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+base-size<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8"/>
@@ -30,7 +30,7 @@
   --zero-em: 0em;
  }
  .loader {
-  border: 5px solid #f3f3f3; 
+  border: 5px solid #f3f3f3;
   border-top: 5px solid rgba(229, 77, 6, 0.75);
   border-radius: 50%;
   width: var(--base-size);
@@ -108,8 +108,8 @@
    border: 1px solid rgba(34, 36, 38, 0.15);
    color: rgba(0, 0, 0, 0.87);
    border-radius: 0.28571429rem;
-   -webkit-box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
-           box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
+   -webkit-box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) var(--trans) inset;
+           box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) var(--trans) inset;
    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
    transition: color 0.1s ease, border-color 0.1s ease;
  }
@@ -120,7 +120,7 @@
      box-shadow: 0 4px var(--fifteen) 0 rgba(229, 66, 10, 0.75);
      background-color: white;
      color: dimgrey;
-     margin-left: 2px;
+     margin-left: var(--two);
  }
  .ui.button, .ui.buttons .button, .ui.buttons .or {
      font-size: 1rem;
@@ -145,8 +145,8 @@
      text-align: center;
      text-decoration: none;
      border-radius: .28571429rem;
-     -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
-     box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+     -webkit-box-shadow: 0 0 0 1px var(--trans) inset, 0 0 0 0 rgba(34,36,38,.15) inset;
+     box-shadow: 0 0 0 1px var(--trans) inset, 0 0 0 0 rgba(34,36,38,.15) inset;
      -webkit-user-select: none;
      -moz-user-select: none;
      -ms-user-select: none;
@@ -155,7 +155,7 @@
      transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
      transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
      transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease,-webkit-box-shadow .1s ease;
-     -webkit-tap-highlight-color: transparent;
+     -webkit-tap-highlight-color: var(--trans);
  }
 
  .ui.form input.attached {
@@ -169,8 +169,8 @@
    background: #FFFFFF;
    border: 1px solid rgba(34, 36, 38, 0.15);
    border-radius: 0.28571429rem;
-   -webkit-box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
-           box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) transparent inset;
+   -webkit-box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) var(--trans) inset;
+           box-shadow: var(--zero-em) var(--zero-em) var(--zero-em) var(--zero-em) var(--trans) inset;
    padding: 0.62em 1em;
    color: rgba(0, 0, 0, 0.87);
    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -368,7 +368,7 @@
    box-shadow: 0 4px var(--fifteen) 0 rgba(229, 66, 10, 0.75);
    background-color: white;
    color: dimgrey;
-   margin-left: 2px;
+   margin-left: var(--two);
  }
  .ui.button:hover {
      box-shadow: 0 4px 30px 0 rgba(229, 77, 6, 0.75);
@@ -376,7 +376,7 @@
      color: black;
  }
  .ui.button:active {
-     box-shadow: 2px 1px 5px rgba(229, 77, 6, 0.75) inset;
+     box-shadow: var(--two) 1px 5px rgba(229, 77, 6, 0.75) inset;
      background-color: white;
      color: black;
      text-decoration: underline;

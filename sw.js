@@ -1,17 +1,15 @@
-const PRECACHE = 'precache-v12';
+const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
-  'index.html',
-  './', // Alias for index.html
-  '/about.html',
-  '/favicon.ico/android-icon-192x192.png',
-  '/help.html',
-  '/js/gun.js',
-  '/js/home.js',
-  '/js/jquery.min.js',
-  '/js/sea.js',
-  '/js/webrtc.js',
+  '/profile.html',
+  'js/prerender.js',
+  'js/top.js',
+  '/profile.html',
+  'js/prerender.js',
+  'js/top.js',
+  'js/user.js',
+  'js/tribute.js'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -32,7 +30,6 @@ self.addEventListener('activate', event => {
     }).then(() => self.clients.claim())
   );
 });
-
 self.addEventListener('fetch', event => {
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
@@ -40,7 +37,6 @@ self.addEventListener('fetch', event => {
         if (cachedResponse) {
           return cachedResponse;
         }
-
         return caches.open(RUNTIME).then(cache => {
           return fetch(event.request).then(response => {
             // Put a copy of the response in the runtime cache.
