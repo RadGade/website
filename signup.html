@@ -447,7 +447,7 @@
  <br>
   <div class="field">
     <label>Username</label>
-    <input type="text" id="alias" name="username" pattern="[A-Za-z].{12,}" placeholder="Username" autocomplete="username" required>
+    <input type="text" id="alias" name="username" pattern="[A-Za-z].{7,}" placeholder="Username" autocomplete="username" required>
   </div><br>
   <div class="field">
     <label>Password</label>
@@ -476,12 +476,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
   $('#up').on('click', function(e){
-    user.create(encodeURI(('#alias').val()), encodeURI($('#pass').val()));
+    user.create(encodeURI($('#alias').val()), encodeURI($('#pass').val()));
   });
 
   $('#sign').on('submit', function(e){
     e.preventDefault();
-    user.auth(encodeURI(('#alias').val()), encodeURI($('#pass').val()));
+    user.auth(encodeURI($('#alias').val()), encodeURI($('#pass').val()));
     $("button").hide()
     $(".loader").show()
   });
