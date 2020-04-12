@@ -1,4 +1,4 @@
-const PRECACHE = 'precache-v12';
+const PRECACHE = 'precache-v13';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
@@ -7,6 +7,7 @@ const PRECACHE_URLS = [
   '/about.html',
   '/favicon.ico/android-icon-192x192.png',
   '/help.html',
+  '/profile.html'
   '/js/gun.js',
   '/js/home.js',
   '/js/jquery.min.js',

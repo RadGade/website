@@ -1,15 +1,11 @@
-const PRECACHE = 'precache-v1';
+const PRECACHE = 'precache-v2';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
-  '/profile.html',
-  'js/prerender.js',
-  'js/top.js',
-  '/profile.html',
-  'js/prerender.js',
-  'js/top.js',
-  'js/user.js',
-  'js/tribute.js'
+  'prerender.js',
+  'top.js',
+  'user.js',
+  'tribute.js'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
