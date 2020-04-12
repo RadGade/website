@@ -384,7 +384,7 @@ text-decoration: underline var(--dark-blue);
 letter-spacing: var(--one);
 color: var(--black);
 }
- nav > ul > li > a:hover {
+nav > ul > li > a:hover {
 	background-size: 0% 0%;
 	text-decoration: underline dashed var(--dark-blue);
 	text-shadow: -1px var(--zero) 0.8px var(--black);
@@ -409,16 +409,8 @@ border: 1.4px dashed;
 box-shadow: 4px 5px 9px var(--dim-grey);
 }
 @media print{body{max-width:none;}}
-@media screen and (min-width: 830px) {
-	header, footer {
-		display: none;
-	}
-}
-@media screen and (max-width: 830px) {
-	nav, aside {
-		display: none;
-	}
-}
+@media screen and (min-width: 830px) {header, footer {display: none;}}
+@media screen and (max-width: 830px) {nav, aside {display: none;}}
 @media screen and (max-width: 500px) {
 #profile {margin-right: 3em;}
 #question{font-size: var(--twenty-three);}
@@ -431,17 +423,10 @@ header{width:100%;}
 footer{width:100%;}
 #sidebar {width: 93%;}
 #sidebar img{width: 93%;}
-#sidebar .desc {margin-bottom: 5px;}
-}
-nav > ul > .liprofile > a:link{
-	color:mediumblue;
-}
-nav > ul > .liprofile > a:hover{
-	color:var(--blue);
-}
-#helpbtn {
-	margin-right: var(--ten);
-}
+#sidebar .desc {margin-bottom: 5px;}}
+nav > ul > .liprofile > a:link{color:mediumblue;}
+nav > ul > .liprofile > a:hover{color:var(--blue);}
+#helpbtn {margin-right: var(--ten);}
 .postDate {color:var(--black);font-size:var(--twenty-three);}
 .displayUser {color:var(--black);font-size:var(--twenty-one);}
 </style>
@@ -488,18 +473,20 @@ nav > ul > .liprofile > a:hover{
 <label for="details">details:</label><br><input id="details" class="event" ><br><button class="newevent">new event</button></form>
 </aside>
 </div>
+<script src="js/polyfill.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/home.js"></script>
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
+
 <script>
 var t2 = performance.now();
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
 var t3 = performance.now();
-console.log("Call to updateScreen took " + (t3 - t2) + " milliseconds.");
+console.log("Call to Gun + gun.user() took " + (t3 - t2) + " milliseconds.");
 var t0 = performance.now();
 function updateScreen(time) {
 var status = document.createElement("div");

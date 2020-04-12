@@ -308,7 +308,7 @@ var t2 = performance.now();
 var gun = Gun(['https://superpeer2.unubo.app/gun']);
 const user = gun.user();
 var t3 = performance.now();
-console.log("Call to updateScreen took " + (t3 - t2) + " milliseconds.");
+console.log("Call to Gun + gun.user() took " + (t3 - t2) + " milliseconds.");
 user.recall({sessionStorage:true},function(uob){
 var current = user.is.alias;
 var t0 = performance.now();
