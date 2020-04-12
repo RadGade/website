@@ -464,7 +464,6 @@
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<script src="js/purify.min.js"></script>
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun'])
 function gohome(){window.location = "/home.html";}
@@ -475,19 +474,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
       setTimeout(gohome,5);
     }
   });
-  dirty = $('#alias').val();
-  var alias = DOMPurify.sanitize(dirty);
-
-  dirty1 = $('#pass').val();
-  var pass = DOMPurify.sanitize(dirty1);
 
   $('#up').on('click', function(e){
-    user.create(alias, pass);
+    user.create($('#alias').val(), $('#pass').val());
   });
 
   $('#sign').on('submit', function(e){
     e.preventDefault();
-    user.auth(alias, pass);
+    user.auth($('#alias').val(), $('#pass').val());
     $("button").hide()
     $(".loader").show()
   });
