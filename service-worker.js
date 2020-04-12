@@ -1,18 +1,18 @@
-const PRECACHE = 'precache-v13';
+const PRECACHE = 'precache-v14';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
-  'index.html',
-  './', // Alias for index.html
-  '/about.html',
-  '/favicon.ico/android-icon-192x192.png',
-  '/help.html',
-  '/profile.html'
+  '/profile.html',
+  '/home.html',
   '/js/gun.js',
   '/js/home.js',
   '/js/jquery.min.js',
   '/js/sea.js',
   '/js/webrtc.js',
+  '/js/prerender.js',
+  '/js/top.js',
+  '/js/user.js',
+  '/js/tribute.js'
 ];
 self.addEventListener('install', event => {
   event.waitUntil(
