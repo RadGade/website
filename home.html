@@ -5,7 +5,6 @@
 <link rel="icon" type="image/png"  href="favicon.ico/android-icon-192x192.png">
 <link rel="manifest" href="manifest.json">
 <link rel="canonical" href="https://genderev.com/home">
-<link rel="stylesheet" href="css/tribute.css" />
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -504,8 +503,8 @@ document.getElementById("ityped").addEventListener("keyup",function(event) {if (
 $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 console.log(result)
 $(".clickable").click(function(){
-  console.log(window.scrollY)
-  var now = window.scrollY
+  // console.log(window.scrollY)
+  // var now = window.scrollY
   q = $( this ).get( 0 ).innerText // SAVE THIS for notifications
   m = $( this ).find( ".displayUser" ).text()//.innerText.replace('*','');
   x = m.replace('from', ''); mention = x.replace('reply',''); console.log(mention) // mention = *me
