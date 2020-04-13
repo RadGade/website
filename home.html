@@ -505,7 +505,7 @@ $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#pro
 console.log(result)
 $(".clickable").click(function(){
   console.log(window.scrollY)
-  now = window.scrollY
+  var now = window.scrollY
   q = $( this ).get( 0 ).innerText // SAVE THIS for notifications
   m = $( this ).find( ".displayUser" ).text()//.innerText.replace('*','');
   x = m.replace('from', ''); mention = x.replace('reply',''); console.log(mention) // mention = *me
@@ -514,14 +514,14 @@ $(".clickable").click(function(){
   quote = q.replace("reply",""); console.log(quote);
   document.body.scrollTop = 20; // For Safari
   document.documentElement.scrollTop = 20; // For Chrome, Firefox, IE and Opera
-    $("#postbtn").click(function() {
-      // gun.get('mentions').set({mention: mention, user: user.is.alias, quote: quote });
-      var input = encodeURI($("#ityped").val());gun.get('statuses').set({title: input,user: user.is.alias,date: Date()})
-      if (!$("#postbtn").data("add")) {$("#postbtn").data("add", true);$("#postbtn").text("posted!");
-      setTimeout(function() {$("#postbtn").text("post 💌").data("add", false);}, 1100);}
-      $('#ityped').val("");$("#postbtn").attr('disabled','disabled');
-      Window.scrollTo(now);
-    })
+    // $("#postbtn").click(function() {
+    //   // gun.get('mentions').set({mention: mention, user: user.is.alias, quote: quote });
+    //   var input = encodeURI($("#ityped").val());gun.get('statuses').set({title: input,user: user.is.alias,date: Date()})
+    //   if (!$("#postbtn").data("add")) {$("#postbtn").data("add", true);$("#postbtn").text("posted!");
+    //   setTimeout(function() {$("#postbtn").text("post 💌").data("add", false);}, 1100);}
+    //   $('#ityped').val("");$("#postbtn").attr('disabled','disabled');
+    //   Window.scrollTo(now);
+    // })
 });
 </script>
 <script>
