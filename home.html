@@ -468,6 +468,7 @@ nav > ul > .liprofile > a:hover{color:var(--blue);}
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();result = [];gun.get('genderev_users').map().on(function(data, key){result.push(data.user);return result;});
 function domData(){
+console.log(user.is.alias)
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
 	var statusTextItem = document.createElement("div");
@@ -519,7 +520,6 @@ $(".clickable").click(function(){
     })
 });
     $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
-    document.getElementById("postbtn").addEventListener("click",function(event) {if(!user.is){window.location.href =("signup.html"); }});
     document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
     $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 
