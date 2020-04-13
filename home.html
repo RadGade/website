@@ -491,7 +491,7 @@ $(status).prepend(statusTextItem);});$("#content").prepend(status);
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
 	var eventTextItem = document.createElement("div");
-	eventTextItem.innerHTML = "<div class = 'events'><div class='first'>" + data.named + "</div>" + "<div class='underline1'>when</div><div>" + data.time + "</span><br>" + "<div class='underline1'>where</div><div>"+data.place+"</div><div class='underline1'>details</div><div>"+data.details+"</div>" + "<div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *"+data.user+"</div></div>";
+	eventTextItem.innerHTML = `<div class = 'events'><div class='first'>${data.named}</div><div class='underline1'>when</div><div>${data.time}</span><br><div class='underline1'>where</div><div>${data.place}</div><div class='underline1'>details</div><div>${data.details}</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *${data.user}</div></div>`;
 	event.appendChild(eventTextItem);
 });
 $("aside").append(event);
