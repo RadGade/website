@@ -503,29 +503,28 @@ document.getElementById("ityped").addEventListener("keyup",function(event) {if (
 $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 console.log(result)
 $(".clickable").click(function(){
-  // console.log(window.scrollY)
-  // var now = window.scrollY
+  console.log(window.scrollY)
+  var now = window.scrollY
   q = $( this ).get( 0 ).innerText // SAVE THIS for notifications
   m = $( this ).find( ".displayUser" ).text()
   x = m.replace('from', ''); mention = x.replace('reply',''); console.log(mention);
   $("textarea").val(mention);
-  mentions = mention.replace('*',''); 
+  mentions = mention.replace('*','');
   quote = q.replace("reply",""); console.log(quote);
   document.body.scrollTop = 20; // For Safari
   document.documentElement.scrollTop = 20; // For Chrome, Firefox, IE and Opera
-    // $("#postbtn").click(function() {
-    //   // gun.get('mentions').set({mention: mention, user: user.is.alias, quote: quote });
-    //   var input = encodeURI($("#ityped").val());gun.get('statuses').set({title: input,user: user.is.alias,date: Date()})
-    //   if (!$("#postbtn").data("add")) {$("#postbtn").data("add", true);$("#postbtn").text("posted!");
-    //   setTimeout(function() {$("#postbtn").text("post 💌").data("add", false);}, 1100);}
-    //   $('#ityped').val("");$("#postbtn").attr('disabled','disabled');
-    //   Window.scrollTo(now);
-    // })
+    $("#postbtn").click(function() {
+      gun.get('mentions').set({mention: mention, user: user.is.alias, quote: quote });
+      var input = encodeURI($("#ityped").val());gun.get('statuses').set({title: input,user: user.is.alias,date: Date()})
+      if (!$("#postbtn").data("add")) {$("#postbtn").data("add", true);$("#postbtn").text("posted!");
+      setTimeout(function() {$("#postbtn").text("post 💌").data("add", false);}, 1100);}
+      $('#ityped').val("");$("#postbtn").attr('disabled','disabled');
+      Window.scrollTo(now);
+    })
 });
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
-<script src="js/prerender.js"></script>
 </body>
 </html>
