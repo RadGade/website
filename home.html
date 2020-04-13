@@ -470,7 +470,7 @@ nav > ul > .liprofile > a:hover{color:var(--blue);}
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
 result = [];
-gun.get('genderev_users').map().on(function(data, key){
+gun.get('genderev_users').map().once(function(data, key){
   result.push(data.user);
   return result;
 });
