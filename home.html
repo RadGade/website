@@ -467,12 +467,21 @@ nav > ul > .liprofile > a:link{color:var(--blue);}
 <script src="js/webrtc.js"></script>
 <script src="js/humanized_time_span.js"></script>
 <script>
+var t3 = performance.now();
 var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
+var t4 = performance.now();
+console.log("Call to gun setup took " + (t4 - t3) + " milliseconds.");
+
+var t6 = performance.now();
 result = [];
 gun.get('genderev_users').map().once(function(data, key){
   result.push(data.user);
   return result;
 });
+var t5 = performance.now();
+console.log("Call to user index took " + (t6 - t5) + " milliseconds.");
+
+var t0 = performance.now();
 function domData(){
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
@@ -488,6 +497,9 @@ gun.get('events').map().on(function(data, key){
 $("aside").append(event);
 }
 domData();
+var t1 = performance.now();
+console.log("Call to domData took " + (t1 - t0) + " milliseconds.");
+
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
 $("#postbtn").attr('disabled','disabled');
