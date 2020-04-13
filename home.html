@@ -526,7 +526,7 @@ document.getElementById("ityped").addEventListener("keyup",function(event) {if(!
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 console.log(result)
-var tribute = new Tribute({trigger: '*', values: result, requireLeadingSpace: false, autocompleteMode: true});
+var tribute = new Tribute({trigger: '*', values: result});
 console.log(tribute)
 tribute.attach(document.querySelectorAll(".mentionable"));
 
