@@ -474,11 +474,9 @@ gun.get('genderev_users').map().once(function(data, key){
   result.push(data.user);
   return result;
 });
-var current = user.is.alias;
 
 function domData(){
 
-console.log(current)
 
 var status = document.createElement("div");
 
@@ -503,10 +501,12 @@ new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200})
 // make var for postbtn and ref that
 $("#postbtn").attr('disabled','disabled');
 	$("#postbtn").click(function() {
+    var current = user.is.alias;
+    console.log(current)
 			var input = encodeURI($("#ityped").val());
 				gun.get('statuses').set({
 				  title: input,
-					user: user.is.alias,
+					user: current,
 					date: Date(),
 					})
 var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
