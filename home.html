@@ -380,7 +380,7 @@ margin-left: var(--ten);
 margin-top: 8px;
 }
 nav > ul > li > a:link{
-text-decoration: underline var(--dark-blue);
+/* text-decoration: underline var(--dark-blue); */
 letter-spacing: var(--one);
 color: var(--black);
 }
@@ -424,8 +424,8 @@ footer{width:100%;}
 #sidebar {width: 93%;}
 #sidebar img{width: 93%;}
 #sidebar .desc {margin-bottom: 5px;}}
-nav > ul > .liprofile > a:link{color:mediumblue;}
-nav > ul > .liprofile > a:hover{color:var(--blue);}
+nav > ul > .liprofile > a:link{color:var(--blue);}
+/* nav > ul > .liprofile > a:hover{color:var(--blue);} */
 #helpbtn {margin-right: var(--ten);}
 .postDate {color:var(--black);font-size:var(--twenty-three);}
 .displayUser {color:var(--black);font-size:var(--twenty-one);}
@@ -477,7 +477,7 @@ function domData(){
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
 var statusTextItem = document.createElement("div");
-statusTextItem.innerHTML = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from*${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
+statusTextItem.innerHTML = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from *${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
 $(status).prepend(statusTextItem);});$("#content").prepend(status);
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
@@ -525,11 +525,6 @@ document.getElementById("ityped").addEventListener("keyup",function(event) {if (
 $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 console.log(result)
 
-// activateLink.addEventListener("mousedown", function(e) {
-//   e.preventDefault();
-//   var input = document.getElementById("ityped");
-//   tribute.showMenuForCollection(input);
-// });
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
