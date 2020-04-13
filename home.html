@@ -506,10 +506,10 @@ $(".clickable").click(function(){
   // console.log(window.scrollY)
   // var now = window.scrollY
   q = $( this ).get( 0 ).innerText // SAVE THIS for notifications
-  m = $( this ).find( ".displayUser" ).text()//.innerText.replace('*','');
-  x = m.replace('from', ''); mention = x.replace('reply',''); console.log(mention) // mention = *me
-  $("textarea").val(mention) // mention is *me
-  mentions = mention.replace('*',''); // raw user alias = me
+  m = $( this ).find( ".displayUser" ).text()
+  x = m.replace('from', ''); mention = x.replace('reply',''); console.log(mention);
+  $("textarea").val(mention);
+  mentions = mention.replace('*',''); 
   quote = q.replace("reply",""); console.log(quote);
   document.body.scrollTop = 20; // For Safari
   document.documentElement.scrollTop = 20; // For Chrome, Firefox, IE and Opera
