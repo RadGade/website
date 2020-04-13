@@ -505,12 +505,12 @@ $("#named").val("");$("#time").val("");$("#place").val("");$("#details").val("")
 $(".clickable").click(function(){
   console.log(window.scrollY)
   var now = window.scrollY
-  q = $( this ).get( 0 ).innerText // SAVE THIS for notifications
-  m = $( this ).find( ".displayUser" ).text()
-  x = $( this ).find( ".displayUser" ).text().replace('from', ''); mention = x.replace('reply',''); console.log(mention);
+  q = $(".clickable").get( 0 ).innerText // SAVE THIS for notifications
+  m = $(".clickable").find( ".displayUser" ).text()
+  x = m.replace('from', ''); mention = x.replace('reply',''); console.log(mention);
   $("textarea").val(mention);
   mentions = mention.replace('*','');
-  quote = $( this ).get( 0 ).innerText.replace("reply",""); console.log(quote);
+  quote = q.replace("reply",""); console.log(quote);
   document.body.scrollTop = 20; // For Safari
   document.documentElement.scrollTop = 20; // For Chrome, Firefox, IE and Opera
     $("#postbtn").click(function() {
