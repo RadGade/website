@@ -348,7 +348,7 @@ function previewFile(){
 const preview = document.getElementById("preview");
 const file = document.getElementById("upload_img").files[0];
 
- if ( /\.(jpe?g|png)$/i.test(file.name) ) {
+ // if ( /\.(jpe?g|png)$/i.test(file.name) ) {
 
 const reader = new FileReader();
 reader.addEventListener("load", function () {
@@ -359,7 +359,7 @@ reader.readAsDataURL(file);
 }
 $("#imagebtn").show();
 $("#caption").show();
-}
+// }
 }
 
 
