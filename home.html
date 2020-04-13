@@ -474,14 +474,21 @@ gun.get('genderev_users').map().once(function(data, key){
   result.push(data.user);
   return result;
 });
+var current = user.is.alias;
+
 function domData(){
+
+console.log(current)
+
 var status = document.createElement("div");
+
 gun.get('statuses').map().on(function(data, key){
-	var statusTextItem = document.createElement("div");
-	statusTextItem.innerHTML = "<div class='clickable'><span>" + data.title + "</span><br>" + "<span class = 'date postDate'>" + humanized_time_span(data.date) + "</span><br>" + "<span class='displayUser'>from *"+ data.user +"<br>" + "<button class='cmt'>reply</button>"+ "<hr><br></span></div>";
-	$(status).prepend(statusTextItem);
-});
-$("#content").prepend(status);
+
+var statusTextItem = document.createElement("div");
+
+statusTextItem.innerHTML = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from*${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
+
+$(status).prepend(statusTextItem);});$("#content").prepend(status);
 
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
