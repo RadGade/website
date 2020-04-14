@@ -320,17 +320,18 @@ user.recall({sessionStorage:!0}, function(a) {
   console.log("Call to sessionStorage took " + (f - g) + " milliseconds.");
   var b = user.is.alias;
   document.getElementById("heading-name").innerHTML = "<h3>* " + b + "</h3>";
+  f = $(".m");
+  gun.get(b).map().on(function(data,key) {
+    var d = "<br><div> *" + data.mention + "<br>" + humanized_time_span(data.date) +"<br>" + data.user + "</div><br><br>";
+    $(f).prepend(d);
+  });
   var c = document.getElementById("gallery");
   gun.get(b).map().on(function(a, b) {
     var d = "<li class='center'><img src='" + a.img + "'><p class='cap'>" + a.caption + "</p><p style='color:black;font-size:18px'>" + humanized_time_span(a.date) + "<br>from *" + a.user + "</p></li>";
     $(c).prepend(d);
   });
 
-  f = $(".m");
-  gun.get(b).map().on(function(data,key) {
-    var d = "<br><div> *" + data.mention + "<br>" + humanized_time_span(data.date) +"<br>" + data.user + "</div><br><br>";
-    $(f).prepend(d);
-  });
+
   $("#imagebtn").click(function() {
     var a = $("textarea").val();
     a = DOMPurify.sanitize(a);
