@@ -324,7 +324,7 @@ user.recall({sessionStorage:!0}, function(a) {
   gun.get(b).map().on(function(data,key) {
     var d = "<div>" + data.mention + "<br>" + humanized_time_span(data.date) + +"<br>" + data.user + "</div>"
     $(f).prepend(d);
-   }
+  })
   $("#imagebtn").click(function() {
     var a = $("textarea").val();
     a = DOMPurify.sanitize(a);
