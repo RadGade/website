@@ -538,6 +538,7 @@ $( ".cmt" ).click(function() {
   quote = q.replace("reply",":")
   $("#comment-reply").val(quote);
   modal.style.display = "block";
+  $("#comment-reply").focus();
 
 
   v = quote.replace("to *","");
