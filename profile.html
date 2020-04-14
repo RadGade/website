@@ -315,17 +315,18 @@ $jscomp.createTemplateTagFirstArgWithRaw = function(a, b) {
   return a;
 };
 var gun = Gun(["https://superpeer2.unubo.app/gun"]), user = gun.user();
+a = performance.now();
 user.recall({sessionStorage:!0}, function(a) {
+  var e = performance.now();
+  console.log("Call to sessionStorage took " + (e - a) + " milliseconds.");
   var b = user.is.alias;
-  a = performance.now();
   document.getElementById("heading-name").innerHTML = "<h3>* " + b + "</h3>";
   var c = document.getElementById("gallery");
   gun.get(b).map().on(function(a, b) {
     var d = "<li class='center'><img src='" + a.img + "'><p class='cap'>" + a.caption + "</p><p style='color:black;font-size:18px'>" + humanized_time_span(a.date) + "<br>from *" + a.user + "</p></li>";
     $(c).prepend(d);
   });
-  var e = performance.now();
-  console.log("Call to updateScreen took " + (e - a) + " milliseconds.");
+
   $("#imagebtn").click(function() {
     var a = $("textarea").val();
     a = DOMPurify.sanitize(a);
