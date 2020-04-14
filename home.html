@@ -471,30 +471,18 @@ var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
 var t4 = performance.now();
 console.log("Call to gun setup took " + (t4 - t3) + " milliseconds.");
 
-// var t5 = performance.now();
-// result = [];
-// gun.get('genderev_users').map().once(function(data, key){
-//   result.push(data.user);
-//   return result;
-// });
-// var t6 = performance.now();
-// console.log("Call to user index took " + (t6 - t5) + " milliseconds.");
-
 var t0 = performance.now();
 function domData(){
+
 var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
-var statusTextItem = document.createElement("div");
-statusTextItem.innerHTML = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from *${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
+var statusTextItem  = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from *${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
 $(status).prepend(statusTextItem);});$("#content").prepend(status);
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
-	var eventTextItem = document.createElement("div");
-	eventTextItem.innerHTML = `<div class = 'events'><div class='first'>${data.named}</div><div class='underline1'>when</div><div>${data.time}</span><br><div class='underline1'>where</div><div>${data.place}</div><div class='underline1'>details</div><div>${data.details}</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *${data.user}</div></div>`;
-	event.appendChild(eventTextItem);
-});
-$("aside").append(event);
-}
+	var eventTextItem = `<div class = 'events'><div class='first'>${data.named}</div><div class='underline1'>when</div><div>${data.time}</span><br><div class='underline1'>where</div><div>${data.place}</div><div class='underline1'>details</div><div>${data.details}</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *${data.user}</div></div>`;
+	$(event).append(eventTextItem);});$("aside").append(event);}
+
 domData();
 var t1 = performance.now();
 console.log("Call to domData took " + (t1 - t0) + " milliseconds.");
