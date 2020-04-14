@@ -309,12 +309,12 @@ header{width:100%;}
 <script>
 var t0 = performance.now();
 user.recall({sessionStorage:true},function(uob){
-var current = user.is.alias;
 var t1 = performance.now();
 console.log("Call to user stuff took " + (t1 - t0) + " milliseconds.");
 console.log("We started at " + (t0) + " milliseconds.");
 var t5 = performance.now();
 // function updateScreen(time) {
+var current = user.is.alias;
 document.getElementById("heading-name").innerHTML=`<h3>* ${current}</h3>`;
 var post = document.getElementById("gallery");
 gun.get(current).map().on(function(data, key){
