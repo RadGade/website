@@ -553,7 +553,7 @@ mention = v.replace(":", "");
 console.log(mention);
 b = DOMPurify.sanitize($("#comment-reply").val());
 gun.get("statuses").set({title:b, user:user.is.alias, date:Date()});
-gun.get(user.is.alias).set({mention: mention, user: user.is.alias, date:Date()});
+gun.get(user.is.alias).set({mention:mention, user:user.is.alias, date:Date()});
 modal.style.display = "none";
 });
 
