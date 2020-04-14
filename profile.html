@@ -367,6 +367,9 @@ $("#profile").click(function() {window.location.href =("home.html");});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});
 $("#helpbtn").click(function() {window.location.href =("help.html");});
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+}
 </script>
 <script src="js/prerender.js"></script>
 </body>

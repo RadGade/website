@@ -471,14 +471,14 @@ var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
 var t4 = performance.now();
 console.log("Call to gun setup took " + (t4 - t3) + " milliseconds.");
 
-var t5 = performance.now();
-result = [];
-gun.get('genderev_users').map().once(function(data, key){
-  result.push(data.user);
-  return result;
-});
-var t6 = performance.now();
-console.log("Call to user index took " + (t6 - t5) + " milliseconds.");
+// var t5 = performance.now();
+// result = [];
+// gun.get('genderev_users').map().once(function(data, key){
+//   result.push(data.user);
+//   return result;
+// });
+// var t6 = performance.now();
+// console.log("Call to user index took " + (t6 - t5) + " milliseconds.");
 
 var t0 = performance.now();
 function domData(){
@@ -534,8 +534,11 @@ $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim
 document.getElementById("postbtn").addEventListener("click",function(event) {if(!user.is){window.location.href =("signup.html"); }});
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-console.log(result)
+// console.log(result)
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+}
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
