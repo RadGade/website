@@ -311,12 +311,11 @@ var current = user.is.alias;
 var t0 = performance.now();
 // function updateScreen(time) {
 document.getElementById("heading-name").innerHTML=`<h3>* ${current}</h3>`;
-var post = document.createElement("div");
+var post = document.getElementById("gallery");
 gun.get(current).map().on(function(data, key){
 var postTextItem = `<li class='center'><img src='${data.img}'><p class='cap'>${data.caption}</p><p style='color:black;font-size:18px'>${humanized_time_span(data.date)}<br>from *${data.user}</p></li>`;
 $(post).prepend(postTextItem);
 })
-$("#gallery").prepend(post);
 // }
 // requestAnimationFrame(updateScreen);
 var t1 = performance.now();

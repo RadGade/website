@@ -474,14 +474,14 @@ console.log("Call to gun setup took " + (t4 - t3) + " milliseconds.");
 var t0 = performance.now();
 function domData(){
 
-var status = document.createElement("div");
+var status = document.getElementById("content");
 gun.get('statuses').map().on(function(data, key){
 var statusTextItem  = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from *${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
-$(status).prepend(statusTextItem);});$("#content").prepend(status);
-var event = document.createElement("div");
+$(status).prepend(statusTextItem);});
+var event = document.querySelector('aside');
 gun.get('events').map().on(function(data, key){
 	var eventTextItem = `<div class = 'events'><div class='first'>${data.named}</div><div class='underline1'>when</div><div>${data.time}</span><br><div class='underline1'>where</div><div>${data.place}</div><div class='underline1'>details</div><div>${data.details}</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *${data.user}</div></div>`;
-	$(event).append(eventTextItem);});$("aside").append(event);}
+	$(event).append(eventTextItem);});}
 
 domData();
 var t1 = performance.now();
