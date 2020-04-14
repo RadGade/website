@@ -321,8 +321,8 @@ user.recall({sessionStorage:!0}, function(a) {
   });
 
   f = $(".m")
-  gun.get(b).map().on(function(e,b) {
-    var d = "<div>" + e.mention + "<br>" + humanized_time_span(e.date) + +"<br>" + e.user + "</div>"
+  gun.get(b).map().on(function(data,key) {
+    var d = "<div>" + data.mention + "<br>" + humanized_time_span(data.date) + +"<br>" + data.user + "</div>"
     $(f).prepend(d);
    }
   $("#imagebtn").click(function() {
