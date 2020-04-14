@@ -293,7 +293,7 @@ header{width:100%;}
 	<div class="center"><img style="margin-left:0px; width:93%;" src="" id="preview"></div>
 
 	<div class="center"><textarea id="caption" placeholder="write photo caption here" hidden></textarea></div>
-	<div class="center"><button type="button" id="imagebtn" hidden> post 📩</button><br><div id="heading-name"></div><button id="v">go to pics</button></div>
+	<div class="center"><button type="button" id="imagebtn" hidden> post 📩</button><br><button id="v">go to pics</button><div id="heading-name"></div></div>
 <div class="center"><ul id ="gallery"></ul></div></div>
 </section>
 <div class="navbar center" id="myNavbar"><label for="upload_img">✧・˚・∘upload📸∘・˚・✧</label></div>
@@ -322,7 +322,7 @@ user.recall({sessionStorage:!0}, function(a) {
 
   f = $(".m")
   gun.get(b).map().on(function(data,key) {
-    var d = "<div>" + data.mention + "<br>" + humanized_time_span(data.date) + +"<br>" + data.user + "</div>"
+    var d = "<br><div>" + data.mention + "<br>" + humanized_time_span(data.date) + +"<br>" + data.user + "</div><br><br>"
     $(f).prepend(d);
   })
   $("#imagebtn").click(function() {
