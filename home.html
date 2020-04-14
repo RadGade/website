@@ -488,13 +488,8 @@ nav > ul > .liprofile > a:link{color:var(--blue);}
 <script>
 var $jscomp = $jscomp || {};
 $jscomp.scope = {};
-$jscomp.createTemplateTagFirstArg = function(a) {
-  return a.raw = a;
-};
-$jscomp.createTemplateTagFirstArgWithRaw = function(a, d) {
-  a.raw = d;
-  return a;
-};
+$jscomp.createTemplateTagFirstArg = function(a) {return a.raw = a;};
+$jscomp.createTemplateTagFirstArgWithRaw = function(a, d) {a.raw = d;return a;};
 var gun = Gun(["https://superpeer2.unubo.app/gun"]), user = gun.user(), t0 = performance.now();
 function domData() {
   var a = document.getElementById("content");

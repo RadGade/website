@@ -315,10 +315,10 @@ $jscomp.createTemplateTagFirstArgWithRaw = function(a, b) {
   return a;
 };
 var gun = Gun(["https://superpeer2.unubo.app/gun"]), user = gun.user();
-a = performance.now();
+g = performance.now();
 user.recall({sessionStorage:!0}, function(a) {
-  var e = performance.now();
-  console.log("Call to sessionStorage took " + (e - a) + " milliseconds.");
+  var f = performance.now();
+  console.log("Call to sessionStorage took " + (f - g) + " milliseconds.");
   var b = user.is.alias;
   document.getElementById("heading-name").innerHTML = "<h3>* " + b + "</h3>";
   var c = document.getElementById("gallery");
