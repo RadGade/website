@@ -482,7 +482,7 @@ nav > ul > .liprofile > a:link{color:var(--blue);}
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
-<script src="js/humanized_time_span.js"></script>
+<script src="js/user.js"></script>
 <script>
 var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
 var t0 = performance.now();
@@ -505,14 +505,17 @@ $("#postbtn").attr('disabled','disabled');
 user.recall({sessionStorage:true},function(uob){
 $("#postbtn").click(function() {
 var current = user.is.alias;
-console.log(current); var input = encodeURI($("#ityped").val());gun.get('statuses').set({title: input,user: current,date: Date()})
+console.log(current);
+var dirty = $("#ityped").val();
+var input = DOMPurify.sanitize(dirty);
+gun.get('statuses').set({title: input,user: current,date: Date()})
 var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
 window.scroll({top: 200,left: 0,behavior: 'smooth'});
 $('#ityped').val("");$("#postbtn").attr('disabled','disabled');$("#hidden").show()
 });
 $(".newevent").click(function() {
-var named = encodeURI($("#named").val());var time = encodeURI($("#time").val());var place = encodeURI($("#place").val());var details = encodeURI($("#details").val());
+var named = DOMPurify.sanitize($("#named").val());var time = DOMPurify.sanitize($("#time").val());var place = DOMPurify.sanitize($("#place").val());var details = DOMPurify.sanitize($("#details").val());
 gun.get('events').set({named: named,time: time,place: place,details: details,user: user.is.alias})
 var self = $(".newevent");if (!self.data("add")) {self.data("add", true);self.text("posted!");
 setTimeout(function() {self.text("new event").data("add", false);}, 1100);}
