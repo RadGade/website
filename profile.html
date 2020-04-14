@@ -305,70 +305,60 @@ header{width:100%;}
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
 <script>
-var gun = Gun(['https://superpeer2.unubo.app/gun']);
-const user = gun.user();
-user.recall({sessionStorage:true},function(uob){
-var current = user.is.alias;
-var t0 = performance.now();
-// function updateScreen(time) {
-document.getElementById("heading-name").innerHTML=`<h3>* ${current}</h3>`;
-var post = document.getElementById("gallery");
-gun.get(current).map().on(function(data, key){
-var postTextItem = `<li class='center'><img src='${data.img}'><p class='cap'>${data.caption}</p><p style='color:black;font-size:18px'>${humanized_time_span(data.date)}<br>from *${data.user}</p></li>`;
-$(post).prepend(postTextItem);
-})
-// }
-// requestAnimationFrame(updateScreen);
-var t1 = performance.now();
-console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
-
-$("#imagebtn").click(function() {
-var dirty = $("textarea").val();
-var input = DOMPurify.sanitize(dirty);
-image =  document.getElementById("preview").src;
-gun.get(current).set({
-caption: input,
-img: image,
-user: current,
-date: Date()
-})
-console.log(image);
-console.log(input);
-$("#imagebtn").hide();
-$("textarea").hide();
-$("label").show();
-$("#upload_img").val("");
-$("#preview").attr("src","");
-}); //click image button function
-}) //gun function
-function previewFile(){
-
-const preview = document.getElementById("preview");
-const file = document.getElementById("upload_img").files[0];
-
- // if ( /\.(jpe?g|png)$/i.test(file.name) ) {
-
-const reader = new FileReader();
-reader.addEventListener("load", function () {
-preview.src = reader.result;
-}, false);
-if (file) {
-reader.readAsDataURL(file);
+var $jscomp = $jscomp || {};
+$jscomp.scope = {};
+$jscomp.createTemplateTagFirstArg = function(a) {
+  return a.raw = a;
+};
+$jscomp.createTemplateTagFirstArgWithRaw = function(a, b) {
+  a.raw = b;
+  return a;
+};
+var gun = Gun(["https://superpeer2.unubo.app/gun"]), user = gun.user();
+user.recall({sessionStorage:!0}, function(a) {
+  var b = user.is.alias;
+  a = performance.now();
+  document.getElementById("heading-name").innerHTML = "<h3>* " + b + "</h3>";
+  var c = document.getElementById("gallery");
+  gun.get(b).map().on(function(a, b) {
+    var d = "<li class='center'><img src='" + a.img + "'><p class='cap'>" + a.caption + "</p><p style='color:black;font-size:18px'>" + humanized_time_span(a.date) + "<br>from *" + a.user + "</p></li>";
+    $(c).prepend(d);
+  });
+  var e = performance.now();
+  console.log("Call to updateScreen took " + (e - a) + " milliseconds.");
+  $("#imagebtn").click(function() {
+    var a = $("textarea").val();
+    a = DOMPurify.sanitize(a);
+    image = document.getElementById("preview").src;
+    gun.get(b).set({caption:a, img:image, user:b, date:Date()});
+    console.log(image);
+    console.log(a);
+    $("#imagebtn").hide();
+    $("textarea").hide();
+    $("label").show();
+    $("#upload_img").val("");
+    $("#preview").attr("src", "");
+  });
+});
+function previewFile() {
+  var a = document.getElementById("preview"), b = document.getElementById("upload_img").files[0], c = new FileReader;
+  c.addEventListener("load", function() {
+    a.src = c.result;
+  }, !1);
+  b && c.readAsDataURL(b);
+  $("#imagebtn").show();
+  $("#caption").show();
 }
-$("#imagebtn").show();
-$("#caption").show();
-// }
-}
+$("#login-button").on("click", function(a) {
+  a.preventDefault();
+  user.leave();
+  window.location.href = "index.html";
+});
+$("#profile").click(function() {window.location.href = "home.html";});
+$("#aboutbtn").click(function() {window.location.href = "about.html";});
+$("#helpbtn").click(function() {window.location.href = "help.html";});
 
-
-$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");})
-$("#profile").click(function() {window.location.href =("home.html");});
-$("#aboutbtn").click(function() {window.location.href =("about.html");});
-$("#helpbtn").click(function() {window.location.href =("help.html");});
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-}
+"serviceWorker" in navigator && navigator.serviceWorker.register("/service-worker.js");
 </script>
 <script src="js/prerender.js"></script>
 </body>

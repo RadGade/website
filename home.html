@@ -484,81 +484,112 @@ nav > ul > .liprofile > a:link{color:var(--blue);}
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
 <script>
-var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
-var t0 = performance.now();
-function domData(){
-var status = document.getElementById("content");
-gun.get('statuses').map().on(function(data, key){
-var statusTextItem  = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from *${data.user}<br><button class='cmt myBtn'>reply</button><hr><br></span></div>`;
-$(status).prepend(statusTextItem);});
-var event = document.querySelector('aside');
-gun.get('events').map().on(function(data, key){
-	var eventTextItem = `<div class = 'events'><div class='first'>${data.named}</div><div class='underline1'>when</div><div>${data.time}</span><br><div class='underline1'>where</div><div>${data.place}</div><div class='underline1'>details</div><div>${data.details}</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *${data.user}</div></div>`;
-	$(event).append(eventTextItem);});}
+var $jscomp = $jscomp || {};
+$jscomp.scope = {};
+$jscomp.createTemplateTagFirstArg = function(a) {
+  return a.raw = a;
+};
+$jscomp.createTemplateTagFirstArgWithRaw = function(a, d) {
+  a.raw = d;
+  return a;
+};
+var gun = Gun(["https://superpeer2.unubo.app/gun"]), user = gun.user(), t0 = performance.now();
+function domData() {
+  var a = document.getElementById("content");
+  gun.get("statuses").map().on(function(b, d) {
+    var c = "<div class ='clickable'><span>" + b.title + "</span><br><span class = 'date postDate'>" + humanized_time_span(b.date) + "</span><br><span class='displayUser'>from *" + b.user + "<br><button class='cmt myBtn'>reply</button><hr><br></span></div>";
+    $(a).prepend(c);
+  });
+  var d = document.querySelector("aside");
+  gun.get("events").map().on(function(a, c) {
+    var b = "<div class = 'events'><div class='first'>" + a.named + "</div><div class='underline1'>when</div><div>" + a.time + "</span><br><div class='underline1'>where</div><div>" + a.place + "</div><div class='underline1'>details</div><div>" + a.details + "</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *" + a.user + "</div></div>";
+    $(d).append(b);
+  });
+}
 domData();
 var t1 = performance.now();
 console.log("Call to domData took " + (t1 - t0) + " milliseconds.");
-new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
-// make var for postbtn and ref that
-$("#postbtn").attr('disabled','disabled');
-
-user.recall({sessionStorage:true},function(uob){
-$("#postbtn").click(function() {
-var current = user.is.alias;
-console.log(current);
-var dirty = $("#ityped").val();
-var input = DOMPurify.sanitize(dirty);
-gun.get('statuses').set({title: input,user: current,date: Date()})
-var self = $("#postbtn");if (!self.data("add")) {self.data("add", true);self.text("posted!");
-setTimeout(function() {self.text("post 💌").data("add", false);}, 1100);}
-window.scroll({top: 200,left: 0,behavior: 'smooth'});
-$('#ityped').val("");$("#postbtn").attr('disabled','disabled');$("#hidden").show()
+new TypeWriter("#ityped", ["what is going on in your life?"], {writeDelay:200});
+$("#postbtn").attr("disabled", "disabled");
+user.recall({sessionStorage:!0}, function(a) {
+  $("#postbtn").click(function() {
+    var a = user.is.alias;
+    console.log(a);
+    var b = $("#ityped").val();
+    b = DOMPurify.sanitize(b);
+    gun.get("statuses").set({title:b, user:a, date:Date()});
+    var c = $("#postbtn");
+    c.data("add") || (c.data("add", !0), c.text("posted!"), setTimeout(function() {
+      c.text("post \ud83d\udc8c").data("add", !1);
+    }, 1100));
+    window.scroll({top:200, left:0, behavior:"smooth"});
+    $("#ityped").val("");
+    $("#postbtn").attr("disabled", "disabled");
+    $("#hidden").show();
+  });
+  $(".newevent").click(function() {
+    var a = DOMPurify.sanitize($("#named").val()), b = DOMPurify.sanitize($("#time").val()), c = DOMPurify.sanitize($("#place").val()), f = DOMPurify.sanitize($("#details").val());
+    gun.get("events").set({named:a, time:b, place:c, details:f, user:user.is.alias});
+    var e = $(".newevent");
+    e.data("add") || (e.data("add", !0), e.text("posted!"), setTimeout(function() {
+      e.text("new event").data("add", !1);
+    }, 1100));
+    window.scroll({top:350, left:0, behavior:"smooth"});
+    $("#named").val("");
+    $("#time").val("");
+    $("#place").val("");
+    $("#details").val("");
+  });
+  $("#ityped").keyup(function() {
+    "" !== document.getElementById("ityped").value.trim() && $("#postbtn").removeAttr("disabled");
+  });
+  document.getElementById("postbtn").addEventListener("click", function(a) {
+    user.is || (window.location.href = "signup.html");
+  });
 });
-$(".newevent").click(function() {
-var named = DOMPurify.sanitize($("#named").val());var time = DOMPurify.sanitize($("#time").val());var place = DOMPurify.sanitize($("#place").val());var details = DOMPurify.sanitize($("#details").val());
-gun.get('events').set({named: named,time: time,place: place,details: details,user: user.is.alias})
-var self = $(".newevent");if (!self.data("add")) {self.data("add", true);self.text("posted!");
-setTimeout(function() {self.text("new event").data("add", false);}, 1100);}
-window.scroll({top: 350,left: 0,behavior: 'smooth'});
-$("#named").val("");$("#time").val("");$("#place").val("");$("#details").val("");
+document.getElementById("ityped").addEventListener("keyup", function(a) {
+  13 === a.keyCode && (a.preventDefault(), document.getElementById("postbtn").click());
 });
-$("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
-document.getElementById("postbtn").addEventListener("click",function(event) {if(!user.is){window.location.href =("signup.html"); }});
-}) //gun function
+$("#aboutbtn").click(function() {
+  window.location.href = "about.html";
+});
+$("#profile").click(function() {
+  window.location.href = "profile.html";
+});
+$("#helpbtn").click(function() {
+  window.location.href = "help.html";
+});
+$("#report").click(function() {
+  window.location.href = "report.html";
+});
+$("#login-button").on("click", function(a) {
+  a.preventDefault();
+  user.leave();
+  window.location.href = "index.html";
+});
+"serviceWorker" in navigator && navigator.serviceWorker.register("/service-worker.js");
 
-document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
-$("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-}
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
-$( ".cmt" ).click(function() {
-  q = $( this ).closest( ".displayUser" ).text().replace("from","to");
-  quote = q.replace("reply",":")
+var modal = document.getElementById("myModal"), span = document.getElementsByClassName("close")[0];
+$(".cmt").click(function() {
+  q = $(this).closest(".displayUser").text().replace("from", "to");
+  quote = q.replace("reply", ":");
   $("#comment-reply").val(quote);
   modal.style.display = "block";
   $("#comment-reply").focus();
-
-
-  v = quote.replace("to *","");
-  mention = v.replace(":","");
+  v = quote.replace("to *", "");
+  mention = v.replace(":", "");
   console.log(mention);
-
-
-})
+});
 span.onclick = function() {
   modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-$( ".cmt1" ).click(function() {
+};
+window.onclick = function(a) {
+  a.target == modal && (modal.style.display = "none");
+};
+$(".cmt1").click(function() {
   modal.style.display = "none";
+});
 
-})
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
