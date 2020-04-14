@@ -13,6 +13,7 @@
 <meta charset="utf-8"/>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="Homepage">
+<link rel="prefetch" href="wss://superpeer2.unubo.app/gun">
 <bold><title>GENDEREV</title></bold>
 <style>
 :root{
@@ -471,27 +472,22 @@ var gun = Gun(['https://superpeer2.unubo.app/gun']);const user = gun.user();
 var t4 = performance.now();
 console.log("Call to gun setup took " + (t4 - t3) + " milliseconds.");
 
-var t6 = performance.now();
+var t5 = performance.now();
 result = [];
 gun.get('genderev_users').map().once(function(data, key){
   result.push(data.user);
   return result;
 });
-var t5 = performance.now();
+var t6 = performance.now();
 console.log("Call to user index took " + (t6 - t5) + " milliseconds.");
 
 var t0 = performance.now();
 function domData(){
-var fragment = document.createDocumentFragment();
-// var status = document.createElement("div");
+var status = document.createElement("div");
 gun.get('statuses').map().on(function(data, key){
 var statusTextItem = document.createElement("div");
 statusTextItem.innerHTML = `<div class ='clickable'><span>${data.title}</span><br><span class = 'date postDate'>${humanized_time_span(data.date)}</span><br><span class='displayUser'>from *${data.user}<br><button class='cmt'>reply</button><hr><br></span></div>`;
-// $(status).prepend(statusTextItem);});
-$(fragment).prepend(statusTextItem);
-console.log(fragment);});
-$("#content").prepend(fragment);
-
+$(status).prepend(statusTextItem);});$("#content").prepend(status);
 var event = document.createElement("div");
 gun.get('events').map().on(function(data, key){
 	var eventTextItem = document.createElement("div");
