@@ -491,23 +491,21 @@ $jscomp.scope = {};
 $jscomp.createTemplateTagFirstArg = function(a) {return a.raw = a;};
 $jscomp.createTemplateTagFirstArgWithRaw = function(a, d) {a.raw = d;return a;};
 var gun = Gun(["https://superpeer2.unubo.app/gun"]), user = gun.user(), t0 = performance.now();
+$("#postbtn").attr("disabled", "disabled");
 function domData() {
   var a = document.getElementById("content");
   gun.get("statuses").map().on(function(b, d) {
     var c = "<div class ='clickable'><span>" + b.title + "</span><br><span class = 'date postDate'>" + humanized_time_span(b.date) + "</span><br><span class='displayUser'>from *" + b.user + "<br><button class='cmt myBtn'>reply</button><hr><br></span></div>";
-    $(a).prepend(c);
-  });
+    $(a).prepend(c);});
   var d = document.querySelector("aside");
   gun.get("events").map().on(function(a, c) {
     var b = "<div class = 'events'><div class='first'>" + a.named + "</div><div class='underline1'>when</div><div>" + a.time + "</span><br><div class='underline1'>where</div><div>" + a.place + "</div><div class='underline1'>details</div><div>" + a.details + "</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *" + a.user + "</div></div>";
-    $(d).append(b);
-  });
+    $(d).append(b);});
 }
 domData();
 var t1 = performance.now();
 console.log("Call to domData took " + (t1 - t0) + " milliseconds.");
 new TypeWriter("#ityped", ["what is going on in your life?"], {writeDelay:200});
-$("#postbtn").attr("disabled", "disabled");
 user.recall({sessionStorage:!0}, function(a) {
   $("#postbtn").click(function() {
     var a = user.is.alias;
@@ -538,14 +536,7 @@ user.recall({sessionStorage:!0}, function(a) {
     $("#details").val("");
   });
 $("#ityped").keyup(function() {"" !== document.getElementById("ityped").value.trim() && $("#postbtn").removeAttr("disabled");});
-document.getElementById("postbtn").addEventListener("click", function(a) {user.is || (window.location.href = "signup.html");});});
-document.getElementById("ityped").addEventListener("keyup", function(a) {13 === a.keyCode && (a.preventDefault(), document.getElementById("postbtn").click());});
-$("#aboutbtn").click(function() {window.location.href = "about.html";});
-$("#profile").click(function() {window.location.href = "profile.html";});
-$("#helpbtn").click(function() {window.location.href = "help.html";});
-$("#report").click(function() {window.location.href = "report.html";});
-$("#login-button").on("click", function(a) {a.preventDefault();user.leave();window.location.href = "index.html";});
-"serviceWorker" in navigator && navigator.serviceWorker.register("/service-worker.js");
+document.getElementById("postbtn").addEventListener("click", function(a) {user.is || (window.location.href = "signup.html");});
 
 var modal = document.getElementById("myModal"), span = document.getElementsByClassName("close")[0];
 $(".cmt").click(function() {
@@ -554,14 +545,24 @@ $(".cmt").click(function() {
   $("#comment-reply").val(quote);
   modal.style.display = "block";
   $("#comment-reply").focus();
-  v = quote.replace("to *", "");
-  mention = v.replace(":", "");
-  console.log(mention);
+});
+span.onclick = function() {modal.style.display = "none";};window.onclick = function(a) {a.target == modal && (modal.style.display = "none");};
+$(".cmt1").click(function() {
+v = $("#comment-reply").val().replace("to *", "");
+mention = v.replace(":", "");
+console.log(mention);
+b = DOMPurify.sanitize($("#comment-reply").val());
+gun.get("statuses").set({title:b, user:user.is.alias, date:Date()});
+gun.get(user.is.alias).set({mention: mention, user: user.is.alias, date:Date()});
+modal.style.display = "none";
 });
 
-span.onclick = function() {modal.style.display = "none";};
-window.onclick = function(a) {a.target == modal && (modal.style.display = "none");};
-$(".cmt1").click(function() {modal.style.display = "none";});
+});
+document.getElementById("ityped").addEventListener("keyup", function(a) {13 === a.keyCode && (a.preventDefault(), document.getElementById("postbtn").click());});
+$("#aboutbtn").click(function() {window.location.href = "about.html";});$("#profile").click(function() {window.location.href = "profile.html";});
+$("#helpbtn").click(function() {window.location.href = "help.html";});$("#report").click(function() {window.location.href = "report.html";});
+$("#login-button").on("click", function(a) {a.preventDefault();user.leave();window.location.href = "index.html";});
+"serviceWorker" in navigator && navigator.serviceWorker.register("/service-worker.js");
 </script>
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
