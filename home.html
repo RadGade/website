@@ -501,6 +501,8 @@ console.log("Call to domData took " + (t1 - t0) + " milliseconds.");
 new TypeWriter('#ityped', ['what is going on in your life?'], {writeDelay: 200});
 // make var for postbtn and ref that
 $("#postbtn").attr('disabled','disabled');
+
+user.recall({sessionStorage:true},function(uob){
 $("#postbtn").click(function() {
 var current = user.is.alias;
 console.log(current); var input = encodeURI($("#ityped").val());gun.get('statuses').set({title: input,user: current,date: Date()})
@@ -518,6 +520,9 @@ window.scroll({top: 350,left: 0,behavior: 'smooth'});
 $("#named").val("");$("#time").val("");$("#place").val("");$("#details").val("");
 });
 $("#ityped").keyup(function(){if ((document.getElementById("ityped").value).trim() !== ""){$("#postbtn").removeAttr('disabled');}});
+document.getElementById("postbtn").addEventListener("click",function(event) {if(!user.is){window.location.href =("signup.html"); }});
+}) //gun function
+
 document.getElementById("ityped").addEventListener("keyup",function(event) {if (event.keyCode ===13) {event.preventDefault();document.getElementById("postbtn").click();}});
 $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#profile").click(function() {window.location.href =("profile.html");});$("#helpbtn").click(function() {window.location.href = ("help.html");});$("#report").click(function() {window.location.href = ("report.html");});$('#login-button').on('click',function(e){e.preventDefault();user.leave();window.location.href =("index.html");});
 if ('serviceWorker' in navigator) {
