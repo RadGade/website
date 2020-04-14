@@ -545,15 +545,15 @@ $(".cmt").click(function() {
   $("#comment-reply").val(quote);
   modal.style.display = "block";
   $("#comment-reply").focus();
+  v = $("#comment-reply").val().replace("to *", "");
+  mention = v.replace(":", "");
+  console.log(mention);
+  gun.get(mention).set({by:user.is.alias, m_date:Date()});
 });
 span.onclick = function() {modal.style.display = "none";};window.onclick = function(a) {a.target == modal && (modal.style.display = "none");};
 $(".cmt1").click(function() {
-v = $("#comment-reply").val().replace("to *", "");
-mention = v.replace(":", "");
-console.log(mention);
 b = DOMPurify.sanitize($("#comment-reply").val());
 gun.get("statuses").set({title:b, user:user.is.alias, date:Date()});
-gun.get(user.is.alias).set({mention:mention, user:user.is.alias, date:Date()});
 modal.style.display = "none";
 });
 
