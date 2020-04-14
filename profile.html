@@ -328,7 +328,7 @@ user.recall({sessionStorage:!0}, function(a) {
 
   f = $(".m");
   gun.get(b).map().on(function(data,key) {
-    var d = "<br><div>" + data.mention + "<br>" + humanized_time_span(data.date) +"<br>" + data.user + "</div><br><br>";
+    var d = "<br><div> *" + data.mention + "<br>" + humanized_time_span(data.date) +"<br>" + data.user + "</div><br><br>";
     $(f).prepend(d);
   });
   $("#imagebtn").click(function() {
@@ -342,12 +342,17 @@ user.recall({sessionStorage:!0}, function(a) {
   });
 });
 function previewFile() {
+
   var a = document.getElementById("preview"), b = document.getElementById("upload_img").files[0], c = new FileReader;
   c.addEventListener("load", function() {
     a.src = c.result;
   }, !1);
   b && c.readAsDataURL(b);
   $("#imagebtn").show();$("#caption").show();
+
+  $('html, body').animate({
+      scrollTop: ($('#preview').first().offset().top)
+  },500);
 }
 $("#login-button").on("click", function(a) {
   a.preventDefault();
