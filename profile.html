@@ -299,6 +299,7 @@ header{width:100%;}
 </section>
 
 <div class="navbar center" id="myNavbar"><label for="upload_img">✧・˚・∘upload📸∘・˚・✧</label></div>
+
 <script src="js/jquery.min.js"></script>
 <script src="js/gun.js"></script>
 <script src="js/sea.js"></script>
@@ -306,9 +307,13 @@ header{width:100%;}
 <script src="js/user.js"></script>
 <script src="js/top.js"></script>
 <script>
+var t0 = performance.now();
 user.recall({sessionStorage:true},function(uob){
 var current = user.is.alias;
-var t0 = performance.now();
+var t1 = performance.now();
+console.log("Call to user stuff took " + (t1 - t0) + " milliseconds.");
+console.log("We started at " + (t0) + " milliseconds.");
+var t5 = performance.now();
 // function updateScreen(time) {
 document.getElementById("heading-name").innerHTML=`<h3>* ${current}</h3>`;
 var post = document.getElementById("gallery");
@@ -318,8 +323,8 @@ $(post).prepend(postTextItem);
 })
 // }
 // requestAnimationFrame(updateScreen);
-var t1 = performance.now();
-console.log("Call to updateScreen took " + (t1 - t0) + " milliseconds.");
+var t6 = performance.now();
+console.log("Call to updateScreen took " + (t6 - t5) + " milliseconds.");
 
 $("#imagebtn").click(function() {
 var dirty = $("textarea").val();
