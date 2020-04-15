@@ -49,16 +49,16 @@ div.events{
 .first{
 	text-transform: uppercase;
 	font-size: 28px;
-  text-decoration: 3px underline dashed black;
+  text-decoration: 3px underline dashed var(--black);
 }
 
 a.subtle {
   color: var(--dark-blue);
-  text-decoration: underline black;
 }
 a.subtle:hover{
   color: var(--dark-blue);
-  text-decoration: underline dashed blue;
+  text-decoration: underline dashed;
+  text-shadow: 1px var(--zero) 0.8px var(--black);
   background-image: none;
 }
 .underline1{
@@ -198,18 +198,6 @@ display: flex;
 align-items: center;
 justify-content: center
 }
-/* #title br + br {margin-top: 0.825rem;}
-#title {
-text-align: center;
-color: #000AFF;
-line-height: 1.375;
-font-weight: 400;
-font-size: 32px;
-		margin-bottom: var(--zero);
-		color:  var(--black);
-		text-shadow: 0px -1px 0px darkgrey;
-		font-family: var(--main-font);
-} */
 #question, h1 {
 color: #000AFF;
 font-family: 'var(--main-font)', sans-serif;
@@ -350,7 +338,7 @@ letter-spacing: 0rem;
 font-family: var(--main-font);
 margin-bottom: var(--zero);
 color: var(--black);
-text-shadow: var(--zero) -1px var(--zero) darkgrey;
+text-shadow: var(--zero) -1px var(--zero) var(--dim-grey);
 font-style: italic;
 margin-bottom: 4px;
 }
@@ -370,7 +358,7 @@ box-shadow: var(--zero) var(--one) 4px var(--three) var(--grey);
 }
 .cmt:hover, .cmt1:hover{
 border: 1.4px dashed;
-box-shadow: 4px 5px 9px var(--dim-grey);
+box-shadow: 4px -3px 9px var(--grey);
 }
 .reply{
 margin-left: var(--ten);
@@ -440,7 +428,7 @@ nav > ul > .liprofile > a:link{color:var(--blue);}
 }
 .close:hover,
 .close:focus {
- color: black;
+ color: var(--black);
  text-decoration: none;
  cursor: pointer;
 }
