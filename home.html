@@ -37,13 +37,13 @@ div.events{
 	padding-left: var(--ten);
 	margin-bottom: 40px;
 	margin-right: var(--one);
-	max-width: 200px;
+	max-width: 240px;
 	font-size: 20px;
 	font-family: var(--main-font);
 	padding-bottom: var(--ten);
 	padding-top: var(--three);
-	border-radius: 5px;;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	border-radius: var(--three);
+	box-shadow: inset var(--two) var(--two) 5px lightgrey;
 	letter-spacing: var(--zero);
 }
 .first{
@@ -210,7 +210,7 @@ text-shadow: 0px 0px var(--one) var(--dark-blue);
 margin-bottom: var(--ten);
 }
 #profile {
-margin-right: 185px;
+margin-right: 210px;
 color: var(--dark-blue);
 box-shadow: 0px 0px var(--ten) var(--two) var(--dark-blue);
 display: inline-block;
@@ -557,10 +557,10 @@ $(".cmt").click(function() {
   $("#comment-reply").val(quote);
   modal.style.display = "block";
   $("#comment-reply").focus();
-    v = $(quote).val().replace("to *", "");
-    mention = v.replace(":", "");
-    console.log(mention);
-    gun.get(mention).set({by:user.is.alias, m_date:Date()});
+  v = $("#comment-reply").val().replace("to *", "");
+  mention = v.replace(":", "");
+  console.log(mention);
+  gun.get(mention).set({by:user.is.alias, m_date:Date()});
 });
 span.onclick = function() {modal.style.display = "none";};window.onclick = function(a) {a.target == modal && (modal.style.display = "none");};
 $(".cmt1").click(function() {
@@ -568,8 +568,6 @@ b = DOMPurify.sanitize($("#comment-reply").val());
 gun.get("statuses").set({title:b, user:user.is.alias, date:Date()});
 modal.style.display = "none";
 });
-
-$("#login-button").on("click", function(a) {a.preventDefault();user.leave();window.location.href = "index.html";});
 
 });
 document.getElementById("ityped").addEventListener("keyup", function(a) {13 === a.keyCode && (a.preventDefault(), document.getElementById("postbtn").click());});
