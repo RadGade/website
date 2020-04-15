@@ -487,14 +487,14 @@ nav > ul > .liprofile > a:link{color:var(--blue);}
 <script src="js/user.js"></script>
 <script>
 var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,c){a.raw=c;return a};var gun=Gun(["https://superpeer4.unubo.app/gun"]),user=gun.user(),t0=performance.now();$("#postbtn").attr("disabled","disabled");
-function domData(){var a=document.getElementById("content");gun.get("statuses").map().on(function(d,c){var e="<div class ='clickable'><span>"+d.title+"</span><br><span class = 'date postDate'>"+humanized_time_span(d.date)+"</span><br><span class='displayUser'>from *"+d.user+"<br><button class='cmt myBtn'>reply</button><hr><br></span></div>";$(a).prepend(e)});var c=document.querySelector("aside");gun.get("events").map().on(function(d,a){var e="<div class = 'events'><div class='first'>"+d.named+"</div><div class='underline1'>when</div><div>"+
-d.time+"</span><br><div class='underline1'>where</div><div>"+d.place+"</div><div class='underline1'>details</div><div>"+d.details+"</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *"+d.user+"</div></div>";$(c).append(e)})}domData();var t1=performance.now();console.log("Call to domData took "+(t1-t0)+" milliseconds.");new TypeWriter("#ityped",["what is going on in your life?"],{writeDelay:200});
-user.recall({sessionStorage:!0},function(a){$("#postbtn").click(function(){var d=user.is.alias;console.log(d);var a=$("#ityped").val();a=DOMPurify.sanitize(a);
+function domData(){
+//var a=document.getElementById("content");gun.get("statuses").map().on(function(d,c){var e="<div class ='clickable'><span>"+d.title+"</span><br><span class = 'date postDate'>"+humanized_time_span(d.date)+"</span><br><span class='displayUser'>from *"+d.user+"<br><button class='cmt myBtn'>reply</button><hr><br></span></div>";$(a).prepend(e)});var c=document.querySelector("aside");gun.get("events").map().on(function(d,a){var e="<div class = 'events'><div class='first'>"+d.named+"</div><div class='underline1'>when</div><div>"+
+// d.time+"</span><br><div class='underline1'>where</div><div>"+d.place+"</div><div class='underline1'>details</div><div>"+d.details+"</div><div style='color:black;margin-top:7px;font-size:15px;font-weight: lighter;text-decoration: overline dashed;'>from *"+d.user+"</div></div>";$(c).append(e)})}domData();var t1=performance.now();console.log("Call to domData took "+(t1-t0)+" milliseconds.");new TypeWriter("#ityped",["what is going on in your life?"],{writeDelay:200});
+// user.recall({sessionStorage:!0},function(a){$("#postbtn").click(function(){var d=user.is.alias;console.log(d);var a=$("#ityped").val();a=DOMPurify.sanitize(a);
 
 // gun.get("statuses").set({title:a,user:d,date:Date()});
 
 gun.get("statuses").put({});
-gun.put({});
 
 
 var c=$("#postbtn");c.data("add")||(c.data("add",!0),c.text("posted!"),setTimeout(function(){c.text("post \ud83d\udc8c").data("add",!1)},1100));window.scroll({top:200,left:0,behavior:"smooth"});$("#ityped").val("");$("#postbtn").attr("disabled","disabled");$("#hidden").show()});$(".newevent").click(function(){var a=
