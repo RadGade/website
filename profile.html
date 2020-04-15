@@ -325,6 +325,16 @@ user.recall({sessionStorage:!0}, function(a) {
     var z = "<br><div> *" + data.by + " mentioned you<br>" + humanized_time_span(data.m_date) + "</div><br><br>";
     $(l).prepend(z);
   });
+});
+</script>
+<script async>
+var $jscomp = $jscomp || {};
+$jscomp.scope = {};
+$jscomp.createTemplateTagFirstArg = function(a) {return a.raw = a;};
+$jscomp.createTemplateTagFirstArgWithRaw = function(a, b) {a.raw = b;return a;};
+  var gun = Gun(["https://superpeer4.unubo.app/gun"]), user = gun.user();
+  g = performance.now();
+  user.recall({sessionStorage:!0}, function(a) {
   var c = document.getElementById("gallery");
   gun.get(b).map().on(function(a, b) {
     var d = "<li class='center'><img src='" + a.img + "'><p class='cap'>" + a.caption + "</p><p style='color:black;font-size:18px'>" + humanized_time_span(a.date) + "<br>from *" + a.user + "</p></li>";
