@@ -542,19 +542,7 @@ user.recall({sessionStorage:!0}, function(a) {
     $("#postbtn").attr("disabled", "disabled");
     $("#hidden").show();
   });
-  $(".newevent").click(function() {
-    var a = DOMPurify.sanitize($("#named").val()), b = DOMPurify.sanitize($("#time").val()), c = DOMPurify.sanitize($("#place").val()), f = DOMPurify.sanitize($("#details").val());
-    gun.get("events").set({named:a, time:b, place:c, details:f, user:user.is.alias});
-    var e = $(".newevent");
-    e.data("add") || (e.data("add", !0), e.text("posted!"), setTimeout(function() {
-      e.text("new event").data("add", !1);
-    }, 1100));
-    window.scroll({top:350, left:0, behavior:"smooth"});
-    $("#named").val("");
-    $("#time").val("");
-    $("#place").val("");
-    $("#details").val("");
-  });
+
   $("#ityped").keyup(function() {
     "" !== document.getElementById("ityped").value.trim() && $("#postbtn").removeAttr("disabled");
   });
@@ -586,9 +574,21 @@ $(".cmt1").click(function() {
   modal.style.display = "none";
 });
 
+$(".newevent").click(function() {
+  var a = DOMPurify.sanitize($("#named").val()), b = DOMPurify.sanitize($("#time").val()), c = DOMPurify.sanitize($("#place").val()), f = DOMPurify.sanitize($("#details").val());
+  gun.get("events").set({named:a, time:b, place:c, details:f, user:user.is.alias});
+  var e = $(".newevent");
+  e.data("add") || (e.data("add", !0), e.text("posted!"), setTimeout(function() {
+    e.text("new event").data("add", !1);
+  }, 1100));
+  window.scroll({top:350, left:0, behavior:"smooth"});
+  $("#named").val("");
+  $("#time").val("");
+  $("#place").val("");
+  $("#details").val("");
 });
 
-
+});
 
 document.getElementById("ityped").addEventListener("keyup", function(a) {
   13 === a.keyCode && (a.preventDefault(), document.getElementById("postbtn").click());
@@ -616,6 +616,5 @@ $("#login-button").on("click", function(a) {
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
-<script src="js/prerender.js"></script>
 </body>
 </html>
