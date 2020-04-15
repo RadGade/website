@@ -309,66 +309,11 @@ header{width:100%;}
 <script src="js/webrtc.js"></script>
 <script src="js/user.js"></script>
 <script>
-var $jscomp = $jscomp || {};
-$jscomp.scope = {};
-$jscomp.createTemplateTagFirstArg = function(a) {return a.raw = a;};
-$jscomp.createTemplateTagFirstArgWithRaw = function(a, b) {a.raw = b;return a;};
-var gun = Gun(["https://superpeer4.unubo.app/gun"]), user = gun.user();
-g = performance.now();
-user.recall({sessionStorage:!0}, function(a) {
-  var f = performance.now();
-  console.log("Call to sessionStorage took " + (f - g) + " milliseconds.");
-  var b = user.is.alias;
-  document.getElementById("heading-name").innerHTML = "<h3>* " + b + "</h3>";
-  l = $(".m");
-  gun.get(b).map().on(function(data,key) {
-    var z = "<br><div> *" + data.by + " mentioned you<br>" + humanized_time_span(data.m_date) + "</div><br><br>";
-    $(l).prepend(z);
-  });
-  var c = document.getElementById("gallery");
-  gun.get(b).map().on(function(a, b) {
-    var d = "<li class='center'><img src='" + a.img + "'><p class='cap'>" + a.caption + "</p><p style='color:black;font-size:18px'>" + humanized_time_span(a.date) + "<br>from *" + a.user + "</p></li>";
-    $(c).prepend(d);
-  });
-  $("#imagebtn").click(function() {
-    var a = $("textarea").val();
-    a = DOMPurify.sanitize(a);
-    image = document.getElementById("preview").src;
-    gun.get(b).set({caption:a, img:image, user:b, date:Date()});
-    console.log(image);
-    console.log(a);
-    $("#imagebtn").hide();$("textarea").hide();$("label").show();$("#upload_img").val("");$("#preview").attr("src", "");
-  });
-});
-function previewFile() {
-
-  var a = document.getElementById("preview"), b = document.getElementById("upload_img").files[0], c = new FileReader;
-  c.addEventListener("load", function() {
-    a.src = c.result;
-  }, !1);
-  b && c.readAsDataURL(b);
-  $("#imagebtn").show();$("#caption").show();
-
-  $('html, body').animate({
-      scrollTop: ($('#preview').first().offset().top)
-  },500);
-}
-$("#login-button").on("click", function(a) {
-  a.preventDefault();
-  user.leave();
-  window.location.href = "index.html";
-});
-$("#profile").click(function() {window.location.href = "home.html";});$("#aboutbtn").click(function() {window.location.href = "about.html";});
-$("#helpbtn").click(function() {window.location.href = "help.html";});
-
-$("#v").on("click", function() {
-$('html, body').animate({
-    scrollTop: ($('#heading-name').first().offset().top)
-},500);
-});
-
-"serviceWorker" in navigator && navigator.serviceWorker.register("/service-worker.js");
+var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};var gun=Gun(["https://superpeer4.unubo.app/gun"]),user=gun.user();g=performance.now();
+user.recall({sessionStorage:!0},function(a){a=performance.now();console.log("Call to sessionStorage took "+(a-g)+" milliseconds.");var b=user.is.alias;document.getElementById("heading-name").innerHTML="<h3>* "+b+"</h3>";l=$(".m");gun.get(b).map().on(function(a,b){var d="<br><div> *"+a.by+" mentioned you<br>"+humanized_time_span(a.m_date)+"</div><br><br>";$(l).prepend(d)});var c=document.getElementById("gallery");gun.get(b).map().on(function(a,b){var d="<li class='center'><img src='"+a.img+"'><p class='cap'>"+
+a.caption+"</p><p style='color:black;font-size:18px'>"+humanized_time_span(a.date)+"<br>from *"+a.user+"</p></li>";$(c).prepend(d)});$("#imagebtn").click(function(){var a=$("textarea").val();a=DOMPurify.sanitize(a);image=document.getElementById("preview").src;gun.get(b).set({caption:a,img:image,user:b,date:Date()});console.log(image);console.log(a);$("#imagebtn").hide();$("textarea").hide();$("label").show();$("#upload_img").val("");$("#preview").attr("src","")})});
+function previewFile(){var a=document.getElementById("preview"),b=document.getElementById("upload_img").files[0],c=new FileReader;c.addEventListener("load",function(){a.src=c.result},!1);b&&c.readAsDataURL(b);$("#imagebtn").show();$("#caption").show();$("html, body").animate({scrollTop:$("#preview").first().offset().top},500)}$("#login-button").on("click",function(a){a.preventDefault();user.leave();window.location.href="index.html"});$("#profile").click(function(){window.location.href="home.html"});
+$("#aboutbtn").click(function(){window.location.href="about.html"});$("#helpbtn").click(function(){window.location.href="help.html"});$("#v").on("click",function(){$("html, body").animate({scrollTop:$("#heading-name").first().offset().top},500)});"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js");
 </script>
-<script src="js/prerender.js"></script>
 </body>
 </html>
