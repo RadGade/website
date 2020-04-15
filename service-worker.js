@@ -1,4 +1,4 @@
-const PRECACHE = 'precache-v15';
+const PRECACHE = 'precache-v17';
 const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
@@ -9,8 +9,6 @@ const PRECACHE_URLS = [
   '/js/jquery.min.js',
   '/js/sea.js',
   '/js/webrtc.js',
-  '/js/prerender.js',
-  '/js/top.js',
   '/js/user.js',
   '/js/profile.js'
 ];
