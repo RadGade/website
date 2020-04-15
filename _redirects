@@ -1,1 +1,1 @@
-/p/user /user.html 200!
+/p/:user /user.html 200!
