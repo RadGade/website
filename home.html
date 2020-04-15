@@ -542,11 +542,11 @@ $(".cmt").click(function() {
 span.onclick = function() {
   modal.style.display = "none";
 }
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
 $(".cmt1").click(function() {
 b = DOMPurify.sanitize($("#comment-reply").val());
 gun.get("statuses").set({title:b, user:user.is.alias, date:Date()});
@@ -564,6 +564,5 @@ $("#aboutbtn").click(function() {window.location.href =("about.html");});$("#pro
 <script>
 $(function() {$("body").prognroll({height: 5, color: "#333399", custom: false });});
 </script>
-<script src="js/prerender.js"></script>
 </body>
 </html>
