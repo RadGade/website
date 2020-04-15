@@ -284,6 +284,7 @@ header{width:100%;}
 <section>
 	<div class="center"><div id="heading-name"></div></div>
 <div class="center"><ul id ="gallery"></ul></div>
+<div class="center"><a class="tumblr-share-button" data-color="blue" data-notes="right" href="https://embed.tumblr.com/share">post</a></div>
 </section>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/gun.js"></script>
@@ -291,25 +292,9 @@ header{width:100%;}
 <script src="../js/webrtc.js"></script>
 <script src="../js/user.js"></script>
 <script>
-var gun = Gun(["https://superpeer4.unubo.app/gun"]), user = gun.user();
-  var b = encodeURI(window.location.pathname.replace("/p/","")); //get this from url param
-  console.log(b);
-  document.getElementById("heading-name").innerHTML = "<h3>* " + b + "</h3>";
-  l = $(".m");
-  var c = document.getElementById("gallery");
-  gun.get(b).map().on(function(a, b) {
-    var d = "<li class='center'><img src='" + a.img + "'><p class='cap'>" + a.caption + "</p><p style='color:black;font-size:18px'>" + humanized_time_span(a.date) + "<br>from *" + a.user + "</p></li>";
-    $(c).prepend(d);
-  });
-
-$("#login-button").on("click", function(a) {
-  a.preventDefault();
-  user.leave();
-  window.location.href = "../index.html";
-});
-$("#profile").click(function() {window.location.href = "../home.html";});$("#aboutbtn").click(function() {window.location.href = "../about.html";});
-$("#helpbtn").click(function() {window.location.href = "../help.html";});
-
+var gun=Gun(["https://superpeer4.unubo.app/gun"]),user=gun.user(),b=encodeURI(window.location.pathname.replace("/p/",""));console.log(b);document.getElementById("heading-name").innerHTML="<h3>* "+b+"</h3>";l=$(".m");var c=document.getElementById("gallery");gun.get(b).map().on(function(a,e){var d="<li class='center'><img src='"+a.img+"'><p class='cap'>"+a.caption+"</p><p style='color:black;font-size:18px'>"+humanized_time_span(a.date)+"<br>from *"+a.user+"</p></li>";$(c).prepend(d)});
+$("#login-button").on("click",function(a){a.preventDefault();user.leave();window.location.href="../index.html"});$("#profile").click(function(){window.location.href="../home.html"});$("#aboutbtn").click(function(){window.location.href="../about.html"});$("#helpbtn").click(function(){window.location.href="../help.html"});
 </script>
+<script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
 </body>
 </html>
