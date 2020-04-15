@@ -534,7 +534,7 @@ $(".cmt").click(function() {
   $("#comment-reply").val(quote);
   modal.style.display = "block";
   $("#comment-reply").focus();
-  v = quote.val().replace("to *", "");
+  v = quote.replace("to *", "");
   mention = v.replace(":", "");
   console.log(mention);
   gun.get(mention).set({by:user.is.alias, m_date:Date()});
