@@ -500,7 +500,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $("#up").hide();
   });
 
-  $('#in').on('submit', function(e){
+  $('gun').on('create', function(){
     user.auth(encodeURI($('#alias').val()), encodeURI($('#pass').val()));
     gun.get('genderev_users').set({user: encodeURI($('#alias').val())});
     $("button").hide()
