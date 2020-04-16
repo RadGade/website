@@ -488,9 +488,13 @@ d.time+"</span><br><div class='underline1'>where</div><div>"+d.place+"</div><div
 user.recall({sessionStorage:!0},function(a){$("#postbtn").click(function(){var d=user.is.alias;console.log(d);var a=$("#ityped").val();a=DOMPurify.sanitize(a);gun.get("statuses").set({title:a,user:d,date:Date()});var c=$("#postbtn");c.data("add")||(c.data("add",!0),c.text("posted!"),setTimeout(function(){c.text("post \ud83d\udc8c").data("add",!1)},1100));window.scroll({top:200,left:0,behavior:"smooth"});$("#ityped").val("");$("#postbtn").attr("disabled","disabled");$("#hidden").show()});$(".newevent").click(function(){var a=
 DOMPurify.sanitize($("#named").val()),c=DOMPurify.sanitize($("#time").val()),e=DOMPurify.sanitize($("#place").val()),g=DOMPurify.sanitize($("#details").val());gun.get("events").set({named:a,time:c,place:e,details:g,user:user.is.alias});var f=$(".newevent");f.data("add")||(f.data("add",!0),f.text("posted!"),setTimeout(function(){f.text("new event").data("add",!1)},1100));window.scroll({top:350,left:0,behavior:"smooth"});$("#named").val("");$("#time").val("");$("#place").val("");$("#details").val("")});
 $("#ityped").keyup(function(){""!==document.getElementById("ityped").value.trim()&&$("#postbtn").removeAttr("disabled")});document.getElementById("postbtn").addEventListener("click",function(a){user.is||(window.location.href="signup.html")});var c=document.getElementById("myModal");pez=document.getElementsByClassName("close")[0];
-function clik() {
-  x = document.querySelectorAll(".cmt"); var l = x.length;
-  for (i = 0; i < l; i++) {
+  function clik() {
+    x = document.querySelectorAll(".cmt"); var l = x.length;
+    for (i = 0; i < l; i++) {
+      x.onclick = function(){myScript};
+    }
+  }
+function myScript(){
     q=$(this).closest(".displayUser").text().replace("from","to");quote=q.replace("reply",":");$("#comment-reply").val(quote);c.style.display="block";
     $("#comment-reply").focus();
     v=$("#comment-reply").val().replace("to *","");
@@ -499,9 +503,7 @@ function clik() {
     gun.get(mention).set({by:user.is.alias,m_date:Date()
   })
 }
-}
-clik();
-// });
+
 pez.onclick=function(){c.style.display="none"};
 // window.onclick=function(pez){pez.target==c&&(c.style.display="none")};
 $(".cmt1").click(function(){b=DOMPurify.sanitize($("#comment-reply").val());
