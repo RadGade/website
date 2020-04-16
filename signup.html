@@ -450,7 +450,6 @@
  #back{
    font-size: var(--fifteen);
    box-shadow: 0 4px var(--fifteen) 0 grey;
-
  }
 
  </style>
@@ -475,7 +474,7 @@
    <center><div class="loader" hidden></div></center>
    <br>
   <button class="ui button ui-button" id="up" type="button" value="sign up">sign up</button>
-  <button class="ui button ui-button" id="in" type="button" value="sign in" hidden>now sign in</button>
+  <button class="ui button ui-button" id="in" type="button" value="sign in">now sign in</button>
 </form>
 <br>
 <br>
@@ -484,6 +483,7 @@
 <script src="js/sea.js"></script>
 <script src="js/webrtc.js"></script>
 <script>
+$("#in").hide();
 var gun = Gun(['https://superpeer4.unubo.app/gun'])
 function gohome(){window.location = "/home.html";}
 window.addEventListener('DOMContentLoaded', (event) => {
