@@ -475,7 +475,7 @@
    <center><div class="loader" hidden></div></center>
    <br>
   <button class="ui button ui-button" id="up" type="button" value="sign up">sign up</button>
-  <button id="in" hidden>in</button>
+  <button class="ui button ui-button" id="in" type="button" value="sign in" hidden>now sign in</button>
 </form>
 <br>
 <br>
@@ -496,11 +496,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   $('#up').on('click', function(e){
     user.create(encodeURI($('#alias').val()), encodeURI($('#pass').val()));
-    $('#in').click()
+    $('#in').show()
   });
 
   $('#in').on('click', function(e){
-    e.preventDefault();
     user.auth(encodeURI($('#alias').val()), encodeURI($('#pass').val()));
     gun.get('genderev_users').set({user: encodeURI($('#alias').val())});
     $("button").hide()
